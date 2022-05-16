@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="RestGest.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="RestGestTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="RestGest" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="RestGestContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pessoas" EntityType="RestGest.Pessoa" />
+          <EntitySet Name="Moradas" EntityType="RestGest.Morada" />
+          <EntitySet Name="Restaurantes" EntityType="RestGest.Restaurante" />
+          <EntitySet Name="PedidoSet" EntityType="RestGest.Pedido" />
+          <EntitySet Name="Estados" EntityType="RestGest.Estado" />
+          <AssociationSet Name="PedidoEstado" Association="RestGest.PedidoEstado">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="Estado" EntitySet="Estados" />
+          </AssociationSet>
+          <AssociationSet Name="PessoaMorada" Association="RestGest.PessoaMorada">
+            <End Role="Pessoa" EntitySet="Pessoas" />
+            <End Role="Morada" EntitySet="Moradas" />
+          </AssociationSet>
+          <AssociationSet Name="RestauranteMorada" Association="RestGest.RestauranteMorada">
+            <End Role="Restaurante" EntitySet="Restaurantes" />
+            <End Role="Morada" EntitySet="Moradas" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoCliente" Association="RestGest.PedidoCliente">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="Cliente" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoTrabalhador" Association="RestGest.PedidoTrabalhador">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="Trabalhador" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="TrabalhadorRestaurante" Association="RestGest.TrabalhadorRestaurante">
+            <End Role="Trabalhador" EntitySet="Pessoas" />
+            <End Role="Restaurante" EntitySet="Restaurantes" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoRestaurante" Association="RestGest.PedidoRestaurante">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="Restaurante" EntitySet="Restaurantes" />
+          </AssociationSet>
+          <EntitySet Name="ElementosMenu" EntityType="RestGest.ElementoMenu" />
+          <EntitySet Name="Categorias" EntityType="RestGest.Categoria" />
+          <AssociationSet Name="CategoriaElementoMenu" Association="RestGest.CategoriaElementoMenu">
+            <End Role="Categoria" EntitySet="Categorias" />
+            <End Role="ElementoMenu" EntitySet="ElementosMenu" />
+          </AssociationSet>
+          <EntitySet Name="Pagamentos" EntityType="RestGest.Pagamento" />
+          <AssociationSet Name="PagamentoPedido" Association="RestGest.PagamentoPedido">
+            <End Role="Pagamento" EntitySet="Pagamentos" />
+            <End Role="Pedido" EntitySet="PedidoSet" />
+          </AssociationSet>
+          <EntitySet Name="MetodosPagamento" EntityType="RestGest.MetodoPagamento" />
+          <AssociationSet Name="MetodoPagamentoPagamento" Association="RestGest.MetodoPagamentoPagamento">
+            <End Role="MetodoPagamento" EntitySet="MetodosPagamento" />
+            <End Role="Pagamento" EntitySet="Pagamentos" />
+          </AssociationSet>
+          <EntitySet Name="Menus" EntityType="RestGest.Menu" />
+          <AssociationSet Name="MenuElementoMenu" Association="RestGest.MenuElementoMenu">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="ElementoMenu" EntitySet="ElementosMenu" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoMenu" Association="RestGest.PedidoMenu">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoElementoMenu" Association="RestGest.PedidoElementoMenu">
+            <End Role="Pedido" EntitySet="PedidoSet" />
+            <End Role="ElementoMenu" EntitySet="ElementosMenu" />
+          </AssociationSet>
+          <AssociationSet Name="MenuCategoria" Association="RestGest.MenuCategoria">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Telemovel" Type="String" Nullable="false" />
+          <NavigationProperty Name="Morada" Relationship="RestGest.PessoaMorada" FromRole="Pessoa" ToRole="Morada" />
+        </EntityType>
+        <EntityType Name="Morada">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rua" Type="String" Nullable="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" />
+          <Property Name="Codigo_Postal" Type="String" Nullable="false" />
+          <Property Name="Pais" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente" BaseType="RestGest.Pessoa" >
+          <Property Name="NumContribuinte" Type="String" Nullable="false" />
+          <Property Name="Apagado" Type="Boolean" Nullable="false" DefaultValue="False" />
+        </EntityType>
+        <EntityType Name="Trabalhador" BaseType="RestGest.Pessoa" >
+          <Property Name="Salario" Type="Int32" Nullable="false" />
+          <Property Name="Posicao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Restaurante" Relationship="RestGest.TrabalhadorRestaurante" FromRole="Trabalhador" ToRole="Restaurante" />
+          <Property Name="RestauranteId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restaurante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Morada" Relationship="RestGest.RestauranteMorada" FromRole="Restaurante" ToRole="Morada" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Estado" Relationship="RestGest.PedidoEstado" FromRole="Pedido" ToRole="Estado" />
+          <Property Name="EstadoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="RestGest.PedidoCliente" FromRole="Pedido" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Trabalhador" Relationship="RestGest.PedidoTrabalhador" FromRole="Pedido" ToRole="Trabalhador" />
+          <Property Name="TrabalhadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Restaurante" Relationship="RestGest.PedidoRestaurante" FromRole="Pedido" ToRole="Restaurante" />
+          <Property Name="RestauranteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pagamento" Relationship="RestGest.PagamentoPedido" FromRole="Pedido" ToRole="Pagamento" />
+          <NavigationProperty Name="Menu" Relationship="RestGest.PedidoMenu" FromRole="Pedido" ToRole="Menu" />
+          <NavigationProperty Name="ElementoMenu" Relationship="RestGest.PedidoElementoMenu" FromRole="Pedido" ToRole="ElementoMenu" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoEstado" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PedidoEstado">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="*" />
+          <End Type="RestGest.Estado" Role="Estado" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PessoaMorada">
+          <End Type="RestGest.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="RestGest.Morada" Role="Morada" Multiplicity="1" />
+        </Association>
+        <Association Name="RestauranteMorada">
+          <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="1" />
+          <End Type="RestGest.Morada" Role="Morada" Multiplicity="1" />
+        </Association>
+        <Association Name="PedidoCliente">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="*" />
+          <End Type="RestGest.Cliente" Role="Cliente" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidoTrabalhador">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="*" />
+          <End Type="RestGest.Trabalhador" Role="Trabalhador" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabalhador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="TrabalhadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrabalhadorRestaurante">
+          <End Type="RestGest.Trabalhador" Role="Trabalhador" Multiplicity="*" />
+          <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabalhador">
+              <PropertyRef Name="RestauranteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidoRestaurante">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="*" />
+          <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="RestauranteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ElementoMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Categoria" Relationship="RestGest.CategoriaElementoMenu" FromRole="ElementoMenu" ToRole="Categoria" />
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Fotografia" Type="String" Nullable="false" />
+          <Property Name="Ingradientes" Type="String" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="RestGest.MenuElementoMenu" FromRole="ElementoMenu" ToRole="Menu" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="CategoriaElementoMenu">
+          <End Type="RestGest.Categoria" Role="Categoria" Multiplicity="1" />
+          <End Type="RestGest.ElementoMenu" Role="ElementoMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElementoMenu">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pagamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Pedido" Relationship="RestGest.PagamentoPedido" FromRole="Pagamento" ToRole="Pedido" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="MetodoPagamento" Relationship="RestGest.MetodoPagamentoPagamento" FromRole="Pagamento" ToRole="MetodoPagamento" />
+        </EntityType>
+        <Association Name="PagamentoPedido">
+          <End Type="RestGest.Pagamento" Role="Pagamento" Multiplicity="*" />
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pagamento">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MetodoPagamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PagamentoId" Type="Int32" Nullable="false" />
+          <Property Name="Metodo" Type="String" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="MetodoPagamentoPagamento">
+          <End Type="RestGest.MetodoPagamento" Role="MetodoPagamento" Multiplicity="*" />
+          <End Type="RestGest.Pagamento" Role="Pagamento" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Pagamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MetodoPagamento">
+              <PropertyRef Name="PagamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ElementoMenu" Relationship="RestGest.MenuElementoMenu" FromRole="Menu" ToRole="ElementoMenu" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="RestGest.MenuCategoria" FromRole="Menu" ToRole="Categoria" />
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="MenuElementoMenu">
+          <End Type="RestGest.Menu" Role="Menu" Multiplicity="*" />
+          <End Type="RestGest.ElementoMenu" Role="ElementoMenu" Multiplicity="*" />
+        </Association>
+        <Association Name="PedidoMenu">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="RestGest.Menu" Role="Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidoElementoMenu">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="RestGest.ElementoMenu" Role="ElementoMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElementoMenu">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenuCategoria">
+          <End Type="RestGest.Menu" Role="Menu" Multiplicity="*" />
+          <End Type="RestGest.Categoria" Role="Categoria" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="RestGest" />
+        <Alias Key="Target" Value="RestGest.Store" />
+        <EntityContainerMapping CdmEntityContainer="RestGestContainer" StorageEntityContainer="RestGestTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
