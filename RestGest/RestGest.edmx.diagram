@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b57927212034447592768d7aa0d0af76" Name="Diagram1" ZoomLevel="97" >
         <EntityTypeShape EntityType="RestGest.Pessoa" Width="1.5" PointX="0.625" PointY="2.125" />
-        <EntityTypeShape EntityType="RestGest.Morada" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="RestGest.Morada" Width="1.5" PointX="3.25" PointY="0.75" />
         <EntityTypeShape EntityType="RestGest.Cliente" Width="1.5" PointX="0.5" PointY="4.75" />
         <InheritanceConnector EntityType="RestGest.Cliente" />
         <EntityTypeShape EntityType="RestGest.Trabalhador" Width="1.5" PointX="3.625" PointY="3.875" />
