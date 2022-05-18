@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace RestGest
 {
-    public partial class Form1 : Form
+    public partial class FormGestaoRestaurantes : Form
     {
-        public Form1()
+        public FormGestaoRestaurantes()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
