@@ -1,5 +1,4 @@
-﻿
-namespace RestGest
+﻿namespace RestGest
 {
     partial class FormGestaoFuncionarios
     {
@@ -30,238 +29,142 @@ namespace RestGest
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGrid_Funcionarios = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bt_delete = new System.Windows.Forms.Button();
+            this.bt_edit = new System.Windows.Forms.Button();
+            this.bt_add = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb_filter = new System.Windows.Forms.TextBox();
+            this.bt_filtrar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Funcionarios)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 314F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 2, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGrid_Funcionarios, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(903, 642);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // dataGrid_Funcionarios
+            // 
+            this.dataGrid_Funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_Funcionarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGrid_Funcionarios.Location = new System.Drawing.Point(23, 23);
+            this.dataGrid_Funcionarios.Name = "dataGrid_Funcionarios";
+            this.dataGrid_Funcionarios.Size = new System.Drawing.Size(660, 352);
+            this.dataGrid_Funcionarios.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 11);
+            this.groupBox1.Controls.Add(this.bt_delete);
+            this.groupBox1.Controls.Add(this.bt_edit);
+            this.groupBox1.Controls.Add(this.bt_add);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(709, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 445);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(68, 352);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registo";
+            this.groupBox1.Text = "Ações";
             // 
-            // label1
+            // bt_delete
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rua:";
+            this.bt_delete.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_delete.Location = new System.Drawing.Point(3, 62);
+            this.bt_delete.Name = "bt_delete";
+            this.bt_delete.Size = new System.Drawing.Size(62, 23);
+            this.bt_delete.TabIndex = 2;
+            this.bt_delete.Text = "Delete";
+            this.bt_delete.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // bt_edit
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 1;
+            this.bt_edit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_edit.Location = new System.Drawing.Point(3, 39);
+            this.bt_edit.Name = "bt_edit";
+            this.bt_edit.Size = new System.Drawing.Size(62, 23);
+            this.bt_edit.TabIndex = 1;
+            this.bt_edit.Text = "Editar";
+            this.bt_edit.UseVisualStyleBackColor = true;
+            this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
             // 
-            // label2
+            // bt_add
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Contacto:";
+            this.bt_add.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_add.Location = new System.Drawing.Point(3, 16);
+            this.bt_add.Name = "bt_add";
+            this.bt_add.Size = new System.Drawing.Size(62, 23);
+            this.bt_add.TabIndex = 0;
+            this.bt_add.Text = "Adicionar";
+            this.bt_add.UseVisualStyleBackColor = true;
+            this.bt_add.Click += new System.EventHandler(this.bt_add_Click);
             // 
-            // textBox2
+            // tableLayoutPanel2
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 20);
-            this.textBox2.TabIndex = 1;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Controls.Add(this.bt_filtrar, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tb_filter, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 401);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 25);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // label3
+            // tb_filter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Salário:";
+            this.tb_filter.Location = new System.Drawing.Point(3, 3);
+            this.tb_filter.Name = "tb_filter";
+            this.tb_filter.Size = new System.Drawing.Size(588, 20);
+            this.tb_filter.TabIndex = 0;
             // 
-            // textBox3
+            // bt_filtrar
             // 
-            this.textBox3.Location = new System.Drawing.Point(9, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 20);
-            this.textBox3.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Posição:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(9, 164);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(203, 20);
-            this.textBox4.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 199);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(207, 240);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Morada";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Cidade:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(9, 84);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(191, 20);
-            this.textBox5.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 113);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Código-Postal:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(9, 129);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(191, 20);
-            this.textBox6.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 154);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Pais:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(9, 170);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(191, 20);
-            this.textBox7.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(125, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(797, 11);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(46, 131);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(483, 11);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(308, 249);
-            this.dataGridView1.TabIndex = 2;
+            this.bt_filtrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_filtrar.Location = new System.Drawing.Point(597, 3);
+            this.bt_filtrar.Name = "bt_filtrar";
+            this.bt_filtrar.Size = new System.Drawing.Size(60, 19);
+            this.bt_filtrar.TabIndex = 1;
+            this.bt_filtrar.Text = "Filtrar";
+            this.bt_filtrar.UseVisualStyleBackColor = true;
             // 
             // FormGestaoFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 642);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoFuncionarios";
-            this.Text = "RestGest - Formulário de Gestão de Funcionários ";
+            this.Text = "Gestão Funcionarios";
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Funcionarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -269,24 +172,13 @@ namespace RestGest
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGrid_Funcionarios;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button bt_delete;
+        private System.Windows.Forms.Button bt_edit;
+        private System.Windows.Forms.Button bt_add;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox tb_filter;
+        private System.Windows.Forms.Button bt_filtrar;
     }
 }
