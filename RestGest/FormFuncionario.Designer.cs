@@ -39,6 +39,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tb_cidade = new System.Windows.Forms.TextBox();
+            this.tb_cp = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_rua = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.bt_create = new System.Windows.Forms.Button();
             this.bt_edit = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
-            this.tb_cp = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.tb_name.Location = new System.Drawing.Point(20, 91);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(154, 20);
-            this.tb_name.TabIndex = 1;
+            this.tb_name.TabIndex = 2;
             // 
             // label3
             // 
@@ -106,7 +106,7 @@
             this.tb_salario.Mask = "99999";
             this.tb_salario.Name = "tb_salario";
             this.tb_salario.Size = new System.Drawing.Size(154, 20);
-            this.tb_salario.TabIndex = 2;
+            this.tb_salario.TabIndex = 3;
             // 
             // label4
             // 
@@ -122,7 +122,7 @@
             this.tb_position.Location = new System.Drawing.Point(20, 176);
             this.tb_position.Name = "tb_position";
             this.tb_position.Size = new System.Drawing.Size(154, 20);
-            this.tb_position.TabIndex = 1;
+            this.tb_position.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -163,7 +163,15 @@
             this.tb_cidade.Location = new System.Drawing.Point(20, 91);
             this.tb_cidade.Name = "tb_cidade";
             this.tb_cidade.Size = new System.Drawing.Size(154, 20);
-            this.tb_cidade.TabIndex = 1;
+            this.tb_cidade.TabIndex = 6;
+            // 
+            // tb_cp
+            // 
+            this.tb_cp.Location = new System.Drawing.Point(20, 134);
+            this.tb_cp.Mask = "9999-999";
+            this.tb_cp.Name = "tb_cp";
+            this.tb_cp.Size = new System.Drawing.Size(154, 20);
+            this.tb_cp.TabIndex = 7;
             // 
             // label5
             // 
@@ -179,7 +187,7 @@
             this.tb_rua.Location = new System.Drawing.Point(20, 45);
             this.tb_rua.Name = "tb_rua";
             this.tb_rua.Size = new System.Drawing.Size(154, 20);
-            this.tb_rua.TabIndex = 1;
+            this.tb_rua.TabIndex = 5;
             // 
             // label6
             // 
@@ -195,7 +203,7 @@
             this.tb_pais.Location = new System.Drawing.Point(20, 176);
             this.tb_pais.Name = "tb_pais";
             this.tb_pais.Size = new System.Drawing.Size(154, 20);
-            this.tb_pais.TabIndex = 1;
+            this.tb_pais.TabIndex = 8;
             // 
             // label7
             // 
@@ -264,7 +272,7 @@
             this.bt_create.Location = new System.Drawing.Point(3, 13);
             this.bt_create.Name = "bt_create";
             this.bt_create.Size = new System.Drawing.Size(75, 23);
-            this.bt_create.TabIndex = 0;
+            this.bt_create.TabIndex = 9;
             this.bt_create.Text = "Criar";
             this.bt_create.UseVisualStyleBackColor = true;
             this.bt_create.Click += new System.EventHandler(this.bt_create_Click);
@@ -275,7 +283,7 @@
             this.bt_edit.Location = new System.Drawing.Point(84, 13);
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(75, 23);
-            this.bt_edit.TabIndex = 0;
+            this.bt_edit.TabIndex = 9;
             this.bt_edit.Text = "Editar";
             this.bt_edit.UseVisualStyleBackColor = true;
             this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
@@ -285,18 +293,10 @@
             this.bt_cancel.Location = new System.Drawing.Point(165, 13);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(75, 23);
-            this.bt_cancel.TabIndex = 0;
+            this.bt_cancel.TabIndex = 10;
             this.bt_cancel.Text = "Cancelar";
             this.bt_cancel.UseVisualStyleBackColor = true;
             this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
-            // 
-            // tb_cp
-            // 
-            this.tb_cp.Location = new System.Drawing.Point(20, 134);
-            this.tb_cp.Mask = "9999-999";
-            this.tb_cp.Name = "tb_cp";
-            this.tb_cp.Size = new System.Drawing.Size(154, 20);
-            this.tb_cp.TabIndex = 2;
             // 
             // FormFuncionario
             // 
