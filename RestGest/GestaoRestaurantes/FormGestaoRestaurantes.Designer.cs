@@ -45,6 +45,7 @@
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
+            this.LimparFiltro_BTN = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantes_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -79,6 +80,8 @@
             // 
             this.restaurantes_DataGridView.AllowUserToAddRows = false;
             this.restaurantes_DataGridView.AllowUserToDeleteRows = false;
+            this.restaurantes_DataGridView.AllowUserToResizeRows = false;
+            this.restaurantes_DataGridView.CausesValidation = false;
             this.restaurantes_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.restaurantes_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDRestaurante,
@@ -92,6 +95,8 @@
             this.restaurantes_DataGridView.ReadOnly = true;
             this.restaurantes_DataGridView.Size = new System.Drawing.Size(804, 424);
             this.restaurantes_DataGridView.TabIndex = 0;
+            this.restaurantes_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseClick);
+            this.restaurantes_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseDoubleClick);
             // 
             // IDRestaurante
             // 
@@ -152,6 +157,7 @@
             this.Remover_BTN.TabIndex = 2;
             this.Remover_BTN.Text = "Remover";
             this.Remover_BTN.UseVisualStyleBackColor = true;
+            this.Remover_BTN.Click += new System.EventHandler(this.Remover_BTN_Click);
             // 
             // Editar_BTN
             // 
@@ -162,6 +168,7 @@
             this.Editar_BTN.TabIndex = 1;
             this.Editar_BTN.Text = "Editar";
             this.Editar_BTN.UseVisualStyleBackColor = true;
+            this.Editar_BTN.Click += new System.EventHandler(this.Editar_BTN_Click);
             // 
             // Adicionar_BTN
             // 
@@ -176,11 +183,13 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Controls.Add(this.filtrar_TextBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.filtrar_BTN, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LimparFiltro_BTN, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 473);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -194,15 +203,15 @@
             this.filtrar_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filtrar_TextBox.Location = new System.Drawing.Point(3, 3);
             this.filtrar_TextBox.Name = "filtrar_TextBox";
-            this.filtrar_TextBox.Size = new System.Drawing.Size(717, 20);
+            this.filtrar_TextBox.Size = new System.Drawing.Size(637, 20);
             this.filtrar_TextBox.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtrar_BTN.Location = new System.Drawing.Point(726, 3);
+            this.filtrar_BTN.Location = new System.Drawing.Point(646, 3);
             this.filtrar_BTN.Name = "filtrar_BTN";
-            this.filtrar_BTN.Size = new System.Drawing.Size(75, 23);
+            this.filtrar_BTN.Size = new System.Drawing.Size(74, 23);
             this.filtrar_BTN.TabIndex = 1;
             this.filtrar_BTN.Text = "Filtrar";
             this.filtrar_BTN.UseVisualStyleBackColor = true;
@@ -234,6 +243,16 @@
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
             // 
+            // LimparFiltro_BTN
+            // 
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(726, 3);
+            this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(75, 23);
+            this.LimparFiltro_BTN.TabIndex = 2;
+            this.LimparFiltro_BTN.Text = "Limpar Filtro";
+            this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
+            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
+            // 
             // FormGestaoRestaurantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,7 +263,7 @@
             this.MinimumSize = new System.Drawing.Size(978, 567);
             this.Name = "FormGestaoRestaurantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormGestaoRestaurantes";
+            this.Text = "Gestão de Restaurantes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoRestaurantes_FormClosing);
             this.Shown += new System.EventHandler(this.FormGestaoRestaurantes_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -277,5 +296,6 @@
         private System.Windows.Forms.Panel LoadingPopUp_Panel;
         private System.Windows.Forms.ProgressBar LoadingPopUp_ProgressBar;
         private System.Windows.Forms.Label LoadingPopUp_Label;
+        private System.Windows.Forms.Button LimparFiltro_BTN;
     }
 }

@@ -92,6 +92,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.Designer.cs">
+      <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
+      <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormRegistoRestaurante.resx">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
