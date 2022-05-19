@@ -14,11 +14,6 @@ namespace RestGest
     
     public partial class Pessoa
     {
-        public Pessoa()
-        {
-            this.Morada = new Morada();
-        }
-
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Telemovel { get; set; }
