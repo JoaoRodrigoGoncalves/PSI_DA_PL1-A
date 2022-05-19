@@ -42,10 +42,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.filtrar_TextBox = new System.Windows.Forms.TextBox();
             this.filtrar_BTN = new System.Windows.Forms.Button();
+            this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
+            this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
+            this.LoadingPopUp_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantes_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.LoadingPopUp_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -55,7 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.restaurantes_DataGridView, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
@@ -86,7 +90,7 @@
             this.restaurantes_DataGridView.Location = new System.Drawing.Point(23, 23);
             this.restaurantes_DataGridView.Name = "restaurantes_DataGridView";
             this.restaurantes_DataGridView.ReadOnly = true;
-            this.restaurantes_DataGridView.Size = new System.Drawing.Size(805, 424);
+            this.restaurantes_DataGridView.Size = new System.Drawing.Size(804, 424);
             this.restaurantes_DataGridView.TabIndex = 0;
             // 
             // IDRestaurante
@@ -132,7 +136,7 @@
             this.groupBox1.Controls.Add(this.Editar_BTN);
             this.groupBox1.Controls.Add(this.Adicionar_BTN);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(854, 23);
+            this.groupBox1.Location = new System.Drawing.Point(853, 23);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(84, 424);
             this.groupBox1.TabIndex = 1;
@@ -182,7 +186,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(805, 31);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(804, 31);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // filtrar_TextBox
@@ -190,13 +194,13 @@
             this.filtrar_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filtrar_TextBox.Location = new System.Drawing.Point(3, 3);
             this.filtrar_TextBox.Name = "filtrar_TextBox";
-            this.filtrar_TextBox.Size = new System.Drawing.Size(718, 20);
+            this.filtrar_TextBox.Size = new System.Drawing.Size(717, 20);
             this.filtrar_TextBox.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtrar_BTN.Location = new System.Drawing.Point(727, 3);
+            this.filtrar_BTN.Location = new System.Drawing.Point(726, 3);
             this.filtrar_BTN.Name = "filtrar_BTN";
             this.filtrar_BTN.Size = new System.Drawing.Size(75, 23);
             this.filtrar_BTN.TabIndex = 1;
@@ -204,22 +208,52 @@
             this.filtrar_BTN.UseVisualStyleBackColor = true;
             this.filtrar_BTN.Click += new System.EventHandler(this.filtrar_BTN_Click);
             // 
+            // LoadingPopUp_Panel
+            // 
+            this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_ProgressBar);
+            this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_Label);
+            this.LoadingPopUp_Panel.Location = new System.Drawing.Point(265, 195);
+            this.LoadingPopUp_Panel.Name = "LoadingPopUp_Panel";
+            this.LoadingPopUp_Panel.Size = new System.Drawing.Size(393, 99);
+            this.LoadingPopUp_Panel.TabIndex = 1;
+            // 
+            // LoadingPopUp_ProgressBar
+            // 
+            this.LoadingPopUp_ProgressBar.Location = new System.Drawing.Point(20, 43);
+            this.LoadingPopUp_ProgressBar.Name = "LoadingPopUp_ProgressBar";
+            this.LoadingPopUp_ProgressBar.Size = new System.Drawing.Size(353, 23);
+            this.LoadingPopUp_ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.LoadingPopUp_ProgressBar.TabIndex = 1;
+            // 
+            // LoadingPopUp_Label
+            // 
+            this.LoadingPopUp_Label.AutoSize = true;
+            this.LoadingPopUp_Label.Location = new System.Drawing.Point(17, 27);
+            this.LoadingPopUp_Label.Name = "LoadingPopUp_Label";
+            this.LoadingPopUp_Label.Size = new System.Drawing.Size(65, 13);
+            this.LoadingPopUp_Label.TabIndex = 0;
+            this.LoadingPopUp_Label.Text = "A carregar...";
+            // 
             // FormGestaoRestaurantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 528);
+            this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(978, 567);
             this.Name = "FormGestaoRestaurantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGestaoRestaurantes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoRestaurantes_FormClosing);
+            this.Shown += new System.EventHandler(this.FormGestaoRestaurantes_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.restaurantes_DataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.LoadingPopUp_Panel.ResumeLayout(false);
+            this.LoadingPopUp_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +274,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MoradaRestaurante;
         private System.Windows.Forms.DataGridViewTextBoxColumn PedidosRestaurante;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrabalhadoresRestaurante;
+        private System.Windows.Forms.Panel LoadingPopUp_Panel;
+        private System.Windows.Forms.ProgressBar LoadingPopUp_ProgressBar;
+        private System.Windows.Forms.Label LoadingPopUp_Label;
     }
 }
