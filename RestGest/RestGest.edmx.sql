@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/18/2022 10:39:58
+-- Date Created: 05/20/2022 11:35:00
 -- Generated from EDMX file: C:\Users\João Gonçalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
 -- --------------------------------------------------
 
@@ -21,10 +21,10 @@ IF OBJECT_ID(N'[dbo].[FK_PedidoEstado]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PedidoSet] DROP CONSTRAINT [FK_PedidoEstado];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PessoaMorada]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Pessoas] DROP CONSTRAINT [FK_PessoaMorada];
+    ALTER TABLE [dbo].[Moradas] DROP CONSTRAINT [FK_PessoaMorada];
 GO
 IF OBJECT_ID(N'[dbo].[FK_RestauranteMorada]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Restaurantes] DROP CONSTRAINT [FK_RestauranteMorada];
+    ALTER TABLE [dbo].[Moradas] DROP CONSTRAINT [FK_RestauranteMorada];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PedidoCliente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PedidoSet] DROP CONSTRAINT [FK_PedidoCliente];
@@ -219,7 +219,7 @@ GO
 
 -- Creating table 'Pessoas_Trabalhador'
 CREATE TABLE [dbo].[Pessoas_Trabalhador] (
-    [Salario] int  NOT NULL,
+    [Salario] decimal(18,0)  NOT NULL,
     [Posicao] nvarchar(max)  NOT NULL,
     [RestauranteId] int  NOT NULL,
     [IsDeleted] bit  NOT NULL,

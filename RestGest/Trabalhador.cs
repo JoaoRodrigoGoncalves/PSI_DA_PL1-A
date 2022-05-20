@@ -14,7 +14,7 @@ namespace RestGest
     
     public partial class Trabalhador : Pessoa
     {
-        public int Salario { get; set; }
+        public decimal Salario { get; set; }
         public string Posicao { get; set; }
         public int RestauranteId { get; set; }
         public bool IsDeleted { get; set; }

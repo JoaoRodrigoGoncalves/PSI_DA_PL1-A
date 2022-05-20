@@ -42,10 +42,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.filtrar_TextBox = new System.Windows.Forms.TextBox();
             this.filtrar_BTN = new System.Windows.Forms.Button();
+            this.LimparFiltro_BTN = new System.Windows.Forms.Button();
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
-            this.LimparFiltro_BTN = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantes_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -217,6 +217,17 @@
             this.filtrar_BTN.UseVisualStyleBackColor = true;
             this.filtrar_BTN.Click += new System.EventHandler(this.filtrar_BTN_Click);
             // 
+            // LimparFiltro_BTN
+            // 
+            this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(726, 3);
+            this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(75, 23);
+            this.LimparFiltro_BTN.TabIndex = 2;
+            this.LimparFiltro_BTN.Text = "Limpar Filtro";
+            this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
+            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
+            // 
             // LoadingPopUp_Panel
             // 
             this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_ProgressBar);
@@ -242,16 +253,6 @@
             this.LoadingPopUp_Label.Size = new System.Drawing.Size(65, 13);
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
-            // 
-            // LimparFiltro_BTN
-            // 
-            this.LimparFiltro_BTN.Location = new System.Drawing.Point(726, 3);
-            this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
-            this.LimparFiltro_BTN.Size = new System.Drawing.Size(75, 23);
-            this.LimparFiltro_BTN.TabIndex = 2;
-            this.LimparFiltro_BTN.Text = "Limpar Filtro";
-            this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
-            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
             // 
             // FormGestaoRestaurantes
             // 

@@ -29,8 +29,7 @@ namespace RestGest
 
         private void ReloadDataGridView()
         {
-            if(databaseContainer == null)
-                databaseContainer = new RestGestContainer();
+            databaseContainer = new RestGestContainer();
 
 
             restaurantes_DataGridView.Invoke(new MethodInvoker(delegate

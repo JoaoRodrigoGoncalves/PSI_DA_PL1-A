@@ -192,7 +192,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Salario" Type="int" Nullable="false" />
+    <Property Name="Salario" Type="decimal" Nullable="false" />
     <Property Name="Posicao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RestauranteId" Type="int" Nullable="false" />
     <Property Name="IsDeleted" Type="bit" Nullable="false" />
@@ -510,7 +510,7 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Trabalhador" BaseType="RestGest.Pessoa" >
-          <Property Name="Salario" Type="Int32" Nullable="false" />
+          <Property Name="Salario" Type="Decimal" Nullable="false" />
           <Property Name="Posicao" Type="String" Nullable="false" />
           <NavigationProperty Name="Restaurante" Relationship="RestGest.TrabalhadorRestaurante" FromRole="Trabalhador" ToRole="Restaurante" />
           <Property Name="RestauranteId" Type="Int32" Nullable="false" />
