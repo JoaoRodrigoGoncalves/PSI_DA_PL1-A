@@ -69,5 +69,29 @@ namespace RestGest
             }));
         }
 
+        private void dataGrid_Funcionarios_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
+            // Acedido em 19/05/2022
+            var hit = dataGrid_Funcionarios.HitTest(e.X, e.Y);
+            if (hit.RowIndex != -1)
+            {
+                dataGrid_Funcionarios.ClearSelection();
+                dataGrid_Funcionarios.Rows[hit.RowIndex].Selected = true;
+                bt_edit_Click(sender, e);
+            }
+        }
+
+        private void dataGrid_Funcionarios_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
+            // Acedido em 19/05/2022
+            var hit = dataGrid_Funcionarios.HitTest(e.X, e.Y);
+            if (hit.RowIndex != -1)
+            {
+                dataGrid_Funcionarios.ClearSelection();
+                dataGrid_Funcionarios.Rows[hit.RowIndex].Selected = true;
+            }
+        }
     }
 }

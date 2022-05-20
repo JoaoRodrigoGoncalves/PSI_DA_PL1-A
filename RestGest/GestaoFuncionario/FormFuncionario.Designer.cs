@@ -107,6 +107,7 @@
             this.tb_salario.Location = new System.Drawing.Point(20, 134);
             this.tb_salario.Mask = "99999.99";
             this.tb_salario.Name = "tb_salario";
+            this.tb_salario.PromptChar = '0';
             this.tb_salario.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tb_salario.Size = new System.Drawing.Size(154, 20);
             this.tb_salario.TabIndex = 3;
@@ -151,6 +152,7 @@
             this.tb_telemovel.Location = new System.Drawing.Point(20, 215);
             this.tb_telemovel.Mask = "999999999";
             this.tb_telemovel.Name = "tb_telemovel";
+            this.tb_telemovel.PromptChar = '0';
             this.tb_telemovel.Size = new System.Drawing.Size(154, 20);
             this.tb_telemovel.TabIndex = 5;
             // 
@@ -192,6 +194,7 @@
             this.tb_cp.Location = new System.Drawing.Point(20, 134);
             this.tb_cp.Mask = "9999-999";
             this.tb_cp.Name = "tb_cp";
+            this.tb_cp.PromptChar = '0';
             this.tb_cp.Size = new System.Drawing.Size(154, 20);
             this.tb_cp.TabIndex = 8;
             // 

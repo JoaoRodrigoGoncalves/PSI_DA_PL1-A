@@ -73,19 +73,19 @@
     <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFuncionario.cs">
+    <Compile Include="GestaoFuncionario\FormFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.Designer.cs">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFuncionario.Designer.cs">
+    <Compile Include="GestaoFuncionario\FormFuncionario.Designer.cs">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGestaoFuncionarios.cs">
+    <Compile Include="GestaoFuncionario\FormGestaoFuncionarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGestaoFuncionarios.Designer.cs">
+    <Compile Include="GestaoFuncionario\FormGestaoFuncionarios.Designer.cs">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
@@ -150,10 +150,10 @@
     <EmbeddedResource Include="GestaoRestaurantes\FormGestaoRestaurantes.resx">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFuncionario.resx">
+    <EmbeddedResource Include="GestaoFuncionario\FormFuncionario.resx">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGestaoFuncionarios.resx">
+    <EmbeddedResource Include="GestaoFuncionario\FormGestaoFuncionarios.resx">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">

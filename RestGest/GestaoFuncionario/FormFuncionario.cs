@@ -30,14 +30,23 @@ namespace RestGest
             tb_id.Text = trabalhador.Id.ToString();
             tb_name.Text = trabalhador.Nome;
             tb_telemovel.Text = trabalhador.Telemovel;
-            tb_salario.Text = trabalhador.Salario.ToString();
+            tb_salario.Text = decimalText(trabalhador.Salario);
             tb_position.Text = trabalhador.Posicao;
             //Identificação da morada do trabalhador
-            tb_rua.Text = trabalhador.Morada.Rua ?? "";
+            tb_rua.Text = trabalhador.Morada.Rua;
             tb_cidade.Text = trabalhador.Morada.Cidade;
             tb_cp.Text = trabalhador.Morada.Codigo_Postal;
             tb_pais.Text = trabalhador.Morada.Pais;
             bt_edit.Enabled = true;
+        }
+
+        private string decimalText(decimal salario)
+        {
+            string salario_string = salario.ToString();
+            int mask_size = tb_salario.Mask.Length - 3;
+            for (int i = salario_string.Length; i < mask_size; i++)
+                salario_string = "0" + salario_string;
+            return salario_string;
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
@@ -56,7 +65,7 @@ namespace RestGest
             trabalhador.Id = Convert.ToInt16(tb_id.Text);
             trabalhador.Nome = tb_name.Text;
             trabalhador.Telemovel = tb_telemovel.Text;
-            trabalhador.Salario = Convert.ToInt16(tb_salario.Text);
+            trabalhador.Salario = Convert.ToDecimal(tb_salario.Text);
             trabalhador.Posicao = tb_position.Text;
             trabalhador.Morada.Rua = tb_rua.Text;
             trabalhador.Morada.Cidade = tb_cidade.Text;
@@ -72,7 +81,7 @@ namespace RestGest
                 MessageBox.Show("Saving changes fail...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex);
             }
-            // TODO Update the date base
+            //
             this.Close();
         }
 
