@@ -35,8 +35,15 @@
             this.bt_edit = new System.Windows.Forms.Button();
             this.bt_add = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_filter = new System.Windows.Forms.TextBox();
             this.bt_filtrar = new System.Windows.Forms.Button();
+            this.tb_filter = new System.Windows.Forms.TextBox();
+            this.idFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelemovelFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoradaFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PosicaoFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Funcionarios)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,6 +76,14 @@
             // dataGrid_Funcionarios
             // 
             this.dataGrid_Funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_Funcionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idFuncionario,
+            this.NomeFuncionario,
+            this.TelemovelFuncionario,
+            this.MoradaFuncionario,
+            this.SalarioFuncionario,
+            this.PosicaoFuncionario,
+            this.NomeRestaurante});
             this.dataGrid_Funcionarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid_Funcionarios.Location = new System.Drawing.Point(23, 23);
             this.dataGrid_Funcionarios.Name = "dataGrid_Funcionarios";
@@ -135,13 +150,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 25);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // tb_filter
-            // 
-            this.tb_filter.Location = new System.Drawing.Point(3, 3);
-            this.tb_filter.Name = "tb_filter";
-            this.tb_filter.Size = new System.Drawing.Size(588, 20);
-            this.tb_filter.TabIndex = 0;
-            // 
             // bt_filtrar
             // 
             this.bt_filtrar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -152,6 +160,55 @@
             this.bt_filtrar.Text = "Filtrar";
             this.bt_filtrar.UseVisualStyleBackColor = true;
             // 
+            // tb_filter
+            // 
+            this.tb_filter.Location = new System.Drawing.Point(3, 3);
+            this.tb_filter.Name = "tb_filter";
+            this.tb_filter.Size = new System.Drawing.Size(588, 20);
+            this.tb_filter.TabIndex = 0;
+            // 
+            // idFuncionario
+            // 
+            this.idFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idFuncionario.HeaderText = "ID";
+            this.idFuncionario.Name = "idFuncionario";
+            // 
+            // NomeFuncionario
+            // 
+            this.NomeFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeFuncionario.HeaderText = "Nome";
+            this.NomeFuncionario.Name = "NomeFuncionario";
+            // 
+            // TelemovelFuncionario
+            // 
+            this.TelemovelFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TelemovelFuncionario.HeaderText = "Telemovel";
+            this.TelemovelFuncionario.Name = "TelemovelFuncionario";
+            // 
+            // MoradaFuncionario
+            // 
+            this.MoradaFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MoradaFuncionario.HeaderText = "Morada";
+            this.MoradaFuncionario.Name = "MoradaFuncionario";
+            // 
+            // SalarioFuncionario
+            // 
+            this.SalarioFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SalarioFuncionario.HeaderText = "Salario";
+            this.SalarioFuncionario.Name = "SalarioFuncionario";
+            // 
+            // PosicaoFuncionario
+            // 
+            this.PosicaoFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PosicaoFuncionario.HeaderText = "Posição";
+            this.PosicaoFuncionario.Name = "PosicaoFuncionario";
+            // 
+            // NomeRestaurante
+            // 
+            this.NomeRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeRestaurante.HeaderText = "Restaurante";
+            this.NomeRestaurante.Name = "NomeRestaurante";
+            // 
             // FormGestaoFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +217,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoFuncionarios";
             this.Text = "Gestão Funcionarios";
+            this.Load += new System.EventHandler(this.FormGestaoFuncionarios_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Funcionarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -180,5 +238,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox tb_filter;
         private System.Windows.Forms.Button bt_filtrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelemovelFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MoradaFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalarioFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeRestaurante;
     }
 }

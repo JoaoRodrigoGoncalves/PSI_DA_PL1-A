@@ -37,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tb_position = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_telemovel = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tb_cidade = new System.Windows.Forms.TextBox();
             this.tb_cp = new System.Windows.Forms.MaskedTextBox();
@@ -103,8 +105,9 @@
             // tb_salario
             // 
             this.tb_salario.Location = new System.Drawing.Point(20, 134);
-            this.tb_salario.Mask = "99999";
+            this.tb_salario.Mask = "99999.99";
             this.tb_salario.Name = "tb_salario";
+            this.tb_salario.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tb_salario.Size = new System.Drawing.Size(154, 20);
             this.tb_salario.TabIndex = 3;
             // 
@@ -127,19 +130,38 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tb_name);
+            this.groupBox1.Controls.Add(this.tb_telemovel);
             this.groupBox1.Controls.Add(this.tb_salario);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tb_id);
             this.groupBox1.Controls.Add(this.tb_position);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 235);
+            this.groupBox1.Size = new System.Drawing.Size(203, 245);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação Funcionario";
+            // 
+            // tb_telemovel
+            // 
+            this.tb_telemovel.Location = new System.Drawing.Point(20, 215);
+            this.tb_telemovel.Mask = "999999999";
+            this.tb_telemovel.Name = "tb_telemovel";
+            this.tb_telemovel.Size = new System.Drawing.Size(154, 20);
+            this.tb_telemovel.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 199);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Telemovel:";
             // 
             // groupBox2
             // 
@@ -163,7 +185,7 @@
             this.tb_cidade.Location = new System.Drawing.Point(20, 91);
             this.tb_cidade.Name = "tb_cidade";
             this.tb_cidade.Size = new System.Drawing.Size(154, 20);
-            this.tb_cidade.TabIndex = 6;
+            this.tb_cidade.TabIndex = 7;
             // 
             // tb_cp
             // 
@@ -171,7 +193,7 @@
             this.tb_cp.Mask = "9999-999";
             this.tb_cp.Name = "tb_cp";
             this.tb_cp.Size = new System.Drawing.Size(154, 20);
-            this.tb_cp.TabIndex = 7;
+            this.tb_cp.TabIndex = 8;
             // 
             // label5
             // 
@@ -187,7 +209,7 @@
             this.tb_rua.Location = new System.Drawing.Point(20, 45);
             this.tb_rua.Name = "tb_rua";
             this.tb_rua.Size = new System.Drawing.Size(154, 20);
-            this.tb_rua.TabIndex = 5;
+            this.tb_rua.TabIndex = 6;
             // 
             // label6
             // 
@@ -203,7 +225,7 @@
             this.tb_pais.Location = new System.Drawing.Point(20, 176);
             this.tb_pais.Name = "tb_pais";
             this.tb_pais.Size = new System.Drawing.Size(154, 20);
-            this.tb_pais.TabIndex = 8;
+            this.tb_pais.TabIndex = 9;
             // 
             // label7
             // 
@@ -272,7 +294,7 @@
             this.bt_create.Location = new System.Drawing.Point(3, 13);
             this.bt_create.Name = "bt_create";
             this.bt_create.Size = new System.Drawing.Size(75, 23);
-            this.bt_create.TabIndex = 9;
+            this.bt_create.TabIndex = 10;
             this.bt_create.Text = "Criar";
             this.bt_create.UseVisualStyleBackColor = true;
             this.bt_create.Click += new System.EventHandler(this.bt_create_Click);
@@ -283,7 +305,7 @@
             this.bt_edit.Location = new System.Drawing.Point(84, 13);
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(75, 23);
-            this.bt_edit.TabIndex = 9;
+            this.bt_edit.TabIndex = 11;
             this.bt_edit.Text = "Editar";
             this.bt_edit.UseVisualStyleBackColor = true;
             this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
@@ -293,7 +315,7 @@
             this.bt_cancel.Location = new System.Drawing.Point(165, 13);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(75, 23);
-            this.bt_cancel.TabIndex = 10;
+            this.bt_cancel.TabIndex = 12;
             this.bt_cancel.Text = "Cancelar";
             this.bt_cancel.UseVisualStyleBackColor = true;
             this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
@@ -344,5 +366,7 @@
         private System.Windows.Forms.Button bt_edit;
         private System.Windows.Forms.Button bt_cancel;
         private System.Windows.Forms.MaskedTextBox tb_cp;
+        private System.Windows.Forms.MaskedTextBox tb_telemovel;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -65,6 +65,8 @@
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Morada.cs" />
+    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Trabalhador.cs" />
     <Compile Include="Estado.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>

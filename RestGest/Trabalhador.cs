@@ -20,5 +20,6 @@ namespace RestGest
         public bool IsDeleted { get; set; }
     
         public virtual Restaurante Restaurante { get; set; }
+
     }
 }
