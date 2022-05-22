@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_salario = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_position = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,6 +53,7 @@
             this.bt_create = new System.Windows.Forms.Button();
             this.bt_edit = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
+            this.tb_salario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -102,16 +102,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Salario:";
             // 
-            // tb_salario
-            // 
-            this.tb_salario.Location = new System.Drawing.Point(20, 134);
-            this.tb_salario.Mask = "99999.99";
-            this.tb_salario.Name = "tb_salario";
-            this.tb_salario.PromptChar = '0';
-            this.tb_salario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tb_salario.Size = new System.Drawing.Size(154, 20);
-            this.tb_salario.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -130,9 +120,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_salario);
             this.groupBox1.Controls.Add(this.tb_name);
             this.groupBox1.Controls.Add(this.tb_telemovel);
-            this.groupBox1.Controls.Add(this.tb_salario);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tb_id);
@@ -152,7 +142,6 @@
             this.tb_telemovel.Location = new System.Drawing.Point(20, 215);
             this.tb_telemovel.Mask = "999999999";
             this.tb_telemovel.Name = "tb_telemovel";
-            this.tb_telemovel.PromptChar = '0';
             this.tb_telemovel.Size = new System.Drawing.Size(154, 20);
             this.tb_telemovel.TabIndex = 5;
             // 
@@ -192,9 +181,8 @@
             // tb_cp
             // 
             this.tb_cp.Location = new System.Drawing.Point(20, 134);
-            this.tb_cp.Mask = "9999-999";
+            this.tb_cp.Mask = "0000-999";
             this.tb_cp.Name = "tb_cp";
-            this.tb_cp.PromptChar = '0';
             this.tb_cp.Size = new System.Drawing.Size(154, 20);
             this.tb_cp.TabIndex = 8;
             // 
@@ -323,6 +311,14 @@
             this.bt_cancel.UseVisualStyleBackColor = true;
             this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
             // 
+            // tb_salario
+            // 
+            this.tb_salario.Location = new System.Drawing.Point(20, 134);
+            this.tb_salario.MaxLength = 8;
+            this.tb_salario.Name = "tb_salario";
+            this.tb_salario.Size = new System.Drawing.Size(154, 20);
+            this.tb_salario.TabIndex = 3;
+            // 
             // FormFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,7 +346,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox tb_salario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_position;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -371,5 +366,6 @@
         private System.Windows.Forms.MaskedTextBox tb_cp;
         private System.Windows.Forms.MaskedTextBox tb_telemovel;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_salario;
     }
 }

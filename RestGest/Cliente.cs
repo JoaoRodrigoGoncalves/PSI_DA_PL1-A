@@ -14,7 +14,5 @@ namespace RestGest
     
     public partial class Cliente : Pessoa
     {
-        public string NumContribuinte { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

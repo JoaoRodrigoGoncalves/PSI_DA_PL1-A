@@ -14,6 +14,12 @@ namespace RestGest
     
     public partial class MetodoPagamento
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MetodoPagamento()
+        {
+            this.Ativo = true;
+        }
+    
         public int Id { get; set; }
         public int PagamentoId { get; set; }
         public string Metodo { get; set; }

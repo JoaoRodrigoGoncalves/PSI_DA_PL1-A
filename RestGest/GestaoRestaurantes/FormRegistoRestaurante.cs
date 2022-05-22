@@ -30,6 +30,8 @@ namespace RestGest.GestaoRestaurantes
             novoRestaurante.Nome = Nome_TextBox.Text;
             novoRestaurante.Morada = moradaRestaurante;
 
+            //if(databaseContainer.Restaurantes.Find())
+
             databaseContainer.Restaurantes.Add(novoRestaurante);
             databaseContainer.SaveChanges();
 

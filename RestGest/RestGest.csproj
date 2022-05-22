@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{77A202FD-E306-4B83-8B73-C19A0F273010}</ProjectGuid>
+    <ProjectGuid>{16055C36-2D4C-4051-BB26-B6FE17497931}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RestGest</RootNamespace>
     <AssemblyName>RestGest</AssemblyName>
@@ -34,16 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,52 +59,49 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
-    <Compile Include="ElementoMenu.cs">
-      <DependentUpon>RestGest.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entidades\Morada.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Trabalhador.cs" />
     <Compile Include="Estado.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoFuncionario\FormFuncionario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.Designer.cs">
-      <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestaoFuncionario\FormFuncionario.Designer.cs">
-      <DependentUpon>FormFuncionario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestaoFuncionario\FormGestaoFuncionarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoFuncionario\FormGestaoFuncionarios.Designer.cs">
-      <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="FormPrincipal.designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoFuncionarios\FormFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoFuncionarios\FormFuncionario.designer.cs">
+      <DependentUpon>FormFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoFuncionarios\FormGestaoFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoFuncionarios\FormGestaoFuncionarios.designer.cs">
+      <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.Designer.cs">
+    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.designer.cs">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.designer.cs">
+      <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.Designer.cs">
+    <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.designer.cs">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="ItemMenu.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="MetodoPagamento.cs">
@@ -147,20 +142,20 @@
     <Compile Include="Trabalhador.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GestaoRestaurantes\FormGestaoRestaurantes.resx">
-      <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestaoFuncionario\FormFuncionario.resx">
-      <DependentUpon>FormFuncionario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestaoFuncionario\FormGestaoFuncionarios.resx">
-      <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestaoFuncionarios\FormFuncionario.resx">
+      <DependentUpon>FormFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoFuncionarios\FormGestaoFuncionarios.resx">
+      <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoRestaurantes\FormGestaoRestaurantes.resx">
+      <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormRegistoRestaurante.resx">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
@@ -188,9 +183,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RestGest.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="RestGest.edmx.diagram">
-      <DependentUpon>RestGest.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -211,6 +203,5 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

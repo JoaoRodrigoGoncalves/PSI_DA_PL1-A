@@ -16,10 +16,8 @@ namespace RestGest
     {
         public decimal Salario { get; set; }
         public string Posicao { get; set; }
-        public int RestauranteId { get; set; }
-        public bool IsDeleted { get; set; }
+        public Nullable<int> RestauranteId { get; set; }
     
         public virtual Restaurante Restaurante { get; set; }
-
     }
 }

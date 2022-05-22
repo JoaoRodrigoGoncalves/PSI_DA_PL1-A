@@ -28,12 +28,11 @@ namespace RestGest
         public virtual DbSet<Pessoa> Pessoas { get; set; }
         public virtual DbSet<Morada> Moradas { get; set; }
         public virtual DbSet<Restaurante> Restaurantes { get; set; }
-        public virtual DbSet<Pedido> PedidoSet { get; set; }
+        public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Estado> Estados { get; set; }
-        public virtual DbSet<ElementoMenu> ElementosMenu { get; set; }
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Pagamento> Pagamentos { get; set; }
         public virtual DbSet<MetodoPagamento> MetodosPagamento { get; set; }
-        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<ItemMenu> ItemsMenus { get; set; }
     }
 }

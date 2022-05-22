@@ -18,6 +18,7 @@ namespace RestGest
         public FormFuncionario()
         {
             InitializeComponent();
+            databaseContainer = new RestGestContainer();
             bt_create.Enabled = true;
         }
 
@@ -30,7 +31,7 @@ namespace RestGest
             tb_id.Text = trabalhador.Id.ToString();
             tb_name.Text = trabalhador.Nome;
             tb_telemovel.Text = trabalhador.Telemovel;
-            tb_salario.Text = decimalText(trabalhador.Salario);
+            tb_salario.Text = trabalhador.Salario.ToString();
             tb_position.Text = trabalhador.Posicao;
             //Identificação da morada do trabalhador
             tb_rua.Text = trabalhador.Morada.Rua;
@@ -38,15 +39,6 @@ namespace RestGest
             tb_cp.Text = trabalhador.Morada.Codigo_Postal;
             tb_pais.Text = trabalhador.Morada.Pais;
             bt_edit.Enabled = true;
-        }
-
-        private string decimalText(decimal salario)
-        {
-            string salario_string = salario.ToString();
-            int mask_size = tb_salario.Mask.Length - 3;
-            for (int i = salario_string.Length; i < mask_size; i++)
-                salario_string = "0" + salario_string;
-            return salario_string;
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
@@ -58,20 +50,28 @@ namespace RestGest
         {
             if (inputValidation())
             {
-                MessageBox.Show("Preencha todos os campos", "Criação de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha todos os campos", "Criação de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            tb_salario.Text = tb_salario.Text.Replace(",", ".");
+            if(!decimal.TryParse(tb_salario.Text, out decimal salario))
+            {
+                MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // TODO Criar Trabalhador constructor
-            trabalhador.Id = Convert.ToInt16(tb_id.Text);
+            trabalhador.Id = Convert.ToInt32(tb_id.Text);
             trabalhador.Nome = tb_name.Text;
             trabalhador.Telemovel = tb_telemovel.Text;
-            trabalhador.Salario = Convert.ToDecimal(tb_salario.Text);
+            trabalhador.Salario = salario;
             trabalhador.Posicao = tb_position.Text;
             trabalhador.Morada.Rua = tb_rua.Text;
             trabalhador.Morada.Cidade = tb_cidade.Text;
             trabalhador.Morada.Codigo_Postal = tb_cp.Text;
             trabalhador.Morada.Pais = tb_pais.Text;
-            trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
+            //trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
             //
             try
             {
@@ -92,32 +92,37 @@ namespace RestGest
                 MessageBox.Show("Preencha todos os campos", "Edição de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            databaseContainer = new RestGestContainer();
-            // TODO Criar Trabalhador constructor
-            Trabalhador trabalhardor_edit = new Trabalhador();
-            trabalhardor_edit.Nome = tb_name.Text;
-            trabalhardor_edit.Telemovel = tb_telemovel.Text;
-            trabalhardor_edit.Salario = Convert.ToDecimal(tb_salario.Text);
-            trabalhardor_edit.Posicao = tb_position.Text;
-            trabalhardor_edit.Morada.Rua = tb_rua.Text;
-            trabalhardor_edit.Morada.Cidade = tb_cidade.Text;
-            trabalhardor_edit.Morada.Codigo_Postal = tb_cp.Text;
-            trabalhardor_edit.Morada.Pais = tb_pais.Text;
-            //TODO Make database 0..1
-            //Can create a worker with out a restaurant
-            trabalhardor_edit.Restaurante = databaseContainer.Restaurantes.Find(1);
-            //
-            try
+
+            tb_salario.Text = tb_salario.Text.Replace(".", ",");
+            if (!decimal.TryParse(tb_salario.Text, out decimal salario))
             {
-                databaseContainer.Pessoas.Add(trabalhardor_edit);
-                databaseContainer.SaveChanges();
+                MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Saving worker fail...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(ex);
-            }
-            // TODO Insert the date base
+
+            Morada moradaTrabalhador = new Morada();
+
+            moradaTrabalhador.Rua = tb_rua.Text;
+            moradaTrabalhador.Cidade = tb_cidade.Text;
+            moradaTrabalhador.Codigo_Postal = tb_cp.Text;
+            moradaTrabalhador.Pais = tb_pais.Text;
+
+            moradaTrabalhador = databaseContainer.Moradas.Add(moradaTrabalhador);
+            databaseContainer.SaveChanges();
+
+            Trabalhador novoTrabalhador = new Trabalhador();
+
+            novoTrabalhador.Nome = tb_name.Text;
+            novoTrabalhador.Telemovel = tb_telemovel.Text;
+            novoTrabalhador.Salario = salario;
+            novoTrabalhador.Posicao = tb_position.Text;
+            novoTrabalhador.Morada = moradaTrabalhador;
+            novoTrabalhador.RestauranteId = null;
+            novoTrabalhador.Restaurante = null;
+            
+            databaseContainer.Pessoas.Add(novoTrabalhador);
+            databaseContainer.SaveChanges();
+
             this.Close();
         }
 
