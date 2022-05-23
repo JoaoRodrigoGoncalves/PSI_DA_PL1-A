@@ -58,7 +58,7 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Trabalhador> funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper())).ToList();
+                List<Trabalhador> funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo == true).ToList();
 
                 funcionarios_DataGridView.Rows.Clear();
                 foreach (Trabalhador funcionario in funcionarios)

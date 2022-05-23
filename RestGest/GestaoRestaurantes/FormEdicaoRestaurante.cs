@@ -25,10 +25,13 @@ namespace RestGest.GestaoRestaurantes
         {
             
             dadosRestaurante.Nome = Nome_TextBox.Text;
+            dadosRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
             dadosRestaurante.Morada.Rua = Rua_TextBox.Text;
             dadosRestaurante.Morada.Codigo_Postal = CodigoPostal_MaskedTextBox.Text;
             dadosRestaurante.Morada.Cidade = Cidade_TextBox.Text;
             dadosRestaurante.Morada.Pais = Pais_TextBox.Text;
+
+
 
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
