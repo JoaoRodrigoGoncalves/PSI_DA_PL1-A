@@ -33,7 +33,7 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 restaurantes_DataGridView.Rows.Clear();
-                foreach (Restaurante restaurante in databaseContainer.Restaurantes)
+                foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
                 {
                     string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
                     restaurantes_DataGridView.Rows.Add(row);
@@ -58,7 +58,7 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Restaurante> restaurantes = databaseContainer.Restaurantes.Where(restaurante => restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper())).ToList();
+                List<Restaurante> restaurantes = databaseContainer.Restaurantes.Where(restaurante => restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && restaurante.Ativo == true).ToList();
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
@@ -126,7 +126,7 @@ namespace RestGest
                     Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
                     if(databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
                     {
-                        //restauranteRemover.
+                        restauranteRemover.Ativo = false;
                     }
                     else
                     {

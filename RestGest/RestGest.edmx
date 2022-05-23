@@ -92,6 +92,7 @@
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Telemovel" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Ativo" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="NumContribuinte" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Moradas">
     <Key>
@@ -112,6 +113,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Ativo" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="NumContribuinte" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Pedidos">
     <Key>
@@ -136,7 +138,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="Pagamentos">
     <Key>
@@ -153,7 +155,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PagamentoId" Type="int" Nullable="false" />
     <Property Name="Metodo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="false" DefaultValue="true" />
   </EntityType>
   <EntityType Name="ItemsMenus">
     <Key>
@@ -171,7 +173,6 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="NumContribuinte" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pessoas_Trabalhador">
@@ -687,6 +688,7 @@
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Telemovel" ColumnName="Telemovel" />
           <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="NumContribuinte" ColumnName="NumContribuinte" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(RestGest.Cliente)">
@@ -720,6 +722,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="NumContribuinte" ColumnName="NumContribuinte" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

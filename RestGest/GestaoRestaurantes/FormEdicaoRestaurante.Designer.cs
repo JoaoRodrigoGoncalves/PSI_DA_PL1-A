@@ -32,6 +32,7 @@
             this.Guardar_BTN = new System.Windows.Forms.Button();
             this.Nome_TextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Cancelar_BTN = new System.Windows.Forms.Button();
             this.CodigoPostal_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Pais_TextBox = new System.Windows.Forms.TextBox();
@@ -40,7 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Rua_TextBox = new System.Windows.Forms.TextBox();
-            this.Cancelar_BTN = new System.Windows.Forms.Button();
+            this.NIF_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,11 +69,13 @@
             // 
             this.Nome_TextBox.Location = new System.Drawing.Point(123, 13);
             this.Nome_TextBox.Name = "Nome_TextBox";
-            this.Nome_TextBox.Size = new System.Drawing.Size(387, 20);
+            this.Nome_TextBox.Size = new System.Drawing.Size(283, 20);
             this.Nome_TextBox.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NIF_MaskedTextBox);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Cancelar_BTN);
             this.groupBox1.Controls.Add(this.CodigoPostal_MaskedTextBox);
             this.groupBox1.Controls.Add(this.label5);
@@ -89,6 +93,16 @@
             this.groupBox1.Size = new System.Drawing.Size(521, 156);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // Cancelar_BTN
+            // 
+            this.Cancelar_BTN.Location = new System.Drawing.Point(354, 117);
+            this.Cancelar_BTN.Name = "Cancelar_BTN";
+            this.Cancelar_BTN.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar_BTN.TabIndex = 7;
+            this.Cancelar_BTN.Text = "Cancelar";
+            this.Cancelar_BTN.UseVisualStyleBackColor = true;
+            this.Cancelar_BTN.Click += new System.EventHandler(this.Cancelar_BTN_Click);
             // 
             // CodigoPostal_MaskedTextBox
             // 
@@ -155,15 +169,23 @@
             this.Rua_TextBox.Size = new System.Drawing.Size(387, 20);
             this.Rua_TextBox.TabIndex = 2;
             // 
-            // Cancelar_BTN
+            // NIF_MaskedTextBox
             // 
-            this.Cancelar_BTN.Location = new System.Drawing.Point(354, 117);
-            this.Cancelar_BTN.Name = "Cancelar_BTN";
-            this.Cancelar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Cancelar_BTN.TabIndex = 7;
-            this.Cancelar_BTN.Text = "Cancelar";
-            this.Cancelar_BTN.UseVisualStyleBackColor = true;
-            this.Cancelar_BTN.Click += new System.EventHandler(this.Cancelar_BTN_Click);
+            this.NIF_MaskedTextBox.Location = new System.Drawing.Point(442, 13);
+            this.NIF_MaskedTextBox.Mask = "000000000";
+            this.NIF_MaskedTextBox.Name = "NIF_MaskedTextBox";
+            this.NIF_MaskedTextBox.Size = new System.Drawing.Size(68, 20);
+            this.NIF_MaskedTextBox.TabIndex = 11;
+            this.NIF_MaskedTextBox.ValidatingType = typeof(int);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(412, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "NIF";
             // 
             // FormEdicaoRestaurante
             // 
@@ -199,5 +221,7 @@
         private System.Windows.Forms.TextBox Rua_TextBox;
         private System.Windows.Forms.MaskedTextBox CodigoPostal_MaskedTextBox;
         private System.Windows.Forms.Button Cancelar_BTN;
+        private System.Windows.Forms.MaskedTextBox NIF_MaskedTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }

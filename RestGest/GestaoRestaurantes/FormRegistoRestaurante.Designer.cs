@@ -41,13 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Rua_TextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.NIF_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(8, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 0;
@@ -58,7 +60,7 @@
             this.Registar_BTN.Location = new System.Drawing.Point(435, 117);
             this.Registar_BTN.Name = "Registar_BTN";
             this.Registar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Registar_BTN.TabIndex = 6;
+            this.Registar_BTN.TabIndex = 7;
             this.Registar_BTN.Text = "Registar";
             this.Registar_BTN.UseVisualStyleBackColor = true;
             this.Registar_BTN.Click += new System.EventHandler(this.Registar_BTN_Click);
@@ -67,11 +69,13 @@
             // 
             this.Nome_TextBox.Location = new System.Drawing.Point(123, 13);
             this.Nome_TextBox.Name = "Nome_TextBox";
-            this.Nome_TextBox.Size = new System.Drawing.Size(387, 20);
+            this.Nome_TextBox.Size = new System.Drawing.Size(283, 20);
             this.Nome_TextBox.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NIF_MaskedTextBox);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Limpar_BTN);
             this.groupBox1.Controls.Add(this.CodigoPostal_MaskedTextBox);
             this.groupBox1.Controls.Add(this.label5);
@@ -86,7 +90,7 @@
             this.groupBox1.Controls.Add(this.Nome_TextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(521, 156);
+            this.groupBox1.Size = new System.Drawing.Size(521, 154);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
@@ -95,7 +99,7 @@
             this.Limpar_BTN.Location = new System.Drawing.Point(354, 117);
             this.Limpar_BTN.Name = "Limpar_BTN";
             this.Limpar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Limpar_BTN.TabIndex = 7;
+            this.Limpar_BTN.TabIndex = 8;
             this.Limpar_BTN.Text = "Limpar";
             this.Limpar_BTN.UseVisualStyleBackColor = true;
             // 
@@ -105,7 +109,7 @@
             this.CodigoPostal_MaskedTextBox.Mask = "0000-999";
             this.CodigoPostal_MaskedTextBox.Name = "CodigoPostal_MaskedTextBox";
             this.CodigoPostal_MaskedTextBox.Size = new System.Drawing.Size(140, 20);
-            this.CodigoPostal_MaskedTextBox.TabIndex = 3;
+            this.CodigoPostal_MaskedTextBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -121,7 +125,7 @@
             this.Pais_TextBox.Location = new System.Drawing.Point(123, 91);
             this.Pais_TextBox.Name = "Pais_TextBox";
             this.Pais_TextBox.Size = new System.Drawing.Size(387, 20);
-            this.Pais_TextBox.TabIndex = 5;
+            this.Pais_TextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -137,7 +141,7 @@
             this.Cidade_TextBox.Location = new System.Drawing.Point(315, 65);
             this.Cidade_TextBox.Name = "Cidade_TextBox";
             this.Cidade_TextBox.Size = new System.Drawing.Size(195, 20);
-            this.Cidade_TextBox.TabIndex = 4;
+            this.Cidade_TextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -162,7 +166,25 @@
             this.Rua_TextBox.Location = new System.Drawing.Point(123, 39);
             this.Rua_TextBox.Name = "Rua_TextBox";
             this.Rua_TextBox.Size = new System.Drawing.Size(387, 20);
-            this.Rua_TextBox.TabIndex = 2;
+            this.Rua_TextBox.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(412, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "NIF";
+            // 
+            // NIF_MaskedTextBox
+            // 
+            this.NIF_MaskedTextBox.Location = new System.Drawing.Point(442, 13);
+            this.NIF_MaskedTextBox.Mask = "000000000";
+            this.NIF_MaskedTextBox.Name = "NIF_MaskedTextBox";
+            this.NIF_MaskedTextBox.Size = new System.Drawing.Size(68, 20);
+            this.NIF_MaskedTextBox.TabIndex = 2;
+            this.NIF_MaskedTextBox.ValidatingType = typeof(int);
             // 
             // FormRegistoRestaurante
             // 
@@ -198,5 +220,7 @@
         private System.Windows.Forms.TextBox Rua_TextBox;
         private System.Windows.Forms.Button Limpar_BTN;
         private System.Windows.Forms.MaskedTextBox CodigoPostal_MaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox NIF_MaskedTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }
