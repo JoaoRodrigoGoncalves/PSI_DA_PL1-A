@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
@@ -15,6 +16,7 @@ namespace RestGest.GestaoRestaurantes
             dadosRestaurante = databaseContainer.Restaurantes.Find(restaurante_id);
 
             Nome_TextBox.Text = dadosRestaurante.Nome;
+            NIF_MaskedTextBox.Text = dadosRestaurante.NumContribuinte;
             Rua_TextBox.Text = dadosRestaurante.Morada.Rua;
             CodigoPostal_MaskedTextBox.Text = dadosRestaurante.Morada.Codigo_Postal;
             Cidade_TextBox.Text = dadosRestaurante.Morada.Cidade;
@@ -31,7 +33,16 @@ namespace RestGest.GestaoRestaurantes
             dadosRestaurante.Morada.Cidade = Cidade_TextBox.Text;
             dadosRestaurante.Morada.Pais = Pais_TextBox.Text;
 
-
+            if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id).Count() == 1)
+            {
+                Restaurante match = databaseContainer.Restaurantes.First(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id);
+                MessageBox.Show(
+                    "Número de Contribuinte indicado já se encontra em utilização pelo restaurante \"" + match.Nome + "\". Operação abortada.",
+                    "Número de Contribuinte indicado em utilização",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();

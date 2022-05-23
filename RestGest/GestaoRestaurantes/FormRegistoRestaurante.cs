@@ -23,45 +23,49 @@ namespace RestGest.GestaoRestaurantes
             moradaRestaurante.Cidade = Cidade_TextBox.Text;
             moradaRestaurante.Pais = Pais_TextBox.Text;
 
-            moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
-
-            databaseContainer.SaveChanges();
-
-            Restaurante novoRestaurante = new Restaurante();
-            novoRestaurante.Nome = Nome_TextBox.Text;
-            novoRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
-            novoRestaurante.Morada = moradaRestaurante;
-
             if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).Count() == 1)
             {
                 Restaurante match = databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).First();
                 if(match.Ativo)
                 {
                     MessageBox.Show(
-                        "O restaurante " + match.Nome + " já está registado com o número de contribuinte indicado.",
+                        "O restaurante \"" + match.Nome + "\" já está registado com o número de contribuinte indicado.",
                         "Número de Contribuinte em uso",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
                     MessageBox.Show(
-                        "O número de contribuinte indicado está associado a um restaurante dasativado. Os dados serão atualizados e o restaurante ativado.",
+                        "O número de contribuinte indicado está associado a um restaurante desativado. Os dados serão atualizados e o restaurante ativado.",
                         "Número de contribuinte associado",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
-                    match = novoRestaurante;
                     match.Ativo = true;
-                    databaseContainer.SaveChanges();
+                    match.Nome = Nome_TextBox.Text;
+
+                    Morada antigaMorada = databaseContainer.Moradas.Find(match.Morada.Id);
+                    databaseContainer.Moradas.Remove(antigaMorada);
+
+                    moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
+                    match.Morada = moradaRestaurante;
                 }
             }
             else
             {
+                Restaurante novoRestaurante = new Restaurante();
+                novoRestaurante.Nome = Nome_TextBox.Text;
+                novoRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
+
+                moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
+                novoRestaurante.Morada = moradaRestaurante;
+                
                 databaseContainer.Restaurantes.Add(novoRestaurante);
-                databaseContainer.SaveChanges();
             }
 
+            databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
         }

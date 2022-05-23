@@ -535,7 +535,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="RestauranteMorada">
-          <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="0..1" />
+          <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="RestGest.Morada" Role="Morada" Multiplicity="0..1" />
         </Association>
         <Association Name="PedidoCliente">
@@ -638,7 +640,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PessoaMorada">
-          <End Type="RestGest.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+          <End Type="RestGest.Pessoa" Role="Pessoa" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="RestGest.Morada" Role="Morada" Multiplicity="0..1" />
         </Association>
         <EntityType Name="ItemMenu">
@@ -840,7 +844,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ebbe6aa1a7494e6fac164150eb79c9e6" Name="Diagram1">
+      <Diagram DiagramId="ebbe6aa1a7494e6fac164150eb79c9e6" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="RestGest.Pessoa" Width="1.5" PointX="1.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Morada" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Cliente" Width="1.5" PointX="1.875" PointY="4" IsExpanded="true" />
