@@ -14,8 +14,41 @@ namespace RestGest.GestaoRestaurantes
             databaseContainer = new RestGestContainer();
         }
 
+        private bool validateFields()
+        {
+            if(String.IsNullOrWhiteSpace(Nome_TextBox.Text))
+                return false;
+
+            if (String.IsNullOrWhiteSpace(NIF_MaskedTextBox.Text))
+                return false;
+
+            if(String.IsNullOrWhiteSpace(Rua_TextBox.Text))
+                return false;
+
+            if (String.IsNullOrWhiteSpace(CodigoPostal_MaskedTextBox.Text))
+                return false;
+
+            if (String.IsNullOrWhiteSpace(Cidade_TextBox.Text))
+                return false;
+
+            if (String.IsNullOrWhiteSpace(Pais_TextBox.Text))
+                return false;
+
+            return true;
+        }
+
         private void Registar_BTN_Click(object sender, EventArgs e)
         {
+            if (!validateFields())
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de continuar!",
+                    "Campos vazios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Morada moradaRestaurante = new Morada();
 
             moradaRestaurante.Rua = Rua_TextBox.Text;
