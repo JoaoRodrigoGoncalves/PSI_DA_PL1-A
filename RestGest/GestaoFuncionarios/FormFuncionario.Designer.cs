@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_position = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_salario = new System.Windows.Forms.TextBox();
             this.tb_telemovel = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,34 +52,18 @@
             this.bt_create = new System.Windows.Forms.Button();
             this.bt_edit = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
-            this.tb_salario = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_num_contribuinte = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Funcionario ID:";
-            // 
-            // tb_id
-            // 
-            this.tb_id.Location = new System.Drawing.Point(20, 45);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.ReadOnly = true;
-            this.tb_id.Size = new System.Drawing.Size(154, 20);
-            this.tb_id.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 75);
+            this.label2.Location = new System.Drawing.Point(18, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 0;
@@ -88,15 +71,15 @@
             // 
             // tb_name
             // 
-            this.tb_name.Location = new System.Drawing.Point(20, 91);
+            this.tb_name.Location = new System.Drawing.Point(21, 45);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(154, 20);
-            this.tb_name.TabIndex = 2;
+            this.tb_name.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 118);
+            this.label3.Location = new System.Drawing.Point(18, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 0;
@@ -105,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 160);
+            this.label4.Location = new System.Drawing.Point(18, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 0;
@@ -113,7 +96,7 @@
             // 
             // tb_position
             // 
-            this.tb_position.Location = new System.Drawing.Point(20, 176);
+            this.tb_position.Location = new System.Drawing.Point(21, 176);
             this.tb_position.Name = "tb_position";
             this.tb_position.Size = new System.Drawing.Size(154, 20);
             this.tb_position.TabIndex = 4;
@@ -122,11 +105,11 @@
             // 
             this.groupBox1.Controls.Add(this.tb_salario);
             this.groupBox1.Controls.Add(this.tb_name);
+            this.groupBox1.Controls.Add(this.tb_num_contribuinte);
             this.groupBox1.Controls.Add(this.tb_telemovel);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tb_id);
             this.groupBox1.Controls.Add(this.tb_position);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
@@ -137,9 +120,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação Funcionario";
             // 
+            // tb_salario
+            // 
+            this.tb_salario.Location = new System.Drawing.Point(21, 134);
+            this.tb_salario.MaxLength = 8;
+            this.tb_salario.Name = "tb_salario";
+            this.tb_salario.Size = new System.Drawing.Size(154, 20);
+            this.tb_salario.TabIndex = 3;
+            // 
             // tb_telemovel
             // 
-            this.tb_telemovel.Location = new System.Drawing.Point(20, 215);
+            this.tb_telemovel.Location = new System.Drawing.Point(21, 215);
             this.tb_telemovel.Mask = "999999999";
             this.tb_telemovel.Name = "tb_telemovel";
             this.tb_telemovel.Size = new System.Drawing.Size(154, 20);
@@ -148,7 +139,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 199);
+            this.label9.Location = new System.Drawing.Point(18, 199);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 0;
@@ -311,13 +302,22 @@
             this.bt_cancel.UseVisualStyleBackColor = true;
             this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
             // 
-            // tb_salario
+            // label1
             // 
-            this.tb_salario.Location = new System.Drawing.Point(20, 134);
-            this.tb_salario.MaxLength = 8;
-            this.tb_salario.Name = "tb_salario";
-            this.tb_salario.Size = new System.Drawing.Size(154, 20);
-            this.tb_salario.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Número Contribuinte:";
+            // 
+            // tb_num_contribuinte
+            // 
+            this.tb_num_contribuinte.Location = new System.Drawing.Point(21, 91);
+            this.tb_num_contribuinte.Mask = "999999999";
+            this.tb_num_contribuinte.Name = "tb_num_contribuinte";
+            this.tb_num_contribuinte.Size = new System.Drawing.Size(154, 20);
+            this.tb_num_contribuinte.TabIndex = 1;
             // 
             // FormFuncionario
             // 
@@ -340,9 +340,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.Label label3;
@@ -367,5 +364,7 @@
         private System.Windows.Forms.MaskedTextBox tb_telemovel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_salario;
+        private System.Windows.Forms.MaskedTextBox tb_num_contribuinte;
+        private System.Windows.Forms.Label label1;
     }
 }

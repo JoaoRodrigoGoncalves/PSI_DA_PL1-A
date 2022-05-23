@@ -30,11 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.funcionarios_DataGridView = new System.Windows.Forms.DataGridView();
-            this.IDFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PosicaoFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarioFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RestauranteFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Remover_BTN = new System.Windows.Forms.Button();
             this.Editar_BTN = new System.Windows.Forms.Button();
@@ -46,6 +41,12 @@
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
+            this.IDFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContribuinteFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PosicaoFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RestauranteFuncionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarios_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -86,6 +87,7 @@
             this.funcionarios_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDFuncionario,
             this.NomeFuncionario,
+            this.ContribuinteFuncionario,
             this.PosicaoFuncionario,
             this.SalarioFuncionario,
             this.RestauranteFuncionario});
@@ -97,45 +99,6 @@
             this.funcionarios_DataGridView.TabIndex = 0;
             this.funcionarios_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseClick);
             this.funcionarios_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseDoubleClick);
-            // 
-            // IDFuncionario
-            // 
-            this.IDFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.IDFuncionario.HeaderText = "ID";
-            this.IDFuncionario.Name = "IDFuncionario";
-            this.IDFuncionario.ReadOnly = true;
-            this.IDFuncionario.Width = 43;
-            // 
-            // NomeFuncionario
-            // 
-            this.NomeFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NomeFuncionario.HeaderText = "Nome";
-            this.NomeFuncionario.Name = "NomeFuncionario";
-            this.NomeFuncionario.ReadOnly = true;
-            // 
-            // PosicaoFuncionario
-            // 
-            this.PosicaoFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PosicaoFuncionario.HeaderText = "Posicao";
-            this.PosicaoFuncionario.Name = "PosicaoFuncionario";
-            this.PosicaoFuncionario.ReadOnly = true;
-            this.PosicaoFuncionario.Width = 70;
-            // 
-            // SalarioFuncionario
-            // 
-            this.SalarioFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SalarioFuncionario.HeaderText = "Salario";
-            this.SalarioFuncionario.Name = "SalarioFuncionario";
-            this.SalarioFuncionario.ReadOnly = true;
-            this.SalarioFuncionario.Width = 64;
-            // 
-            // RestauranteFuncionario
-            // 
-            this.RestauranteFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.RestauranteFuncionario.HeaderText = "Restaurante";
-            this.RestauranteFuncionario.Name = "RestauranteFuncionario";
-            this.RestauranteFuncionario.ReadOnly = true;
-            this.RestauranteFuncionario.Width = 90;
             // 
             // groupBox1
             // 
@@ -256,6 +219,51 @@
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
             // 
+            // IDFuncionario
+            // 
+            this.IDFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.IDFuncionario.HeaderText = "ID";
+            this.IDFuncionario.Name = "IDFuncionario";
+            this.IDFuncionario.ReadOnly = true;
+            this.IDFuncionario.Width = 43;
+            // 
+            // NomeFuncionario
+            // 
+            this.NomeFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeFuncionario.HeaderText = "Nome";
+            this.NomeFuncionario.Name = "NomeFuncionario";
+            this.NomeFuncionario.ReadOnly = true;
+            // 
+            // ContribuinteFuncionario
+            // 
+            this.ContribuinteFuncionario.HeaderText = "Contribuinte";
+            this.ContribuinteFuncionario.Name = "ContribuinteFuncionario";
+            this.ContribuinteFuncionario.ReadOnly = true;
+            // 
+            // PosicaoFuncionario
+            // 
+            this.PosicaoFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PosicaoFuncionario.HeaderText = "Posicao";
+            this.PosicaoFuncionario.Name = "PosicaoFuncionario";
+            this.PosicaoFuncionario.ReadOnly = true;
+            this.PosicaoFuncionario.Width = 70;
+            // 
+            // SalarioFuncionario
+            // 
+            this.SalarioFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SalarioFuncionario.HeaderText = "Salario";
+            this.SalarioFuncionario.Name = "SalarioFuncionario";
+            this.SalarioFuncionario.ReadOnly = true;
+            this.SalarioFuncionario.Width = 64;
+            // 
+            // RestauranteFuncionario
+            // 
+            this.RestauranteFuncionario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.RestauranteFuncionario.HeaderText = "Restaurante";
+            this.RestauranteFuncionario.Name = "RestauranteFuncionario";
+            this.RestauranteFuncionario.ReadOnly = true;
+            this.RestauranteFuncionario.Width = 90;
+            // 
             // FormGestaoFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +305,7 @@
         private System.Windows.Forms.Button LimparFiltro_BTN;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDFuncionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeFuncionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContribuinteFuncionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosicaoFuncionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalarioFuncionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn RestauranteFuncionario;

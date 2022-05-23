@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -35,7 +36,7 @@ namespace RestGest
                 funcionarios_DataGridView.Rows.Clear();
                 foreach (Trabalhador funcionario in databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo == true))
                 {
-                    string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome};
+                    string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.NumContribuinte, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome};
                     funcionarios_DataGridView.Rows.Add(row);
                 }
 
@@ -48,7 +49,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoRestaurante().ShowDialog();
+            new FormFuncionario().ShowDialog();
             ReloadDataGridView();
         }
 
@@ -130,10 +131,31 @@ namespace RestGest
                     }
                     else
                     {
+                        // TODO Check this shit 
+                        if (trabalhadorARemover.Restaurante.Nome == null)
+                        {
+                            trabalhadorARemover.Restaurante.Nome = "";
+                            trabalhadorARemover.Restaurante.NumContribuinte = "";
+                        }
+                        //
                         databaseContainer.Pessoas.Remove(trabalhadorARemover);
                     }
 
-                    databaseContainer.SaveChanges();
+                    try
+                    {
+                        databaseContainer.SaveChanges();
+                    }
+                    catch(DbEntityValidationException ex)
+                    {
+                        MessageBox.Show("Erro guardando dados", "Remoce Worker Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        foreach (var ev in ex.EntityValidationErrors)
+                        {
+                            Console.WriteLine("Entity of type " + ev.Entry.Entity.GetType().Name + " in state " + ev.Entry.State + " has the following validation errors:");
+                            foreach (var ve in ev.ValidationErrors)
+                                Console.WriteLine("- Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage);
+                        }
+                    }
+                    //
                     ReloadDataGridView();
                 }
             }

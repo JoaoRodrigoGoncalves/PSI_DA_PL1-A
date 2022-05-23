@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,8 @@ namespace RestGest
             databaseContainer = new RestGestContainer();
             this.trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == idTrabalhador).First();
             //Identificação do trabalhador
-            tb_id.Text = trabalhador.Id.ToString();
             tb_name.Text = trabalhador.Nome;
+            tb_num_contribuinte.Text = trabalhador.NumContribuinte;
             tb_telemovel.Text = trabalhador.Telemovel;
             tb_salario.Text = trabalhador.Salario.ToString();
             tb_position.Text = trabalhador.Posicao;
@@ -46,45 +47,6 @@ namespace RestGest
             this.Close();
         }
 
-        private void bt_edit_Click(object sender, EventArgs e)
-        {
-            if (inputValidation())
-            {
-                MessageBox.Show("Preencha todos os campos", "Criação de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            tb_salario.Text = tb_salario.Text.Replace(",", ".");
-            if(!decimal.TryParse(tb_salario.Text, out decimal salario))
-            {
-                MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // TODO Criar Trabalhador constructor
-            trabalhador.Id = Convert.ToInt32(tb_id.Text);
-            trabalhador.Nome = tb_name.Text;
-            trabalhador.Telemovel = tb_telemovel.Text;
-            trabalhador.Salario = salario;
-            trabalhador.Posicao = tb_position.Text;
-            trabalhador.Morada.Rua = tb_rua.Text;
-            trabalhador.Morada.Cidade = tb_cidade.Text;
-            trabalhador.Morada.Codigo_Postal = tb_cp.Text;
-            trabalhador.Morada.Pais = tb_pais.Text;
-            //trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
-            //
-            try
-            {
-                databaseContainer.SaveChanges();
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Saving changes fail...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(ex);
-            }
-            //
-            this.Close();
-        }
-
         private void bt_create_Click(object sender, EventArgs e)
         {
             if (inputValidation())
@@ -93,19 +55,13 @@ namespace RestGest
                 return;
             }
 
-            tb_salario.Text = tb_salario.Text.Replace(".", ",");
-            if (!decimal.TryParse(tb_salario.Text, out decimal salario))
+            if(salarioValidation())
             {
                 MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Morada moradaTrabalhador = new Morada();
-
-            moradaTrabalhador.Rua = tb_rua.Text;
-            moradaTrabalhador.Cidade = tb_cidade.Text;
-            moradaTrabalhador.Codigo_Postal = tb_cp.Text;
-            moradaTrabalhador.Pais = tb_pais.Text;
+            Morada moradaTrabalhador = new Morada(tb_rua.Text, tb_cidade.Text, tb_cp.Text, tb_pais.Text);
 
             moradaTrabalhador = databaseContainer.Moradas.Add(moradaTrabalhador);
             databaseContainer.SaveChanges();
@@ -113,16 +69,78 @@ namespace RestGest
             Trabalhador novoTrabalhador = new Trabalhador();
 
             novoTrabalhador.Nome = tb_name.Text;
+            novoTrabalhador.NumContribuinte = tb_num_contribuinte.Text;
             novoTrabalhador.Telemovel = tb_telemovel.Text;
-            novoTrabalhador.Salario = salario;
+            novoTrabalhador.Salario = decimal.Parse(tb_salario.Text);
             novoTrabalhador.Posicao = tb_position.Text;
-            novoTrabalhador.Morada = moradaTrabalhador;
             novoTrabalhador.RestauranteId = null;
             novoTrabalhador.Restaurante = null;
-            
-            databaseContainer.Pessoas.Add(novoTrabalhador);
-            databaseContainer.SaveChanges();
+            novoTrabalhador.Morada = moradaTrabalhador;
 
+            databaseContainer.Pessoas.Add(novoTrabalhador);
+            try
+            {
+                databaseContainer.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                MessageBox.Show("Erro guardando dados", "Add Worker Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var ev in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type " + ev.Entry.Entity.GetType().Name + " in state " + ev.Entry.State + " has the following validation errors:");
+                    foreach (var ve in ev.ValidationErrors)
+                        Console.WriteLine("- Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage);
+                }
+            }
+
+            this.Close();
+        }
+
+        private void bt_edit_Click(object sender, EventArgs e)
+        {
+            if (inputValidation())
+            {
+                MessageBox.Show("Preencha todos os campos", "Criação de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (salarioValidation())
+            {
+                MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // TODO Criar Trabalhador constructor
+            trabalhador.Nome = tb_name.Text;
+            trabalhador.NumContribuinte = tb_num_contribuinte.Text;
+            trabalhador.Telemovel = tb_telemovel.Text;
+            trabalhador.Salario = decimal.Parse(tb_salario.Text);
+            trabalhador.Posicao = tb_position.Text;
+            trabalhador.Morada = new Morada(tb_rua.Text, tb_cidade.Text, tb_cp.Text, tb_pais.Text);
+            //TODO Check this shit
+            if (trabalhador.Restaurante.Nome == null)
+            {
+                trabalhador.Restaurante.Nome = "";
+                trabalhador.Restaurante.NumContribuinte = "";
+            }
+
+            //trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
+            //
+            try
+            {
+                databaseContainer.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                MessageBox.Show("Saving changes fail...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                foreach (var ev in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type " + ev.Entry.Entity.GetType().Name + " in state " + ev.Entry.State + " has the following validation errors:");
+                    foreach (var ve in ev.ValidationErrors)
+                        Console.WriteLine("- Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage);
+                }
+            }
+            //
             this.Close();
         }
 
@@ -132,6 +150,12 @@ namespace RestGest
             return (String.IsNullOrEmpty(tb_name.Text) || String.IsNullOrEmpty(tb_salario.Text) ||
                 String.IsNullOrEmpty(tb_position.Text) || String.IsNullOrEmpty(tb_rua.Text) || String.IsNullOrEmpty(tb_cidade.Text) ||
                 String.IsNullOrEmpty(tb_cp.Text) || String.IsNullOrEmpty(tb_pais.Text));
+        }
+
+        private bool salarioValidation()
+        {
+            tb_salario.Text = tb_salario.Text.Replace(".", ",");
+            return !decimal.TryParse(tb_salario.Text, out decimal salario);
         }
     }
 }

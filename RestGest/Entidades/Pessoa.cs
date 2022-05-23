@@ -8,9 +8,9 @@ namespace RestGest
 {
     public partial class Pessoa 
     {
-        //public Pessoa()
-        //{
-        //    this.Morada = new Morada();
-        //}
+        public Pessoa()
+        {
+            this.Ativo = true;
+        }
     }
 }

@@ -15,10 +15,6 @@ namespace RestGest
     public partial class Pessoa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pessoa()
-        {
-            this.Ativo = true;
-        }
     
         public int Id { get; set; }
         public string Nome { get; set; }

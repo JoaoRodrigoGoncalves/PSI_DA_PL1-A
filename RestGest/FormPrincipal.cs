@@ -24,7 +24,7 @@ namespace RestGest
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FormGestaoRestaurantes().ShowDialog();
+            new FormGestaoFuncionarios().ShowDialog();
         }
     }
 }
