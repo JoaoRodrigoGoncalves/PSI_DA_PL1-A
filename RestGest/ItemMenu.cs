@@ -18,7 +18,7 @@ namespace RestGest
         public ItemMenu()
         {
             this.Ativo = true;
-            this.Restaurante = new HashSet<Restaurante>();
+            this.Restaurante = new HashSet<Categoria>();
         }
     
         public int Id { get; set; }
@@ -30,7 +30,7 @@ namespace RestGest
         public int CategoriaId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Restaurante> Restaurante { get; set; }
+        public virtual ICollection<Categoria> Restaurante { get; set; }
         public virtual Categoria Categoria { get; set; }
     }
 }

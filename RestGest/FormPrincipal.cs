@@ -27,6 +27,11 @@ namespace RestGest
             new FormGestaoFuncionarios().ShowDialog();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new FormProdutos().ShowDialog();
+        }
+
         private void menuItem_gr_Click(object sender, EventArgs e)
         {
             new FormGestaoRestaurantes(true).ShowDialog();
