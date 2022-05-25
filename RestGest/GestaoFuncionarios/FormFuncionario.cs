@@ -179,7 +179,8 @@ namespace RestGest
         {
             FormGestaoRestaurantes form = new FormGestaoRestaurantes(this, false);
             form.ShowDialog();
-            tb_restaurante.Text = form.returnRestaurante.Id + " - " + form.returnRestaurante.Nome;
+            if(form.returnRestaurante != null)
+                tb_restaurante.Text = form.returnRestaurante.Id + " - " + form.returnRestaurante.Nome;
         }
     }
 }

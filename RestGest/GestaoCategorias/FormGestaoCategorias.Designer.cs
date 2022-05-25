@@ -117,6 +117,8 @@ namespace RestGest.GestaoCategorias
             this.categorias_menu_DataGridView.ReadOnly = true;
             this.categorias_menu_DataGridView.Size = new System.Drawing.Size(658, 352);
             this.categorias_menu_DataGridView.TabIndex = 0;
+            this.categorias_menu_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.categorias_menu_DataGridView_MouseClick);
+            this.categorias_menu_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.categorias_menu_DataGridView_MouseDoubleClick);
             // 
             // IDRestaurante
             // 
