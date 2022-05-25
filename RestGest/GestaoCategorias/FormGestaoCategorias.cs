@@ -1,20 +1,19 @@
-﻿using RestGest.GestaoRestaurantes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RestGest
+namespace RestGest.GestaoCategorias
 {
-    public partial class FormGestaoRestaurantes : Form
+    public partial class FormGestaoCategorias : Form
     {
-        public Categoria returnRestaurante;
+        public Categoria returnCategoriaMenu;
         private RestGestContainer databaseContainer;
         private bool FormGestao;
 
-        public FormGestaoRestaurantes(bool gestao)
+        public FormGestaoCategorias(bool gestao)
         {
             InitializeComponent();
             this.FormGestao = gestao;
@@ -29,7 +28,7 @@ namespace RestGest
             Selecionar_BTN.Enabled = !active;
         }
 
-        private void FormGestaoRestaurantes_Shown(object sender, EventArgs e)
+        private void FormGestaoCategoria_Shown(object sender, EventArgs e)
         {
             Thread loadingThread = new Thread(ReloadDataGridView);
             loadingThread.Start();
@@ -40,19 +39,19 @@ namespace RestGest
             databaseContainer = new RestGestContainer();
 
 
-            restaurantes_DataGridView.Invoke(new MethodInvoker(delegate
+            categorias_menu_DataGridView.Invoke(new MethodInvoker(delegate
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                restaurantes_DataGridView.Rows.Clear();
-                foreach (Categoria restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
+                categorias_menu_DataGridView.Rows.Clear();
+                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo == true))
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
-                    restaurantes_DataGridView.Rows.Add(row);
+                    string[] row = { categoria.Id.ToString(), categoria.Nome};
+                    categorias_menu_DataGridView.Rows.Add(row);
                 }
 
-                if (restaurantes_DataGridView.Rows.Count > 0)
-                    restaurantes_DataGridView.Rows[0].Selected = true;
+                if (categorias_menu_DataGridView.Rows.Count > 0)
+                    categorias_menu_DataGridView.Rows[0].Selected = true;
 
                 LoadingPopUp_Panel.Visible = false;
             }));
@@ -60,27 +59,27 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoRestaurante().ShowDialog();
+            //new FormRegistoRestaurante().ShowDialog();
             ReloadDataGridView();
         }
 
         private void filtrar_BTN_Click(object sender, EventArgs e)
         {
-            restaurantes_DataGridView.Invoke(new MethodInvoker(delegate
+            categorias_menu_DataGridView.Invoke(new MethodInvoker(delegate
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Categoria> restaurantes = databaseContainer.Restaurantes.Where(restaurante => restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && restaurante.Ativo == true).ToList();
+                List<Categoria> categorias = databaseContainer.Categorias.Where(categoria => categoria.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && categoria.Ativo == true).ToList();
 
-                restaurantes_DataGridView.Rows.Clear();
-                foreach (Categoria restaurante in restaurantes)
+                categorias_menu_DataGridView.Rows.Clear();
+                foreach (Categoria categoria in categorias)
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
-                    restaurantes_DataGridView.Rows.Add(row);
+                    string[] row = { categoria.Id.ToString(), categoria.Nome};
+                    categorias_menu_DataGridView.Rows.Add(row);
                 }
 
-                if (restaurantes_DataGridView.Rows.Count > 0)
-                    restaurantes_DataGridView.Rows[0].Selected = true;
+                if (categorias_menu_DataGridView.Rows.Count > 0)
+                    categorias_menu_DataGridView.Rows[0].Selected = true;
 
                 LoadingPopUp_Panel.Visible = false;
             }));
@@ -91,15 +90,15 @@ namespace RestGest
             databaseContainer.Dispose();
         }
 
-        private void restaurantes_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void categorias_menu_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
             // Acedido em 19/05/2022
-            var hit = restaurantes_DataGridView.HitTest(e.X, e.Y);
+            var hit = categorias_menu_DataGridView.HitTest(e.X, e.Y);
             if (hit.RowIndex != -1)
             {
-                restaurantes_DataGridView.ClearSelection();
-                restaurantes_DataGridView.Rows[hit.RowIndex].Selected = true;
+                categorias_menu_DataGridView.ClearSelection();
+                categorias_menu_DataGridView.Rows[hit.RowIndex].Selected = true;
                 //Filtra o tipo de ação 
                 if (this.FormGestao)
                     Editar_BTN_Click(sender, e);
@@ -108,39 +107,39 @@ namespace RestGest
             }
         }
 
-        private void restaurantes_DataGridView_MouseClick(object sender, MouseEventArgs e)
+        private void categorias_menu_DataGridView_MouseClick(object sender, MouseEventArgs e)
         {
             // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
             // Acedido em 19/05/2022
-            var hit = restaurantes_DataGridView.HitTest(e.X, e.Y);
+            var hit = categorias_menu_DataGridView.HitTest(e.X, e.Y);
             if (hit.RowIndex != -1)
             {
-                restaurantes_DataGridView.ClearSelection();
-                restaurantes_DataGridView.Rows[hit.RowIndex].Selected = true;
+                categorias_menu_DataGridView.ClearSelection();
+                categorias_menu_DataGridView.Rows[hit.RowIndex].Selected = true;
             }
         }
 
         private void Editar_BTN_Click(object sender, EventArgs e)
         {
-            if (restaurantes_DataGridView.SelectedRows.Count == 1)
+            if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                int row = restaurantes_DataGridView.SelectedRows[0].Index;
-                int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoRestaurante(idRestaurante).ShowDialog();
+                int row = categorias_menu_DataGridView.SelectedRows[0].Index;
+                int idRestaurante = int.Parse(categorias_menu_DataGridView.Rows[row].Cells[0].Value.ToString());
+                //new FormEdicaoRestaurante(idRestaurante).ShowDialog();
                 ReloadDataGridView();
             }
         }
 
         private void Remover_BTN_Click(object sender, EventArgs e)
         {
-            if (restaurantes_DataGridView.SelectedRows.Count == 1)
+            if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                string nome = restaurantes_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    int restaurante_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     Categoria restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                    if(databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
+                    if (databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
                     {
                         restauranteRemover.Ativo = false;
                     }
@@ -162,11 +161,11 @@ namespace RestGest
 
         private void Selecionar_BTN_Click(object sender, EventArgs e)
         {
-            if (restaurantes_DataGridView.SelectedRows.Count == 1)
+            if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                int row = restaurantes_DataGridView.SelectedRows[0].Index;
-                int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                this.returnRestaurante = databaseContainer.Restaurantes.Find(idRestaurante);
+                int row = categorias_menu_DataGridView.SelectedRows[0].Index;
+                int idCategoria = int.Parse(categorias_menu_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnCategoriaMenu = databaseContainer.Categorias.Find(idCategoria);
                 this.Close();
             }
         }

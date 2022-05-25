@@ -85,7 +85,7 @@ namespace RestGest
             if (!String.IsNullOrEmpty(tb_restaurante.Text))
             {
                 int idRestaurante = (int)(tb_restaurante.Text[0] - '0');
-                novoTrabalhador.Restaurante = new Restaurante();
+                novoTrabalhador.Restaurante = new Categoria();
                 novoTrabalhador.Restaurante = databaseContainer.Restaurantes.Find(idRestaurante);
                 novoTrabalhador.RestauranteId = idRestaurante;
             }

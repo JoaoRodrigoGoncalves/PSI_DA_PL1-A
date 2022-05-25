@@ -18,6 +18,6 @@ namespace RestGest
         public string Posicao { get; set; }
         public Nullable<int> RestauranteId { get; set; }
     
-        public virtual Restaurante Restaurante { get; set; }
+        public virtual Categoria Restaurante { get; set; }
     }
 }
