@@ -34,6 +34,9 @@ namespace RestGest
         {
             this.Hide();
             new FormGestaoCategorias(this, true).ShowDialog();
+            /*FormGestaoCategorias cat_form = new FormGestaoCategorias(this, false);
+            cat_form.ShowDialog();
+            MessageBox.Show("Categoria: " + cat_form.returnCategoriaMenu.Nome, "Test");*/
         }
 
         private void menuItem_gr_Click(object sender, EventArgs e)
