@@ -12,12 +12,19 @@ namespace RestGest.GestaoCategorias
         public Categoria returnCategoriaMenu;
         private RestGestContainer databaseContainer;
         private bool FormGestao;
+        private Form FormBack;
 
-        public FormGestaoCategorias(bool gestao)
+        public FormGestaoCategorias(Form formBack, bool gestao)
         {
             InitializeComponent();
+            this.FormBack = formBack;
             this.FormGestao = gestao;
             activeFuntion(this.FormGestao);
+        }
+        private void FormGestaoCategorias_Shown(object sender, EventArgs e)
+        {
+            Thread loadingThread = new Thread(ReloadDataGridView);
+            loadingThread.Start();
         }
 
         private void activeFuntion(bool active)
@@ -26,12 +33,6 @@ namespace RestGest.GestaoCategorias
             Editar_BTN.Enabled = active;
             Remover_BTN.Enabled = active;
             Selecionar_BTN.Enabled = !active;
-        }
-
-        private void FormGestaoCategoria_Shown(object sender, EventArgs e)
-        {
-            Thread loadingThread = new Thread(ReloadDataGridView);
-            loadingThread.Start();
         }
 
         private void ReloadDataGridView()
@@ -44,7 +45,7 @@ namespace RestGest.GestaoCategorias
                 LoadingPopUp_Panel.Visible = true;
 
                 categorias_menu_DataGridView.Rows.Clear();
-                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo == true))
+                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
                 {
                     string[] row = { categoria.Id.ToString(), categoria.Nome};
                     categorias_menu_DataGridView.Rows.Add(row);
@@ -55,12 +56,6 @@ namespace RestGest.GestaoCategorias
 
                 LoadingPopUp_Panel.Visible = false;
             }));
-        }
-
-        private void Adicionar_BTN_Click(object sender, EventArgs e)
-        {
-            //new FormRegistoRestaurante().ShowDialog();
-            ReloadDataGridView();
         }
 
         private void filtrar_BTN_Click(object sender, EventArgs e)
@@ -74,7 +69,7 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows.Clear();
                 foreach (Categoria categoria in categorias)
                 {
-                    string[] row = { categoria.Id.ToString(), categoria.Nome};
+                    string[] row = buildDataGridRow(categoria);
                     categorias_menu_DataGridView.Rows.Add(row);
                 }
 
@@ -85,9 +80,10 @@ namespace RestGest.GestaoCategorias
             }));
         }
 
-        private void FormGestaoRestaurantes_FormClosing(object sender, FormClosingEventArgs e)
+        private string[] buildDataGridRow(Categoria categoria)
         {
-            databaseContainer.Dispose();
+            string[] row = { categoria.Id.ToString(), categoria.Nome };
+            return row;
         }
 
         private void categorias_menu_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -118,14 +114,20 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows[hit.RowIndex].Selected = true;
             }
         }
+        
+        private void Adicionar_BTN_Click(object sender, EventArgs e)
+        {
+            new FormCategoria().ShowDialog();
+            ReloadDataGridView();
+        }
 
         private void Editar_BTN_Click(object sender, EventArgs e)
         {
             if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
                 int row = categorias_menu_DataGridView.SelectedRows[0].Index;
-                int idRestaurante = int.Parse(categorias_menu_DataGridView.Rows[row].Cells[0].Value.ToString());
-                //new FormEdicaoRestaurante(idRestaurante).ShowDialog();
+                int idCategoria = int.Parse(categorias_menu_DataGridView.Rows[row].Cells[0].Value.ToString());
+                new FormCategoria(idCategoria).ShowDialog();
                 ReloadDataGridView();
             }
         }
@@ -137,15 +139,15 @@ namespace RestGest.GestaoCategorias
                 string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int restaurante_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                    Categoria restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                    if (databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
+                    int categoria_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    Categoria categoriasRemover = databaseContainer.Categorias.Find(categoria_id);
+                    if (databaseContainer.ItemsMenus.Where(p => p.CategoriaId == categoria_id).Count() > 0)
                     {
-                        restauranteRemover.Ativo = false;
+                        categoriasRemover.Ativo = false;
                     }
                     else
                     {
-                        databaseContainer.Restaurantes.Remove(restauranteRemover);
+                        databaseContainer.Categorias.Remove(categoriasRemover);
                     }
                     databaseContainer.SaveChanges();
                     ReloadDataGridView();
@@ -168,6 +170,21 @@ namespace RestGest.GestaoCategorias
                 this.returnCategoriaMenu = databaseContainer.Categorias.Find(idCategoria);
                 this.Close();
             }
+        }
+
+        private void FormGestaoCategorias_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.FormBack.Show();
+        }
+
+        private void FormGestaoRestaurantes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            databaseContainer.Dispose();
+        }
+
+        private void LimparFiltro_BTN_Click_1(object sender, EventArgs e)
+        {
+            ReloadDataGridView();
         }
     }
 }

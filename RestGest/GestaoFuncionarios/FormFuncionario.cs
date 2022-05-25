@@ -142,7 +142,6 @@ namespace RestGest
                 trabalhador.RestauranteId = idRestaurante;
             }
 
-            //trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
             //
             try
             {
@@ -178,7 +177,7 @@ namespace RestGest
 
         private void tb_restaurante_MouseClick(object sender, MouseEventArgs e)
         {
-            FormGestaoRestaurantes form = new FormGestaoRestaurantes(false);
+            FormGestaoRestaurantes form = new FormGestaoRestaurantes(this, false);
             form.ShowDialog();
             tb_restaurante.Text = form.returnRestaurante.Id + " - " + form.returnRestaurante.Nome;
         }

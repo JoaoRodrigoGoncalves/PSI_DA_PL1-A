@@ -12,10 +12,12 @@ namespace RestGest
     public partial class FormGestaoFuncionarios : Form
     {
         private RestGestContainer databaseContainer;
+        private Form FormBack;    
 
-        public FormGestaoFuncionarios()
+        public FormGestaoFuncionarios(Form formBack)
         {
             InitializeComponent();
+            this.FormBack = formBack;
         }
 
         private void FormGestaoFuncionarios_Shown(object sender, EventArgs e)
@@ -34,11 +36,13 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 funcionarios_DataGridView.Rows.Clear();
-                foreach (Trabalhador funcionario in databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo == true))
+                foreach (Trabalhador funcionario in databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo))
                 {
+                    //Prevenção de bug
                     if (funcionario.Restaurante == null)
-                        funcionario.Restaurante = new Categoria();
-                    string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.NumContribuinte, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome};
+                        funcionario.Restaurante = new Restaurante();
+
+                    string[] row = buildDataGridRow(funcionario);
                     funcionarios_DataGridView.Rows.Add(row);
                 }
 
@@ -61,12 +65,16 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Trabalhador> funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo == true).ToList();
+                List<Trabalhador> funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo).ToList();
 
                 funcionarios_DataGridView.Rows.Clear();
                 foreach (Trabalhador funcionario in funcionarios)
                 {
-                    string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome };
+                    //Prevenção de bug
+                    if (funcionario.Restaurante == null)
+                        funcionario.Restaurante = new Restaurante();
+
+                    string[] row = buildDataGridRow(funcionario);
                     funcionarios_DataGridView.Rows.Add(row);
                 }
 
@@ -75,6 +83,12 @@ namespace RestGest
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private string[] buildDataGridRow(Trabalhador funcionario)
+        {
+            string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.NumContribuinte, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome };
+            return row;
         }
 
         private void FormGestaoFuncionarios_FormClosing(object sender, FormClosingEventArgs e)
@@ -167,6 +181,11 @@ namespace RestGest
         {
             filtrar_TextBox.Clear();
             ReloadDataGridView();
+        }
+
+        private void FormGestaoFuncionarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.FormBack.Show();
         }
     }
 }

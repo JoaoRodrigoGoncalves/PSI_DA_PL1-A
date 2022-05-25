@@ -156,6 +156,7 @@ namespace RestGest.GestaoCategorias
             this.Selecionar_BTN.TabIndex = 3;
             this.Selecionar_BTN.Text = "Selecionar";
             this.Selecionar_BTN.UseVisualStyleBackColor = true;
+            this.Selecionar_BTN.Click += new System.EventHandler(this.Selecionar_BTN_Click);
             // 
             // Remover_BTN
             // 
@@ -166,6 +167,7 @@ namespace RestGest.GestaoCategorias
             this.Remover_BTN.TabIndex = 2;
             this.Remover_BTN.Text = "Desativar / Remover";
             this.Remover_BTN.UseVisualStyleBackColor = true;
+            this.Remover_BTN.Click += new System.EventHandler(this.Remover_BTN_Click);
             // 
             // Editar_BTN
             // 
@@ -176,6 +178,7 @@ namespace RestGest.GestaoCategorias
             this.Editar_BTN.TabIndex = 1;
             this.Editar_BTN.Text = "Editar";
             this.Editar_BTN.UseVisualStyleBackColor = true;
+            this.Editar_BTN.Click += new System.EventHandler(this.Editar_BTN_Click);
             // 
             // Adicionar_BTN
             // 
@@ -222,6 +225,7 @@ namespace RestGest.GestaoCategorias
             this.filtrar_BTN.TabIndex = 1;
             this.filtrar_BTN.Text = "Filtrar";
             this.filtrar_BTN.UseVisualStyleBackColor = true;
+            this.filtrar_BTN.Click += new System.EventHandler(this.filtrar_BTN_Click);
             // 
             // LimparFiltro_BTN
             // 
@@ -232,6 +236,7 @@ namespace RestGest.GestaoCategorias
             this.LimparFiltro_BTN.TabIndex = 2;
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
+            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click_1);
             // 
             // FormGestaoCategorias
             // 
@@ -242,6 +247,8 @@ namespace RestGest.GestaoCategorias
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoCategorias";
             this.Text = "Gestão Categorias Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGestaoCategorias_FormClosed);
+            this.Shown += new System.EventHandler(this.FormGestaoCategorias_Shown);
             this.LoadingPopUp_Panel.ResumeLayout(false);
             this.LoadingPopUp_Panel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

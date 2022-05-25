@@ -276,6 +276,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Funcionarios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoFuncionarios_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGestaoFuncionarios_FormClosed);
             this.Shown += new System.EventHandler(this.FormGestaoFuncionarios_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.funcionarios_DataGridView)).EndInit();

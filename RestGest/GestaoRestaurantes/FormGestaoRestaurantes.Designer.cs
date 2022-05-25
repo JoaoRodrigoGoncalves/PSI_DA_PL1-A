@@ -279,6 +279,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Restaurantes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoRestaurantes_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGestaoRestaurantes_FormClosed);
             this.Shown += new System.EventHandler(this.FormGestaoRestaurantes_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.restaurantes_DataGridView)).EndInit();

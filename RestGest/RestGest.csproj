@@ -60,8 +60,8 @@
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Morada.cs" />
-    <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Trabalhador.cs" />
+    <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Estado.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
@@ -76,6 +76,12 @@
     </Compile>
     <Compile Include="FormProdutos.Designer.cs">
       <DependentUpon>FormProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoCategorias\FormCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoCategorias\FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoCategorias\FormGestaoCategorias.cs">
       <SubType>Form</SubType>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProdutos.resx">
       <DependentUpon>FormProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoCategorias\FormCategoria.resx">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoCategorias\FormGestaoCategorias.resx">
       <DependentUpon>FormGestaoCategorias.cs</DependentUpon>

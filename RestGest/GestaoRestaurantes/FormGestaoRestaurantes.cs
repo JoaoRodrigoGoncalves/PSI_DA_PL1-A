@@ -11,12 +11,15 @@ namespace RestGest
     public partial class FormGestaoRestaurantes : Form
     {
         public Restaurante returnRestaurante;
+
+        private Form FormBack;
         private RestGestContainer databaseContainer;
         private bool FormGestao;
 
-        public FormGestaoRestaurantes(bool gestao)
+        public FormGestaoRestaurantes(Form formBack, bool gestao)
         {
             InitializeComponent();
+            this.FormBack = formBack;
             this.FormGestao = gestao;
             activeFuntion(this.FormGestao);
         }
@@ -45,9 +48,9 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 restaurantes_DataGridView.Rows.Clear();
-                foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
+                foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo))
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+                    string[] row = buildDataGridRow(restaurante);
                     restaurantes_DataGridView.Rows.Add(row);
                 }
 
@@ -56,6 +59,12 @@ namespace RestGest
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private string[] buildDataGridRow(Restaurante restaurante)
+        {
+            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+            return row;
         }
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
@@ -75,7 +84,7 @@ namespace RestGest
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+                    string[] row = buildDataGridRow(restaurante);
                     restaurantes_DataGridView.Rows.Add(row);
                 }
 
@@ -169,6 +178,11 @@ namespace RestGest
                 this.returnRestaurante = databaseContainer.Restaurantes.Find(idRestaurante);
                 this.Close();
             }
+        }
+
+        private void FormGestaoRestaurantes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.FormBack.Show();
         }
     }
 }

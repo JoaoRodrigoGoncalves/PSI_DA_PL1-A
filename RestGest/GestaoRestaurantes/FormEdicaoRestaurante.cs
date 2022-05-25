@@ -7,7 +7,7 @@ namespace RestGest.GestaoRestaurantes
     public partial class FormEdicaoRestaurante : Form
     {
         private RestGestContainer databaseContainer;
-        private Categoria dadosRestaurante;
+        private Restaurante dadosRestaurante;
 
         public FormEdicaoRestaurante(int restaurante_id)
         {
@@ -67,7 +67,7 @@ namespace RestGest.GestaoRestaurantes
 
             if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id).Count() == 1)
             {
-                Categoria match = databaseContainer.Restaurantes.First(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id);
+                Restaurante match = databaseContainer.Restaurantes.First(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id);
                 MessageBox.Show(
                     "Número de Contribuinte indicado já se encontra em utilização pelo restaurante \"" + match.Nome + "\". Operação abortada.",
                     "Número de Contribuinte indicado em utilização",

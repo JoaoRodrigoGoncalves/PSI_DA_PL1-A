@@ -8,6 +8,10 @@ namespace RestGest
 {
     public partial class Morada
     {
+        public Morada()
+        {
+
+        }
         public Morada(string rua, string cidade, string cp, string pais)
         {
             this.Rua = rua;

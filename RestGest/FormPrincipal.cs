@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestGest.GestaoCategorias;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,27 +20,32 @@ namespace RestGest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormGestaoRestaurantes(true).ShowDialog();
+            this.Hide();
+            new FormGestaoRestaurantes(this, true).ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FormGestaoFuncionarios().ShowDialog();
+            this.Hide();
+            new FormGestaoFuncionarios(this).ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new FormProdutos().ShowDialog();
+            this.Hide();
+            new FormGestaoCategorias(this, true).ShowDialog();
         }
 
         private void menuItem_gr_Click(object sender, EventArgs e)
         {
-            new FormGestaoRestaurantes(true).ShowDialog();
+            this.Hide();
+            new FormGestaoRestaurantes(this, true).ShowDialog();
         }
 
         private void menuItem_gf_Click(object sender, EventArgs e)
         {
-            new FormGestaoFuncionarios().ShowDialog();
+            this.Hide();
+            new FormGestaoFuncionarios(this).ShowDialog();
         }
     }
 }

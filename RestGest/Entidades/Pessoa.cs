@@ -8,11 +8,6 @@ namespace RestGest
 {
     public partial class Pessoa 
     {
-        public Pessoa()
-        {
-            this.Ativo = true;
-        }
-
         public Pessoa(int id, string nome, string telemovel, bool ativo, string numContribuinte, Morada morada)
         {
             Id = id;
