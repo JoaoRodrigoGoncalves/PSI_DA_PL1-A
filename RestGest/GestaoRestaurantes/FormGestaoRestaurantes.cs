@@ -35,7 +35,7 @@ namespace RestGest
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+                    string[] row = buildDataGridRow(restaurante);
                     restaurantes_DataGridView.Rows.Add(row);
                 }
 
@@ -44,6 +44,13 @@ namespace RestGest
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private string[] buildDataGridRow(Restaurante restaurante)
+        {
+            int count_funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante.Id).Count();
+            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", count_funcionarios.ToString()};
+            return row;
         }
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
@@ -63,7 +70,7 @@ namespace RestGest
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
                 {
-                    string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+                    string[] row = buildDataGridRow(restaurante);
                     restaurantes_DataGridView.Rows.Add(row);
                 }
 
