@@ -63,7 +63,8 @@ namespace RestGest
 
         private string[] buildDataGridRow(Restaurante restaurante)
         {
-            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
+            int count_funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante.Id).Count();
+            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", count_funcionarios.ToString()};
             return row;
         }
 
