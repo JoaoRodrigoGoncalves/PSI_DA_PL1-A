@@ -88,14 +88,14 @@ namespace RestGest.GestaoRestaurantes
             }
             else
             {
-                Restaurante novoRestaurante = new Restaurante();
-                novoRestaurante.Nome = Nome_TextBox.Text;
-                novoRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
+                Restaurante newRestaurante = new Restaurante();
+                newRestaurante.Nome = Nome_TextBox.Text;
+                newRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
 
                 moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
-                novoRestaurante.Morada = moradaRestaurante;
+                newRestaurante.Morada = moradaRestaurante;
                 
-                databaseContainer.Restaurantes.Add(novoRestaurante);
+                databaseContainer.Restaurantes.Add(newRestaurante);
             }
 
             databaseContainer.SaveChanges();

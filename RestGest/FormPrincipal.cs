@@ -19,10 +19,20 @@ namespace RestGest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormGestaoRestaurantes().ShowDialog();
+            new FormGestaoRestaurantes(true).ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            new FormGestaoFuncionarios().ShowDialog();
+        }
+
+        private void menuItem_gr_Click(object sender, EventArgs e)
+        {
+            new FormGestaoRestaurantes(true).ShowDialog();
+        }
+
+        private void menuItem_gf_Click(object sender, EventArgs e)
         {
             new FormGestaoFuncionarios().ShowDialog();
         }

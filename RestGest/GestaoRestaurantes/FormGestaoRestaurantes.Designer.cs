@@ -36,6 +36,7 @@
             this.PedidosRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrabalhadoresRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Selecionar_BTN = new System.Windows.Forms.Button();
             this.Remover_BTN = new System.Windows.Forms.Button();
             this.Editar_BTN = new System.Windows.Forms.Button();
             this.Adicionar_BTN = new System.Windows.Forms.Button();
@@ -137,6 +138,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Selecionar_BTN);
             this.groupBox1.Controls.Add(this.Remover_BTN);
             this.groupBox1.Controls.Add(this.Editar_BTN);
             this.groupBox1.Controls.Add(this.Adicionar_BTN);
@@ -147,6 +149,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ações";
+            // 
+            // Selecionar_BTN
+            // 
+            this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Selecionar_BTN.Location = new System.Drawing.Point(3, 103);
+            this.Selecionar_BTN.Name = "Selecionar_BTN";
+            this.Selecionar_BTN.Size = new System.Drawing.Size(78, 41);
+            this.Selecionar_BTN.TabIndex = 3;
+            this.Selecionar_BTN.Text = "Selecionar";
+            this.Selecionar_BTN.UseVisualStyleBackColor = true;
+            this.Selecionar_BTN.Click += new System.EventHandler(this.Selecionar_BTN_Click);
             // 
             // Remover_BTN
             // 
@@ -298,5 +311,6 @@
         private System.Windows.Forms.ProgressBar LoadingPopUp_ProgressBar;
         private System.Windows.Forms.Label LoadingPopUp_Label;
         private System.Windows.Forms.Button LimparFiltro_BTN;
+        private System.Windows.Forms.Button Selecionar_BTN;
     }
 }

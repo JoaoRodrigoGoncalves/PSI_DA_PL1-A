@@ -10,11 +10,23 @@ namespace RestGest
 {
     public partial class FormGestaoRestaurantes : Form
     {
+        public Restaurante returnRestaurante;
         private RestGestContainer databaseContainer;
+        private bool FormGestao;
 
-        public FormGestaoRestaurantes()
+        public FormGestaoRestaurantes(bool gestao)
         {
             InitializeComponent();
+            this.FormGestao = gestao;
+            activeFuntion(this.FormGestao);
+        }
+
+        private void activeFuntion(bool active)
+        {
+            Adicionar_BTN.Enabled = active;
+            Editar_BTN.Enabled = active;
+            Remover_BTN.Enabled = active;
+            Selecionar_BTN.Enabled = !active;
         }
 
         private void FormGestaoRestaurantes_Shown(object sender, EventArgs e)
@@ -88,7 +100,11 @@ namespace RestGest
             {
                 restaurantes_DataGridView.ClearSelection();
                 restaurantes_DataGridView.Rows[hit.RowIndex].Selected = true;
-                Editar_BTN_Click(sender, e);
+                //Filtra o tipo de ação 
+                if (this.FormGestao)
+                    Editar_BTN_Click(sender, e);
+                else
+                    Selecionar_BTN_Click(sender, e);
             }
         }
 
@@ -142,6 +158,17 @@ namespace RestGest
         {
             filtrar_TextBox.Clear();
             ReloadDataGridView();
+        }
+
+        private void Selecionar_BTN_Click(object sender, EventArgs e)
+        {
+            if (restaurantes_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = restaurantes_DataGridView.SelectedRows[0].Index;
+                int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnRestaurante = databaseContainer.Restaurantes.Find(idRestaurante);
+                this.Close();
+            }
         }
     }
 }

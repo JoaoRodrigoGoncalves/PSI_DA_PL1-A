@@ -67,6 +67,7 @@
             this.menuItem_gr.Name = "menuItem_gr";
             this.menuItem_gr.Size = new System.Drawing.Size(164, 25);
             this.menuItem_gr.Text = "Gestão Restaurantes";
+            this.menuItem_gr.Click += new System.EventHandler(this.menuItem_gr_Click);
             // 
             // menuItem_gc
             // 
@@ -79,6 +80,7 @@
             this.menuItem_gf.Name = "menuItem_gf";
             this.menuItem_gf.Size = new System.Drawing.Size(184, 25);
             this.menuItem_gf.Text = "Gestão de Funcionários";
+            this.menuItem_gf.Click += new System.EventHandler(this.menuItem_gf_Click);
             // 
             // menuItem_gp
             // 

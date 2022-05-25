@@ -8,9 +8,6 @@ namespace RestGest
 {
     public partial class Trabalhador
     {
-        public Trabalhador()
-        {
-            this.Restaurante = new Restaurante();
-        }
+
     }
 }

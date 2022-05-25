@@ -28,6 +28,7 @@ namespace RestGest
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             this.trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == idTrabalhador).First();
+                        
             //Identificação do trabalhador
             tb_name.Text = trabalhador.Nome;
             tb_num_contribuinte.Text = trabalhador.NumContribuinte;
@@ -39,6 +40,10 @@ namespace RestGest
             tb_cidade.Text = trabalhador.Morada.Cidade;
             tb_cp.Text = trabalhador.Morada.Codigo_Postal;
             tb_pais.Text = trabalhador.Morada.Pais;
+            //Identificação do restaurante asociado ao trabalhador
+            if (this.trabalhador.Restaurante != null) 
+                tb_restaurante.Text = trabalhador.Restaurante.Id + " - " + trabalhador.Restaurante.Nome;
+            //
             bt_edit.Enabled = true;
         }
 
@@ -76,7 +81,15 @@ namespace RestGest
             novoTrabalhador.RestauranteId = null;
             novoTrabalhador.Restaurante = null;
             novoTrabalhador.Morada = moradaTrabalhador;
-
+            //
+            if (!String.IsNullOrEmpty(tb_restaurante.Text))
+            {
+                int idRestaurante = (int)(tb_restaurante.Text[0] - '0');
+                novoTrabalhador.Restaurante = new Restaurante();
+                novoTrabalhador.Restaurante = databaseContainer.Restaurantes.Find(idRestaurante);
+                novoTrabalhador.RestauranteId = idRestaurante;
+            }
+            //
             databaseContainer.Pessoas.Add(novoTrabalhador);
             try
             {
@@ -118,10 +131,16 @@ namespace RestGest
             trabalhador.Posicao = tb_position.Text;
             trabalhador.Morada = new Morada(tb_rua.Text, tb_cidade.Text, tb_cp.Text, tb_pais.Text);
             //TODO Check this shit
-            if (trabalhador.Restaurante.Nome == null)
+            if (String.IsNullOrEmpty(tb_restaurante.Text))
             {
                 trabalhador.Restaurante.Nome = "";
                 trabalhador.Restaurante.NumContribuinte = "";
+            }
+            else
+            {
+                int idRestaurante = (int)(tb_restaurante.Text[0] - '0');
+                trabalhador.Restaurante = databaseContainer.Restaurantes.Find(idRestaurante);
+                trabalhador.RestauranteId = idRestaurante;
             }
 
             //trabalhador.Restaurante = databaseContainer.Restaurantes.Find(trabalhador.RestauranteId);
@@ -156,6 +175,13 @@ namespace RestGest
         {
             tb_salario.Text = tb_salario.Text.Replace(".", ",");
             return !decimal.TryParse(tb_salario.Text, out decimal salario);
+        }
+
+        private void tb_restaurante_MouseClick(object sender, MouseEventArgs e)
+        {
+            FormGestaoRestaurantes form = new FormGestaoRestaurantes(false);
+            form.ShowDialog();
+            tb_restaurante.Text = form.returnRestaurante.Id + " - " + form.returnRestaurante.Nome;
         }
     }
 }
