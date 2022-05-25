@@ -37,7 +37,7 @@ namespace RestGest
                 foreach (Trabalhador funcionario in databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo == true))
                 {
                     if (funcionario.Restaurante == null)
-                        funcionario.Restaurante = new Categoria();
+                        funcionario.Restaurante = new Restaurante();
                     string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.NumContribuinte, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome};
                     funcionarios_DataGridView.Rows.Add(row);
                 }

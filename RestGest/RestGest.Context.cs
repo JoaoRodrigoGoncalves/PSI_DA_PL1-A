@@ -27,7 +27,7 @@ namespace RestGest
     
         public virtual DbSet<Pessoa> Pessoas { get; set; }
         public virtual DbSet<Morada> Moradas { get; set; }
-        public virtual DbSet<Categoria> Restaurantes { get; set; }
+        public virtual DbSet<Restaurante> Restaurantes { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Estado> Estados { get; set; }
         public virtual DbSet<Categoria> Categorias { get; set; }

@@ -58,7 +58,7 @@ namespace RestGest.GestaoRestaurantes
 
             if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).Count() == 1)
             {
-                Categoria match = databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).First();
+                Restaurante match = databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).First();
                 if(match.Ativo)
                 {
                     MessageBox.Show(
@@ -88,7 +88,7 @@ namespace RestGest.GestaoRestaurantes
             }
             else
             {
-                Categoria newRestaurante = new Categoria();
+                Restaurante newRestaurante = new Restaurante();
                 newRestaurante.Nome = Nome_TextBox.Text;
                 newRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
 
@@ -100,14 +100,14 @@ namespace RestGest.GestaoRestaurantes
 
             databaseContainer.SaveChanges();
 
-            Categoria novoRestaurante = new Categoria();
+            Restaurante novoRestaurante = new Restaurante();
             novoRestaurante.Nome = Nome_TextBox.Text;
             novoRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
             novoRestaurante.Morada = moradaRestaurante;
 
             if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).Count() == 1)
             {
-                Categoria match = databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).First();
+                Restaurante match = databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).First();
                 if(match.Ativo)
                 {
                     MessageBox.Show(

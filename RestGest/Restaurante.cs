@@ -12,25 +12,22 @@ namespace RestGest
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemMenu
+    public partial class Restaurante
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ItemMenu()
+        public Restaurante()
         {
             this.Ativo = true;
-            this.Restaurante = new HashSet<Restaurante>();
+            this.ItemMenu = new HashSet<ItemMenu>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Fotografia { get; set; }
-        public string Ingredientes { get; set; }
-        public decimal Preco { get; set; }
         public bool Ativo { get; set; }
-        public int CategoriaId { get; set; }
+        public string NumContribuinte { get; set; }
     
+        public virtual Morada Morada { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Restaurante> Restaurante { get; set; }
-        public virtual Categoria Categoria { get; set; }
+        public virtual ICollection<ItemMenu> ItemMenu { get; set; }
     }
 }

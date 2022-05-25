@@ -30,7 +30,7 @@ namespace RestGest
         public virtual Estado Estado { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual Trabalhador Trabalhador { get; set; }
-        public virtual Categoria Restaurante { get; set; }
+        public virtual Restaurante Restaurante { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pagamento> Pagamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
