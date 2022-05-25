@@ -10,7 +10,7 @@ namespace RestGest
 {
     public partial class FormGestaoRestaurantes : Form
     {
-        public Categoria returnRestaurante;
+        public Restaurante returnRestaurante;
         private RestGestContainer databaseContainer;
         private bool FormGestao;
 
@@ -45,7 +45,7 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 restaurantes_DataGridView.Rows.Clear();
-                foreach (Categoria restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
+                foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo == true))
                 {
                     string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
                     restaurantes_DataGridView.Rows.Add(row);
@@ -70,10 +70,10 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Categoria> restaurantes = databaseContainer.Restaurantes.Where(restaurante => restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && restaurante.Ativo == true).ToList();
+                List<Restaurante> restaurantes = databaseContainer.Restaurantes.Where(restaurante => restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && restaurante.Ativo == true).ToList();
 
                 restaurantes_DataGridView.Rows.Clear();
-                foreach (Categoria restaurante in restaurantes)
+                foreach (Restaurante restaurante in restaurantes)
                 {
                     string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", "0" };
                     restaurantes_DataGridView.Rows.Add(row);
@@ -139,7 +139,7 @@ namespace RestGest
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                    Categoria restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
+                    Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
                     if(databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
                     {
                         restauranteRemover.Ativo = false;

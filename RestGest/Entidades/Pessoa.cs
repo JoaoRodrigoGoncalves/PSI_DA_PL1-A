@@ -12,5 +12,16 @@ namespace RestGest
         {
             this.Ativo = true;
         }
+
+        public Pessoa(int id, string nome, string telemovel, bool ativo, string numContribuinte, Morada morada)
+        {
+            Id = id;
+            Nome = nome;
+            Telemovel = telemovel;
+            Ativo = ativo;
+            NumContribuinte = numContribuinte;
+            Morada = morada;
+            this.Ativo = true;
+        }
     }
 }
