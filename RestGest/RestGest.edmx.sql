@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/23/2022 13:24:27
--- Generated from EDMX file: C:\Users\João Gonçalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
+-- Date Created: 05/24/2022 00:20:46
+-- Generated from EDMX file: C:\Users\JoaoGoncalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -335,7 +335,7 @@ ADD CONSTRAINT [FK_RestauranteMorada]
     FOREIGN KEY ([RestauranteMorada_Morada_Id])
     REFERENCES [dbo].[Restaurantes]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_RestauranteMorada'
@@ -440,7 +440,7 @@ ADD CONSTRAINT [FK_PessoaMorada]
     FOREIGN KEY ([PessoaMorada_Morada_Id])
     REFERENCES [dbo].[Pessoas]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PessoaMorada'
