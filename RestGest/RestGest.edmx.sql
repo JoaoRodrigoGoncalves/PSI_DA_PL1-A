@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/24/2022 00:20:46
--- Generated from EDMX file: C:\Users\JoaoGoncalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
+-- Date Created: 05/27/2022 12:10:32
+-- Generated from EDMX file: C:\Users\inesa\OneDrive\Documentos\GitHub\PSI_DA_PL1-A\RestGest\RestGest.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -174,14 +174,14 @@ GO
 CREATE TABLE [dbo].[Pagamentos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [PedidoId] int  NOT NULL,
-    [Valor] decimal(7,2)  NOT NULL
+    [Valor] decimal(7,2)  NOT NULL,
+    [MetodoPagamentoId] int  NOT NULL
 );
 GO
 
 -- Creating table 'MetodosPagamento'
 CREATE TABLE [dbo].[MetodosPagamento] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [PagamentoId] int  NOT NULL,
     [Metodo] nvarchar(max)  NOT NULL,
     [Ativo] bit  NOT NULL
 );
@@ -404,21 +404,6 @@ ON [dbo].[Pagamentos]
     ([PedidoId]);
 GO
 
--- Creating foreign key on [PagamentoId] in table 'MetodosPagamento'
-ALTER TABLE [dbo].[MetodosPagamento]
-ADD CONSTRAINT [FK_MetodoPagamentoPagamento]
-    FOREIGN KEY ([PagamentoId])
-    REFERENCES [dbo].[Pagamentos]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_MetodoPagamentoPagamento'
-CREATE INDEX [IX_FK_MetodoPagamentoPagamento]
-ON [dbo].[MetodosPagamento]
-    ([PagamentoId]);
-GO
-
 -- Creating foreign key on [RestauranteId] in table 'Pessoas_Trabalhador'
 ALTER TABLE [dbo].[Pessoas_Trabalhador]
 ADD CONSTRAINT [FK_TrabalhadorRestaurante]
@@ -510,6 +495,21 @@ GO
 CREATE INDEX [IX_FK_CategoriaItemMenu]
 ON [dbo].[ItemsMenus]
     ([CategoriaId]);
+GO
+
+-- Creating foreign key on [MetodoPagamentoId] in table 'Pagamentos'
+ALTER TABLE [dbo].[Pagamentos]
+ADD CONSTRAINT [FK_MetodoPagamentoPagamento]
+    FOREIGN KEY ([MetodoPagamentoId])
+    REFERENCES [dbo].[MetodosPagamento]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MetodoPagamentoPagamento'
+CREATE INDEX [IX_FK_MetodoPagamentoPagamento]
+ON [dbo].[Pagamentos]
+    ([MetodoPagamentoId]);
 GO
 
 -- Creating foreign key on [Id] in table 'Pessoas_Cliente'

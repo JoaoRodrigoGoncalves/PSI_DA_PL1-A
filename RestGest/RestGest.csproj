@@ -71,6 +71,24 @@
     <Compile Include="FormPrincipal.designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestaoClientes\FormEdicaoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoClientes\FormEdicaoCliente.Designer.cs">
+      <DependentUpon>FormEdicaoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoClientes\FormGestaoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoClientes\FormGestaoClientes.Designer.cs">
+      <DependentUpon>FormGestaoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoClientes\FormRegistoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoClientes\FormRegistoCliente.Designer.cs">
+      <DependentUpon>FormRegistoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestaoFuncionarios\FormFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +100,24 @@
     </Compile>
     <Compile Include="GestaoFuncionarios\FormGestaoFuncionarios.designer.cs">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.Designer.cs">
+      <DependentUpon>FormEdicaoMetodosPagamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.Designer.cs">
+      <DependentUpon>FormGestaoMetodosPagamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.Designer.cs">
+      <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
       <SubType>Form</SubType>
@@ -145,11 +181,29 @@
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestaoClientes\FormEdicaoCliente.resx">
+      <DependentUpon>FormEdicaoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoClientes\FormGestaoClientes.resx">
+      <DependentUpon>FormGestaoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoClientes\FormRegistoCliente.resx">
+      <DependentUpon>FormRegistoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestaoFuncionarios\FormFuncionario.resx">
       <DependentUpon>FormFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoFuncionarios\FormGestaoFuncionarios.resx">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.resx">
+      <DependentUpon>FormEdicaoMetodosPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.resx">
+      <DependentUpon>FormGestaoMetodosPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.resx">
+      <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
@@ -170,6 +224,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cliente.datasource" />
+    <None Include="Properties\DataSources\Pessoa.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

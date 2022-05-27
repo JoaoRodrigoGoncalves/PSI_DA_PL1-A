@@ -14,18 +14,12 @@ namespace RestGest
     
     public partial class Pagamento
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pagamento()
-        {
-            this.MetodoPagamento = new HashSet<MetodoPagamento>();
-        }
-    
         public int Id { get; set; }
         public int PedidoId { get; set; }
         public decimal Valor { get; set; }
+        public int MetodoPagamentoId { get; set; }
     
         public virtual Pedido Pedido { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MetodoPagamento> MetodoPagamento { get; set; }
+        public virtual MetodoPagamento MetodoPagamento { get; set; }
     }
 }

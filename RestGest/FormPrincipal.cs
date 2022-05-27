@@ -26,5 +26,15 @@ namespace RestGest
         {
             new FormGestaoFuncionarios().ShowDialog();
         }
+
+        private void btn_Clientes_Click(object sender, EventArgs e)
+        {
+            new FormGestaoClientes().ShowDialog();
+        }
+
+        private void btnMetodoPagamento_Click(object sender, EventArgs e)
+        {
+            new FormGestaoMetodosPagamentos().ShowDialog();
+        }
     }
 }
