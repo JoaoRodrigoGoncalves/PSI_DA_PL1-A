@@ -437,10 +437,6 @@
             <End Role="Pedido" EntitySet="Pedidos" />
           </AssociationSet>
           <EntitySet Name="MetodosPagamento" EntityType="RestGest.MetodoPagamento" />
-          <AssociationSet Name="MetodoPagamentoPagamento" Association="RestGest.MetodoPagamentoPagamento">
-            <End Role="MetodoPagamento" EntitySet="MetodosPagamento" />
-            <End Role="Pagamento" EntitySet="Pagamentos" />
-          </AssociationSet>
           <AssociationSet Name="TrabalhadorRestaurante" Association="RestGest.TrabalhadorRestaurante">
             <End Role="Trabalhador" EntitySet="Pessoas" />
             <End Role="Restaurante" EntitySet="Restaurantes" />
@@ -461,6 +457,10 @@
           <AssociationSet Name="CategoriaItemMenu" Association="RestGest.CategoriaItemMenu">
             <End Role="Categoria" EntitySet="Categorias" />
             <End Role="ItemMenu" EntitySet="ItemsMenus" />
+          </AssociationSet>
+          <AssociationSet Name="MetodoPagamentoPagamento" Association="RestGest.MetodoPagamentoPagamento">
+            <End Role="MetodoPagamento" EntitySet="MetodosPagamento" />
+            <End Role="Pagamento" EntitySet="Pagamentos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Pessoa">
@@ -597,6 +597,7 @@
           <Property Name="PedidoId" Type="Int32" Nullable="false" />
           <Property Name="Valor" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
           <NavigationProperty Name="MetodoPagamento" Relationship="RestGest.MetodoPagamentoPagamento" FromRole="Pagamento" ToRole="MetodoPagamento" />
+          <Property Name="MetodoPagamentoId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="PagamentoPedido">
           <End Type="RestGest.Pagamento" Role="Pagamento" Multiplicity="*" />
@@ -619,18 +620,6 @@
           <Property Name="Metodo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Ativo" Type="Boolean" Nullable="false" DefaultValue="true" />
         </EntityType>
-        <Association Name="MetodoPagamentoPagamento">
-          <End Type="RestGest.MetodoPagamento" Role="MetodoPagamento" Multiplicity="*" />
-          <End Type="RestGest.Pagamento" Role="Pagamento" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Pagamento">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="MetodoPagamento">
-              <PropertyRef Name="PagamentoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="TrabalhadorRestaurante">
           <End Type="RestGest.Trabalhador" Role="Trabalhador" Multiplicity="*" />
           <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="0..1" />
@@ -680,6 +669,18 @@
             </Principal>
             <Dependent Role="ItemMenu">
               <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MetodoPagamentoPagamento">
+          <End Type="RestGest.MetodoPagamento" Role="MetodoPagamento" Multiplicity="1" />
+          <End Type="RestGest.Pagamento" Role="Pagamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodoPagamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pagamento">
+              <PropertyRef Name="MetodoPagamentoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -768,6 +769,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="MetodoPagamentoId" ColumnName="MetodoPagamentoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -775,7 +777,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(RestGest.MetodoPagamento)">
         <MappingFragment StoreEntitySet="MetodosPagamento">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PagamentoId" ColumnName="PagamentoId" />
           <ScalarProperty Name="Metodo" ColumnName="Metodo" />
           <ScalarProperty Name="Ativo" ColumnName="Ativo" />
         </MappingFragment>
@@ -849,7 +850,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ebbe6aa1a7494e6fac164150eb79c9e6" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="ebbe6aa1a7494e6fac164150eb79c9e6" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="RestGest.Pessoa" Width="1.5" PointX="1.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Morada" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Cliente" Width="1.5" PointX="1.875" PointY="4" IsExpanded="true" />
@@ -869,12 +870,12 @@
         <AssociationConnector Association="RestGest.PedidoTrabalhador" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.PedidoRestaurante" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.PagamentoPedido" ManuallyRouted="false" />
-        <AssociationConnector Association="RestGest.MetodoPagamentoPagamento" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.TrabalhadorRestaurante" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.PessoaMorada" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.ItemMenuPedido" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.ItemMenuRestaurante" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.CategoriaItemMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="RestGest.MetodoPagamentoPagamento" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

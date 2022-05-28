@@ -50,5 +50,15 @@ namespace RestGest
             this.Hide();
             new FormGestaoFuncionarios(this).ShowDialog();
         }
+
+        private void btn_Clientes_Click(object sender, EventArgs e)
+        {
+            new FormGestaoClientes().ShowDialog();
+        }
+
+        private void btnMetodoPagamento_Click(object sender, EventArgs e)
+        {
+            new FormGestaoMetodosPagamentos().ShowDialog();
+        }
     }
 }
