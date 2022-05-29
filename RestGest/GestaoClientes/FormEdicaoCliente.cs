@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoClientes
@@ -41,11 +36,25 @@ namespace RestGest.GestaoClientes
             if (String.IsNullOrWhiteSpace(tb_Nome.Text))
                 return false;
 
-            if (String.IsNullOrWhiteSpace(tb_nif.Text))
+            if (!String.IsNullOrWhiteSpace(tb_nif.Text))
+            {
+                if (!int.TryParse(tb_nif.Text, out _))
+                    return false;
+            }
+            else
+            {
                 return false;
+            }
 
-            if (String.IsNullOrWhiteSpace(tb_telemovel.Text))
+            if (!String.IsNullOrWhiteSpace(tb_telemovel.Text))
+            {
+                if (!int.TryParse(tb_telemovel.Text, out _))
+                    return false;
+            }
+            else
+            {
                 return false;
+            }
 
             if (String.IsNullOrWhiteSpace(tb_rua.Text))
                 return false;

@@ -248,6 +248,7 @@ namespace RestGest.GestaoCategorias
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoCategorias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão Categorias Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGestaoCategorias_FormClosed);
             this.Shown += new System.EventHandler(this.FormGestaoCategorias_Shown);

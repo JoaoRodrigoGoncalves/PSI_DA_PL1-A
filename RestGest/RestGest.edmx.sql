@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/27/2022 12:10:32
--- Generated from EDMX file: C:\Users\inesa\OneDrive\Documentos\GitHub\PSI_DA_PL1-A\RestGest\RestGest.edmx
+-- Date Created: 05/29/2022 00:18:59
+-- Generated from EDMX file: C:\Users\JoaoGoncalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -35,9 +35,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PagamentoPedido]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Pagamentos] DROP CONSTRAINT [FK_PagamentoPedido];
 GO
-IF OBJECT_ID(N'[dbo].[FK_MetodoPagamentoPagamento]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MetodosPagamento] DROP CONSTRAINT [FK_MetodoPagamentoPagamento];
-GO
 IF OBJECT_ID(N'[dbo].[FK_TrabalhadorRestaurante]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Pessoas_Trabalhador] DROP CONSTRAINT [FK_TrabalhadorRestaurante];
 GO
@@ -58,6 +55,9 @@ IF OBJECT_ID(N'[dbo].[FK_ItemMenuRestaurante_Restaurante]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_CategoriaItemMenu]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ItemsMenus] DROP CONSTRAINT [FK_CategoriaItemMenu];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MetodoPagamentoPagamento]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pagamentos] DROP CONSTRAINT [FK_MetodoPagamentoPagamento];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Cliente_inherits_Pessoa]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Pessoas_Cliente] DROP CONSTRAINT [FK_Cliente_inherits_Pessoa];
@@ -191,8 +191,8 @@ GO
 CREATE TABLE [dbo].[ItemsMenus] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
-    [Fotografia] nvarchar(max)  NOT NULL,
-    [Ingredientes] nvarchar(max)  NOT NULL,
+    [Fotografia] varbinary(max)  NULL,
+    [Ingredientes] nvarchar(max)  NULL,
     [Preco] decimal(7,2)  NOT NULL,
     [Ativo] bit  NOT NULL,
     [CategoriaId] int  NOT NULL

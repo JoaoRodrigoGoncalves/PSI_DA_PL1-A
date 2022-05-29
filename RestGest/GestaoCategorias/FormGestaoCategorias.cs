@@ -47,7 +47,7 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows.Clear();
                 foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
                 {
-                    string[] row = { categoria.Id.ToString(), categoria.Nome};
+                    string[] row = { categoria.Id.ToString(), categoria.Nome };
                     categorias_menu_DataGridView.Rows.Add(row);
                 }
 
@@ -114,7 +114,7 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows[hit.RowIndex].Selected = true;
             }
         }
-        
+
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
             new FormCategoria().ShowDialog();

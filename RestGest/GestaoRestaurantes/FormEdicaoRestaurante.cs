@@ -65,7 +65,7 @@ namespace RestGest.GestaoRestaurantes
             dadosRestaurante.Morada.Cidade = Cidade_TextBox.Text;
             dadosRestaurante.Morada.Pais = Pais_TextBox.Text;
 
-            if(databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id).Count() == 1)
+            if (databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id).Count() == 1)
             {
                 Restaurante match = databaseContainer.Restaurantes.First(x => x.NumContribuinte == NIF_MaskedTextBox.Text && x.Id != dadosRestaurante.Id);
                 MessageBox.Show(

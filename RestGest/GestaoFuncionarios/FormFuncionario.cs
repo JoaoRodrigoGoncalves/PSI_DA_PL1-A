@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Validation;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestGest
@@ -28,7 +23,7 @@ namespace RestGest
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             this.trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == idTrabalhador).First();
-                        
+
             //Identificação do trabalhador
             tb_name.Text = trabalhador.Nome;
             tb_num_contribuinte.Text = trabalhador.NumContribuinte;
@@ -41,7 +36,7 @@ namespace RestGest
             tb_cp.Text = trabalhador.Morada.Codigo_Postal;
             tb_pais.Text = trabalhador.Morada.Pais;
             //Identificação do restaurante asociado ao trabalhador
-            if (this.trabalhador.Restaurante != null) 
+            if (this.trabalhador.Restaurante != null)
                 tb_restaurante.Text = trabalhador.Restaurante.Id + " - " + trabalhador.Restaurante.Nome;
             //
             bt_edit.Enabled = true;
@@ -60,7 +55,7 @@ namespace RestGest
                 return;
             }
 
-            if(salarioValidation())
+            if (salarioValidation())
             {
                 MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -84,7 +79,7 @@ namespace RestGest
             //
             if (!String.IsNullOrEmpty(tb_restaurante.Text))
             {
-                int idRestaurante = (int)(tb_restaurante.Text[0] - '0');
+                int idRestaurante = tb_restaurante.Text[0] - '0';
                 novoTrabalhador.Restaurante = databaseContainer.Restaurantes.Find(idRestaurante);
                 novoTrabalhador.RestauranteId = idRestaurante;
             }
@@ -137,7 +132,7 @@ namespace RestGest
             }
             else
             {
-                int idRestaurante = (int)(tb_restaurante.Text[0] - '0');
+                int idRestaurante = tb_restaurante.Text[0] - '0';
                 trabalhador.Restaurante = databaseContainer.Restaurantes.Find(idRestaurante);
                 trabalhador.RestauranteId = idRestaurante;
             }
@@ -163,7 +158,7 @@ namespace RestGest
 
         // Text Box input validadtion
         private bool inputValidation()
-        { 
+        {
             return (String.IsNullOrEmpty(tb_name.Text) || String.IsNullOrEmpty(tb_salario.Text) ||
                 String.IsNullOrEmpty(tb_position.Text) || String.IsNullOrEmpty(tb_rua.Text) || String.IsNullOrEmpty(tb_cidade.Text) ||
                 String.IsNullOrEmpty(tb_cp.Text) || String.IsNullOrEmpty(tb_pais.Text));
@@ -179,7 +174,7 @@ namespace RestGest
         {
             FormGestaoRestaurantes form = new FormGestaoRestaurantes(this, false);
             form.ShowDialog();
-            if(form.returnRestaurante != null)
+            if (form.returnRestaurante != null)
                 tb_restaurante.Text = form.returnRestaurante.Id + " - " + form.returnRestaurante.Nome;
         }
     }

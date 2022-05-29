@@ -33,7 +33,7 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 Clientes_DataGridView.Rows.Clear();
-                foreach (Cliente clientes in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo==true))
+                foreach (Cliente clientes in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo == true))
                 {
                     string[] row = { clientes.Id.ToString(), clientes.Nome, clientes.Telemovel, clientes.NumContribuinte, clientes.Morada.ToString() };
                     Clientes_DataGridView.Rows.Add(row);
@@ -111,7 +111,7 @@ namespace RestGest
                 }
             }
         }
-            
+
         private void FormGestaoRestaurantes_FormClosing(object sender, FormClosingEventArgs e)
         {
             databaseContainer.Dispose();
@@ -134,7 +134,7 @@ namespace RestGest
                 Clientes_DataGridView.Rows.Clear();
                 foreach (Cliente cliente in clientes)
                 {
-                    string[] row = { cliente.Id.ToString(), cliente.Nome, cliente.Telemovel, cliente.NumContribuinte, cliente.Morada.ToString()};
+                    string[] row = { cliente.Id.ToString(), cliente.Nome, cliente.Telemovel, cliente.NumContribuinte, cliente.Morada.ToString() };
                     Clientes_DataGridView.Rows.Add(row);
                 }
 

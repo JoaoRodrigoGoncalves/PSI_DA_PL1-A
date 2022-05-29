@@ -49,7 +49,7 @@
             this.cbAtivo = new System.Windows.Forms.CheckBox();
             this.btnCleanMetodoPagamento = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnAddMetodoPagamento = new System.Windows.Forms.Button();
+            this.btnGuardarMetodoPagamento = new System.Windows.Forms.Button();
             this.tbMetodoPagamento = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tb_telemovel.Margin = new System.Windows.Forms.Padding(4);
             this.tb_telemovel.Mask = "000000000";
             this.tb_telemovel.Name = "tb_telemovel";
-            this.tb_telemovel.Size = new System.Drawing.Size(89, 22);
+            this.tb_telemovel.Size = new System.Drawing.Size(89, 20);
             this.tb_telemovel.TabIndex = 12;
             this.tb_telemovel.ValidatingType = typeof(int);
             // 
@@ -97,7 +97,7 @@
             this.label7.Location = new System.Drawing.Point(83, 145);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 17);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 11;
             this.label7.Text = "Telemóvel";
             // 
@@ -107,7 +107,7 @@
             this.tb_nif.Margin = new System.Windows.Forms.Padding(4);
             this.tb_nif.Mask = "000000000";
             this.tb_nif.Name = "tb_nif";
-            this.tb_nif.Size = new System.Drawing.Size(89, 22);
+            this.tb_nif.Size = new System.Drawing.Size(89, 20);
             this.tb_nif.TabIndex = 2;
             this.tb_nif.ValidatingType = typeof(int);
             // 
@@ -117,7 +117,7 @@
             this.label6.Location = new System.Drawing.Point(549, 20);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 17);
+            this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "NIF";
             // 
@@ -137,7 +137,7 @@
             this.tb_codPostal.Margin = new System.Windows.Forms.Padding(4);
             this.tb_codPostal.Mask = "0000-999";
             this.tb_codPostal.Name = "tb_codPostal";
-            this.tb_codPostal.Size = new System.Drawing.Size(185, 22);
+            this.tb_codPostal.Size = new System.Drawing.Size(185, 20);
             this.tb_codPostal.TabIndex = 4;
             // 
             // label5
@@ -146,7 +146,7 @@
             this.label5.Location = new System.Drawing.Point(120, 116);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 17);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "País";
             // 
@@ -155,7 +155,7 @@
             this.tb_pais.Location = new System.Drawing.Point(164, 112);
             this.tb_pais.Margin = new System.Windows.Forms.Padding(4);
             this.tb_pais.Name = "tb_pais";
-            this.tb_pais.Size = new System.Drawing.Size(515, 22);
+            this.tb_pais.Size = new System.Drawing.Size(515, 20);
             this.tb_pais.TabIndex = 6;
             // 
             // label4
@@ -164,7 +164,7 @@
             this.label4.Location = new System.Drawing.Point(359, 84);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 17);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Cidade";
             // 
@@ -173,7 +173,7 @@
             this.tb_cidade.Location = new System.Drawing.Point(420, 80);
             this.tb_cidade.Margin = new System.Windows.Forms.Padding(4);
             this.tb_cidade.Name = "tb_cidade";
-            this.tb_cidade.Size = new System.Drawing.Size(259, 22);
+            this.tb_cidade.Size = new System.Drawing.Size(259, 20);
             this.tb_cidade.TabIndex = 5;
             // 
             // label3
@@ -182,7 +182,7 @@
             this.label3.Location = new System.Drawing.Point(60, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Código Postal";
             // 
@@ -192,7 +192,7 @@
             this.label2.Location = new System.Drawing.Point(120, 52);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 17);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Rua";
             // 
@@ -201,7 +201,7 @@
             this.tb_rua.Location = new System.Drawing.Point(164, 48);
             this.tb_rua.Margin = new System.Windows.Forms.Padding(4);
             this.tb_rua.Name = "tb_rua";
-            this.tb_rua.Size = new System.Drawing.Size(515, 22);
+            this.tb_rua.Size = new System.Drawing.Size(515, 20);
             this.tb_rua.TabIndex = 3;
             // 
             // label1
@@ -210,7 +210,7 @@
             this.label1.Location = new System.Drawing.Point(44, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 17);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Cliente";
             // 
@@ -229,7 +229,7 @@
             this.tb_Nome.Location = new System.Drawing.Point(164, 16);
             this.tb_Nome.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Nome.Name = "tb_Nome";
-            this.tb_Nome.Size = new System.Drawing.Size(376, 22);
+            this.tb_Nome.Size = new System.Drawing.Size(376, 20);
             this.tb_Nome.TabIndex = 1;
             // 
             // groupBox2
@@ -237,13 +237,11 @@
             this.groupBox2.Controls.Add(this.cbAtivo);
             this.groupBox2.Controls.Add(this.btnCleanMetodoPagamento);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.btnAddMetodoPagamento);
+            this.groupBox2.Controls.Add(this.btnGuardarMetodoPagamento);
             this.groupBox2.Controls.Add(this.tbMetodoPagamento);
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(9, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(695, 103);
+            this.groupBox2.Size = new System.Drawing.Size(521, 84);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
@@ -252,19 +250,19 @@
             this.cbAtivo.AutoSize = true;
             this.cbAtivo.Checked = true;
             this.cbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAtivo.Location = new System.Drawing.Point(402, 56);
+            this.cbAtivo.Location = new System.Drawing.Point(302, 46);
+            this.cbAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cbAtivo.Name = "cbAtivo";
-            this.cbAtivo.Size = new System.Drawing.Size(61, 21);
+            this.cbAtivo.Size = new System.Drawing.Size(50, 17);
             this.cbAtivo.TabIndex = 9;
             this.cbAtivo.Text = "Ativo";
             this.cbAtivo.UseVisualStyleBackColor = true;
             // 
             // btnCleanMetodoPagamento
             // 
-            this.btnCleanMetodoPagamento.Location = new System.Drawing.Point(470, 51);
-            this.btnCleanMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCleanMetodoPagamento.Location = new System.Drawing.Point(352, 41);
             this.btnCleanMetodoPagamento.Name = "btnCleanMetodoPagamento";
-            this.btnCleanMetodoPagamento.Size = new System.Drawing.Size(100, 28);
+            this.btnCleanMetodoPagamento.Size = new System.Drawing.Size(75, 23);
             this.btnCleanMetodoPagamento.TabIndex = 8;
             this.btnCleanMetodoPagamento.Text = "Limpar";
             this.btnCleanMetodoPagamento.UseVisualStyleBackColor = true;
@@ -273,37 +271,38 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(44, 21);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(33, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 17);
+            this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Método de Pagamento";
             // 
-            // btnAddMetodoPagamento
+            // btnGuardarMetodoPagamento
             // 
-            this.btnAddMetodoPagamento.Location = new System.Drawing.Point(578, 51);
-            this.btnAddMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddMetodoPagamento.Name = "btnAddMetodoPagamento";
-            this.btnAddMetodoPagamento.Size = new System.Drawing.Size(100, 28);
-            this.btnAddMetodoPagamento.TabIndex = 7;
-            this.btnAddMetodoPagamento.Text = "Registar";
-            this.btnAddMetodoPagamento.UseVisualStyleBackColor = true;
-            this.btnAddMetodoPagamento.Click += new System.EventHandler(this.btnAddMetodoPagamento_Click);
+            this.btnGuardarMetodoPagamento.Location = new System.Drawing.Point(434, 41);
+            this.btnGuardarMetodoPagamento.Name = "btnGuardarMetodoPagamento";
+            this.btnGuardarMetodoPagamento.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarMetodoPagamento.TabIndex = 7;
+            this.btnGuardarMetodoPagamento.Text = "Guardar";
+            this.btnGuardarMetodoPagamento.UseVisualStyleBackColor = true;
+            this.btnGuardarMetodoPagamento.Click += new System.EventHandler(this.btnAddMetodoPagamento_Click);
             // 
             // tbMetodoPagamento
             // 
-            this.tbMetodoPagamento.Location = new System.Drawing.Point(202, 21);
-            this.tbMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMetodoPagamento.Location = new System.Drawing.Point(152, 17);
             this.tbMetodoPagamento.Name = "tbMetodoPagamento";
-            this.tbMetodoPagamento.Size = new System.Drawing.Size(477, 22);
+            this.tbMetodoPagamento.Size = new System.Drawing.Size(359, 20);
             this.tbMetodoPagamento.TabIndex = 1;
             // 
             // FormEdicaoMetodosPagamentos
             // 
-            this.ClientSize = new System.Drawing.Size(723, 133);
+            this.ClientSize = new System.Drawing.Size(542, 106);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(558, 145);
+            this.MinimumSize = new System.Drawing.Size(558, 145);
             this.Name = "FormEdicaoMetodosPagamentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edição de Métodos de Pagamento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -336,7 +335,7 @@
         private System.Windows.Forms.CheckBox cbAtivo;
         private System.Windows.Forms.Button btnCleanMetodoPagamento;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnAddMetodoPagamento;
+        private System.Windows.Forms.Button btnGuardarMetodoPagamento;
         private System.Windows.Forms.TextBox tbMetodoPagamento;
     }
 }

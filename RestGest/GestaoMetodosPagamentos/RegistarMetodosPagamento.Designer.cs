@@ -44,11 +44,9 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.btnAddMetodoPagamento);
             this.groupBox2.Controls.Add(this.tbMetodoPagamento);
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(9, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(695, 103);
+            this.groupBox2.Size = new System.Drawing.Size(521, 84);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             // 
@@ -57,19 +55,19 @@
             this.cbAtivo.AutoSize = true;
             this.cbAtivo.Checked = true;
             this.cbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAtivo.Location = new System.Drawing.Point(402, 56);
+            this.cbAtivo.Location = new System.Drawing.Point(302, 46);
+            this.cbAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cbAtivo.Name = "cbAtivo";
-            this.cbAtivo.Size = new System.Drawing.Size(61, 21);
+            this.cbAtivo.Size = new System.Drawing.Size(50, 17);
             this.cbAtivo.TabIndex = 9;
             this.cbAtivo.Text = "Ativo";
             this.cbAtivo.UseVisualStyleBackColor = true;
             // 
             // btnCleanMetodoPagamento
             // 
-            this.btnCleanMetodoPagamento.Location = new System.Drawing.Point(470, 51);
-            this.btnCleanMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCleanMetodoPagamento.Location = new System.Drawing.Point(352, 41);
             this.btnCleanMetodoPagamento.Name = "btnCleanMetodoPagamento";
-            this.btnCleanMetodoPagamento.Size = new System.Drawing.Size(100, 28);
+            this.btnCleanMetodoPagamento.Size = new System.Drawing.Size(75, 23);
             this.btnCleanMetodoPagamento.TabIndex = 8;
             this.btnCleanMetodoPagamento.Text = "Limpar";
             this.btnCleanMetodoPagamento.UseVisualStyleBackColor = true;
@@ -78,19 +76,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(44, 21);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(33, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 17);
+            this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Método de Pagamento";
             // 
             // btnAddMetodoPagamento
             // 
-            this.btnAddMetodoPagamento.Location = new System.Drawing.Point(578, 51);
-            this.btnAddMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddMetodoPagamento.Location = new System.Drawing.Point(434, 41);
             this.btnAddMetodoPagamento.Name = "btnAddMetodoPagamento";
-            this.btnAddMetodoPagamento.Size = new System.Drawing.Size(100, 28);
+            this.btnAddMetodoPagamento.Size = new System.Drawing.Size(75, 23);
             this.btnAddMetodoPagamento.TabIndex = 7;
             this.btnAddMetodoPagamento.Text = "Registar";
             this.btnAddMetodoPagamento.UseVisualStyleBackColor = true;
@@ -98,19 +94,23 @@
             // 
             // tbMetodoPagamento
             // 
-            this.tbMetodoPagamento.Location = new System.Drawing.Point(202, 21);
-            this.tbMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMetodoPagamento.Location = new System.Drawing.Point(152, 17);
             this.tbMetodoPagamento.Name = "tbMetodoPagamento";
-            this.tbMetodoPagamento.Size = new System.Drawing.Size(477, 22);
+            this.tbMetodoPagamento.Size = new System.Drawing.Size(359, 20);
             this.tbMetodoPagamento.TabIndex = 1;
             // 
             // RegistarMetodosPagamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 130);
+            this.ClientSize = new System.Drawing.Size(542, 106);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(558, 145);
+            this.MinimumSize = new System.Drawing.Size(558, 145);
             this.Name = "RegistarMetodosPagamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registar Métodos de Pagamento";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

@@ -1,12 +1,6 @@
-﻿using RestGest.GestaoMetodosPagamentos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoMetodosPagamentos
@@ -31,23 +25,9 @@ namespace RestGest.GestaoMetodosPagamentos
             cbAtivo.Checked = metodo.Ativo;
         }
 
-        private bool validateFields()
-        {
-            if (String.IsNullOrWhiteSpace(tbMetodoPagamento.Text))
-                return false;
-
-            return true;
-        }
-
-        private void btnCleanMetodoPagamento_Click(object sender, EventArgs e)
-        {
-            tbMetodoPagamento.Text = "";
-            cbAtivo.Checked = false;
-        }
-
         private void btnAddMetodoPagamento_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (String.IsNullOrWhiteSpace(tbMetodoPagamento.Text))
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",
@@ -63,6 +43,12 @@ namespace RestGest.GestaoMetodosPagamentos
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
+        }
+
+        private void btnCleanMetodoPagamento_Click(object sender, EventArgs e)
+        {
+            tbMetodoPagamento.Text = "";
+            cbAtivo.Checked = false;
         }
     }
 }

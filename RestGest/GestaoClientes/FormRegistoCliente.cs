@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Linq;
+﻿using System;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoClientes
@@ -29,55 +27,66 @@ namespace RestGest.GestaoClientes
         private void btnRegistar_Click(object sender, EventArgs e)
         {
             /* Verificação do campo nome */
-            if (tb_Nome.Text.Trim() == "")
+            if (String.IsNullOrWhiteSpace(tb_Nome.Text))
             {
                 MessageBox.Show("Insira um Nome!");
                 return;
             }
 
             /* Verificação do campo Telemovel */
-            int telemovel;
-
-            if (int.TryParse(tb_telemovel.Text.Trim(), out telemovel) == false)
+            if (String.IsNullOrWhiteSpace(tb_telemovel.Text))
             {
-
                 MessageBox.Show("Insira o Número de Telemovel!");
                 return;
             }
+            else
+            {
+                if (int.TryParse(tb_telemovel.Text.Trim(), out _) == false)
+                {
+
+                    MessageBox.Show("Insira um Número de Telemovel válido!");
+                    return;
+                }
+            }
 
             /* Verificação do campo NIF */
-            int number;
-
-            if (int.TryParse(tb_nif.Text.Trim(), out number) == false)
+            if (String.IsNullOrWhiteSpace(tb_nif.Text))
             {
-
                 MessageBox.Show("Insira o NIF!");
                 return;
             }
+            else
+            {
+                if (int.TryParse(tb_nif.Text.Trim(), out _) == false)
+                {
+                    MessageBox.Show("Insira um NIF válido!");
+                    return;
+                }
+            }
 
             /* Verificação do campo Rua */
-            if (tb_rua.Text.Trim() == "")
+            if (String.IsNullOrWhiteSpace(tb_rua.Text))
             {
                 MessageBox.Show("Insira uma Rua!");
                 return;
             }
 
             /* Verificação do campo Cidade */
-            if (tb_cidade.Text.Trim() == "")
+            if (String.IsNullOrWhiteSpace(tb_cidade.Text))
             {
                 MessageBox.Show("Insira uma Cidade!");
                 return;
             }
 
             /* Verificação do campo Código-Postal */
-            if (tb_codPostal.Text.Trim() == "")
+            if (String.IsNullOrWhiteSpace(tb_codPostal.Text))
             {
                 MessageBox.Show("Insira um Código-Postal!");
                 return;
             }
 
             /* Verificação do campo Pais */
-            if (tb_pais.Text.Trim() == "")
+            if (String.IsNullOrWhiteSpace(tb_pais.Text))
             {
                 MessageBox.Show("Insira um Pais!");
                 return;
@@ -101,7 +110,7 @@ namespace RestGest.GestaoClientes
             Clientes.Nome = tb_Nome.Text;
             Clientes.Telemovel = tb_telemovel.Text;
             Clientes.NumContribuinte = tb_nif.Text;
-            Clientes.Morada = Moradas; 
+            Clientes.Morada = Moradas;
 
             databaseContainer.Pessoas.Add(Clientes);
             databaseContainer.SaveChanges();

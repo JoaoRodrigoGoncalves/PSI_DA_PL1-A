@@ -39,6 +39,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,9 +63,9 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Morada.cs" />
-    <Compile Include="Entidades\Trabalhador.cs" />
-    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Restaurante.cs" />
     <Compile Include="Estado.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
@@ -130,6 +134,24 @@
     </Compile>
     <Compile Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.Designer.cs">
       <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormGestaoProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormGestaoProdutos.Designer.cs">
+      <DependentUpon>FormGestaoProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormEdicaoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormEdicaoProduto.Designer.cs">
+      <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormRegistoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoProdutos\FormRegistoProduto.Designer.cs">
+      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
       <SubType>Form</SubType>
@@ -223,6 +245,15 @@
     <EmbeddedResource Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.resx">
       <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestaoProdutos\FormGestaoProdutos.resx">
+      <DependentUpon>FormGestaoProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoProdutos\FormEdicaoProduto.resx">
+      <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoProdutos\FormRegistoProduto.resx">
+      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +271,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cliente.datasource" />
@@ -262,6 +294,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\produto_placeholder.png" />
     <Content Include="RestGest.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RestGest.Context.cs</LastGenOutput>
@@ -277,8 +310,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GestaoProdutos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

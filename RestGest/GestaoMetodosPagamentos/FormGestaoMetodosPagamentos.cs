@@ -29,19 +29,19 @@ namespace RestGest
 
             Metodo_DataGridView.Invoke(new MethodInvoker(delegate
             {
-                panel1.Visible = true;
+                LoadingPopUp_Panel.Visible = true;
 
                 Metodo_DataGridView.Rows.Clear();
                 foreach (MetodoPagamento metodos in databaseContainer.MetodosPagamento)
                 {
-                    string[] row = { metodos.Id.ToString(), metodos.Metodo, metodos.Ativo.ToString()};
+                    string[] row = { metodos.Id.ToString(), metodos.Metodo, metodos.Ativo.ToString() };
                     Metodo_DataGridView.Rows.Add(row);
                 }
 
                 if (Metodo_DataGridView.Rows.Count > 0)
                     Metodo_DataGridView.Rows[0].Selected = true;
 
-                panel1.Visible = false;
+                LoadingPopUp_Panel.Visible = false;
             }));
         }
 
@@ -126,7 +126,7 @@ namespace RestGest
                 Metodo_DataGridView.Rows.Clear();
                 foreach (MetodoPagamento metodo in metodosPagamentos)
                 {
-                    string[] row = { metodo.Id.ToString(), metodo.Metodo, metodo.Ativo.ToString()};
+                    string[] row = { metodo.Id.ToString(), metodo.Metodo, metodo.Ativo.ToString() };
                     Metodo_DataGridView.Rows.Add(row);
                 }
 

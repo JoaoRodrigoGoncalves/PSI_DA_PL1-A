@@ -36,7 +36,7 @@
             // 
             // tb_categoria
             // 
-            this.tb_categoria.Location = new System.Drawing.Point(30, 25);
+            this.tb_categoria.Location = new System.Drawing.Point(34, 21);
             this.tb_categoria.Name = "tb_categoria";
             this.tb_categoria.Size = new System.Drawing.Size(231, 20);
             this.tb_categoria.TabIndex = 0;
@@ -44,7 +44,7 @@
             // bt_create
             // 
             this.bt_create.Enabled = false;
-            this.bt_create.Location = new System.Drawing.Point(30, 68);
+            this.bt_create.Location = new System.Drawing.Point(34, 56);
             this.bt_create.Name = "bt_create";
             this.bt_create.Size = new System.Drawing.Size(108, 23);
             this.bt_create.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // bt_cancel
             // 
-            this.bt_cancel.Location = new System.Drawing.Point(31, 97);
+            this.bt_cancel.Location = new System.Drawing.Point(35, 85);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(230, 23);
             this.bt_cancel.TabIndex = 1;
@@ -65,7 +65,7 @@
             // bt_edit
             // 
             this.bt_edit.Enabled = false;
-            this.bt_edit.Location = new System.Drawing.Point(153, 68);
+            this.bt_edit.Location = new System.Drawing.Point(157, 56);
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(108, 23);
             this.bt_edit.TabIndex = 1;
@@ -77,12 +77,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 144);
+            this.ClientSize = new System.Drawing.Size(298, 128);
             this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.bt_edit);
             this.Controls.Add(this.bt_create);
             this.Controls.Add(this.tb_categoria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(314, 167);
+            this.MinimumSize = new System.Drawing.Size(314, 167);
             this.Name = "FormCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Categoria";
             this.ResumeLayout(false);
             this.PerformLayout();

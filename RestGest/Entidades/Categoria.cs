@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestGest
 {
-    public partial class Trabalhador 
+    public partial class Categoria
     {
-
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

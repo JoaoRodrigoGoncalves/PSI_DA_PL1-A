@@ -29,6 +29,7 @@ namespace RestGest
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
             Remover_BTN.Enabled = active;
+            Selecionar_BTN.Visible = !active;
             Selecionar_BTN.Enabled = !active;
         }
 
@@ -64,7 +65,7 @@ namespace RestGest
         private string[] buildDataGridRow(Restaurante restaurante)
         {
             int count_funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante.Id).Count();
-            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", count_funcionarios.ToString()};
+            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", count_funcionarios.ToString() };
             return row;
         }
 
@@ -150,7 +151,7 @@ namespace RestGest
                 {
                     int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                    if(databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
+                    if (databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
                     {
                         restauranteRemover.Ativo = false;
                     }

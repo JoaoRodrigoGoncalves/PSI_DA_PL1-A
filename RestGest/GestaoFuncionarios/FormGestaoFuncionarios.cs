@@ -1,5 +1,4 @@
-﻿using RestGest.GestaoRestaurantes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
@@ -12,7 +11,7 @@ namespace RestGest
     public partial class FormGestaoFuncionarios : Form
     {
         private RestGestContainer databaseContainer;
-        private Form FormBack;    
+        private Form FormBack;
 
         public FormGestaoFuncionarios(Form formBack)
         {
@@ -141,7 +140,7 @@ namespace RestGest
                 {
                     int id_funcionario = int.Parse(funcionarios_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     Trabalhador trabalhadorARemover = databaseContainer.Pessoas.OfType<Trabalhador>().First(funcionario => funcionario.Id == id_funcionario);
-                    if(databaseContainer.Pedidos.Where(p => p.TrabalhadorId == id_funcionario).Count() > 0)
+                    if (databaseContainer.Pedidos.Where(p => p.TrabalhadorId == id_funcionario).Count() > 0)
                     {
                         trabalhadorARemover.Ativo = false;
                     }
@@ -161,7 +160,7 @@ namespace RestGest
                     {
                         databaseContainer.SaveChanges();
                     }
-                    catch(DbEntityValidationException ex)
+                    catch (DbEntityValidationException ex)
                     {
                         MessageBox.Show("Erro guardando dados", "Remoce Worker Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         foreach (var ev in ex.EntityValidationErrors)

@@ -43,9 +43,6 @@
             this.telCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nifCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moradaClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoadingPopUp_Label = new System.Windows.Forms.Label();
-            this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
-            this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRemoveMetodoPagamento = new System.Windows.Forms.Button();
@@ -61,17 +58,16 @@
             this.AtivoMetodo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Clientes_DataGridView)).BeginInit();
-            this.LoadingPopUp_Panel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Metodo_DataGridView)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.LoadingPopUp_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -116,7 +112,7 @@
             // Remover_BTN
             // 
             this.Remover_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Remover_BTN.Location = new System.Drawing.Point(4, 75);
+            this.Remover_BTN.Location = new System.Drawing.Point(4, 73);
             this.Remover_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Remover_BTN.Name = "Remover_BTN";
             this.Remover_BTN.Size = new System.Drawing.Size(104, 50);
@@ -127,7 +123,7 @@
             // Editar_BTN
             // 
             this.Editar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Editar_BTN.Location = new System.Drawing.Point(4, 47);
+            this.Editar_BTN.Location = new System.Drawing.Point(4, 45);
             this.Editar_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Editar_BTN.Name = "Editar_BTN";
             this.Editar_BTN.Size = new System.Drawing.Size(104, 28);
@@ -138,7 +134,7 @@
             // Adicionar_BTN
             // 
             this.Adicionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Adicionar_BTN.Location = new System.Drawing.Point(4, 19);
+            this.Adicionar_BTN.Location = new System.Drawing.Point(4, 17);
             this.Adicionar_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Adicionar_BTN.Name = "Adicionar_BTN";
             this.Adicionar_BTN.Size = new System.Drawing.Size(104, 28);
@@ -170,7 +166,7 @@
             this.tbFiltrar.Location = new System.Drawing.Point(4, 4);
             this.tbFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.tbFiltrar.Name = "tbFiltrar";
-            this.tbFiltrar.Size = new System.Drawing.Size(849, 22);
+            this.tbFiltrar.Size = new System.Drawing.Size(849, 20);
             this.tbFiltrar.TabIndex = 0;
             // 
             // btnFiltrar
@@ -221,7 +217,7 @@
             this.IdCliente.MinimumWidth = 6;
             this.IdCliente.Name = "IdCliente";
             this.IdCliente.ReadOnly = true;
-            this.IdCliente.Width = 48;
+            this.IdCliente.Width = 41;
             // 
             // nomeClient
             // 
@@ -238,7 +234,7 @@
             this.telCliente.MinimumWidth = 6;
             this.telCliente.Name = "telCliente";
             this.telCliente.ReadOnly = true;
-            this.telCliente.Width = 102;
+            this.telCliente.Width = 81;
             // 
             // nifCliente
             // 
@@ -247,7 +243,7 @@
             this.nifCliente.MinimumWidth = 6;
             this.nifCliente.Name = "nifCliente";
             this.nifCliente.ReadOnly = true;
-            this.nifCliente.Width = 58;
+            this.nifCliente.Width = 49;
             // 
             // moradaClient
             // 
@@ -256,35 +252,6 @@
             this.moradaClient.MinimumWidth = 6;
             this.moradaClient.Name = "moradaClient";
             this.moradaClient.ReadOnly = true;
-            // 
-            // LoadingPopUp_Label
-            // 
-            this.LoadingPopUp_Label.AutoSize = true;
-            this.LoadingPopUp_Label.Location = new System.Drawing.Point(23, 33);
-            this.LoadingPopUp_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LoadingPopUp_Label.Name = "LoadingPopUp_Label";
-            this.LoadingPopUp_Label.Size = new System.Drawing.Size(87, 17);
-            this.LoadingPopUp_Label.TabIndex = 0;
-            this.LoadingPopUp_Label.Text = "A carregar...";
-            // 
-            // LoadingPopUp_ProgressBar
-            // 
-            this.LoadingPopUp_ProgressBar.Location = new System.Drawing.Point(27, 53);
-            this.LoadingPopUp_ProgressBar.Margin = new System.Windows.Forms.Padding(4);
-            this.LoadingPopUp_ProgressBar.Name = "LoadingPopUp_ProgressBar";
-            this.LoadingPopUp_ProgressBar.Size = new System.Drawing.Size(471, 28);
-            this.LoadingPopUp_ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.LoadingPopUp_ProgressBar.TabIndex = 1;
-            // 
-            // LoadingPopUp_Panel
-            // 
-            this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_ProgressBar);
-            this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_Label);
-            this.LoadingPopUp_Panel.Location = new System.Drawing.Point(353, 240);
-            this.LoadingPopUp_Panel.Margin = new System.Windows.Forms.Padding(4);
-            this.LoadingPopUp_Panel.Name = "LoadingPopUp_Panel";
-            this.LoadingPopUp_Panel.Size = new System.Drawing.Size(524, 122);
-            this.LoadingPopUp_Panel.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
@@ -328,7 +295,7 @@
             // btnRemoveMetodoPagamento
             // 
             this.btnRemoveMetodoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRemoveMetodoPagamento.Location = new System.Drawing.Point(4, 75);
+            this.btnRemoveMetodoPagamento.Location = new System.Drawing.Point(4, 73);
             this.btnRemoveMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveMetodoPagamento.Name = "btnRemoveMetodoPagamento";
             this.btnRemoveMetodoPagamento.Size = new System.Drawing.Size(91, 50);
@@ -340,7 +307,7 @@
             // btnEditMetodoPagamento
             // 
             this.btnEditMetodoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEditMetodoPagamento.Location = new System.Drawing.Point(4, 47);
+            this.btnEditMetodoPagamento.Location = new System.Drawing.Point(4, 45);
             this.btnEditMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditMetodoPagamento.Name = "btnEditMetodoPagamento";
             this.btnEditMetodoPagamento.Size = new System.Drawing.Size(91, 28);
@@ -352,7 +319,7 @@
             // btnAddMedodoPagamento
             // 
             this.btnAddMedodoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAddMedodoPagamento.Location = new System.Drawing.Point(4, 19);
+            this.btnAddMedodoPagamento.Location = new System.Drawing.Point(4, 17);
             this.btnAddMedodoPagamento.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddMedodoPagamento.Name = "btnAddMedodoPagamento";
             this.btnAddMedodoPagamento.Size = new System.Drawing.Size(91, 28);
@@ -385,7 +352,7 @@
             this.tbFilterMetodosPagamentos.Location = new System.Drawing.Point(4, 4);
             this.tbFilterMetodosPagamentos.Margin = new System.Windows.Forms.Padding(4);
             this.tbFilterMetodosPagamentos.Name = "tbFilterMetodosPagamentos";
-            this.tbFilterMetodosPagamentos.Size = new System.Drawing.Size(759, 22);
+            this.tbFilterMetodosPagamentos.Size = new System.Drawing.Size(759, 20);
             this.tbFilterMetodosPagamentos.TabIndex = 0;
             // 
             // btnFilterMetodosPagamentos
@@ -421,6 +388,7 @@
             this.IdMetodoPagamento,
             this.Metodo,
             this.AtivoMetodo});
+            this.Metodo_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Metodo_DataGridView.Location = new System.Drawing.Point(30, 28);
             this.Metodo_DataGridView.Name = "Metodo_DataGridView";
             this.Metodo_DataGridView.ReadOnly = true;
@@ -438,7 +406,7 @@
             this.IdMetodoPagamento.MinimumWidth = 6;
             this.IdMetodoPagamento.Name = "IdMetodoPagamento";
             this.IdMetodoPagamento.ReadOnly = true;
-            this.IdMetodoPagamento.Width = 48;
+            this.IdMetodoPagamento.Width = 41;
             // 
             // Metodo
             // 
@@ -447,7 +415,7 @@
             this.Metodo.MinimumWidth = 6;
             this.Metodo.Name = "Metodo";
             this.Metodo.ReadOnly = true;
-            this.Metodo.Width = 84;
+            this.Metodo.Width = 68;
             // 
             // AtivoMetodo
             // 
@@ -458,7 +426,7 @@
             this.AtivoMetodo.ReadOnly = true;
             this.AtivoMetodo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.AtivoMetodo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.AtivoMetodo.Width = 68;
+            this.AtivoMetodo.Width = 56;
             // 
             // label1
             // 
@@ -466,7 +434,7 @@
             this.label1.Location = new System.Drawing.Point(23, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "A carregar...";
             // 
@@ -479,22 +447,24 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 1;
             // 
-            // panel1
+            // LoadingPopUp_Panel
             // 
-            this.panel1.Controls.Add(this.progressBar1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(353, 240);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 122);
-            this.panel1.TabIndex = 3;
+            this.LoadingPopUp_Panel.Controls.Add(this.progressBar1);
+            this.LoadingPopUp_Panel.Controls.Add(this.label1);
+            this.LoadingPopUp_Panel.Location = new System.Drawing.Point(353, 240);
+            this.LoadingPopUp_Panel.Margin = new System.Windows.Forms.Padding(4);
+            this.LoadingPopUp_Panel.Name = "LoadingPopUp_Panel";
+            this.LoadingPopUp_Panel.Size = new System.Drawing.Size(524, 122);
+            this.LoadingPopUp_Panel.TabIndex = 3;
             // 
             // FormGestaoMetodosPagamentos
             // 
             this.ClientSize = new System.Drawing.Size(1158, 618);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel3);
+            this.MinimumSize = new System.Drawing.Size(1174, 657);
             this.Name = "FormGestaoMetodosPagamentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão de Métodos de Pagamentos";
             this.Shown += new System.EventHandler(this.FormGestaoMetodosPagamentos_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -502,15 +472,13 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Clientes_DataGridView)).EndInit();
-            this.LoadingPopUp_Panel.ResumeLayout(false);
-            this.LoadingPopUp_Panel.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Metodo_DataGridView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.LoadingPopUp_Panel.ResumeLayout(false);
+            this.LoadingPopUp_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -526,9 +494,6 @@
         private System.Windows.Forms.TextBox tbFiltrar;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Label LoadingPopUp_Label;
-        private System.Windows.Forms.ProgressBar LoadingPopUp_ProgressBar;
-        private System.Windows.Forms.Panel LoadingPopUp_Panel;
         private System.Windows.Forms.DataGridView Clientes_DataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeClient;
@@ -550,6 +515,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn AtivoMetodo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel LoadingPopUp_Panel;
     }
 }
