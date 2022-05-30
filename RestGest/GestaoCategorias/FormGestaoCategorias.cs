@@ -45,11 +45,16 @@ namespace RestGest.GestaoCategorias
                 LoadingPopUp_Panel.Visible = true;
 
                 categorias_menu_DataGridView.Rows.Clear();
-                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
-                {
-                    string[] row = { categoria.Id.ToString(), categoria.Nome };
-                    categorias_menu_DataGridView.Rows.Add(row);
-                }
+
+                List<Categoria> categorias = new List<Categoria>();
+
+                if (this.FormGestao)
+                    categorias = databaseContainer.Categorias.Where(categoria => categoria.Ativo == true).ToList();
+                else
+                    categorias = databaseContainer.Categorias.ToList();
+
+                foreach (Categoria categoria in categorias)
+                    categorias_menu_DataGridView.Rows.Add(buildDataGridRow(categoria));
 
                 if (categorias_menu_DataGridView.Rows.Count > 0)
                     categorias_menu_DataGridView.Rows[0].Selected = true;
@@ -64,14 +69,16 @@ namespace RestGest.GestaoCategorias
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Categoria> categorias = databaseContainer.Categorias.Where(categoria => categoria.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && categoria.Ativo == true).ToList();
+                List<Categoria> categorias = new List<Categoria>();
+
+                if (this.FormGestao)
+                    categorias = databaseContainer.Categorias.Where(categoria => categoria.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && categoria.Ativo == true).ToList();
+                else
+                    categorias = databaseContainer.Categorias.Where(categoria => categoria.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper())).ToList();
 
                 categorias_menu_DataGridView.Rows.Clear();
                 foreach (Categoria categoria in categorias)
-                {
-                    string[] row = buildDataGridRow(categoria);
-                    categorias_menu_DataGridView.Rows.Add(row);
-                }
+                    categorias_menu_DataGridView.Rows.Add(buildDataGridRow(categoria));
 
                 if (categorias_menu_DataGridView.Rows.Count > 0)
                     categorias_menu_DataGridView.Rows[0].Selected = true;
@@ -82,7 +89,7 @@ namespace RestGest.GestaoCategorias
 
         private string[] buildDataGridRow(Categoria categoria)
         {
-            string[] row = { categoria.Id.ToString(), categoria.Nome };
+            string[] row = { categoria.Id.ToString(), categoria.Ativo.ToString(), categoria.Nome};
             return row;
         }
 
@@ -136,11 +143,13 @@ namespace RestGest.GestaoCategorias
         {
             if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[2].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int categoria_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
+
                     Categoria categoriasRemover = databaseContainer.Categorias.Find(categoria_id);
+
                     if (databaseContainer.ItemsMenus.Where(p => p.CategoriaId == categoria_id).Count() > 0)
                     {
                         categoriasRemover.Ativo = false;
