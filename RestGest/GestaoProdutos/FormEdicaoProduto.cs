@@ -209,6 +209,9 @@ namespace RestGest.GestaoRestaurantes
             if (Restaurantes_ComboBox.SelectedItem == null)
                 return;
 
+            if (Restaurantes_ListBox.Items.Contains(Restaurantes_ComboBox.SelectedItem))
+                return;
+
             Restaurantes_ListBox.Items.Add(Restaurantes_ComboBox.SelectedItem);
             Restaurantes_ComboBox.Items.Remove(Restaurantes_ComboBox.SelectedItem);
             OrderItems();
