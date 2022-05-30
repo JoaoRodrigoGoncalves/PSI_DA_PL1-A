@@ -48,9 +48,14 @@ namespace RestGest.GestaoRestaurantes
             Ativo_CheckBox.Checked = dadosProduto.Ativo;
 
             ImageConverter imageConverter = new ImageConverter();
-            Imagem_PictureBox.Image = (Image)imageConverter.ConvertFrom(dadosProduto.Fotografia);
+            
+            //TODO Check null validation
 
-            Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
+            if(dadosProduto.Fotografia != null)
+                Imagem_PictureBox.Image = (Image)imageConverter.ConvertFrom(dadosProduto.Fotografia);
+
+            if(!String.IsNullOrEmpty(dadosProduto.Ingredientes))
+                Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
 
             Restaurante[] restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
