@@ -206,10 +206,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void AddRestaurante_BTN_Click(object sender, EventArgs e)
         {
-            if (Restaurantes_ComboBox.SelectedItem == null)
-                return;
-
-            if (Restaurantes_ListBox.Items.Contains(Restaurantes_ComboBox.SelectedItem))
+            if (Restaurantes_ComboBox.SelectedItem == null && Restaurantes_ListBox.Items.Contains(Restaurantes_ComboBox.SelectedItem))
                 return;
 
             Restaurantes_ListBox.Items.Add(Restaurantes_ComboBox.SelectedItem);
