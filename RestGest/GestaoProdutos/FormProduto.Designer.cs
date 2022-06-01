@@ -1,6 +1,6 @@
 ﻿namespace RestGest.GestaoRestaurantes
 {
-    partial class FormEdicaoProduto
+    partial class FormProduto
     {
         /// <summary>
         /// Required designer variable.

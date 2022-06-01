@@ -44,7 +44,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormEdicaoProduto().ShowDialog();
+            new FormProduto().ShowDialog();
             ReloadDataGridView();
         }
 
@@ -109,7 +109,7 @@ namespace RestGest
             {
                 int row = produtos_DataGridView.SelectedRows[0].Index;
                 int idProduto = int.Parse(produtos_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoProduto(idProduto).ShowDialog();
+                new FormProduto(idProduto).ShowDialog();
                 ReloadDataGridView();
             }
         }

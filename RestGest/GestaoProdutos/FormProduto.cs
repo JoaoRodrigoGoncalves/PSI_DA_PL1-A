@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
 {
-    public partial class FormEdicaoProduto : Form
+    public partial class FormProduto : Form
     {
         private RestGestContainer databaseContainer;
         private int ProdutoID;
         private ItemMenu dadosProduto; // Global para que possa ser editada;
 
-        public FormEdicaoProduto()
+        public FormProduto()
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
@@ -24,7 +24,7 @@ namespace RestGest.GestaoRestaurantes
             bt_update.Enabled = false;
             Guardar_BTN.Enabled = true;
         }
-        public FormEdicaoProduto(int idProduto)
+        public FormProduto(int idProduto)
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
