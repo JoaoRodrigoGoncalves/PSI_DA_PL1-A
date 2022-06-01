@@ -147,12 +147,6 @@
     <Compile Include="GestaoProdutos\FormEdicaoProduto.Designer.cs">
       <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoProdutos\FormRegistoProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoProdutos\FormRegistoProduto.Designer.cs">
-      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
-    </Compile>
     <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,9 +244,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoProdutos\FormEdicaoProduto.resx">
       <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestaoProdutos\FormRegistoProduto.resx">
-      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>

@@ -44,7 +44,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoProduto().ShowDialog();
+            new FormEdicaoProduto().ShowDialog();
             ReloadDataGridView();
         }
 
