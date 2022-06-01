@@ -33,17 +33,21 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 Clientes_DataGridView.Rows.Clear();
-                foreach (Cliente clientes in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo == true))
-                {
-                    string[] row = { clientes.Id.ToString(), clientes.Nome, clientes.Telemovel, clientes.NumContribuinte, clientes.Morada.ToString() };
-                    Clientes_DataGridView.Rows.Add(row);
-                }
+                foreach (Cliente cliente in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo == true))
+                    Clientes_DataGridView.Rows.Add(buildDataGridRow(cliente));
+                
 
                 if (Clientes_DataGridView.Rows.Count > 0)
                     Clientes_DataGridView.Rows[0].Selected = true;
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private string[] buildDataGridRow(Cliente cliente)
+        {
+            string[] row = { cliente.Id.ToString(), cliente.Nome, cliente.Telemovel, cliente.NumContribuinte, cliente.Morada.ToString() };
+            return row;
         }
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
@@ -132,11 +136,9 @@ namespace RestGest
                 List<Cliente> clientes = databaseContainer.Pessoas.OfType<Cliente>().Where(cliente => cliente.Nome.ToUpper().Contains(tbFiltrar.Text.ToUpper()) && cliente.Ativo == true).ToList();
 
                 Clientes_DataGridView.Rows.Clear();
+
                 foreach (Cliente cliente in clientes)
-                {
-                    string[] row = { cliente.Id.ToString(), cliente.Nome, cliente.Telemovel, cliente.NumContribuinte, cliente.Morada.ToString() };
-                    Clientes_DataGridView.Rows.Add(row);
-                }
+                    Clientes_DataGridView.Rows.Add(buildDataGridRow(cliente));
 
                 if (Clientes_DataGridView.Rows.Count > 0)
                     Clientes_DataGridView.Rows[0].Selected = true;

@@ -47,7 +47,7 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows.Clear();
                 foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
                 {
-                    string[] row = { categoria.Id.ToString(), categoria.Nome };
+                    string[] row = buildDataGridRow(categoria);
                     categorias_menu_DataGridView.Rows.Add(row);
                 }
 
@@ -82,7 +82,7 @@ namespace RestGest.GestaoCategorias
 
         private string[] buildDataGridRow(Categoria categoria)
         {
-            string[] row = { categoria.Id.ToString(), categoria.Nome };
+            string[] row = { categoria.Id.ToString(), categoria.Ativo.ToString(), categoria.Nome };
             return row;
         }
 

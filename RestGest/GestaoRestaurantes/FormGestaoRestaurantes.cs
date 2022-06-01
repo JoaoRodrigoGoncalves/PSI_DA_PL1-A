@@ -50,10 +50,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo))
-                {
-                    string[] row = buildDataGridRow(restaurante);
-                    restaurantes_DataGridView.Rows.Add(row);
-                }
+                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;
@@ -85,10 +82,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
-                {
-                    string[] row = buildDataGridRow(restaurante);
-                    restaurantes_DataGridView.Rows.Add(row);
-                }
+                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;

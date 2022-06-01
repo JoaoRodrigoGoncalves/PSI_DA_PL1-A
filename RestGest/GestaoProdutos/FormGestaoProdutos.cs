@@ -33,10 +33,7 @@ namespace RestGest
 
                 produtos_DataGridView.Rows.Clear();
                 foreach (ItemMenu item in databaseContainer.ItemsMenus)
-                {
-                    string[] row = { item.Id.ToString(), item.Ativo.ToString(), item.Nome, item.Categoria.Nome, item.Preco + "€" };
-                    produtos_DataGridView.Rows.Add(row);
-                }
+                    produtos_DataGridView.Rows.Add(buildDataGridRow(item));
 
                 if (produtos_DataGridView.Rows.Count > 0)
                     produtos_DataGridView.Rows[0].Selected = true;
@@ -61,16 +58,19 @@ namespace RestGest
 
                 produtos_DataGridView.Rows.Clear();
                 foreach (ItemMenu item in Itens)
-                {
-                    string[] row = { item.Id.ToString(), item.Ativo.ToString(), item.Nome, item.Categoria.Nome, item.Preco + "€" };
-                    produtos_DataGridView.Rows.Add(row);
-                }
+                    produtos_DataGridView.Rows.Add(buildDataGridRow(item));
 
                 if (produtos_DataGridView.Rows.Count > 0)
                     produtos_DataGridView.Rows[0].Selected = true;
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private string[] buildDataGridRow(ItemMenu item)
+        {
+            string[] row = { item.Id.ToString(), item.Ativo.ToString(), item.Nome, item.Categoria.Nome, item.Preco + "€" };
+            return row;
         }
 
         private void FormGestaoProdutos_FormClosing(object sender, FormClosingEventArgs e)
