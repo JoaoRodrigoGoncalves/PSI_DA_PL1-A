@@ -96,9 +96,9 @@
             this.funcionarios_DataGridView.Name = "funcionarios_DataGridView";
             this.funcionarios_DataGridView.ReadOnly = true;
             this.funcionarios_DataGridView.RowHeadersWidth = 51;
+            this.funcionarios_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.funcionarios_DataGridView.Size = new System.Drawing.Size(804, 424);
             this.funcionarios_DataGridView.TabIndex = 0;
-            this.funcionarios_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseClick);
             this.funcionarios_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseDoubleClick);
             // 
             // IDFuncionario

@@ -46,6 +46,7 @@
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
+            this.filtroRestaurante_ComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtos_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -94,9 +95,9 @@
             this.produtos_DataGridView.Name = "produtos_DataGridView";
             this.produtos_DataGridView.ReadOnly = true;
             this.produtos_DataGridView.RowHeadersWidth = 51;
+            this.produtos_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.produtos_DataGridView.Size = new System.Drawing.Size(804, 424);
             this.produtos_DataGridView.TabIndex = 0;
-            this.produtos_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.produtos_DataGridView_MouseClick);
             this.produtos_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.produtos_DataGridView_MouseDoubleClick);
             // 
             // IDRestaurante
@@ -189,13 +190,15 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Controls.Add(this.filtrar_TextBox, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.filtrar_BTN, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LimparFiltro_BTN, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LimparFiltro_BTN, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.filtrar_BTN, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.filtroRestaurante_ComboBox, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 473);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -209,13 +212,13 @@
             this.filtrar_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filtrar_TextBox.Location = new System.Drawing.Point(3, 3);
             this.filtrar_TextBox.Name = "filtrar_TextBox";
-            this.filtrar_TextBox.Size = new System.Drawing.Size(637, 20);
+            this.filtrar_TextBox.Size = new System.Drawing.Size(476, 20);
             this.filtrar_TextBox.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtrar_BTN.Location = new System.Drawing.Point(646, 3);
+            this.filtrar_BTN.Location = new System.Drawing.Point(645, 3);
             this.filtrar_BTN.Name = "filtrar_BTN";
             this.filtrar_BTN.Size = new System.Drawing.Size(74, 23);
             this.filtrar_BTN.TabIndex = 1;
@@ -226,9 +229,9 @@
             // LimparFiltro_BTN
             // 
             this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LimparFiltro_BTN.Location = new System.Drawing.Point(726, 3);
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(725, 3);
             this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
-            this.LimparFiltro_BTN.Size = new System.Drawing.Size(75, 23);
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(76, 23);
             this.LimparFiltro_BTN.TabIndex = 2;
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
@@ -259,6 +262,16 @@
             this.LoadingPopUp_Label.Size = new System.Drawing.Size(65, 13);
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
+            // 
+            // filtroRestaurante_ComboBox
+            // 
+            this.filtroRestaurante_ComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filtroRestaurante_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filtroRestaurante_ComboBox.FormattingEnabled = true;
+            this.filtroRestaurante_ComboBox.Location = new System.Drawing.Point(485, 3);
+            this.filtroRestaurante_ComboBox.Name = "filtroRestaurante_ComboBox";
+            this.filtroRestaurante_ComboBox.Size = new System.Drawing.Size(154, 21);
+            this.filtroRestaurante_ComboBox.TabIndex = 3;
             // 
             // FormGestaoProdutos
             // 
@@ -304,5 +317,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomePrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaPrato;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecoPrato;
+        private System.Windows.Forms.ComboBox filtroRestaurante_ComboBox;
     }
 }

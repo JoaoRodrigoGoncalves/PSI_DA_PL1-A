@@ -83,9 +83,9 @@ namespace RestGest.GestaoCategorias
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Controls.Add(this.categorias_menu_DataGridView, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
@@ -99,7 +99,7 @@ namespace RestGest.GestaoCategorias
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 450);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // categorias_menu_DataGridView
@@ -117,9 +117,9 @@ namespace RestGest.GestaoCategorias
             this.categorias_menu_DataGridView.Location = new System.Drawing.Point(23, 23);
             this.categorias_menu_DataGridView.Name = "categorias_menu_DataGridView";
             this.categorias_menu_DataGridView.ReadOnly = true;
-            this.categorias_menu_DataGridView.Size = new System.Drawing.Size(658, 352);
+            this.categorias_menu_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.categorias_menu_DataGridView.Size = new System.Drawing.Size(683, 352);
             this.categorias_menu_DataGridView.TabIndex = 0;
-            this.categorias_menu_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.categorias_menu_DataGridView_MouseClick);
             this.categorias_menu_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.categorias_menu_DataGridView_MouseDoubleClick);
             // 
             // groupBox1
@@ -129,9 +129,9 @@ namespace RestGest.GestaoCategorias
             this.groupBox1.Controls.Add(this.Editar_BTN);
             this.groupBox1.Controls.Add(this.Adicionar_BTN);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(707, 23);
+            this.groupBox1.Location = new System.Drawing.Point(732, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(67, 352);
+            this.groupBox1.Size = new System.Drawing.Size(87, 352);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ações";
@@ -141,7 +141,7 @@ namespace RestGest.GestaoCategorias
             this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Selecionar_BTN.Location = new System.Drawing.Point(3, 103);
             this.Selecionar_BTN.Name = "Selecionar_BTN";
-            this.Selecionar_BTN.Size = new System.Drawing.Size(61, 41);
+            this.Selecionar_BTN.Size = new System.Drawing.Size(81, 41);
             this.Selecionar_BTN.TabIndex = 3;
             this.Selecionar_BTN.Text = "Selecionar";
             this.Selecionar_BTN.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@ namespace RestGest.GestaoCategorias
             this.Remover_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Remover_BTN.Location = new System.Drawing.Point(3, 62);
             this.Remover_BTN.Name = "Remover_BTN";
-            this.Remover_BTN.Size = new System.Drawing.Size(61, 41);
+            this.Remover_BTN.Size = new System.Drawing.Size(81, 41);
             this.Remover_BTN.TabIndex = 2;
             this.Remover_BTN.Text = "Desativar / Remover";
             this.Remover_BTN.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@ namespace RestGest.GestaoCategorias
             this.Editar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Editar_BTN.Location = new System.Drawing.Point(3, 39);
             this.Editar_BTN.Name = "Editar_BTN";
-            this.Editar_BTN.Size = new System.Drawing.Size(61, 23);
+            this.Editar_BTN.Size = new System.Drawing.Size(81, 23);
             this.Editar_BTN.TabIndex = 1;
             this.Editar_BTN.Text = "Editar";
             this.Editar_BTN.UseVisualStyleBackColor = true;
@@ -174,7 +174,7 @@ namespace RestGest.GestaoCategorias
             this.Adicionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Adicionar_BTN.Location = new System.Drawing.Point(3, 16);
             this.Adicionar_BTN.Name = "Adicionar_BTN";
-            this.Adicionar_BTN.Size = new System.Drawing.Size(61, 23);
+            this.Adicionar_BTN.Size = new System.Drawing.Size(81, 23);
             this.Adicionar_BTN.TabIndex = 0;
             this.Adicionar_BTN.Text = "Adicionar";
             this.Adicionar_BTN.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@ namespace RestGest.GestaoCategorias
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(658, 25);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(683, 25);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // filtrar_TextBox
@@ -202,15 +202,15 @@ namespace RestGest.GestaoCategorias
             this.filtrar_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filtrar_TextBox.Location = new System.Drawing.Point(3, 3);
             this.filtrar_TextBox.Name = "filtrar_TextBox";
-            this.filtrar_TextBox.Size = new System.Drawing.Size(520, 20);
+            this.filtrar_TextBox.Size = new System.Drawing.Size(540, 20);
             this.filtrar_TextBox.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtrar_BTN.Location = new System.Drawing.Point(529, 3);
+            this.filtrar_BTN.Location = new System.Drawing.Point(549, 3);
             this.filtrar_BTN.Name = "filtrar_BTN";
-            this.filtrar_BTN.Size = new System.Drawing.Size(59, 19);
+            this.filtrar_BTN.Size = new System.Drawing.Size(62, 19);
             this.filtrar_BTN.TabIndex = 1;
             this.filtrar_BTN.Text = "Filtrar";
             this.filtrar_BTN.UseVisualStyleBackColor = true;
@@ -219,9 +219,9 @@ namespace RestGest.GestaoCategorias
             // LimparFiltro_BTN
             // 
             this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LimparFiltro_BTN.Location = new System.Drawing.Point(594, 3);
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(617, 3);
             this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
-            this.LimparFiltro_BTN.Size = new System.Drawing.Size(61, 19);
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(63, 19);
             this.LimparFiltro_BTN.TabIndex = 2;
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
@@ -254,9 +254,10 @@ namespace RestGest.GestaoCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(845, 450);
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(861, 489);
             this.Name = "FormGestaoCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão Categorias Menu";

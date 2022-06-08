@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
@@ -33,7 +32,7 @@ namespace RestGest.GestaoRestaurantes
 
             Restaurante[] restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
-            if(restaurantes.Length == 0)
+            if (restaurantes.Length == 0)
             {
                 // Não existem restaurantes registados / ativos, vamos desativar a utilização da secção de associação a restaurantes
                 Restaurantes_ListBox.Enabled = false;
@@ -131,14 +130,14 @@ namespace RestGest.GestaoRestaurantes
 
             novoProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
-            if(Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
+            if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
             {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                 {
                     novoProduto.Restaurante.Add(restaurante);
                 }
             }
-            
+
             databaseContainer.ItemsMenus.Add(novoProduto);
 
             databaseContainer.SaveChanges();
@@ -171,7 +170,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void RmItem_BTN_Click(object sender, EventArgs e)
         {
-            if(Ingredientes_ListBox.SelectedItems.Count == 1)
+            if (Ingredientes_ListBox.SelectedItems.Count == 1)
             {
                 Ingredientes_ListBox.Items.RemoveAt(Ingredientes_ListBox.SelectedIndex);
             }
@@ -185,7 +184,7 @@ namespace RestGest.GestaoRestaurantes
             openFileDialog.FilterIndex = 1;
             openFileDialog.Multiselect = false;
 
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string ficheiro = openFileDialog.FileName;
                 Imagem_PictureBox.Image = new Bitmap(ficheiro);

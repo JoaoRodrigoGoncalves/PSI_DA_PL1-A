@@ -91,13 +91,14 @@
             this.PedidosRestaurante,
             this.TrabalhadoresRestaurante});
             this.restaurantes_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.restaurantes_DataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.restaurantes_DataGridView.Location = new System.Drawing.Point(23, 23);
             this.restaurantes_DataGridView.Name = "restaurantes_DataGridView";
             this.restaurantes_DataGridView.ReadOnly = true;
             this.restaurantes_DataGridView.RowHeadersWidth = 51;
+            this.restaurantes_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.restaurantes_DataGridView.Size = new System.Drawing.Size(804, 424);
             this.restaurantes_DataGridView.TabIndex = 0;
-            this.restaurantes_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseClick);
             this.restaurantes_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.restaurantes_DataGridView_MouseDoubleClick);
             // 
             // IDRestaurante

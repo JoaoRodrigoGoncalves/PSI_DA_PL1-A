@@ -187,9 +187,9 @@
             this.Clientes_DataGridView.ReadOnly = true;
             this.Clientes_DataGridView.RowHeadersWidth = 51;
             this.Clientes_DataGridView.RowTemplate.Height = 24;
+            this.Clientes_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Clientes_DataGridView.Size = new System.Drawing.Size(806, 426);
             this.Clientes_DataGridView.TabIndex = 3;
-            this.Clientes_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Clientes_DataGridView_MouseClick);
             this.Clientes_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Clientes_DataGridView_MouseDoubleClick_1);
             // 
             // IdCliente

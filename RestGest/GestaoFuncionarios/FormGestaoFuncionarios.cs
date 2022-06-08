@@ -55,7 +55,14 @@ namespace RestGest
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
             new FormFuncionario().ShowDialog();
-            ReloadDataGridView();
+            if (filtrar_TextBox.Text.Length > 0)
+            {
+                filtrar_BTN_Click(sender, e);
+            }
+            else
+            {
+                ReloadDataGridView();
+            }
         }
 
         private void filtrar_BTN_Click(object sender, EventArgs e)
@@ -108,18 +115,6 @@ namespace RestGest
             }
         }
 
-        private void restaurantes_DataGridView_MouseClick(object sender, MouseEventArgs e)
-        {
-            // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
-            // Acedido em 19/05/2022
-            var hit = funcionarios_DataGridView.HitTest(e.X, e.Y);
-            if (hit.RowIndex != -1)
-            {
-                funcionarios_DataGridView.ClearSelection();
-                funcionarios_DataGridView.Rows[hit.RowIndex].Selected = true;
-            }
-        }
-
         private void Editar_BTN_Click(object sender, EventArgs e)
         {
             if (funcionarios_DataGridView.SelectedRows.Count == 1)
@@ -127,7 +122,14 @@ namespace RestGest
                 int row = funcionarios_DataGridView.SelectedRows[0].Index;
                 int idTrabalhador = int.Parse(funcionarios_DataGridView.Rows[row].Cells[0].Value.ToString());
                 new FormFuncionario(idTrabalhador).ShowDialog();
-                ReloadDataGridView();
+                if (filtrar_TextBox.Text.Length > 0)
+                {
+                    filtrar_BTN_Click(sender, e);
+                }
+                else
+                {
+                    ReloadDataGridView();
+                }
             }
         }
 
@@ -171,7 +173,14 @@ namespace RestGest
                         }
                     }
                     //
-                    ReloadDataGridView();
+                    if (filtrar_TextBox.Text.Length > 0)
+                    {
+                        filtrar_BTN_Click(sender, e);
+                    }
+                    else
+                    {
+                        ReloadDataGridView();
+                    };
                 }
             }
         }

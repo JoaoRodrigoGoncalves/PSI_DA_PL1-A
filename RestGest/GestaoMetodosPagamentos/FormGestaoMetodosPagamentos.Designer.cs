@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Remover_BTN = new System.Windows.Forms.Button();
-            this.Editar_BTN = new System.Windows.Forms.Button();
-            this.Adicionar_BTN = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbFiltrar = new System.Windows.Forms.TextBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.Clientes_DataGridView = new System.Windows.Forms.DataGridView();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nifCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moradaClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRemoveMetodoPagamento = new System.Windows.Forms.Button();
             this.btnEditMetodoPagamento = new System.Windows.Forms.Button();
-            this.btnAddMedodoPagamento = new System.Windows.Forms.Button();
+            this.btnAddMetodoPagamento = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tbFilterMetodosPagamentos = new System.Windows.Forms.TextBox();
             this.btnFilterMetodosPagamentos = new System.Windows.Forms.Button();
@@ -59,199 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Clientes_DataGridView)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Metodo_DataGridView)).BeginInit();
             this.LoadingPopUp_Panel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Clientes_DataGridView, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1283, 650);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.Remover_BTN);
-            this.groupBox1.Controls.Add(this.Editar_BTN);
-            this.groupBox1.Controls.Add(this.Adicionar_BTN);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(1138, 29);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(112, 521);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ações";
-            // 
-            // Remover_BTN
-            // 
-            this.Remover_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Remover_BTN.Location = new System.Drawing.Point(4, 73);
-            this.Remover_BTN.Margin = new System.Windows.Forms.Padding(4);
-            this.Remover_BTN.Name = "Remover_BTN";
-            this.Remover_BTN.Size = new System.Drawing.Size(104, 50);
-            this.Remover_BTN.TabIndex = 2;
-            this.Remover_BTN.Text = "Remover";
-            this.Remover_BTN.UseVisualStyleBackColor = true;
-            // 
-            // Editar_BTN
-            // 
-            this.Editar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Editar_BTN.Location = new System.Drawing.Point(4, 45);
-            this.Editar_BTN.Margin = new System.Windows.Forms.Padding(4);
-            this.Editar_BTN.Name = "Editar_BTN";
-            this.Editar_BTN.Size = new System.Drawing.Size(104, 28);
-            this.Editar_BTN.TabIndex = 1;
-            this.Editar_BTN.Text = "Editar";
-            this.Editar_BTN.UseVisualStyleBackColor = true;
-            // 
-            // Adicionar_BTN
-            // 
-            this.Adicionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Adicionar_BTN.Location = new System.Drawing.Point(4, 17);
-            this.Adicionar_BTN.Margin = new System.Windows.Forms.Padding(4);
-            this.Adicionar_BTN.Name = "Adicionar_BTN";
-            this.Adicionar_BTN.Size = new System.Drawing.Size(104, 28);
-            this.Adicionar_BTN.TabIndex = 0;
-            this.Adicionar_BTN.Text = "Adicionar";
-            this.Adicionar_BTN.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Controls.Add(this.tbFiltrar, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnFiltrar, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnLimpar, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(31, 583);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1072, 38);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // tbFiltrar
-            // 
-            this.tbFiltrar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbFiltrar.Location = new System.Drawing.Point(4, 4);
-            this.tbFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFiltrar.Name = "tbFiltrar";
-            this.tbFiltrar.Size = new System.Drawing.Size(849, 20);
-            this.tbFiltrar.TabIndex = 0;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFiltrar.Location = new System.Drawing.Point(861, 4);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(99, 28);
-            this.btnFiltrar.TabIndex = 1;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLimpar.Location = new System.Drawing.Point(968, 4);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(100, 28);
-            this.btnLimpar.TabIndex = 2;
-            this.btnLimpar.Text = "Limpar Filtro";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            // 
-            // Clientes_DataGridView
-            // 
-            this.Clientes_DataGridView.AllowUserToAddRows = false;
-            this.Clientes_DataGridView.AllowUserToDeleteRows = false;
-            this.Clientes_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Clientes_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdCliente,
-            this.nomeClient,
-            this.telCliente,
-            this.nifCliente,
-            this.moradaClient});
-            this.Clientes_DataGridView.Location = new System.Drawing.Point(30, 28);
-            this.Clientes_DataGridView.Name = "Clientes_DataGridView";
-            this.Clientes_DataGridView.ReadOnly = true;
-            this.Clientes_DataGridView.RowHeadersWidth = 51;
-            this.Clientes_DataGridView.RowTemplate.Height = 24;
-            this.Clientes_DataGridView.Size = new System.Drawing.Size(1074, 522);
-            this.Clientes_DataGridView.TabIndex = 3;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.IdCliente.HeaderText = "Id";
-            this.IdCliente.MinimumWidth = 6;
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            this.IdCliente.Width = 41;
-            // 
-            // nomeClient
-            // 
-            this.nomeClient.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nomeClient.HeaderText = "Nome";
-            this.nomeClient.MinimumWidth = 6;
-            this.nomeClient.Name = "nomeClient";
-            this.nomeClient.ReadOnly = true;
-            // 
-            // telCliente
-            // 
-            this.telCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.telCliente.HeaderText = "Telemóvel";
-            this.telCliente.MinimumWidth = 6;
-            this.telCliente.Name = "telCliente";
-            this.telCliente.ReadOnly = true;
-            this.telCliente.Width = 81;
-            // 
-            // nifCliente
-            // 
-            this.nifCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nifCliente.HeaderText = "NIF";
-            this.nifCliente.MinimumWidth = 6;
-            this.nifCliente.Name = "nifCliente";
-            this.nifCliente.ReadOnly = true;
-            this.nifCliente.Width = 49;
-            // 
-            // moradaClient
-            // 
-            this.moradaClient.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.moradaClient.HeaderText = "Morada";
-            this.moradaClient.MinimumWidth = 6;
-            this.moradaClient.Name = "moradaClient";
-            this.moradaClient.ReadOnly = true;
             // 
             // tableLayoutPanel3
             // 
@@ -281,7 +79,7 @@
             // 
             this.groupBox2.Controls.Add(this.btnRemoveMetodoPagamento);
             this.groupBox2.Controls.Add(this.btnEditMetodoPagamento);
-            this.groupBox2.Controls.Add(this.btnAddMedodoPagamento);
+            this.groupBox2.Controls.Add(this.btnAddMetodoPagamento);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(1025, 29);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -300,7 +98,7 @@
             this.btnRemoveMetodoPagamento.Name = "btnRemoveMetodoPagamento";
             this.btnRemoveMetodoPagamento.Size = new System.Drawing.Size(91, 50);
             this.btnRemoveMetodoPagamento.TabIndex = 2;
-            this.btnRemoveMetodoPagamento.Text = "Remover";
+            this.btnRemoveMetodoPagamento.Text = "Desativar / Remover";
             this.btnRemoveMetodoPagamento.UseVisualStyleBackColor = true;
             this.btnRemoveMetodoPagamento.Click += new System.EventHandler(this.btnRemoveMetodoPagamento_Click);
             // 
@@ -316,17 +114,17 @@
             this.btnEditMetodoPagamento.UseVisualStyleBackColor = true;
             this.btnEditMetodoPagamento.Click += new System.EventHandler(this.btnEditMetodoPagamento_Click);
             // 
-            // btnAddMedodoPagamento
+            // btnAddMetodoPagamento
             // 
-            this.btnAddMedodoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAddMedodoPagamento.Location = new System.Drawing.Point(4, 17);
-            this.btnAddMedodoPagamento.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddMedodoPagamento.Name = "btnAddMedodoPagamento";
-            this.btnAddMedodoPagamento.Size = new System.Drawing.Size(91, 28);
-            this.btnAddMedodoPagamento.TabIndex = 0;
-            this.btnAddMedodoPagamento.Text = "Adicionar";
-            this.btnAddMedodoPagamento.UseVisualStyleBackColor = true;
-            this.btnAddMedodoPagamento.Click += new System.EventHandler(this.btnAddMedodoPagamento_Click);
+            this.btnAddMetodoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddMetodoPagamento.Location = new System.Drawing.Point(4, 17);
+            this.btnAddMetodoPagamento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddMetodoPagamento.Name = "btnAddMetodoPagamento";
+            this.btnAddMetodoPagamento.Size = new System.Drawing.Size(91, 28);
+            this.btnAddMetodoPagamento.TabIndex = 0;
+            this.btnAddMetodoPagamento.Text = "Adicionar";
+            this.btnAddMetodoPagamento.UseVisualStyleBackColor = true;
+            this.btnAddMetodoPagamento.Click += new System.EventHandler(this.btnAddMedodoPagamento_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -394,9 +192,9 @@
             this.Metodo_DataGridView.ReadOnly = true;
             this.Metodo_DataGridView.RowHeadersWidth = 51;
             this.Metodo_DataGridView.RowTemplate.Height = 24;
+            this.Metodo_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Metodo_DataGridView.Size = new System.Drawing.Size(961, 493);
             this.Metodo_DataGridView.TabIndex = 3;
-            this.Metodo_DataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Metodo_DataGridView_MouseClick);
             this.Metodo_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Metodo_DataGridView_MouseDoubleClick);
             // 
             // IdMetodoPagamento
@@ -466,12 +264,8 @@
             this.Name = "FormGestaoMetodosPagamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão de Métodos de Pagamentos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoMetodosPagamentos_FormClosing);
             this.Shown += new System.EventHandler(this.FormGestaoMetodosPagamentos_Shown);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Clientes_DataGridView)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -485,26 +279,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Adicionar_BTN;
-        private System.Windows.Forms.Button Remover_BTN;
-        private System.Windows.Forms.Button Editar_BTN;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox tbFiltrar;
-        private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.DataGridView Clientes_DataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nifCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moradaClient;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnRemoveMetodoPagamento;
         private System.Windows.Forms.Button btnEditMetodoPagamento;
-        private System.Windows.Forms.Button btnAddMedodoPagamento;
+        private System.Windows.Forms.Button btnAddMetodoPagamento;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox tbFilterMetodosPagamentos;
         private System.Windows.Forms.Button btnFilterMetodosPagamentos;

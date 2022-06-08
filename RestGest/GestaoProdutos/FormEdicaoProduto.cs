@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
@@ -48,18 +46,16 @@ namespace RestGest.GestaoRestaurantes
             Ativo_CheckBox.Checked = dadosProduto.Ativo;
 
             ImageConverter imageConverter = new ImageConverter();
-            
-            //TODO Check null validation
 
-            if(dadosProduto.Fotografia != null)
+            if (dadosProduto.Fotografia != null)
                 Imagem_PictureBox.Image = (Image)imageConverter.ConvertFrom(dadosProduto.Fotografia);
 
-            if(!String.IsNullOrEmpty(dadosProduto.Ingredientes))
+            if (!String.IsNullOrEmpty(dadosProduto.Ingredientes))
                 Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
 
             Restaurante[] restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
-            if(restaurantes.Length == 0)
+            if (restaurantes.Length == 0)
             {
                 // Não existem restaurantes registados / ativos, vamos desativar a utilização da secção de associação a restaurantes
                 Restaurantes_ListBox.Enabled = false;
@@ -72,7 +68,7 @@ namespace RestGest.GestaoRestaurantes
                 Restaurantes_ComboBox.Items.AddRange(restaurantes);
             }
 
-            foreach (Restaurante item in dadosProduto.Restaurante)
+            foreach (Restaurante item in dadosProduto.Restaurante.OrderBy(r => r.Nome))
             {
                 Restaurantes_ListBox.Items.Add(item);
             }
@@ -135,7 +131,7 @@ namespace RestGest.GestaoRestaurantes
             string hash_original;
             string hash_novaImagem;
 
-            using(SHA1 sha1 = SHA1.Create())
+            using (SHA1 sha1 = SHA1.Create())
             {
                 hash_original = BitConverter.ToString(sha1.ComputeHash(dadosProduto.Fotografia));
                 hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
@@ -145,14 +141,14 @@ namespace RestGest.GestaoRestaurantes
             dadosProduto.Ingredientes = (Ingredientes_ListBox.Items.Count > 0 ? JsonConvert.SerializeObject(Ingredientes_ListBox.Items) : null);
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
-            if(Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
+            if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
             {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                 {
                     dadosProduto.Restaurante.Add(restaurante);
                 }
             }
-            
+
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
@@ -183,7 +179,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void RmItem_BTN_Click(object sender, EventArgs e)
         {
-            if(Ingredientes_ListBox.SelectedItems.Count == 1)
+            if (Ingredientes_ListBox.SelectedItems.Count == 1)
             {
                 Ingredientes_ListBox.Items.RemoveAt(Ingredientes_ListBox.SelectedIndex);
             }
@@ -197,7 +193,7 @@ namespace RestGest.GestaoRestaurantes
             openFileDialog.FilterIndex = 1;
             openFileDialog.Multiselect = false;
 
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string ficheiro = openFileDialog.FileName;
                 Imagem_PictureBox.Image = new Bitmap(ficheiro);
