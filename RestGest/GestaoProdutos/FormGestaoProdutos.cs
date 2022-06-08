@@ -173,7 +173,7 @@ namespace RestGest
                 {
                     int idProduto = int.Parse(produtos_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     ItemMenu ProdutoRemover = databaseContainer.ItemsMenus.Find(idProduto);
-                    if (databaseContainer.Pedidos.Where(p => p.ItemMenu.Any(x => x.Id == idProduto)).Count() > 0)
+                    if (itemMeneAssociado(idProduto))
                     {
                         ProdutoRemover.Ativo = false;
                     }
@@ -193,6 +193,16 @@ namespace RestGest
                     }
                 }
             }
+        }
+
+        //Valida sem o produto tem associações
+        private bool itemMeneAssociado(int idProduto)
+        {
+            bool result = false;
+
+            result = databaseContainer.Pedidos.Where(p => p.ItemMenu.Any(x => x.Id == idProduto)).Count() > 0;
+
+            return result;
         }
 
         private void LimparFiltro_BTN_Click(object sender, EventArgs e)

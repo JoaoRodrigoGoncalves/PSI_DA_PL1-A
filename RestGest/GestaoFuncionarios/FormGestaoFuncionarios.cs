@@ -142,13 +142,12 @@ namespace RestGest
                 {
                     int id_funcionario = int.Parse(funcionarios_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     Trabalhador trabalhadorARemover = databaseContainer.Pessoas.OfType<Trabalhador>().First(funcionario => funcionario.Id == id_funcionario);
-                    if (databaseContainer.Pedidos.Where(p => p.TrabalhadorId == id_funcionario).Count() > 0)
+                    if (validarFuncionario(id_funcionario))
                     {
                         trabalhadorARemover.Ativo = false;
                     }
                     else
                     {
-                        // TODO Check this shit 
                         if (trabalhadorARemover.Restaurante.Nome == null)
                         {
                             trabalhadorARemover.Restaurante.Nome = "";
@@ -183,6 +182,15 @@ namespace RestGest
                     };
                 }
             }
+        }
+
+        private bool validarFuncionario(int id_funcionario)
+        {
+            bool result = false;
+
+            result = databaseContainer.Pedidos.Where(p => p.TrabalhadorId == id_funcionario).Count() > 0;
+
+            return result;
         }
 
         private void LimparFiltro_BTN_Click(object sender, EventArgs e)

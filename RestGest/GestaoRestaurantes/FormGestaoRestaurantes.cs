@@ -145,15 +145,22 @@ namespace RestGest
                 string nome = restaurantes_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                    Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                    if (databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0)
+                    try
                     {
-                        restauranteRemover.Ativo = false;
-                    }
-                    else
+                        int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                        Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
+                        if (restauranteAssociado(restaurante_id))
+                        {
+                            restauranteRemover.Ativo = false;
+                        }
+                        else
+                        {
+                            databaseContainer.Restaurantes.Remove(restauranteRemover);
+                        }
+                        databaseContainer.SaveChanges();
+                    }catch(Exception)
                     {
-                        databaseContainer.Restaurantes.Remove(restauranteRemover);
+                        MessageBox.Show("Uncommon error found!\nCall system administration...", "Restaurant Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     databaseContainer.SaveChanges();
                     if (filtrar_TextBox.Text.Length > 0)
@@ -166,6 +173,17 @@ namespace RestGest
                     }
                 }
             }
+        }
+        //Valida se o restaurante que for pasado tem alguma associação
+        private bool restauranteAssociado(int restaurante_id)
+        {
+            bool result = false;
+
+            result = databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante_id).Count() > 0;
+            result = databaseContainer.ItemsMenus.Where(i => i.Restaurante.Any(r => r.Id == restaurante_id)).Count() > 0;
+            result = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante_id).Count() > 0;
+
+            return  result;
         }
 
         private void LimparFiltro_BTN_Click(object sender, EventArgs e)
