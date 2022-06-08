@@ -212,6 +212,21 @@ namespace RestGest.GestaoRestaurantes
             Restaurantes_ListBox.Items.Add(Restaurantes_ComboBox.SelectedItem);
             Restaurantes_ComboBox.Items.Remove(Restaurantes_ComboBox.SelectedItem);
             OrderItems();
+            //Get the restaurantes list form listbox 
+            List<Restaurante> rest_list = new List<Restaurante>();
+            foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
+                rest_list.Add(restaurante);
+            //Add the new restaurante from comboBox
+            rest_list.Add((Restaurante)Restaurantes_ComboBox.SelectedItem);
+            //Clear the old data
+            Restaurantes_ListBox.Items.Clear();
+            //Order the update list
+            rest_list.Sort((x,y) => {
+                int ret = String.Compare(x.Nome, y.Nome);
+                return ret;
+            });
+            //Set the update listBox
+            Restaurantes_ListBox.Items.AddRange(rest_list.ToArray());
         }
 
         private void RmRestaurante_BTN_Click(object sender, EventArgs e)

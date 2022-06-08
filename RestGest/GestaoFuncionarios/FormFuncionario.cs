@@ -117,14 +117,13 @@ namespace RestGest
                 return;
             }
 
-            // TODO Criar Trabalhador constructor
             trabalhador.Nome = tb_name.Text;
             trabalhador.NumContribuinte = tb_num_contribuinte.Text;
             trabalhador.Telemovel = tb_telemovel.Text;
             trabalhador.Salario = decimal.Parse(tb_salario.Text);
             trabalhador.Posicao = tb_position.Text;
             trabalhador.Morada = new Morada(tb_rua.Text, tb_cidade.Text, tb_cp.Text, tb_pais.Text);
-            //TODO Check this shit
+
             if (String.IsNullOrEmpty(tb_restaurante.Text))
             {
                 trabalhador.Restaurante.Nome = "";
