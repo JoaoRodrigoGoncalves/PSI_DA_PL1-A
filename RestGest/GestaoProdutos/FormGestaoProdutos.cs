@@ -11,10 +11,18 @@ namespace RestGest
     public partial class FormGestaoProdutos : Form
     {
         private RestGestContainer databaseContainer;
+        private int idRestauranteFiltro = -1;
 
         public FormGestaoProdutos()
         {
             InitializeComponent();
+        }
+
+        public FormGestaoProdutos(int idRestaurante)
+        {
+            // Iniciar filtro por restaurante
+            InitializeComponent();
+            idRestauranteFiltro = idRestaurante;
         }
 
         private void FormGestaoProdutos_Shown(object sender, EventArgs e)
@@ -48,7 +56,17 @@ namespace RestGest
                 {
                     filtroRestaurante_ComboBox.Items.Add(restaurante);
                 }
-                filtroRestaurante_ComboBox.SelectedIndex = 0;
+
+                if(idRestauranteFiltro == -1)
+                {
+                    filtroRestaurante_ComboBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    filtroRestaurante_ComboBox.SelectedItem = databaseContainer.Restaurantes.Find(idRestauranteFiltro);
+                    filtrar_BTN_Click(null, null);
+                }
+
 
                 LoadingPopUp_Panel.Visible = false;
             }));
@@ -81,10 +99,19 @@ namespace RestGest
                 }
                 else
                 {
-                    Itens = databaseContainer.ItemsMenus.Where(prato =>
-                                prato.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) &&
-                                prato.Restaurante.Any(r => r.Nome == filtroRestaurante_ComboBox.Text)
-                                ).ToList();
+                    if(filtrar_TextBox.Text.Length > 0)
+                    {
+                        Itens = databaseContainer.ItemsMenus.Where(prato =>
+                                    prato.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) &&
+                                    prato.Restaurante.Any(r => r.Nome == filtroRestaurante_ComboBox.Text)
+                                    ).ToList();
+                    }
+                    else
+                    {
+                        Itens = databaseContainer.ItemsMenus.Where(prato =>
+                                    prato.Restaurante.Any(r => r.Nome == filtroRestaurante_ComboBox.Text)
+                                    ).ToList();
+                    }
                 }
                 
                 produtos_DataGridView.Rows.Clear();

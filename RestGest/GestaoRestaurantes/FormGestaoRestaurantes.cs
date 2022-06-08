@@ -189,5 +189,15 @@ namespace RestGest
         {
             this.FormBack.Show();
         }
+
+        private void Produtos_BTN_Click(object sender, EventArgs e)
+        {
+            if(restaurantes_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = restaurantes_DataGridView.SelectedRows[0].Index;
+                int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
+                new FormGestaoProdutos(idRestaurante).ShowDialog();
+            }
+        }
     }
 }

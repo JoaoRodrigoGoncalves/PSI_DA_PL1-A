@@ -28,170 +28,268 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_GestaoRestaurantes = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuItem_gr = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem_gc = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem_gf = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem_gp = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_GestaoFuncionarios = new System.Windows.Forms.Button();
-            this.btn_GestaoCategorias = new System.Windows.Forms.Button();
-            this.btn_GestaoClientes = new System.Windows.Forms.Button();
-            this.btn_MetodoPagamento = new System.Windows.Forms.Button();
-            this.btn_Pedidos = new System.Windows.Forms.Button();
-            this.btn_Produtos = new System.Windows.Forms.Button();
+            this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registarRestauranteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeRestaurantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registarFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeFuncionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registarMétodoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeMétodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_GestaoRestaurantes
-            // 
-            this.btn_GestaoRestaurantes.Location = new System.Drawing.Point(55, 92);
-            this.btn_GestaoRestaurantes.Name = "btn_GestaoRestaurantes";
-            this.btn_GestaoRestaurantes.Size = new System.Drawing.Size(175, 86);
-            this.btn_GestaoRestaurantes.TabIndex = 0;
-            this.btn_GestaoRestaurantes.Text = "Gestão Restaurantes";
-            this.btn_GestaoRestaurantes.UseVisualStyleBackColor = true;
-            this.btn_GestaoRestaurantes.Click += new System.EventHandler(this.btn_GestaoRestaurantes_Click);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItem_gr,
-            this.menuItem_gc,
-            this.menuItem_gf,
-            this.menuItem_gp});
+            this.opçõesToolStripMenuItem,
+            this.restaurantesToolStripMenuItem,
+            this.produtosToolStripMenuItem,
+            this.clientesToolStripMenuItem,
+            this.funcionáriosToolStripMenuItem,
+            this.metodosDePagamentoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(722, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1134, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menuItem_gr
+            // opçõesToolStripMenuItem
             // 
-            this.menuItem_gr.Name = "menuItem_gr";
-            this.menuItem_gr.Size = new System.Drawing.Size(164, 25);
-            this.menuItem_gr.Text = "Gestão Restaurantes";
-            this.menuItem_gr.Click += new System.EventHandler(this.menuItem_gr_Click);
+            this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
+            this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.opçõesToolStripMenuItem.Text = "Opções";
             // 
-            // menuItem_gc
+            // sairToolStripMenuItem
             // 
-            this.menuItem_gc.Name = "menuItem_gc";
-            this.menuItem_gc.Size = new System.Drawing.Size(129, 25);
-            this.menuItem_gc.Text = "Gestão Clientes";
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // menuItem_gf
+            // restaurantesToolStripMenuItem
             // 
-            this.menuItem_gf.Name = "menuItem_gf";
-            this.menuItem_gf.Size = new System.Drawing.Size(184, 25);
-            this.menuItem_gf.Text = "Gestão de Funcionários";
-            this.menuItem_gf.Click += new System.EventHandler(this.menuItem_gf_Click);
+            this.restaurantesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registarRestauranteToolStripMenuItem,
+            this.listaDeRestaurantesToolStripMenuItem});
+            this.restaurantesToolStripMenuItem.Name = "restaurantesToolStripMenuItem";
+            this.restaurantesToolStripMenuItem.Size = new System.Drawing.Size(112, 25);
+            this.restaurantesToolStripMenuItem.Text = "Restaurantes";
             // 
-            // menuItem_gp
+            // registarRestauranteToolStripMenuItem
             // 
-            this.menuItem_gp.Name = "menuItem_gp";
-            this.menuItem_gp.Size = new System.Drawing.Size(149, 25);
-            this.menuItem_gp.Text = "Gestão de Pedidos";
+            this.registarRestauranteToolStripMenuItem.Name = "registarRestauranteToolStripMenuItem";
+            this.registarRestauranteToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.registarRestauranteToolStripMenuItem.Text = "Registar Restaurante";
+            this.registarRestauranteToolStripMenuItem.Click += new System.EventHandler(this.registarRestauranteToolStripMenuItem_Click);
             // 
-            // btn_GestaoFuncionarios
+            // listaDeRestaurantesToolStripMenuItem
             // 
-            this.btn_GestaoFuncionarios.Location = new System.Drawing.Point(260, 92);
-            this.btn_GestaoFuncionarios.Name = "btn_GestaoFuncionarios";
-            this.btn_GestaoFuncionarios.Size = new System.Drawing.Size(175, 86);
-            this.btn_GestaoFuncionarios.TabIndex = 0;
-            this.btn_GestaoFuncionarios.Text = "Gestão de Funcionarios";
-            this.btn_GestaoFuncionarios.UseVisualStyleBackColor = true;
-            this.btn_GestaoFuncionarios.Click += new System.EventHandler(this.btn_GestaoFuncionarios_Click);
+            this.listaDeRestaurantesToolStripMenuItem.Name = "listaDeRestaurantesToolStripMenuItem";
+            this.listaDeRestaurantesToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.listaDeRestaurantesToolStripMenuItem.Text = "Lista de Restaurantes";
+            this.listaDeRestaurantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeRestaurantesToolStripMenuItem_Click);
             // 
-            // btn_GestaoCategorias
+            // funcionáriosToolStripMenuItem
             // 
-            this.btn_GestaoCategorias.Location = new System.Drawing.Point(260, 219);
-            this.btn_GestaoCategorias.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_GestaoCategorias.Name = "btn_GestaoCategorias";
-            this.btn_GestaoCategorias.Size = new System.Drawing.Size(175, 86);
-            this.btn_GestaoCategorias.TabIndex = 0;
-            this.btn_GestaoCategorias.Text = "Gestão Categorias";
-            this.btn_GestaoCategorias.UseVisualStyleBackColor = true;
-            this.btn_GestaoCategorias.Click += new System.EventHandler(this.btn_GestaoCategorias_Click);
+            this.funcionáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registarFuncionárioToolStripMenuItem,
+            this.listaDeFuncionáriosToolStripMenuItem});
+            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(111, 25);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             // 
-            // btn_GestaoClientes
+            // registarFuncionárioToolStripMenuItem
             // 
-            this.btn_GestaoClientes.Location = new System.Drawing.Point(464, 92);
-            this.btn_GestaoClientes.Name = "btn_GestaoClientes";
-            this.btn_GestaoClientes.Size = new System.Drawing.Size(175, 86);
-            this.btn_GestaoClientes.TabIndex = 2;
-            this.btn_GestaoClientes.Text = "Gestão de Clientes";
-            this.btn_GestaoClientes.UseVisualStyleBackColor = true;
-            this.btn_GestaoClientes.Click += new System.EventHandler(this.btn_GestaoClientes_Click);
+            this.registarFuncionárioToolStripMenuItem.Name = "registarFuncionárioToolStripMenuItem";
+            this.registarFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.registarFuncionárioToolStripMenuItem.Text = "Registar Funcionário";
+            this.registarFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.registarFuncionárioToolStripMenuItem_Click);
             // 
-            // btn_MetodoPagamento
+            // listaDeFuncionáriosToolStripMenuItem
             // 
-            this.btn_MetodoPagamento.Location = new System.Drawing.Point(55, 219);
-            this.btn_MetodoPagamento.Name = "btn_MetodoPagamento";
-            this.btn_MetodoPagamento.Size = new System.Drawing.Size(175, 86);
-            this.btn_MetodoPagamento.TabIndex = 3;
-            this.btn_MetodoPagamento.Text = "Registar Métodos de Pagamento";
-            this.btn_MetodoPagamento.UseVisualStyleBackColor = true;
-            this.btn_MetodoPagamento.Click += new System.EventHandler(this.btn_MetodoPagamento_Click);
+            this.listaDeFuncionáriosToolStripMenuItem.Name = "listaDeFuncionáriosToolStripMenuItem";
+            this.listaDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.listaDeFuncionáriosToolStripMenuItem.Text = "Lista de Funcionários";
+            this.listaDeFuncionáriosToolStripMenuItem.Click += new System.EventHandler(this.listaDeFuncionáriosToolStripMenuItem_Click);
             // 
-            // btn_Pedidos
+            // metodosDePagamentoToolStripMenuItem
             // 
-            this.btn_Pedidos.Location = new System.Drawing.Point(464, 219);
-            this.btn_Pedidos.Name = "btn_Pedidos";
-            this.btn_Pedidos.Size = new System.Drawing.Size(175, 86);
-            this.btn_Pedidos.TabIndex = 4;
-            this.btn_Pedidos.Text = "Pedidos (N/I)";
-            this.btn_Pedidos.UseVisualStyleBackColor = true;
+            this.metodosDePagamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registarMétodoDePagamentoToolStripMenuItem,
+            this.listaDeMétodosDePagamentoToolStripMenuItem});
+            this.metodosDePagamentoToolStripMenuItem.Name = "metodosDePagamentoToolStripMenuItem";
+            this.metodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.metodosDePagamentoToolStripMenuItem.Text = "Métodos de Pagamento";
             // 
-            // btn_Produtos
+            // registarMétodoDePagamentoToolStripMenuItem
             // 
-            this.btn_Produtos.Location = new System.Drawing.Point(260, 333);
-            this.btn_Produtos.Name = "btn_Produtos";
-            this.btn_Produtos.Size = new System.Drawing.Size(175, 86);
-            this.btn_Produtos.TabIndex = 5;
-            this.btn_Produtos.Text = "Produtos";
-            this.btn_Produtos.UseVisualStyleBackColor = true;
-            this.btn_Produtos.Click += new System.EventHandler(this.btn_Produtos_Click);
+            this.registarMétodoDePagamentoToolStripMenuItem.Name = "registarMétodoDePagamentoToolStripMenuItem";
+            this.registarMétodoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.registarMétodoDePagamentoToolStripMenuItem.Text = "Registar Método de Pagamento";
+            this.registarMétodoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.registarMétodoDePagamentoToolStripMenuItem_Click);
+            // 
+            // listaDeMétodosDePagamentoToolStripMenuItem
+            // 
+            this.listaDeMétodosDePagamentoToolStripMenuItem.Name = "listaDeMétodosDePagamentoToolStripMenuItem";
+            this.listaDeMétodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.listaDeMétodosDePagamentoToolStripMenuItem.Text = "Lista de Métodos de Pagamento";
+            this.listaDeMétodosDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.listaDeMétodosDePagamentoToolStripMenuItem_Click);
+            // 
+            // produtosToolStripMenuItem
+            // 
+            this.produtosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registarProdutoToolStripMenuItem,
+            this.listaDeProdutosToolStripMenuItem,
+            this.categoriasToolStripMenuItem});
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.produtosToolStripMenuItem.Text = "Produtos";
+            // 
+            // registarProdutoToolStripMenuItem
+            // 
+            this.registarProdutoToolStripMenuItem.Name = "registarProdutoToolStripMenuItem";
+            this.registarProdutoToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.registarProdutoToolStripMenuItem.Text = "Registar Produto";
+            this.registarProdutoToolStripMenuItem.Click += new System.EventHandler(this.registarProdutoToolStripMenuItem_Click);
+            // 
+            // listaDeProdutosToolStripMenuItem
+            // 
+            this.listaDeProdutosToolStripMenuItem.Name = "listaDeProdutosToolStripMenuItem";
+            this.listaDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.listaDeProdutosToolStripMenuItem.Text = "Lista de Produtos";
+            this.listaDeProdutosToolStripMenuItem.Click += new System.EventHandler(this.listaDeProdutosToolStripMenuItem_Click);
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.categoriasToolStripMenuItem.Text = "Lista de Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registarClienteToolStripMenuItem,
+            this.listaDeClientesToolStripMenuItem});
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // registarClienteToolStripMenuItem
+            // 
+            this.registarClienteToolStripMenuItem.Name = "registarClienteToolStripMenuItem";
+            this.registarClienteToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.registarClienteToolStripMenuItem.Text = "Registar Cliente";
+            this.registarClienteToolStripMenuItem.Click += new System.EventHandler(this.registarClienteToolStripMenuItem_Click);
+            // 
+            // listaDeClientesToolStripMenuItem
+            // 
+            this.listaDeClientesToolStripMenuItem.Name = "listaDeClientesToolStripMenuItem";
+            this.listaDeClientesToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.listaDeClientesToolStripMenuItem.Text = "Lista de Clientes";
+            this.listaDeClientesToolStripMenuItem.Click += new System.EventHandler(this.listaDeClientesToolStripMenuItem_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.866972F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.13303F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 322F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.29661F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.70339F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 543);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "WIP Pedidos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(794, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "WIP Pedidos";
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 450);
-            this.Controls.Add(this.btn_Produtos);
-            this.Controls.Add(this.btn_Pedidos);
-            this.Controls.Add(this.btn_GestaoCategorias);
-            this.Controls.Add(this.btn_MetodoPagamento);
-            this.Controls.Add(this.btn_GestaoClientes);
-            this.Controls.Add(this.btn_GestaoFuncionarios);
-            this.Controls.Add(this.btn_GestaoRestaurantes);
+            this.ClientSize = new System.Drawing.Size(1134, 571);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1150, 610);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RestGest";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_GestaoRestaurantes;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menuItem_gr;
-        private System.Windows.Forms.ToolStripMenuItem menuItem_gc;
-        private System.Windows.Forms.ToolStripMenuItem menuItem_gf;
-        private System.Windows.Forms.ToolStripMenuItem menuItem_gp;
-        private System.Windows.Forms.Button btn_GestaoFuncionarios;
-        private System.Windows.Forms.Button btn_GestaoCategorias;
-        private System.Windows.Forms.Button btn_GestaoClientes;
-        private System.Windows.Forms.Button btn_MetodoPagamento;
-        private System.Windows.Forms.Button btn_Pedidos;
-        private System.Windows.Forms.Button btn_Produtos;
+        private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restaurantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registarRestauranteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeRestaurantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registarFuncionárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeFuncionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem metodosDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registarMétodoDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeMétodosDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registarProdutoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeProdutosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeClientesToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

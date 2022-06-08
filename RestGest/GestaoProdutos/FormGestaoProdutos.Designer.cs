@@ -41,12 +41,12 @@
             this.Adicionar_BTN = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.filtrar_TextBox = new System.Windows.Forms.TextBox();
-            this.filtrar_BTN = new System.Windows.Forms.Button();
             this.LimparFiltro_BTN = new System.Windows.Forms.Button();
+            this.filtrar_BTN = new System.Windows.Forms.Button();
+            this.filtroRestaurante_ComboBox = new System.Windows.Forms.ComboBox();
             this.LoadingPopUp_Panel = new System.Windows.Forms.Panel();
             this.LoadingPopUp_ProgressBar = new System.Windows.Forms.ProgressBar();
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
-            this.filtroRestaurante_ComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtos_DataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -215,6 +215,17 @@
             this.filtrar_TextBox.Size = new System.Drawing.Size(476, 20);
             this.filtrar_TextBox.TabIndex = 0;
             // 
+            // LimparFiltro_BTN
+            // 
+            this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(725, 3);
+            this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(76, 23);
+            this.LimparFiltro_BTN.TabIndex = 2;
+            this.LimparFiltro_BTN.Text = "Limpar Filtro";
+            this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
+            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
+            // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
@@ -226,16 +237,15 @@
             this.filtrar_BTN.UseVisualStyleBackColor = true;
             this.filtrar_BTN.Click += new System.EventHandler(this.filtrar_BTN_Click);
             // 
-            // LimparFiltro_BTN
+            // filtroRestaurante_ComboBox
             // 
-            this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LimparFiltro_BTN.Location = new System.Drawing.Point(725, 3);
-            this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
-            this.LimparFiltro_BTN.Size = new System.Drawing.Size(76, 23);
-            this.LimparFiltro_BTN.TabIndex = 2;
-            this.LimparFiltro_BTN.Text = "Limpar Filtro";
-            this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
-            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
+            this.filtroRestaurante_ComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filtroRestaurante_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filtroRestaurante_ComboBox.FormattingEnabled = true;
+            this.filtroRestaurante_ComboBox.Location = new System.Drawing.Point(485, 3);
+            this.filtroRestaurante_ComboBox.Name = "filtroRestaurante_ComboBox";
+            this.filtroRestaurante_ComboBox.Size = new System.Drawing.Size(154, 21);
+            this.filtroRestaurante_ComboBox.TabIndex = 3;
             // 
             // LoadingPopUp_Panel
             // 
@@ -262,16 +272,6 @@
             this.LoadingPopUp_Label.Size = new System.Drawing.Size(65, 13);
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
-            // 
-            // filtroRestaurante_ComboBox
-            // 
-            this.filtroRestaurante_ComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtroRestaurante_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filtroRestaurante_ComboBox.FormattingEnabled = true;
-            this.filtroRestaurante_ComboBox.Location = new System.Drawing.Point(485, 3);
-            this.filtroRestaurante_ComboBox.Name = "filtroRestaurante_ComboBox";
-            this.filtroRestaurante_ComboBox.Size = new System.Drawing.Size(154, 21);
-            this.filtroRestaurante_ComboBox.TabIndex = 3;
             // 
             // FormGestaoProdutos
             // 
