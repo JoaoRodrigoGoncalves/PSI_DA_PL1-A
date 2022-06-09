@@ -214,7 +214,7 @@ namespace RestGest
             {
                 int row = restaurantes_DataGridView.SelectedRows[0].Index;
                 int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormGestaoProdutos(idRestaurante).ShowDialog();
+                new FormGestaoProdutos(this, idRestaurante).ShowDialog();
             }
         }
     }

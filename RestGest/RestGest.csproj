@@ -165,12 +165,6 @@
     <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.designer.cs">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestãoPedidos\FormGestaoPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestãoPedidos\FormGestaoPedidos.Designer.cs">
-      <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
-    </Compile>
     <Compile Include="ItemMenu.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
@@ -259,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormRegistoRestaurante.resx">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestãoPedidos\FormGestaoPedidos.resx">
-      <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

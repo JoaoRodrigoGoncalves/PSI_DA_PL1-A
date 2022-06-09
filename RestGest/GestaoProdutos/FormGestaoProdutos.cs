@@ -12,16 +12,19 @@ namespace RestGest
     {
         private RestGestContainer databaseContainer;
         private int idRestauranteFiltro = -1;
+        private Form FormBack;
 
-        public FormGestaoProdutos()
+        public FormGestaoProdutos(Form form_back)
         {
             InitializeComponent();
+            this.FormBack = form_back;
         }
 
-        public FormGestaoProdutos(int idRestaurante)
+        public FormGestaoProdutos(Form form_back, int idRestaurante)
         {
             // Iniciar filtro por restaurante
             InitializeComponent();
+            this.FormBack = form_back;
             idRestauranteFiltro = idRestaurante;
         }
 
@@ -131,6 +134,7 @@ namespace RestGest
         private void FormGestaoProdutos_FormClosing(object sender, FormClosingEventArgs e)
         {
             databaseContainer.Dispose();
+            this.FormBack.Show();
         }
 
         private void produtos_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)

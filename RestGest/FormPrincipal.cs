@@ -44,18 +44,18 @@ namespace RestGest
         private void listaDeMétodosDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGestaoMetodosPagamentos().ShowDialog();
+            new FormGestaoMetodosPagamentos(this).ShowDialog();
         }
 
         private void registarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormRegistoProduto().ShowDialog();
+            new FormProduto().ShowDialog();
         }
 
         private void listaDeProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGestaoProdutos().ShowDialog();
+            new FormGestaoProdutos(this).ShowDialog();
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace RestGest
         private void listaDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGestaoClientes().ShowDialog();
+            new FormGestaoClientes(this).ShowDialog();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
