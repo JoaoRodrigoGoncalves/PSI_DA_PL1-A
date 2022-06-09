@@ -8,27 +8,37 @@ using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
 {
-    public partial class FormEdicaoProduto : Form
+    public partial class FormProduto : Form
     {
         private RestGestContainer databaseContainer;
-        private int ProdutoID;
         private ItemMenu dadosProduto; // Global para que possa ser editada;
 
-        public FormEdicaoProduto(int idProduto)
+        public FormProduto()
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
-            ProdutoID = idProduto;
+            this.dadosProduto = null;
+            bt_update.Enabled = false;
+            Guardar_BTN.Enabled = true;
+        }
+        public FormProduto(int idProduto)
+        {
+            InitializeComponent();
+            databaseContainer = new RestGestContainer();
+            dadosProduto = databaseContainer.ItemsMenus.Find(idProduto);
+            bt_update.Enabled = true;
+            Guardar_BTN.Enabled = false;
         }
 
         private void FormRegistoProduto_Load(object sender, EventArgs e)
         {
-            dadosProduto = databaseContainer.ItemsMenus.Find(ProdutoID);
+            //Adiciona informação base no form
+            
 
-            Nome_TextBox.Text = dadosProduto.Nome;
-            Preco_TextBox.Text = dadosProduto.Preco.ToString();
-
+            //Adiciona informação categortias
             Categoria[] categorias = databaseContainer.Categorias.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
+
+            Categoria_ComboBox.Items.AddRange(categorias);
 
             if (categorias.Length == 0)
             {
@@ -36,7 +46,29 @@ namespace RestGest.GestaoRestaurantes
                 Close();
             }
 
-            Categoria_ComboBox.Items.AddRange(categorias);
+            //Adiciona informação restaurantes
+            Restaurante[] restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
+
+            if (restaurantes.Length == 0)
+            {
+                // Não existem restaurantes registados / ativos, vamos desativar a utilização da secção de associação a restaurantes
+                Restaurantes_ListBox.Enabled = false;
+                Restaurantes_ComboBox.Enabled = false;
+                AddRestaurante_BTN.Enabled = false;
+                RmRestaurante_BTN.Enabled = false;
+            }
+            else
+            {
+                Restaurantes_ComboBox.Items.AddRange(restaurantes);
+            }
+
+            //Valida se o form vai editar ou adicionar um novo produto
+
+            if (this.dadosProduto == null)
+                return;
+
+            Nome_TextBox.Text = dadosProduto.Nome;
+            Preco_TextBox.Text = dadosProduto.Preco.ToString();
 
             if (!Categoria_ComboBox.Items.Contains(dadosProduto.Categoria))
                 Categoria_ComboBox.Items.Add(dadosProduto.Categoria);
@@ -53,7 +85,7 @@ namespace RestGest.GestaoRestaurantes
             if (!String.IsNullOrEmpty(dadosProduto.Ingredientes))
                 Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
 
-            Restaurante[] restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
+            restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
             if (restaurantes.Length == 0)
             {
@@ -76,29 +108,11 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(Nome_TextBox.Text) || String.IsNullOrWhiteSpace(Preco_TextBox.Text))
-            {
-                MessageBox.Show(
-                    "Preencha todos os campos antes de continuar!",
-                    "Campos vazios",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+            if (filtrar())
                 return;
-            }
-
-            Preco_TextBox.Text = Preco_TextBox.Text.Replace('.', ','); // Trocar '.' por ',' (Pura UX)
-            if (!decimal.TryParse(Preco_TextBox.Text, out decimal val))
-            {
-                MessageBox.Show(
-                    "Indique um preço válido!",
-                    "Preço Inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
-                return;
-            }
 
             // Verificar se não existe já um item semelhante (Pura UX)
-            List<ItemMenu> matches = databaseContainer.ItemsMenus.Where(produtos => produtos.Nome.Contains(Nome_TextBox.Text) && produtos.Id != ProdutoID).ToList();
+            List<ItemMenu> matches = databaseContainer.ItemsMenus.Where(produtos => produtos.Nome.Contains(Nome_TextBox.Text) && produtos.Id != dadosProduto.Id).ToList();
 
             if (matches.Count > 0)
             {
@@ -124,7 +138,7 @@ namespace RestGest.GestaoRestaurantes
 
             dadosProduto.Ativo = Ativo_CheckBox.Checked;
             dadosProduto.Nome = Nome_TextBox.Text;
-            dadosProduto.Preco = val;
+            dadosProduto.Preco = decimal.Parse(Preco_TextBox.Text);
 
             ImageConverter converter = new ImageConverter();
             byte[] novaImagem = (byte[])converter.ConvertTo(Imagem_PictureBox.Image, typeof(byte[]));
@@ -144,14 +158,38 @@ namespace RestGest.GestaoRestaurantes
             if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
             {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
-                {
                     dadosProduto.Restaurante.Add(restaurante);
-                }
+                
             }
-
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
+        }
+
+        private bool filtrar()
+        {
+            if (String.IsNullOrWhiteSpace(Nome_TextBox.Text) || String.IsNullOrWhiteSpace(Preco_TextBox.Text))
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de continuar!",
+                    "Campos vazios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return true;
+            }
+
+            Preco_TextBox.Text = Preco_TextBox.Text.Replace('.', ','); // Trocar '.' por ',' (Pura UX)
+            if (!decimal.TryParse(Preco_TextBox.Text, out decimal val))
+            {
+                MessageBox.Show(
+                    "Indique um preço válido!",
+                    "Preço Inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return true;
+            }
+
+            return false;
         }
 
         private void Limpar_BTN_Click(object sender, EventArgs e)
@@ -202,16 +240,15 @@ namespace RestGest.GestaoRestaurantes
 
         private void AddRestaurante_BTN_Click(object sender, EventArgs e)
         {
-            if (Restaurantes_ComboBox.SelectedItem == null && Restaurantes_ListBox.Items.Contains(Restaurantes_ComboBox.SelectedItem))
+            if (Restaurantes_ComboBox.SelectedItem == null || Restaurantes_ListBox.Items.Contains(Restaurantes_ComboBox.SelectedItem))
                 return;
 
-            Restaurantes_ListBox.Items.Add(Restaurantes_ComboBox.SelectedItem);
-            Restaurantes_ComboBox.Items.Remove(Restaurantes_ComboBox.SelectedItem);
-            OrderItems();
+
             //Get the restaurantes list form listbox 
+            //TODO Check Cast
+            //List<Restaurante> rest_list = (List<Restaurante>)Restaurantes_ListBox.Items.Cast<List<Restaurante>>();
             List<Restaurante> rest_list = new List<Restaurante>();
-            foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
-                rest_list.Add(restaurante);
+                rest_list.AddRange((IEnumerable<Restaurante>)Restaurantes_ListBox.Items);
             //Add the new restaurante from comboBox
             rest_list.Add((Restaurante)Restaurantes_ComboBox.SelectedItem);
             //Clear the old data
@@ -228,16 +265,95 @@ namespace RestGest.GestaoRestaurantes
         private void RmRestaurante_BTN_Click(object sender, EventArgs e)
         {
             if (Restaurantes_ListBox.SelectedItem == null)
-                return;
-
-            Restaurantes_ComboBox.Items.Add(Restaurantes_ListBox.SelectedItem);
+                return;            
+            //
             Restaurantes_ListBox.Items.Remove(Restaurantes_ListBox.SelectedItem);
-            OrderItems();
         }
 
-        private void OrderItems()
+        private void bt_cancel_Click(object sender, EventArgs e)
         {
-            // TODO: Criar função que ordena os items da listbox e da combo box
+            this.Close();
+        }
+
+        private void Guardar_BTN_Click_1(object sender, EventArgs e)
+        {
+            if (filtrar())
+                return;
+
+            // Verificar se não existe já um item semelhante (Pura UX)
+            List<ItemMenu> matches = databaseContainer.ItemsMenus.Where(produtos => produtos.Nome.Contains(Nome_TextBox.Text)).ToList();
+
+            if (matches.Count > 0)
+            {
+                string msgboxMatches = "";
+
+                foreach (ItemMenu item in matches)
+                {
+                    msgboxMatches += (item.Ativo ? "[Ativo] " : "[Inativo] ") + "Nome: " + item.Nome + " - " + item.Preco + "€ - " + item.Categoria.Nome + Environment.NewLine;
+                }
+
+                DialogResult result = MessageBox.Show(
+                    "O item que está a tentar adicionar foi identificado como possível duplicado dos seguintes produtos já registados: " + Environment.NewLine +
+                    msgboxMatches + "Deseja continuar com o registo do produto?",
+                    "Possível duplicação de itens",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            ItemMenu novoProduto = new ItemMenu();
+            novoProduto.Ativo = Ativo_CheckBox.Checked;
+            novoProduto.Nome = Nome_TextBox.Text;
+            novoProduto.Preco = decimal.Parse(Preco_TextBox.Text);
+
+
+            ImageConverter converter = new ImageConverter();
+            byte[] novaImagem = (byte[])converter.ConvertTo(Imagem_PictureBox.Image, typeof(byte[]));
+            string hash_padrao, hash_novaImagem;
+
+            using (SHA1 sha1 = SHA1.Create())
+            {
+                hash_padrao = BitConverter.ToString(sha1.ComputeHash((byte[])converter.ConvertTo(Properties.Resources.produto_placeholder, typeof(byte[]))));
+                hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
+            }
+
+            novoProduto.Fotografia = (hash_novaImagem != hash_padrao ? novaImagem : null);
+
+            if (Ingredientes_ListBox.Items.Count > 0)
+            {
+                List<string> ingredientes = new List<string>();
+
+                foreach (string item in Ingredientes_ListBox.Items)
+                {
+                    ingredientes.Add(item);
+                }
+
+                novoProduto.Ingredientes = JsonConvert.SerializeObject(ingredientes);
+            }
+            else
+            {
+                novoProduto.Ingredientes = null;
+            }
+
+            novoProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
+
+            if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
+            {
+                foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
+                {
+                    novoProduto.Restaurante.Add(restaurante);
+                }
+            }
+
+            databaseContainer.ItemsMenus.Add(novoProduto);
+
+            databaseContainer.SaveChanges();
+            databaseContainer.Dispose();
+            Close();
         }
     }
 }
