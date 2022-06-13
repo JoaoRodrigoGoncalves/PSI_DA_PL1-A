@@ -11,10 +11,12 @@ namespace RestGest
     public partial class FormGestaoMetodosPagamentos : Form
     {
         private RestGestContainer databaseContainer;
+        private Form FormBack;
 
-        public FormGestaoMetodosPagamentos()
+        public FormGestaoMetodosPagamentos(Form formBack)
         {
             InitializeComponent();
+            this.FormBack = formBack;
         }
 
         private void FormGestaoMetodosPagamentos_Shown(object sender, EventArgs e)
@@ -116,6 +118,7 @@ namespace RestGest
         private void FormGestaoMetodosPagamentos_FormClosing(object sender, EventArgs e)
         {
             databaseContainer.Dispose();
+            this.FormBack.Show();
         }
 
         private void btnCleanFilterMetodosPagamentos_Click(object sender, EventArgs e)

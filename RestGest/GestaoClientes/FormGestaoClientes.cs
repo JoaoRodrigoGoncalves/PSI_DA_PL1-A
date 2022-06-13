@@ -11,10 +11,11 @@ namespace RestGest
     public partial class FormGestaoClientes : Form
     {
         private RestGestContainer databaseContainer;
-
-        public FormGestaoClientes()
+        private Form FormBack;
+        public FormGestaoClientes(Form formBack)
         {
             InitializeComponent();
+            this.FormBack = formBack;
         }
 
         private void FormGestaoClientes_Shown_1(object sender, EventArgs e)
@@ -128,6 +129,7 @@ namespace RestGest
         private void FormGestaoRestaurantes_FormClosing(object sender, FormClosingEventArgs e)
         {
             databaseContainer.Dispose();
+            this.FormBack.Show();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)

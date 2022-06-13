@@ -141,17 +141,11 @@
     <Compile Include="GestaoProdutos\FormGestaoProdutos.Designer.cs">
       <DependentUpon>FormGestaoProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoProdutos\FormEdicaoProduto.cs">
+    <Compile Include="GestaoProdutos\FormProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoProdutos\FormEdicaoProduto.Designer.cs">
-      <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestaoProdutos\FormRegistoProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoProdutos\FormRegistoProduto.Designer.cs">
-      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
+    <Compile Include="GestaoProdutos\FormProduto.Designer.cs">
+      <DependentUpon>FormProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
       <SubType>Form</SubType>
@@ -170,12 +164,6 @@
     </Compile>
     <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.designer.cs">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestãoPedidos\FormGestaoPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestãoPedidos\FormGestaoPedidos.Designer.cs">
-      <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemMenu.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
@@ -254,11 +242,8 @@
     <EmbeddedResource Include="GestaoProdutos\FormGestaoProdutos.resx">
       <DependentUpon>FormGestaoProdutos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoProdutos\FormEdicaoProduto.resx">
-      <DependentUpon>FormEdicaoProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestaoProdutos\FormRegistoProduto.resx">
-      <DependentUpon>FormRegistoProduto.cs</DependentUpon>
+    <EmbeddedResource Include="GestaoProdutos\FormProduto.resx">
+      <DependentUpon>FormProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
       <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
@@ -268,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormRegistoRestaurante.resx">
       <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestãoPedidos\FormGestaoPedidos.resx">
-      <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -12,16 +12,19 @@ namespace RestGest
     {
         private RestGestContainer databaseContainer;
         private int idRestauranteFiltro = -1;
+        private Form FormBack;
 
-        public FormGestaoProdutos()
+        public FormGestaoProdutos(Form form_back)
         {
             InitializeComponent();
+            this.FormBack = form_back;
         }
 
-        public FormGestaoProdutos(int idRestaurante)
+        public FormGestaoProdutos(Form form_back, int idRestaurante)
         {
             // Iniciar filtro por restaurante
             InitializeComponent();
+            this.FormBack = form_back;
             idRestauranteFiltro = idRestaurante;
         }
 
@@ -74,7 +77,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoProduto().ShowDialog();
+            new FormProduto().ShowDialog();
             if (filtrar_TextBox.Text.Length > 0)
             {
                 filtrar_BTN_Click(sender, e);
@@ -131,6 +134,7 @@ namespace RestGest
         private void FormGestaoProdutos_FormClosing(object sender, FormClosingEventArgs e)
         {
             databaseContainer.Dispose();
+            this.FormBack.Show();
         }
 
         private void produtos_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -152,7 +156,8 @@ namespace RestGest
             {
                 int row = produtos_DataGridView.SelectedRows[0].Index;
                 int idProduto = int.Parse(produtos_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoProduto(idProduto).ShowDialog();
+				
+                new FormProduto(idProduto).ShowDialog();
                 if (filtrar_TextBox.Text.Length > 0)
                 {
                     filtrar_BTN_Click(sender, e);

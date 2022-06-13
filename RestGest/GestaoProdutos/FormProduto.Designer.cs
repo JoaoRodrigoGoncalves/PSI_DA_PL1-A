@@ -1,6 +1,6 @@
 ﻿namespace RestGest.GestaoRestaurantes
 {
-    partial class FormEdicaoProduto
+    partial class FormProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +52,8 @@
             this.Preco_TextBox = new System.Windows.Forms.TextBox();
             this.Ativo_CheckBox = new System.Windows.Forms.CheckBox();
             this.Limpar_BTN = new System.Windows.Forms.Button();
+            this.bt_update = new System.Windows.Forms.Button();
+            this.bt_cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -70,13 +72,13 @@
             // 
             // Guardar_BTN
             // 
-            this.Guardar_BTN.Location = new System.Drawing.Point(709, 307);
+            this.Guardar_BTN.Location = new System.Drawing.Point(461, 307);
             this.Guardar_BTN.Name = "Guardar_BTN";
             this.Guardar_BTN.Size = new System.Drawing.Size(75, 23);
             this.Guardar_BTN.TabIndex = 10;
-            this.Guardar_BTN.Text = "Guardar";
+            this.Guardar_BTN.Text = "Criar";
             this.Guardar_BTN.UseVisualStyleBackColor = true;
-            this.Guardar_BTN.Click += new System.EventHandler(this.Guardar_BTN_Click);
+            this.Guardar_BTN.Click += new System.EventHandler(this.Guardar_BTN_Click_1);
             // 
             // Nome_TextBox
             // 
@@ -95,8 +97,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Preco_TextBox);
             this.groupBox1.Controls.Add(this.Ativo_CheckBox);
+            this.groupBox1.Controls.Add(this.bt_cancel);
             this.groupBox1.Controls.Add(this.Limpar_BTN);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.bt_update);
             this.groupBox1.Controls.Add(this.Guardar_BTN);
             this.groupBox1.Controls.Add(this.Nome_TextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -296,13 +300,33 @@
             // 
             // Limpar_BTN
             // 
-            this.Limpar_BTN.Location = new System.Drawing.Point(628, 307);
+            this.Limpar_BTN.Location = new System.Drawing.Point(623, 307);
             this.Limpar_BTN.Name = "Limpar_BTN";
             this.Limpar_BTN.Size = new System.Drawing.Size(75, 23);
             this.Limpar_BTN.TabIndex = 11;
             this.Limpar_BTN.Text = "Limpar";
             this.Limpar_BTN.UseVisualStyleBackColor = true;
             this.Limpar_BTN.Click += new System.EventHandler(this.Limpar_BTN_Click);
+            // 
+            // bt_update
+            // 
+            this.bt_update.Location = new System.Drawing.Point(542, 307);
+            this.bt_update.Name = "bt_update";
+            this.bt_update.Size = new System.Drawing.Size(75, 23);
+            this.bt_update.TabIndex = 10;
+            this.bt_update.Text = "Guardar";
+            this.bt_update.UseVisualStyleBackColor = true;
+            this.bt_update.Click += new System.EventHandler(this.Guardar_BTN_Click);
+            // 
+            // bt_cancel
+            // 
+            this.bt_cancel.Location = new System.Drawing.Point(703, 307);
+            this.bt_cancel.Name = "bt_cancel";
+            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancel.TabIndex = 11;
+            this.bt_cancel.Text = "Cancelar";
+            this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
             // 
             // FormEdicaoProduto
             // 
@@ -354,5 +378,7 @@
         private System.Windows.Forms.ComboBox Restaurantes_ComboBox;
         private System.Windows.Forms.Button RmRestaurante_BTN;
         private System.Windows.Forms.ListBox Restaurantes_ListBox;
+        private System.Windows.Forms.Button bt_update;
+        private System.Windows.Forms.Button bt_cancel;
     }
 }
