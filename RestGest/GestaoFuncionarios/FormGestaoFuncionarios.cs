@@ -12,11 +12,24 @@ namespace RestGest
     {
         private RestGestContainer databaseContainer;
         private Form FormBack;
+        public Trabalhador returnTrabalhador;
+        private bool Gestao;
+        private int IdRestauranteFiltro;
 
-        public FormGestaoFuncionarios(Form formBack)
+        public FormGestaoFuncionarios(Form formBack, bool gestao)
         {
             InitializeComponent();
             this.FormBack = formBack;
+            this.Gestao = gestao;
+            this.IdRestauranteFiltro = 0;
+        }
+
+        public FormGestaoFuncionarios(Form formBack, bool gestao, int idRestauranteFiltro)
+        {
+            InitializeComponent();
+            this.FormBack = formBack;
+            this.Gestao = gestao;
+            this.IdRestauranteFiltro = idRestauranteFiltro;
         }
 
         private void FormGestaoFuncionarios_Shown(object sender, EventArgs e)
@@ -35,7 +48,8 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 funcionarios_DataGridView.Rows.Clear();
-                foreach (Trabalhador funcionario in databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo))
+                List<Trabalhador> funcionarios = (IdRestauranteFiltro < 1 ? databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo) : databaseContainer.Pessoas.OfType<Trabalhador>().Where(x => x.Ativo && x.Restaurante.Id == IdRestauranteFiltro)).ToList();
+                foreach (Trabalhador funcionario in funcionarios)
                 {
                     //Prevenção de bug
                     if (funcionario.Restaurante == null)
@@ -71,7 +85,9 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Trabalhador> funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo).ToList();
+                List<Trabalhador> funcionarios = (IdRestauranteFiltro < 1 ?
+                    databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo) :
+                    databaseContainer.Pessoas.OfType<Trabalhador>().Where(funcionario => funcionario.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && funcionario.Ativo && funcionario.RestauranteId == this.IdRestauranteFiltro)).ToList();
 
                 funcionarios_DataGridView.Rows.Clear();
                 foreach (Trabalhador funcionario in funcionarios)

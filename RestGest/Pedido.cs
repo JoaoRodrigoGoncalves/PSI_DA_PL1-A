@@ -19,6 +19,7 @@ namespace RestGest
         {
             this.Pagamento = new HashSet<Pagamento>();
             this.ItemMenu = new HashSet<ItemMenu>();
+            this.Estado = new Estado();
         }
     
         public int Id { get; set; }

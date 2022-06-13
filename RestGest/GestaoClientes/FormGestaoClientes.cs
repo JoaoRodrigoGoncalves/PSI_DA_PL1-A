@@ -11,11 +11,25 @@ namespace RestGest
     public partial class FormGestaoClientes : Form
     {
         private RestGestContainer databaseContainer;
+        private bool FormGestao;
         private Form FormBack;
-        public FormGestaoClientes(Form formBack)
+        public Cliente returnCliente;
+
+        public FormGestaoClientes(Form formBack, bool gestao)
         {
             InitializeComponent();
             this.FormBack = formBack;
+            this.FormGestao = gestao;
+            activeFuntion(this.FormGestao);
+        }
+
+
+        private void activeFuntion(bool active)
+        {
+            Adicionar_BTN.Enabled = active;
+            Editar_BTN.Enabled = active;
+            Remover_BTN.Enabled = active;
+            Selecionar_BTN.Enabled = !active;
         }
 
         private void FormGestaoClientes_Shown_1(object sender, EventArgs e)
@@ -156,6 +170,17 @@ namespace RestGest
 
                 LoadingPopUp_Panel.Visible = false;
             }));
+        }
+
+        private void Selecionar_BTN_Click(object sender, EventArgs e)
+        {
+            if (Clientes_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = Clientes_DataGridView.SelectedRows[0].Index;
+                int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnCliente = databaseContainer.Pessoas.OfType<Cliente>().Where(x=> x.Id == idCliente).First();
+                this.Close();
+            }
         }
     }
 }
