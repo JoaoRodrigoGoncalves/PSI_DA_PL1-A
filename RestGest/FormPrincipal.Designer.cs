@@ -49,18 +49,18 @@
             this.listaDeMétodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bt_empregado = new System.Windows.Forms.Button();
+            this.bt_select_empregado = new System.Windows.Forms.Button();
             this.bt_select_cliente = new System.Windows.Forms.Button();
             this.gb_fatura = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.bt_del_item = new System.Windows.Forms.Button();
             this.lb_items = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_empregado = new System.Windows.Forms.TextBox();
             this.tb_cliente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -251,7 +251,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bt_empregado);
+            this.panel1.Controls.Add(this.bt_select_empregado);
             this.panel1.Controls.Add(this.bt_select_cliente);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(934, 30);
@@ -259,15 +259,16 @@
             this.panel1.Size = new System.Drawing.Size(176, 479);
             this.panel1.TabIndex = 0;
             // 
-            // bt_empregado
+            // bt_select_empregado
             // 
-            this.bt_empregado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_empregado.Location = new System.Drawing.Point(0, 48);
-            this.bt_empregado.Name = "bt_empregado";
-            this.bt_empregado.Size = new System.Drawing.Size(176, 48);
-            this.bt_empregado.TabIndex = 2;
-            this.bt_empregado.Text = "Funcionarios";
-            this.bt_empregado.UseVisualStyleBackColor = true;
+            this.bt_select_empregado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_select_empregado.Location = new System.Drawing.Point(0, 48);
+            this.bt_select_empregado.Name = "bt_select_empregado";
+            this.bt_select_empregado.Size = new System.Drawing.Size(176, 48);
+            this.bt_select_empregado.TabIndex = 2;
+            this.bt_select_empregado.Text = "Funcionarios";
+            this.bt_select_empregado.UseVisualStyleBackColor = true;
+            this.bt_select_empregado.Click += new System.EventHandler(this.bt_select_empregado_Click);
             // 
             // bt_select_cliente
             // 
@@ -278,12 +279,13 @@
             this.bt_select_cliente.TabIndex = 0;
             this.bt_select_cliente.Text = "Cliente";
             this.bt_select_cliente.UseVisualStyleBackColor = true;
+            this.bt_select_cliente.Click += new System.EventHandler(this.bt_select_cliente_Click);
             // 
             // gb_fatura
             // 
             this.gb_fatura.Controls.Add(this.button3);
             this.gb_fatura.Controls.Add(this.button2);
-            this.gb_fatura.Controls.Add(this.button1);
+            this.gb_fatura.Controls.Add(this.bt_del_item);
             this.gb_fatura.Controls.Add(this.lb_items);
             this.gb_fatura.Controls.Add(this.label4);
             this.gb_fatura.Controls.Add(this.label3);
@@ -298,6 +300,34 @@
             this.gb_fatura.TabStop = false;
             this.gb_fatura.Text = "Fatura Nº000";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(146, 444);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(155, 29);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Deixar Pendente";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 444);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 29);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Concluir Pedido";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // bt_del_item
+            // 
+            this.bt_del_item.Location = new System.Drawing.Point(6, 415);
+            this.bt_del_item.Name = "bt_del_item";
+            this.bt_del_item.Size = new System.Drawing.Size(96, 23);
+            this.bt_del_item.TabIndex = 3;
+            this.bt_del_item.Text = "Eliminar Item";
+            this.bt_del_item.UseVisualStyleBackColor = true;
+            this.bt_del_item.Click += new System.EventHandler(this.bt_del_item_Click);
+            // 
             // lb_items
             // 
             this.lb_items.FormattingEnabled = true;
@@ -305,6 +335,15 @@
             this.lb_items.Name = "lb_items";
             this.lb_items.Size = new System.Drawing.Size(295, 264);
             this.lb_items.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Lista Items";
             // 
             // label3
             // 
@@ -328,6 +367,7 @@
             // 
             this.tb_empregado.Location = new System.Drawing.Point(6, 82);
             this.tb_empregado.Name = "tb_empregado";
+            this.tb_empregado.ReadOnly = true;
             this.tb_empregado.Size = new System.Drawing.Size(295, 20);
             this.tb_empregado.TabIndex = 0;
             // 
@@ -335,44 +375,9 @@
             // 
             this.tb_cliente.Location = new System.Drawing.Point(6, 39);
             this.tb_cliente.Name = "tb_cliente";
+            this.tb_cliente.ReadOnly = true;
             this.tb_cliente.Size = new System.Drawing.Size(295, 20);
             this.tb_cliente.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Lista Items";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Eliminar Item";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 444);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Concluir Pedido";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(146, 444);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 29);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Deixar Pendente";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -394,15 +399,15 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(566, 59);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(566, 60);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 68);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 69);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 408);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 407);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // FormPrincipal
@@ -452,7 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem listaDeClientesToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button bt_empregado;
+        private System.Windows.Forms.Button bt_select_empregado;
         private System.Windows.Forms.Button bt_select_cliente;
         private System.Windows.Forms.GroupBox gb_fatura;
         private System.Windows.Forms.ListBox lb_items;
@@ -463,7 +468,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_del_item;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;

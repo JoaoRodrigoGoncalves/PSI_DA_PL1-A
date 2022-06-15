@@ -1,6 +1,6 @@
 ﻿namespace RestGest.GestaoClientes
 {
-    partial class FormEdicaoCliente
+    partial class FormCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistar = new System.Windows.Forms.Button();
             this.tb_Nome = new System.Windows.Forms.TextBox();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,12 +65,13 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tb_rua);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btn_Update);
             this.groupBox1.Controls.Add(this.btnRegistar);
             this.groupBox1.Controls.Add(this.tb_Nome);
             this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(521, 154);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // tb_telemovel
@@ -110,7 +112,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(354, 117);
+            this.btnLimpar.Location = new System.Drawing.Point(435, 118);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 9;
@@ -194,13 +196,14 @@
             // 
             // btnRegistar
             // 
-            this.btnRegistar.Location = new System.Drawing.Point(435, 117);
+            this.btnRegistar.Enabled = false;
+            this.btnRegistar.Location = new System.Drawing.Point(273, 117);
             this.btnRegistar.Name = "btnRegistar";
             this.btnRegistar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistar.TabIndex = 8;
-            this.btnRegistar.Text = "Guardar";
+            this.btnRegistar.Text = "Registar";
             this.btnRegistar.UseVisualStyleBackColor = true;
-            this.btnRegistar.Click += new System.EventHandler(this.btnRegistar_Click);
+            this.btnRegistar.Click += new System.EventHandler(this.btn_Registar_Click);
             // 
             // tb_Nome
             // 
@@ -209,18 +212,30 @@
             this.tb_Nome.Size = new System.Drawing.Size(283, 20);
             this.tb_Nome.TabIndex = 1;
             // 
-            // FormEdicaoCliente
+            // btn_Update
+            // 
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(354, 117);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update.TabIndex = 8;
+            this.btn_Update.Text = "Guardar";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 182);
+            this.ClientSize = new System.Drawing.Size(538, 179);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(557, 221);
-            this.MinimumSize = new System.Drawing.Size(557, 221);
-            this.Name = "FormEdicaoCliente";
-            this.Text = "FormEdicaoCliente";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(554, 218);
+            this.MinimumSize = new System.Drawing.Size(554, 218);
+            this.Name = "FormCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Registar Clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -246,5 +261,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegistar;
         private System.Windows.Forms.TextBox tb_Nome;
+        private System.Windows.Forms.Button btn_Update;
     }
 }

@@ -67,7 +67,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoCliente().ShowDialog();
+            new FormCliente().ShowDialog();
             if (tbFiltrar.Text.Length > 0)
             {
                 btnFiltrar_Click(sender, e);
@@ -87,7 +87,11 @@ namespace RestGest
             {
                 Clientes_DataGridView.ClearSelection();
                 Clientes_DataGridView.Rows[hit.RowIndex].Selected = true;
-                Editar_BTN_Click_1(sender, e);
+                //
+                if (this.FormGestao)
+                    Editar_BTN_Click_1(sender, e);
+                else
+                    Selecionar_BTN_Click(sender, e);
             }
         }
 
@@ -97,7 +101,7 @@ namespace RestGest
             {
                 int row = Clientes_DataGridView.SelectedRows[0].Index;
                 int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoCliente(idCliente).ShowDialog();
+                new FormCliente(idCliente).ShowDialog();
                 if (tbFiltrar.Text.Length > 0)
                 {
                     btnFiltrar_Click(sender, e);
@@ -109,6 +113,16 @@ namespace RestGest
             }
         }
 
+        private void Selecionar_BTN_Click(object sender, EventArgs e)
+        {
+            if (Clientes_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = Clientes_DataGridView.SelectedRows[0].Index;
+                int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnCliente = this.databaseContainer.Pessoas.OfType<Cliente>().Where(t => t.Id == idCliente).First();
+                this.Close();
+            }
+        }
         private void Remover_BTN_Click_1(object sender, EventArgs e)
         {
             if (Clientes_DataGridView.SelectedRows.Count == 1)
@@ -172,15 +186,6 @@ namespace RestGest
             }));
         }
 
-        private void Selecionar_BTN_Click(object sender, EventArgs e)
-        {
-            if (Clientes_DataGridView.SelectedRows.Count == 1)
-            {
-                int row = Clientes_DataGridView.SelectedRows[0].Index;
-                int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                this.returnCliente = databaseContainer.Pessoas.OfType<Cliente>().Where(x=> x.Id == idCliente).First();
-                this.Close();
-            }
-        }
+        
     }
 }

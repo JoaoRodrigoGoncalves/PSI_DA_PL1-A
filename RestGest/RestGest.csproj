@@ -89,23 +89,17 @@
     <Compile Include="GestaoCategorias\FormGestaoCategorias.Designer.cs">
       <DependentUpon>FormGestaoCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoClientes\FormEdicaoCliente.cs">
+    <Compile Include="GestaoClientes\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoClientes\FormEdicaoCliente.Designer.cs">
-      <DependentUpon>FormEdicaoCliente.cs</DependentUpon>
+    <Compile Include="GestaoClientes\FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoClientes\FormGestaoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoClientes\FormGestaoClientes.Designer.cs">
+    <Compile Include="GestaoClientes\FormGestaoClientes.designer.cs">
       <DependentUpon>FormGestaoClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestaoClientes\FormRegistoCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoClientes\FormRegistoCliente.Designer.cs">
-      <DependentUpon>FormRegistoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoFuncionarios\FormFuncionario.cs">
       <SubType>Form</SubType>
@@ -223,14 +217,11 @@
     <EmbeddedResource Include="GestaoCategorias\FormGestaoCategorias.resx">
       <DependentUpon>FormGestaoCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoClientes\FormEdicaoCliente.resx">
-      <DependentUpon>FormEdicaoCliente.cs</DependentUpon>
+    <EmbeddedResource Include="GestaoClientes\FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoClientes\FormGestaoClientes.resx">
       <DependentUpon>FormGestaoClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestaoClientes\FormRegistoCliente.resx">
-      <DependentUpon>FormRegistoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoFuncionarios\FormFuncionario.resx">
       <DependentUpon>FormFuncionario.cs</DependentUpon>

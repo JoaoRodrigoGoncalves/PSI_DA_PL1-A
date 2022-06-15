@@ -10,6 +10,9 @@ namespace RestGest
 {
     public partial class FormPrincipal : Form
     {
+        private Cliente Sel_Cliente;
+        private Trabalhador Sel_Trabalhador;
+        private Restaurante Sel_Restaurante;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -51,23 +54,26 @@ namespace RestGest
         private void registarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FormProduto().ShowDialog();
+            LoadCategorias();
         }
 
         private void listaDeProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             new FormGestaoProdutos(this).ShowDialog();
+            LoadCategorias();
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             new FormGestaoCategorias(this, true).ShowDialog();
+            LoadCategorias();
         }
 
         private void registarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormRegistoCliente().ShowDialog();
+            new FormCliente().ShowDialog();
         }
 
         private void listaDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,13 +89,18 @@ namespace RestGest
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            LoadCategorias();
+        }
+
+        private void LoadCategorias()
+        {
             RestGestContainer dataGestContainer = new RestGestContainer();
             foreach (Categoria categoria in dataGestContainer.Categorias.Where(c => c.Ativo))
             {
                 Button button = new Button();
                 button.Text = categoria.Nome;
                 button.Tag = categoria;
-                button.Size = new System.Drawing.Size(75, flowLayoutPanel1.Size.Height -1);
+                button.Size = new System.Drawing.Size(75, flowLayoutPanel1.Size.Height - 5);
                 button.Click += LoadProdutos;
                 flowLayoutPanel1.Controls.Add(button);
             }
@@ -121,6 +132,38 @@ namespace RestGest
 
             lb_items.Items.Add(itemMenu);
             lb_items.TopIndex = lb_items.Items.Count - 1;
+        }
+
+        private void bt_del_item_Click(object sender, EventArgs e)
+        {
+            if (lb_items.SelectedItem == null)
+                return;
+
+            lb_items.Items.Remove(lb_items.SelectedItem);
+        }
+
+        private void bt_select_cliente_Click(object sender, EventArgs e)
+        {
+            FormGestaoClientes formCliente = new FormGestaoClientes(this, false);
+            formCliente.ShowDialog();
+            Cliente sel_cliente = formCliente.returnCliente;
+            if(sel_cliente != null)
+            {
+                this.Sel_Cliente = sel_cliente;
+                tb_cliente.Text = this.Sel_Cliente.Id + " | " + this.Sel_Cliente.Nome;
+            }
+        }
+
+        private void bt_select_empregado_Click(object sender, EventArgs e)
+        {
+            FormGestaoFuncionarios formFunc = new FormGestaoFuncionarios(this, false);
+            formFunc.ShowDialog();
+            Trabalhador sel_trabalhador = formFunc.returnTrabalhador;
+            if (sel_trabalhador != null)
+            {
+                this.Sel_Trabalhador = sel_trabalhador;
+                tb_empregado.Text = this.Sel_Trabalhador.Id + " | " + this.Sel_Trabalhador.Nome;
+            }
         }
     }
 }

@@ -30,6 +30,14 @@ namespace RestGest
             this.FormBack = formBack;
             this.Gestao = gestao;
             this.IdRestauranteFiltro = idRestauranteFiltro;
+            activeFuntion(this.Gestao);
+        }
+        private void activeFuntion(bool active)
+        {
+            Adicionar_BTN.Enabled = active;
+            Editar_BTN.Enabled = active;
+            Remover_BTN.Enabled = active;
+            Selecionar_BTN.Enabled = !active;
         }
 
         private void FormGestaoFuncionarios_Shown(object sender, EventArgs e)
@@ -127,7 +135,23 @@ namespace RestGest
             {
                 funcionarios_DataGridView.ClearSelection();
                 funcionarios_DataGridView.Rows[hit.RowIndex].Selected = true;
-                Editar_BTN_Click(sender, e);
+                
+                if(this.Gestao)
+                    Editar_BTN_Click(sender, e);
+                else
+                    Select_Trabalhador(sender, e);
+
+            }
+        }
+
+        private void Select_Trabalhador(object sender, EventArgs e)
+        {
+            if (funcionarios_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = funcionarios_DataGridView.SelectedRows[0].Index;
+                int idTrabalhador = int.Parse(funcionarios_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnTrabalhador = this.databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == idTrabalhador).First();
+                this.Close();
             }
         }
 

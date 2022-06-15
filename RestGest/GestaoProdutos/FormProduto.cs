@@ -246,9 +246,8 @@ namespace RestGest.GestaoRestaurantes
 
             //Get the restaurantes list form listbox 
             //TODO Check Cast
-            //List<Restaurante> rest_list = (List<Restaurante>)Restaurantes_ListBox.Items.Cast<List<Restaurante>>();
             List<Restaurante> rest_list = new List<Restaurante>();
-                rest_list.AddRange((IEnumerable<Restaurante>)Restaurantes_ListBox.Items);
+            rest_list.AddRange(Restaurantes_ListBox.Items.Cast<Restaurante>().ToList());
             //Add the new restaurante from comboBox
             rest_list.Add((Restaurante)Restaurantes_ComboBox.SelectedItem);
             //Clear the old data
