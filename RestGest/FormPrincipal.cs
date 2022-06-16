@@ -97,14 +97,8 @@ namespace RestGest
             LoadCategorias();
         }
 
-        private void LoadMetodosPagamentos()
-        {
-
-        }
-
         private void LoadCategorias()
         {
-            LoadMetodosPagamentos();
             RestGestContainer dataGestContainer = new RestGestContainer();
             foreach (Categoria categoria in dataGestContainer.Categorias.Where(c => c.Ativo))
             {
@@ -199,20 +193,46 @@ namespace RestGest
             if(this.Update_Pedido == null)
             {
                 Pedido new_pedido = new Pedido();
-                //
-                new_pedido.Estado = this.databaseContainer.Estados.Find(1);
+                //Set pedido estado
+                Estado sel_Estado = this.databaseContainer.Estados.Find(2);
+                new_pedido.Estado = sel_Estado;
+                new_pedido.EstadoId = sel_Estado.Id;
                 //TODO Make Select Restaurant method
-                new_pedido.Restaurante = this.databaseContainer.Restaurantes.Find(1); //this.Sel_Restaurante;
+                //Set restaurante
+                Restaurante sel_restaurante = this.databaseContainer.Restaurantes.Find(1);
+                new_pedido.Restaurante = sel_restaurante; //this.Sel_Restaurante;
+                new_pedido.RestauranteId = sel_restaurante.Id;
+                //Set cliente info
                 new_pedido.Cliente = this.Sel_Cliente;
+                new_pedido.ClienteId = this.Sel_Cliente.Id;
+                //Set trabalhador info
                 new_pedido.Trabalhador = this.Sel_Trabalhador;
-                //Get list items
-                new_pedido.ItemMenu = lb_items.Items.Cast<ItemMenu>().ToList();
-                //TODO Create Payment Method
+                new_pedido.TrabalhadorId = this.Sel_Trabalhador.Id;
+                //Set list items
+                foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
+                    new_pedido.ItemMenu.Add(item);
+                //Initialize payment list
+                new_pedido.Pagamento = new List<Pagamento>();
+                //Get payment method
                 FormPagamento pay_form = new FormPagamento(new_pedido); 
                 pay_form.ShowDialog();
-                List<Pagamento> lista = pay_form.resturnPaymentList;
-                if (lista == null)
+                List<Pagamento> listaPagamentos = pay_form.resturnPaymentList;
+                //Validate list
+                if (listaPagamentos == null || listaPagamentos.Count <= 0)
                     return;
+                //Save Pedido
+                try
+                {
+                    new_pedido = this.databaseContainer.Pedidos.Add(new_pedido);
+                    this.databaseContainer.SaveChanges();
+                    //Add payment list to pedido
+                    listaPagamentos.ForEach(p => p.Pedido = new_pedido);
+                    this.databaseContainer.Pagamentos.AddRange(listaPagamentos);                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error a concluir o pedido.\nContactar administrador\n" + ex.Message, 
+                        "Erro Finalizar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {

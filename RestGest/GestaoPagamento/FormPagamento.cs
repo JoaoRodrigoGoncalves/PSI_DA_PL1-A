@@ -33,7 +33,7 @@ namespace RestGest.GestaoPagamento
             //Validation
             if (cb_MetodosPagamentos.SelectedItem == null)
             {
-                MessageBox.Show("Plis select a Pay method","Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Select a Pay method","Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -60,12 +60,18 @@ namespace RestGest.GestaoPagamento
             new_payment.PedidoId = this.Working_Pedido.Id;
             //Add payment
             lb_pagamentos.Items.Add(new_payment);
+            //Clear added value
+            nb_value.Value = 0;
         }
 
         private void bt_concluir_Click(object sender, EventArgs e)
         {
-            if (int.Parse(tb_valor_to_pay.Text) > 0)
+            if (decimal.Parse(tb_valor_to_pay.Text) > 0)
+            {
+                MessageBox.Show("Valor " + tb_valor_to_pay.Text + "€ em debida.\nEfetuar pagamento para concluir!", 
+                    "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
 
             this.resturnPaymentList = lb_pagamentos.Items.Cast<Pagamento>().ToList();
             this.Close();
@@ -81,57 +87,64 @@ namespace RestGest.GestaoPagamento
             if (lb_pagamentos.SelectedItem == null)
                 return;
 
+            tb_valor_to_pay.Text = (decimal.Parse(tb_valor_to_pay.Text) + ((Pagamento)lb_pagamentos.SelectedItem).Valor).ToString();
+
             lb_pagamentos.Items.Remove(lb_pagamentos.SelectedItem);
         }
-
+        
+        private void AddValue(decimal value)
+        {
+            nb_value.Value = nb_value.Value * 10 + value;
+        }
+        
         private void bt_num_1_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.01M;
+            AddValue(0.01M);
         }
 
         private void bt_num_2_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.02M;
+            AddValue(0.02M);
         }
 
         private void bt_num_3_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.03M;
+            AddValue(0.03M);
         }
 
         private void bt_num_4_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.04M;
+            AddValue(0.04M);
         }
 
         private void bt_num_5_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.05M;
+            AddValue(0.05M);
         }
 
         private void bt_num_6_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.06M;
+            AddValue(0.06M);
         }
 
         private void bt_num_7_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.07M;
+            AddValue(0.07M);
         }
 
         private void bt_num_8_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.08M;
+            AddValue(0.08M);
         }
 
         private void bt_num_9_Click(object sender, EventArgs e)
         {
-            nb_value.Value += 0.09M;
+            AddValue(0.09M);
         }
 
         private void bt_num_0_Click(object sender, EventArgs e)
         {
-            nb_value.Value *= 10;
+            AddValue(0.00M);
         }
 
         private void bt_remove_Click(object sender, EventArgs e)
