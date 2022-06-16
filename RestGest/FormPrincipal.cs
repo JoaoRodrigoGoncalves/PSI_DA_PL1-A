@@ -1,6 +1,7 @@
 ﻿using RestGest.GestaoCategorias;
 using RestGest.GestaoClientes;
 using RestGest.GestaoMetodosPagamentos;
+using RestGest.GestaoPagamento;
 using RestGest.GestaoRestaurantes;
 using System;
 using System.Collections.Generic;
@@ -98,7 +99,7 @@ namespace RestGest
 
         private void LoadMetodosPagamentos()
         {
-            cb_MetodosPagamentos.Items.AddRange(this.databaseContainer.MetodosPagamento.Where(mt => mt.Ativo).ToArray());
+
         }
 
         private void LoadCategorias()
@@ -192,15 +193,9 @@ namespace RestGest
 
         private void bt_concluir_pedido_Click(object sender, EventArgs e)
         {
-            if (ValidatePedido())
+            if (!ValidatePedido())
                 return;
-            
-            if(cb_MetodosPagamentos.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione o metodo de pagamento","Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            
+
             if(this.Update_Pedido == null)
             {
                 Pedido new_pedido = new Pedido();
@@ -211,9 +206,13 @@ namespace RestGest
                 new_pedido.Cliente = this.Sel_Cliente;
                 new_pedido.Trabalhador = this.Sel_Trabalhador;
                 //Get list items
-                new_pedido.ItemMenu = (ICollection<ItemMenu>)lb_items.Items;
-                //
-                //TODO Make pagamento Method
+                new_pedido.ItemMenu = lb_items.Items.Cast<ItemMenu>().ToList();
+                //TODO Create Payment Method
+                FormPagamento pay_form = new FormPagamento(new_pedido); 
+                pay_form.ShowDialog();
+                List<Pagamento> lista = pay_form.resturnPaymentList;
+                if (lista == null)
+                    return;
             }
             else
             {

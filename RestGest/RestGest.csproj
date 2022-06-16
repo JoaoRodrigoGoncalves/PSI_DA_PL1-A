@@ -64,6 +64,7 @@
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Pagamento.cs" />
     <Compile Include="Entidades\Morada.cs" />
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\ItemMenu.cs" />
@@ -126,6 +127,12 @@
     <Compile Include="GestaoMetodosPagamentos\FormMetodoPagamento.Designer.cs">
       <DependentUpon>FormMetodoPagamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestaoPagamento\FormPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoPagamento\FormPagamento.Designer.cs">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestaoPedidos\FormGestaoPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,7 +163,6 @@
     <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.designer.cs">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="IPagamento.cs" />
     <Compile Include="ItemMenu.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
@@ -168,12 +174,6 @@
     </Compile>
     <Compile Include="Pagamento.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pagamento\FormPagamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pagamento\FormPagamento.Designer.cs">
-      <DependentUpon>FormPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedido.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
@@ -231,6 +231,9 @@
     <EmbeddedResource Include="GestaoMetodosPagamentos\FormMetodoPagamento.resx">
       <DependentUpon>FormMetodoPagamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestaoPagamento\FormPagamento.resx">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestaoPedidos\FormGestaoPedidos.resx">
       <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormGestaoRestaurantes.resx">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pagamento\FormPagamento.resx">
-      <DependentUpon>FormPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

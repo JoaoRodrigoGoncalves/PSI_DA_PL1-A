@@ -58,7 +58,6 @@
             this.lb_items = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_total = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cb_MetodosPagamentos = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -287,14 +285,12 @@
             // 
             // gb_fatura
             // 
-            this.gb_fatura.Controls.Add(this.cb_MetodosPagamentos);
             this.gb_fatura.Controls.Add(this.bt_pendente_pedido);
             this.gb_fatura.Controls.Add(this.bt_concluir_pedido);
             this.gb_fatura.Controls.Add(this.bt_del_item);
             this.gb_fatura.Controls.Add(this.lb_items);
             this.gb_fatura.Controls.Add(this.label4);
             this.gb_fatura.Controls.Add(this.label2);
-            this.gb_fatura.Controls.Add(this.label5);
             this.gb_fatura.Controls.Add(this.label3);
             this.gb_fatura.Controls.Add(this.label1);
             this.gb_fatura.Controls.Add(this.tb_total);
@@ -362,15 +358,6 @@
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Tipo Pagamento:";
             // 
             // label3
             // 
@@ -445,15 +432,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 407);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // cb_MetodosPagamentos
-            // 
-            this.cb_MetodosPagamentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_MetodosPagamentos.FormattingEnabled = true;
-            this.cb_MetodosPagamentos.Location = new System.Drawing.Point(126, 113);
-            this.cb_MetodosPagamentos.Name = "cb_MetodosPagamentos";
-            this.cb_MetodosPagamentos.Size = new System.Drawing.Size(175, 21);
-            this.cb_MetodosPagamentos.TabIndex = 5;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,7 +496,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_total;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cb_MetodosPagamentos;
     }
 }

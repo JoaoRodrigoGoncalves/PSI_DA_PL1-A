@@ -31,20 +31,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_MetodosPagamentos = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.bt_num_1 = new System.Windows.Forms.Button();
-            this.bt_num_2 = new System.Windows.Forms.Button();
-            this.bt_num_3 = new System.Windows.Forms.Button();
-            this.bt_num_4 = new System.Windows.Forms.Button();
-            this.bt_num_5 = new System.Windows.Forms.Button();
-            this.bt_num_6 = new System.Windows.Forms.Button();
-            this.bt_num_7 = new System.Windows.Forms.Button();
-            this.bt_num_8 = new System.Windows.Forms.Button();
-            this.bt_num_9 = new System.Windows.Forms.Button();
-            this.bt_enter = new System.Windows.Forms.Button();
-            this.bt_num_0 = new System.Windows.Forms.Button();
             this.bt_remove = new System.Windows.Forms.Button();
+            this.bt_num_0 = new System.Windows.Forms.Button();
+            this.bt_enter = new System.Windows.Forms.Button();
+            this.bt_num_9 = new System.Windows.Forms.Button();
+            this.bt_num_8 = new System.Windows.Forms.Button();
+            this.bt_num_7 = new System.Windows.Forms.Button();
+            this.bt_num_6 = new System.Windows.Forms.Button();
+            this.bt_num_5 = new System.Windows.Forms.Button();
+            this.bt_num_4 = new System.Windows.Forms.Button();
+            this.bt_num_3 = new System.Windows.Forms.Button();
+            this.bt_num_2 = new System.Windows.Forms.Button();
+            this.bt_num_1 = new System.Windows.Forms.Button();
+            this.nb_value = new System.Windows.Forms.NumericUpDown();
             this.bt_concluir = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.bt_remove_payment = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nb_value)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,22 +77,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.nb_value);
             this.panel1.Location = new System.Drawing.Point(163, 43);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 333);
             this.panel1.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 45);
-            this.textBox1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -112,7 +102,7 @@
             this.tableLayoutPanel1.Controls.Add(this.bt_num_2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.bt_num_1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 38);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -120,30 +110,118 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(305, 288);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(305, 295);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // bt_num_1
+            // bt_remove
             // 
-            this.bt_num_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_1.Location = new System.Drawing.Point(3, 3);
-            this.bt_num_1.Name = "bt_num_1";
-            this.bt_num_1.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_1.TabIndex = 0;
-            this.bt_num_1.Text = "1";
-            this.bt_num_1.UseVisualStyleBackColor = true;
+            this.bt_remove.BackColor = System.Drawing.Color.Firebrick;
+            this.bt_remove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_remove.Location = new System.Drawing.Point(205, 222);
+            this.bt_remove.Name = "bt_remove";
+            this.bt_remove.Size = new System.Drawing.Size(97, 70);
+            this.bt_remove.TabIndex = 11;
+            this.bt_remove.Text = "Clear";
+            this.bt_remove.UseVisualStyleBackColor = false;
+            this.bt_remove.Click += new System.EventHandler(this.bt_remove_Click);
             // 
-            // bt_num_2
+            // bt_num_0
             // 
-            this.bt_num_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_2.Location = new System.Drawing.Point(104, 3);
-            this.bt_num_2.Name = "bt_num_2";
-            this.bt_num_2.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_2.TabIndex = 1;
-            this.bt_num_2.Text = "2";
-            this.bt_num_2.UseVisualStyleBackColor = true;
+            this.bt_num_0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_0.Location = new System.Drawing.Point(104, 222);
+            this.bt_num_0.Name = "bt_num_0";
+            this.bt_num_0.Size = new System.Drawing.Size(95, 70);
+            this.bt_num_0.TabIndex = 10;
+            this.bt_num_0.Text = "0";
+            this.bt_num_0.UseVisualStyleBackColor = true;
+            this.bt_num_0.Click += new System.EventHandler(this.bt_num_0_Click);
+            // 
+            // bt_enter
+            // 
+            this.bt_enter.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.bt_enter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_enter.Location = new System.Drawing.Point(3, 222);
+            this.bt_enter.Name = "bt_enter";
+            this.bt_enter.Size = new System.Drawing.Size(95, 70);
+            this.bt_enter.TabIndex = 9;
+            this.bt_enter.Text = "Enter";
+            this.bt_enter.UseVisualStyleBackColor = false;
+            this.bt_enter.Click += new System.EventHandler(this.bt_enter_Click);
+            // 
+            // bt_num_9
+            // 
+            this.bt_num_9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_9.Location = new System.Drawing.Point(205, 149);
+            this.bt_num_9.Name = "bt_num_9";
+            this.bt_num_9.Size = new System.Drawing.Size(97, 67);
+            this.bt_num_9.TabIndex = 8;
+            this.bt_num_9.Text = "9";
+            this.bt_num_9.UseVisualStyleBackColor = true;
+            this.bt_num_9.Click += new System.EventHandler(this.bt_num_9_Click);
+            // 
+            // bt_num_8
+            // 
+            this.bt_num_8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_8.Location = new System.Drawing.Point(104, 149);
+            this.bt_num_8.Name = "bt_num_8";
+            this.bt_num_8.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_8.TabIndex = 7;
+            this.bt_num_8.Text = "8";
+            this.bt_num_8.UseVisualStyleBackColor = true;
+            this.bt_num_8.Click += new System.EventHandler(this.bt_num_8_Click);
+            // 
+            // bt_num_7
+            // 
+            this.bt_num_7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_7.Location = new System.Drawing.Point(3, 149);
+            this.bt_num_7.Name = "bt_num_7";
+            this.bt_num_7.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_7.TabIndex = 6;
+            this.bt_num_7.Text = "7";
+            this.bt_num_7.UseVisualStyleBackColor = true;
+            this.bt_num_7.Click += new System.EventHandler(this.bt_num_7_Click);
+            // 
+            // bt_num_6
+            // 
+            this.bt_num_6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_6.Location = new System.Drawing.Point(205, 76);
+            this.bt_num_6.Name = "bt_num_6";
+            this.bt_num_6.Size = new System.Drawing.Size(97, 67);
+            this.bt_num_6.TabIndex = 5;
+            this.bt_num_6.Text = "6";
+            this.bt_num_6.UseVisualStyleBackColor = true;
+            this.bt_num_6.Click += new System.EventHandler(this.bt_num_6_Click);
+            // 
+            // bt_num_5
+            // 
+            this.bt_num_5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_5.Location = new System.Drawing.Point(104, 76);
+            this.bt_num_5.Name = "bt_num_5";
+            this.bt_num_5.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_5.TabIndex = 4;
+            this.bt_num_5.Text = "5";
+            this.bt_num_5.UseVisualStyleBackColor = true;
+            this.bt_num_5.Click += new System.EventHandler(this.bt_num_5_Click);
+            // 
+            // bt_num_4
+            // 
+            this.bt_num_4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_4.Location = new System.Drawing.Point(3, 76);
+            this.bt_num_4.Name = "bt_num_4";
+            this.bt_num_4.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_4.TabIndex = 3;
+            this.bt_num_4.Text = "4";
+            this.bt_num_4.UseVisualStyleBackColor = true;
+            this.bt_num_4.Click += new System.EventHandler(this.bt_num_4_Click);
             // 
             // bt_num_3
             // 
@@ -151,111 +229,51 @@
             this.bt_num_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_num_3.Location = new System.Drawing.Point(205, 3);
             this.bt_num_3.Name = "bt_num_3";
-            this.bt_num_3.Size = new System.Drawing.Size(97, 66);
+            this.bt_num_3.Size = new System.Drawing.Size(97, 67);
             this.bt_num_3.TabIndex = 2;
             this.bt_num_3.Text = "3";
             this.bt_num_3.UseVisualStyleBackColor = true;
+            this.bt_num_3.Click += new System.EventHandler(this.bt_num_3_Click);
             // 
-            // bt_num_4
+            // bt_num_2
             // 
-            this.bt_num_4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_4.Location = new System.Drawing.Point(3, 75);
-            this.bt_num_4.Name = "bt_num_4";
-            this.bt_num_4.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_4.TabIndex = 3;
-            this.bt_num_4.Text = "4";
-            this.bt_num_4.UseVisualStyleBackColor = true;
+            this.bt_num_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_2.Location = new System.Drawing.Point(104, 3);
+            this.bt_num_2.Name = "bt_num_2";
+            this.bt_num_2.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_2.TabIndex = 1;
+            this.bt_num_2.Text = "2";
+            this.bt_num_2.UseVisualStyleBackColor = true;
+            this.bt_num_2.Click += new System.EventHandler(this.bt_num_2_Click);
             // 
-            // bt_num_5
+            // bt_num_1
             // 
-            this.bt_num_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_5.Location = new System.Drawing.Point(104, 75);
-            this.bt_num_5.Name = "bt_num_5";
-            this.bt_num_5.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_5.TabIndex = 4;
-            this.bt_num_5.Text = "5";
-            this.bt_num_5.UseVisualStyleBackColor = true;
+            this.bt_num_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_num_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_num_1.Location = new System.Drawing.Point(3, 3);
+            this.bt_num_1.Name = "bt_num_1";
+            this.bt_num_1.Size = new System.Drawing.Size(95, 67);
+            this.bt_num_1.TabIndex = 0;
+            this.bt_num_1.Text = "1";
+            this.bt_num_1.UseVisualStyleBackColor = true;
+            this.bt_num_1.Click += new System.EventHandler(this.bt_num_1_Click);
             // 
-            // bt_num_6
+            // nb_value
             // 
-            this.bt_num_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_6.Location = new System.Drawing.Point(205, 75);
-            this.bt_num_6.Name = "bt_num_6";
-            this.bt_num_6.Size = new System.Drawing.Size(97, 66);
-            this.bt_num_6.TabIndex = 5;
-            this.bt_num_6.Text = "6";
-            this.bt_num_6.UseVisualStyleBackColor = true;
-            // 
-            // bt_num_7
-            // 
-            this.bt_num_7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_7.Location = new System.Drawing.Point(3, 147);
-            this.bt_num_7.Name = "bt_num_7";
-            this.bt_num_7.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_7.TabIndex = 6;
-            this.bt_num_7.Text = "7";
-            this.bt_num_7.UseVisualStyleBackColor = true;
-            // 
-            // bt_num_8
-            // 
-            this.bt_num_8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_8.Location = new System.Drawing.Point(104, 147);
-            this.bt_num_8.Name = "bt_num_8";
-            this.bt_num_8.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_8.TabIndex = 7;
-            this.bt_num_8.Text = "8";
-            this.bt_num_8.UseVisualStyleBackColor = true;
-            // 
-            // bt_num_9
-            // 
-            this.bt_num_9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_9.Location = new System.Drawing.Point(205, 147);
-            this.bt_num_9.Name = "bt_num_9";
-            this.bt_num_9.Size = new System.Drawing.Size(97, 66);
-            this.bt_num_9.TabIndex = 8;
-            this.bt_num_9.Text = "9";
-            this.bt_num_9.UseVisualStyleBackColor = true;
-            // 
-            // bt_enter
-            // 
-            this.bt_enter.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.bt_enter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_enter.Location = new System.Drawing.Point(3, 219);
-            this.bt_enter.Name = "bt_enter";
-            this.bt_enter.Size = new System.Drawing.Size(95, 66);
-            this.bt_enter.TabIndex = 9;
-            this.bt_enter.Text = "Enter";
-            this.bt_enter.UseVisualStyleBackColor = false;
-            // 
-            // bt_num_0
-            // 
-            this.bt_num_0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_num_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_num_0.Location = new System.Drawing.Point(104, 219);
-            this.bt_num_0.Name = "bt_num_0";
-            this.bt_num_0.Size = new System.Drawing.Size(95, 66);
-            this.bt_num_0.TabIndex = 10;
-            this.bt_num_0.Text = "0";
-            this.bt_num_0.UseVisualStyleBackColor = true;
-            // 
-            // bt_remove
-            // 
-            this.bt_remove.BackColor = System.Drawing.Color.Firebrick;
-            this.bt_remove.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_remove.Location = new System.Drawing.Point(205, 219);
-            this.bt_remove.Name = "bt_remove";
-            this.bt_remove.Size = new System.Drawing.Size(97, 66);
-            this.bt_remove.TabIndex = 11;
-            this.bt_remove.Text = "Remove";
-            this.bt_remove.UseVisualStyleBackColor = false;
+            this.nb_value.DecimalPlaces = 2;
+            this.nb_value.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nb_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nb_value.Location = new System.Drawing.Point(0, 0);
+            this.nb_value.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nb_value.Name = "nb_value";
+            this.nb_value.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.nb_value.Size = new System.Drawing.Size(305, 38);
+            this.nb_value.TabIndex = 2;
             // 
             // bt_concluir
             // 
@@ -266,6 +284,7 @@
             this.bt_concluir.TabIndex = 8;
             this.bt_concluir.Text = "Concluir Pagamento";
             this.bt_concluir.UseVisualStyleBackColor = true;
+            this.bt_concluir.Click += new System.EventHandler(this.bt_concluir_Click);
             // 
             // bt_cancel
             // 
@@ -276,6 +295,7 @@
             this.bt_cancel.TabIndex = 8;
             this.bt_cancel.Text = "Cancelar Pagamento";
             this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
             // 
             // label2
             // 
@@ -312,6 +332,7 @@
             this.bt_remove_payment.TabIndex = 8;
             this.bt_remove_payment.Text = "Delete Payment";
             this.bt_remove_payment.UseVisualStyleBackColor = true;
+            this.bt_remove_payment.Click += new System.EventHandler(this.bt_remove_payment_Click);
             // 
             // FormPagamento
             // 
@@ -331,8 +352,8 @@
             this.Text = "Pagamento";
             this.Load += new System.EventHandler(this.FormPagamento_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nb_value)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +363,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_MetodosPagamentos;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button bt_remove;
         private System.Windows.Forms.Button bt_num_0;
@@ -362,5 +382,6 @@
         private System.Windows.Forms.TextBox tb_valor_to_pay;
         private System.Windows.Forms.ListBox lb_pagamentos;
         private System.Windows.Forms.Button bt_remove_payment;
+        private System.Windows.Forms.NumericUpDown nb_value;
     }
 }
