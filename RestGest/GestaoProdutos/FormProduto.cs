@@ -85,21 +85,7 @@ namespace RestGest.GestaoRestaurantes
             if (!String.IsNullOrEmpty(dadosProduto.Ingredientes))
                 Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
 
-            restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
-
-            if (restaurantes.Length == 0)
-            {
-                // Não existem restaurantes registados / ativos, vamos desativar a utilização da secção de associação a restaurantes
-                Restaurantes_ListBox.Enabled = false;
-                Restaurantes_ComboBox.Enabled = false;
-                AddRestaurante_BTN.Enabled = false;
-                RmRestaurante_BTN.Enabled = false;
-            }
-            else
-            {
-                Restaurantes_ComboBox.Items.AddRange(restaurantes);
-            }
-
+            //Order Restaurantes
             foreach (Restaurante item in dadosProduto.Restaurante.OrderBy(r => r.Nome))
             {
                 Restaurantes_ListBox.Items.Add(item);

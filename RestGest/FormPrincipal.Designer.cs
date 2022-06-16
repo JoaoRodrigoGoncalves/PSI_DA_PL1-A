@@ -52,18 +52,22 @@
             this.bt_select_empregado = new System.Windows.Forms.Button();
             this.bt_select_cliente = new System.Windows.Forms.Button();
             this.gb_fatura = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_pendente_pedido = new System.Windows.Forms.Button();
+            this.bt_concluir_pedido = new System.Windows.Forms.Button();
             this.bt_del_item = new System.Windows.Forms.Button();
             this.lb_items = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tb_total = new System.Windows.Forms.TextBox();
             this.tb_empregado = new System.Windows.Forms.TextBox();
             this.tb_cliente = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cb_MetodosPagamentos = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -283,13 +287,17 @@
             // 
             // gb_fatura
             // 
-            this.gb_fatura.Controls.Add(this.button3);
-            this.gb_fatura.Controls.Add(this.button2);
+            this.gb_fatura.Controls.Add(this.cb_MetodosPagamentos);
+            this.gb_fatura.Controls.Add(this.bt_pendente_pedido);
+            this.gb_fatura.Controls.Add(this.bt_concluir_pedido);
             this.gb_fatura.Controls.Add(this.bt_del_item);
             this.gb_fatura.Controls.Add(this.lb_items);
             this.gb_fatura.Controls.Add(this.label4);
+            this.gb_fatura.Controls.Add(this.label2);
+            this.gb_fatura.Controls.Add(this.label5);
             this.gb_fatura.Controls.Add(this.label3);
             this.gb_fatura.Controls.Add(this.label1);
+            this.gb_fatura.Controls.Add(this.tb_total);
             this.gb_fatura.Controls.Add(this.tb_empregado);
             this.gb_fatura.Controls.Add(this.tb_cliente);
             this.gb_fatura.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -300,23 +308,24 @@
             this.gb_fatura.TabStop = false;
             this.gb_fatura.Text = "Fatura Nº000";
             // 
-            // button3
+            // bt_pendente_pedido
             // 
-            this.button3.Location = new System.Drawing.Point(146, 444);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 29);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Deixar Pendente";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bt_pendente_pedido.Location = new System.Drawing.Point(146, 444);
+            this.bt_pendente_pedido.Name = "bt_pendente_pedido";
+            this.bt_pendente_pedido.Size = new System.Drawing.Size(155, 29);
+            this.bt_pendente_pedido.TabIndex = 3;
+            this.bt_pendente_pedido.Text = "Deixar Pendente";
+            this.bt_pendente_pedido.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bt_concluir_pedido
             // 
-            this.button2.Location = new System.Drawing.Point(6, 444);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Concluir Pedido";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bt_concluir_pedido.Location = new System.Drawing.Point(6, 444);
+            this.bt_concluir_pedido.Name = "bt_concluir_pedido";
+            this.bt_concluir_pedido.Size = new System.Drawing.Size(134, 29);
+            this.bt_concluir_pedido.TabIndex = 3;
+            this.bt_concluir_pedido.Text = "Concluir Pedido";
+            this.bt_concluir_pedido.UseVisualStyleBackColor = true;
+            this.bt_concluir_pedido.Click += new System.EventHandler(this.bt_concluir_pedido_Click);
             // 
             // bt_del_item
             // 
@@ -331,19 +340,37 @@
             // lb_items
             // 
             this.lb_items.FormattingEnabled = true;
-            this.lb_items.Location = new System.Drawing.Point(6, 145);
+            this.lb_items.Location = new System.Drawing.Point(6, 184);
             this.lb_items.Name = "lb_items";
-            this.lb_items.Size = new System.Drawing.Size(295, 264);
+            this.lb_items.Size = new System.Drawing.Size(295, 225);
             this.lb_items.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 131);
+            this.label4.Location = new System.Drawing.Point(6, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Lista Items";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(143, 420);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Total:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Tipo Pagamento:";
             // 
             // label3
             // 
@@ -362,6 +389,14 @@
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente";
+            // 
+            // tb_total
+            // 
+            this.tb_total.Location = new System.Drawing.Point(183, 418);
+            this.tb_total.Name = "tb_total";
+            this.tb_total.ReadOnly = true;
+            this.tb_total.Size = new System.Drawing.Size(118, 20);
+            this.tb_total.TabIndex = 0;
             // 
             // tb_empregado
             // 
@@ -409,6 +444,15 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 407);
             this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // cb_MetodosPagamentos
+            // 
+            this.cb_MetodosPagamentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_MetodosPagamentos.FormattingEnabled = true;
+            this.cb_MetodosPagamentos.Location = new System.Drawing.Point(126, 113);
+            this.cb_MetodosPagamentos.Name = "cb_MetodosPagamentos";
+            this.cb_MetodosPagamentos.Size = new System.Drawing.Size(175, 21);
+            this.cb_MetodosPagamentos.TabIndex = 5;
             // 
             // FormPrincipal
             // 
@@ -466,11 +510,15 @@
         private System.Windows.Forms.TextBox tb_empregado;
         private System.Windows.Forms.TextBox tb_cliente;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_pendente_pedido;
+        private System.Windows.Forms.Button bt_concluir_pedido;
         private System.Windows.Forms.Button bt_del_item;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_total;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cb_MetodosPagamentos;
     }
 }

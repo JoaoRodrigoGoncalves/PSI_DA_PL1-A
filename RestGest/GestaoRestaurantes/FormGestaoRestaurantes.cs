@@ -29,7 +29,6 @@ namespace RestGest
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
             Remover_BTN.Enabled = active;
-            Selecionar_BTN.Visible = !active;
             Selecionar_BTN.Enabled = !active;
         }
 
@@ -68,7 +67,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoRestaurante().ShowDialog();
+            new FormRestaurante().ShowDialog();
             if (filtrar_TextBox.Text.Length > 0)
             {
                 filtrar_BTN_Click(sender, e);
@@ -126,7 +125,7 @@ namespace RestGest
             {
                 int row = restaurantes_DataGridView.SelectedRows[0].Index;
                 int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoRestaurante(idRestaurante).ShowDialog();
+                new FormRestaurante(idRestaurante).ShowDialog();
                 if (filtrar_TextBox.Text.Length > 0)
                 {
                     filtrar_BTN_Click(sender, e);

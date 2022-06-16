@@ -67,6 +67,7 @@
     <Compile Include="Entidades\Morada.cs" />
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\ItemMenu.cs" />
+    <Compile Include="Entidades\MetodoPagamento.cs" />
     <Compile Include="Entidades\Restaurante.cs" />
     <Compile Include="Estado.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
@@ -113,23 +114,17 @@
     <Compile Include="GestaoFuncionarios\FormGestaoFuncionarios.designer.cs">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.Designer.cs">
-      <DependentUpon>FormEdicaoMetodosPagamentos.cs</DependentUpon>
-    </Compile>
     <Compile Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.Designer.cs">
       <DependentUpon>FormGestaoMetodosPagamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.cs">
+    <Compile Include="GestaoMetodosPagamentos\FormMetodoPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.Designer.cs">
-      <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
+    <Compile Include="GestaoMetodosPagamentos\FormMetodoPagamento.Designer.cs">
+      <DependentUpon>FormMetodoPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoPedidos\FormGestaoPedidos.cs">
       <SubType>Form</SubType>
@@ -149,11 +144,11 @@
     <Compile Include="GestaoProdutos\FormProduto.Designer.cs">
       <DependentUpon>FormProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.cs">
+    <Compile Include="GestaoRestaurantes\FormRestaurante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormEdicaoRestaurante.designer.cs">
-      <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
+    <Compile Include="GestaoRestaurantes\FormRestaurante.designer.cs">
+      <DependentUpon>FormRestaurante.cs</DependentUpon>
     </Compile>
     <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.cs">
       <SubType>Form</SubType>
@@ -161,12 +156,7 @@
     <Compile Include="GestaoRestaurantes\FormGestaoRestaurantes.designer.cs">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestaoRestaurantes\FormRegistoRestaurante.designer.cs">
-      <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
-    </Compile>
+    <Compile Include="IPagamento.cs" />
     <Compile Include="ItemMenu.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
@@ -178,6 +168,12 @@
     </Compile>
     <Compile Include="Pagamento.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamento\FormPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamento\FormPagamento.Designer.cs">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedido.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
@@ -229,14 +225,11 @@
     <EmbeddedResource Include="GestaoFuncionarios\FormGestaoFuncionarios.resx">
       <DependentUpon>FormGestaoFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoMetodosPagamentos\FormEdicaoMetodosPagamentos.resx">
-      <DependentUpon>FormEdicaoMetodosPagamentos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GestaoMetodosPagamentos\FormGestaoMetodosPagamentos.resx">
       <DependentUpon>FormGestaoMetodosPagamentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoMetodosPagamentos\RegistarMetodosPagamento.resx">
-      <DependentUpon>RegistarMetodosPagamento.cs</DependentUpon>
+    <EmbeddedResource Include="GestaoMetodosPagamentos\FormMetodoPagamento.resx">
+      <DependentUpon>FormMetodoPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoPedidos\FormGestaoPedidos.resx">
       <DependentUpon>FormGestaoPedidos.cs</DependentUpon>
@@ -247,14 +240,14 @@
     <EmbeddedResource Include="GestaoProdutos\FormProduto.resx">
       <DependentUpon>FormProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoRestaurantes\FormEdicaoRestaurante.resx">
-      <DependentUpon>FormEdicaoRestaurante.cs</DependentUpon>
+    <EmbeddedResource Include="GestaoRestaurantes\FormRestaurante.resx">
+      <DependentUpon>FormRestaurante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestaoRestaurantes\FormGestaoRestaurantes.resx">
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestaoRestaurantes\FormRegistoRestaurante.resx">
-      <DependentUpon>FormRegistoRestaurante.cs</DependentUpon>
+    <EmbeddedResource Include="Pagamento\FormPagamento.resx">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

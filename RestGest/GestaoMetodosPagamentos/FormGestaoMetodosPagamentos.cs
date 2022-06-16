@@ -49,7 +49,7 @@ namespace RestGest
 
         private void btnAddMedodoPagamento_Click(object sender, EventArgs e)
         {
-            new RegistarMetodosPagamento().ShowDialog();
+            new FormMetodoPagamento().ShowDialog();
             if (tbFilterMetodosPagamentos.Text.Length > 0)
             {
                 btnFilterMetodosPagamentos_Click(sender, e);
@@ -79,7 +79,7 @@ namespace RestGest
             {
                 int row = Metodo_DataGridView.SelectedRows[0].Index;
                 int idMetodo = int.Parse(Metodo_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoMetodosPagamentos(idMetodo).ShowDialog();
+                new FormMetodoPagamento(idMetodo).ShowDialog();
                 if (tbFilterMetodosPagamentos.Text.Length > 0)
                 {
                     btnFilterMetodosPagamentos_Click(sender, e);

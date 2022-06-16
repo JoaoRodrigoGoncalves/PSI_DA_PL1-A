@@ -3,6 +3,7 @@ using RestGest.GestaoClientes;
 using RestGest.GestaoMetodosPagamentos;
 using RestGest.GestaoRestaurantes;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,9 +11,11 @@ namespace RestGest
 {
     public partial class FormPrincipal : Form
     {
+        private RestGestContainer databaseContainer;
         private Cliente Sel_Cliente;
         private Trabalhador Sel_Trabalhador;
         private Restaurante Sel_Restaurante;
+        private Pedido Update_Pedido;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -20,7 +23,7 @@ namespace RestGest
 
         private void registarRestauranteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormRegistoRestaurante().ShowDialog();
+            new FormRestaurante().ShowDialog();
         }
 
         private void listaDeRestaurantesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace RestGest
 
         private void registarMétodoDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new RegistarMetodosPagamento().ShowDialog();
+            new FormMetodoPagamento().ShowDialog();
         }
 
         private void listaDeMétodosDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,11 +92,18 @@ namespace RestGest
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            this.databaseContainer = new RestGestContainer();
             LoadCategorias();
+        }
+
+        private void LoadMetodosPagamentos()
+        {
+            cb_MetodosPagamentos.Items.AddRange(this.databaseContainer.MetodosPagamento.Where(mt => mt.Ativo).ToArray());
         }
 
         private void LoadCategorias()
         {
+            LoadMetodosPagamentos();
             RestGestContainer dataGestContainer = new RestGestContainer();
             foreach (Categoria categoria in dataGestContainer.Categorias.Where(c => c.Ativo))
             {
@@ -132,6 +142,8 @@ namespace RestGest
 
             lb_items.Items.Add(itemMenu);
             lb_items.TopIndex = lb_items.Items.Count - 1;
+            //
+            GetTotal();
         }
 
         private void bt_del_item_Click(object sender, EventArgs e)
@@ -140,6 +152,18 @@ namespace RestGest
                 return;
 
             lb_items.Items.Remove(lb_items.SelectedItem);
+            //
+            GetTotal();
+        }
+
+        private void GetTotal()
+        {
+            //
+            decimal total = 0;
+            foreach (ItemMenu itemMenu in lb_items.Items.Cast<ItemMenu>().ToList())
+                total += itemMenu.Preco;
+            //
+            tb_total.Text = total.ToString();
         }
 
         private void bt_select_cliente_Click(object sender, EventArgs e)
@@ -165,5 +189,60 @@ namespace RestGest
                 tb_empregado.Text = this.Sel_Trabalhador.Id + " | " + this.Sel_Trabalhador.Nome;
             }
         }
+
+        private void bt_concluir_pedido_Click(object sender, EventArgs e)
+        {
+            if (ValidatePedido())
+                return;
+            
+            if(cb_MetodosPagamentos.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione o metodo de pagamento","Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            
+            if(this.Update_Pedido == null)
+            {
+                Pedido new_pedido = new Pedido();
+                //
+                new_pedido.Estado = this.databaseContainer.Estados.Find(1);
+                //TODO Make Select Restaurant method
+                new_pedido.Restaurante = this.databaseContainer.Restaurantes.Find(1); //this.Sel_Restaurante;
+                new_pedido.Cliente = this.Sel_Cliente;
+                new_pedido.Trabalhador = this.Sel_Trabalhador;
+                //Get list items
+                new_pedido.ItemMenu = (ICollection<ItemMenu>)lb_items.Items;
+                //
+                //TODO Make pagamento Method
+            }
+            else
+            {
+
+            }
+        }
+
+        private bool ValidatePedido()
+        {
+            if (String.IsNullOrEmpty(tb_cliente.Text))
+            {
+                MessageBox.Show("Valida o cliente do pedido", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(tb_empregado.Text))
+            {
+                MessageBox.Show("Valida o trabalhador do pedido", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            if (lb_items.Items.Count <= 0)
+            {
+                MessageBox.Show("Sem items no pedido.\nInsira items para criar um pedido.", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
