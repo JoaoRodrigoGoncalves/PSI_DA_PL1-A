@@ -47,6 +47,9 @@
             this.metodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registarMétodoDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeMétodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.continuarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_select_empregado = new System.Windows.Forms.Button();
@@ -66,9 +69,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.continuarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -233,6 +233,29 @@
             this.listaDeMétodosDePagamentoToolStripMenuItem.Text = "Lista de Métodos de Pagamento";
             this.listaDeMétodosDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.listaDeMétodosDePagamentoToolStripMenuItem_Click);
             // 
+            // pedidosToolStripMenuItem
+            // 
+            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.continuarPedidoToolStripMenuItem,
+            this.listaDePedidosToolStripMenuItem});
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            // 
+            // listaDePedidosToolStripMenuItem
+            // 
+            this.listaDePedidosToolStripMenuItem.Name = "listaDePedidosToolStripMenuItem";
+            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.listaDePedidosToolStripMenuItem.Text = "Lista de Pedidos";
+            this.listaDePedidosToolStripMenuItem.Click += new System.EventHandler(this.listaDePedidosToolStripMenuItem_Click);
+            // 
+            // continuarPedidoToolStripMenuItem
+            // 
+            this.continuarPedidoToolStripMenuItem.Name = "continuarPedidoToolStripMenuItem";
+            this.continuarPedidoToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.continuarPedidoToolStripMenuItem.Text = "Continuar Pedido";
+            this.continuarPedidoToolStripMenuItem.Click += new System.EventHandler(this.continuarPedidoToolStripMenuItem_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 6;
@@ -272,7 +295,7 @@
             this.bt_select_empregado.Name = "bt_select_empregado";
             this.bt_select_empregado.Size = new System.Drawing.Size(176, 48);
             this.bt_select_empregado.TabIndex = 2;
-            this.bt_select_empregado.Text = "Funcionarios";
+            this.bt_select_empregado.Text = "Selecionar Funcionario";
             this.bt_select_empregado.UseVisualStyleBackColor = true;
             this.bt_select_empregado.Click += new System.EventHandler(this.bt_select_empregado_Click);
             // 
@@ -283,7 +306,7 @@
             this.bt_select_cliente.Name = "bt_select_cliente";
             this.bt_select_cliente.Size = new System.Drawing.Size(176, 48);
             this.bt_select_cliente.TabIndex = 0;
-            this.bt_select_cliente.Text = "Cliente";
+            this.bt_select_cliente.Text = "Selecionar Cliente";
             this.bt_select_cliente.UseVisualStyleBackColor = true;
             this.bt_select_cliente.Click += new System.EventHandler(this.bt_select_cliente_Click);
             // 
@@ -316,6 +339,7 @@
             this.bt_pendente_pedido.TabIndex = 3;
             this.bt_pendente_pedido.Text = "Deixar Pendente";
             this.bt_pendente_pedido.UseVisualStyleBackColor = true;
+            this.bt_pendente_pedido.Click += new System.EventHandler(this.bt_pendente_pedido_Click);
             // 
             // bt_concluir_pedido
             // 
@@ -435,28 +459,6 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 407);
             this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // pedidosToolStripMenuItem
-            // 
-            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listaDePedidosToolStripMenuItem,
-            this.continuarPedidoToolStripMenuItem});
-            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.pedidosToolStripMenuItem.Text = "Pedidos";
-            // 
-            // listaDePedidosToolStripMenuItem
-            // 
-            this.listaDePedidosToolStripMenuItem.Name = "listaDePedidosToolStripMenuItem";
-            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.listaDePedidosToolStripMenuItem.Text = "Lista de Pedidos";
-            this.listaDePedidosToolStripMenuItem.Click += new System.EventHandler(this.listaDePedidosToolStripMenuItem_Click);
-            // 
-            // continuarPedidoToolStripMenuItem
-            // 
-            this.continuarPedidoToolStripMenuItem.Name = "continuarPedidoToolStripMenuItem";
-            this.continuarPedidoToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.continuarPedidoToolStripMenuItem.Text = "Continuar Pedido";
             // 
             // FormPrincipal
             // 

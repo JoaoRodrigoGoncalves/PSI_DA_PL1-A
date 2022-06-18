@@ -25,6 +25,8 @@ namespace RestGest.GestaoPagamento
         private void FormPagamento_Load(object sender, EventArgs e)
         {
             cb_MetodosPagamentos.Items.AddRange(this.databaseContainer.MetodosPagamento.Where(mt => mt.Ativo).ToArray());
+            if (cb_MetodosPagamentos.Items.Count > 0)
+                cb_MetodosPagamentos.SelectedIndex = 0;
             tb_valor_to_pay.Text = this.Working_Pedido.GetTotalValue().ToString();
         }
 

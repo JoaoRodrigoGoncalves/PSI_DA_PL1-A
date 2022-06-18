@@ -25,6 +25,8 @@ namespace RestGest.GestaoPedidos
 
         private void FormPedido_Load(object sender, EventArgs e)
         {
+            //Load Pedido data
+            this.Text = "Pedido Nº" + this.pedido.Id + " - " + this.pedido.Estado.TipoEstado;
             //Load Restaurante data
             tb_nome_rt.Text = this.pedido.Restaurante.Nome;
             tb_nif_rt.Text = this.pedido.Restaurante.NumContribuinte;
@@ -35,9 +37,9 @@ namespace RestGest.GestaoPedidos
             tb_nome_emp.Text = this.pedido.Trabalhador.Nome;
             tb_nif_emp.Text = this.pedido.Trabalhador.NumContribuinte;
             //Load Item list
-            lb_items.Items.AddRange(this.pedido.ItemMenu.ToArray());
+            lb_items.Items.AddRange(this.pedido.ItemMenu != null ? this.pedido.ItemMenu.ToArray() : new List<ItemMenu>().ToArray());
             //Load Payment list
-            lb_pagamentos.Items.AddRange(this.pedido.Pagamento.ToArray());
+            lb_pagamentos.Items.AddRange(this.pedido.Pagamento != null ? this.pedido.Pagamento.ToArray() : new List<Pagamento>().ToArray());
         }
 
         private void bt_close_Click(object sender, EventArgs e)

@@ -15,11 +15,6 @@ namespace RestGest
     public partial class Categoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria()
-        {
-            this.Ativo = true;
-        }
-    
         public int Id { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }

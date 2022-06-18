@@ -23,18 +23,19 @@ namespace RestGest.GestaoPedidos
             InitializeComponent();
             this.FormBack = formBack;
             this.FormGestao = gestao;
-            activeFuntion(this.FormGestao);
-            databaseContainer = new RestGestContainer();
+            ActivationFuntion(this.FormGestao);
+            this.databaseContainer = new RestGestContainer();
             this.estadoFiltro = databaseContainer.Estados.Find(1);
         }
 
-        private void activeFuntion(bool active)
+        private void ActivationFuntion(bool active)
         {
             bt_cancelar.Enabled = active;
             Selecionar_BTN.Enabled = !active;
             bt_concluidos.Visible = active;
             bt_pendente.Visible = active;
             bt_cancelados.Visible = active;
+            bt_all.Enabled = active;
         }
         private void FormGestaoPedidos_Shown(object sender, EventArgs e)
         {
@@ -50,9 +51,17 @@ namespace RestGest.GestaoPedidos
                 LoadingPopUp_Panel.Visible = true;
 
                 pedidos_DataGridView.Rows.Clear();
-                foreach (Pedido pedido in databaseContainer.Pedidos.Where(x => x.Estado.Id == estadoFiltro.Id))
+                //Inizializa os pedidos
+                List<Pedido> list_pedidos;
+                //Carrega os dados em função de se existir um filtro de estado ou não
+                if(estadoFiltro == null)
+                    list_pedidos = databaseContainer.Pedidos.ToList();
+                else
+                    list_pedidos = databaseContainer.Pedidos.Where(x => x.Estado.Id == estadoFiltro.Id).ToList();
+                //Lee os pedidos e controe a tabela de dados
+                foreach (Pedido pedido in list_pedidos)
                 {
-                    string[] row = buildDataGridRow(pedido);
+                    string[] row = BuildDataGridRow(pedido);
                     pedidos_DataGridView.Rows.Add(row);
                 }
 
@@ -63,7 +72,7 @@ namespace RestGest.GestaoPedidos
             }));
         }
 
-        private string[] buildDataGridRow(Pedido pedido)
+        private string[] BuildDataGridRow(Pedido pedido)
         {
             string[] row = { pedido.Id.ToString(), pedido.Estado.TipoEstado, pedido.Restaurante.Nome, pedido.Cliente.Nome, pedido.Trabalhador.Nome, pedido.GetTotalValue().ToString() };
             return row;
@@ -80,7 +89,7 @@ namespace RestGest.GestaoPedidos
                 pedidos_DataGridView.Rows.Clear();
                 foreach (Pedido pedido in pedidos)
                 {
-                    string[] row = buildDataGridRow(pedido);
+                    string[] row = BuildDataGridRow(pedido);
                     pedidos_DataGridView.Rows.Add(row);
                 }
 
@@ -109,6 +118,12 @@ namespace RestGest.GestaoPedidos
             ReloadDataGridView();
         }
 
+        private void bt_all_Click(object sender, EventArgs e)
+        {
+            estadoFiltro = null;
+            ReloadDataGridView();
+        }
+        
         private void bt_Cancelar_Click(object sender, EventArgs e)
         {
             if (pedidos_DataGridView.SelectedRows.Count == 1)
@@ -148,6 +163,7 @@ namespace RestGest.GestaoPedidos
                     }
                 }
             }
+            ReloadDataGridView();
         }
 
         private void FormGestaoPedidos_FormClosing(object sender, FormClosingEventArgs e)
@@ -191,7 +207,7 @@ namespace RestGest.GestaoPedidos
                 pedidos_DataGridView.Rows.Clear();
 
                 foreach (Pedido cliente in pedidos)
-                    pedidos_DataGridView.Rows.Add(buildDataGridRow(cliente));
+                    pedidos_DataGridView.Rows.Add(BuildDataGridRow(cliente));
 
                 if (pedidos_DataGridView.Rows.Count > 0)
                     pedidos_DataGridView.Rows[0].Selected = true;
@@ -204,6 +220,23 @@ namespace RestGest.GestaoPedidos
         {
             tb_filter.Text = "";
             ReloadDataGridView();
+        }
+
+        private void pedidos_DataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // Adaptado de https://github.com/JoaoRodrigoGoncalves/Summaries/blob/36888d50c8dc7f1f9a9d257123688d23de7ce6b9/Summaries/administration/AdministrationMenu.cs#L759
+            // Acedido em 19/05/2022
+            var hit = pedidos_DataGridView.HitTest(e.X, e.Y);
+            if (hit.RowIndex != -1)
+            {
+                pedidos_DataGridView.ClearSelection();
+                pedidos_DataGridView.Rows[hit.RowIndex].Selected = true;
+                //
+                if (this.FormGestao)
+                    Detalhes_BTN_Click(sender, e);
+                else
+                    Selecionar_BTN_Click(sender, e);
+            }
         }
 
     }

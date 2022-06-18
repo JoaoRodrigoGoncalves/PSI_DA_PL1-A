@@ -63,6 +63,8 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Trabalhador.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Pagamento.cs" />
     <Compile Include="Entidades\Morada.cs" />

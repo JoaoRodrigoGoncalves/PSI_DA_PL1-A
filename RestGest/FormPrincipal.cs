@@ -144,8 +144,10 @@ namespace RestGest
 
         private void bt_del_item_Click(object sender, EventArgs e)
         {
-            if (lb_items.SelectedItem == null)
-                return;
+            if (lb_items.SelectedItem == null) {
+                MessageBox.Show("Selecione o item que quere eliminar","Delete Pedido Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; 
+            }
 
             lb_items.Items.Remove(lb_items.SelectedItem);
             //
@@ -186,59 +188,139 @@ namespace RestGest
             }
         }
 
+        //Constroe um novo pedido
+        private Pedido BuildPedido(Estado estado)
+        {
+            Pedido new_pedido = new Pedido();
+
+            //Set estado
+            new_pedido.Estado = estado;
+
+            //TODO Make Select Restaurant method
+            //Get restaurante
+            Restaurante sel_restaurante = this.databaseContainer.Restaurantes.Find(1);
+            //Build restaurante
+            Restaurante set_restaurante = new Restaurante();
+            set_restaurante.Id = sel_restaurante.Id;
+            set_restaurante.Nome = sel_restaurante.Nome;
+            set_restaurante.NumContribuinte = sel_restaurante.NumContribuinte;
+
+            //Set the restaurant
+            new_pedido.Restaurante = set_restaurante;
+
+            //Build Cliente
+            Cliente set_Cliente = new Cliente();
+            set_Cliente.Id = this.Sel_Cliente.Id;
+            set_Cliente.Nome = this.Sel_Cliente.Nome;
+            set_Cliente.Telemovel = this.Sel_Cliente.Telemovel;
+            set_Cliente.NumContribuinte = this.Sel_Cliente.NumContribuinte;
+            //Set cliente
+            new_pedido.Cliente = set_Cliente;
+
+            //Build Trabalhador
+            Trabalhador set_trabalhador = new Trabalhador();
+            set_trabalhador.Id = this.Sel_Trabalhador.Id;
+            set_trabalhador.Nome = this.Sel_Trabalhador.Nome;
+            set_trabalhador.Telemovel = this.Sel_Trabalhador.Telemovel;
+            set_trabalhador.NumContribuinte = this.Sel_Trabalhador.NumContribuinte;
+            set_trabalhador.Posicao = this.Sel_Trabalhador.Posicao;
+            //Set trabalhador
+            new_pedido.Trabalhador = set_trabalhador;
+
+            //Set list items
+            foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
+            {
+                //Build ItemMenu
+                ItemMenu set_item = new ItemMenu();
+                set_item.Id = item.Id;
+                set_item.Nome = item.Nome;
+                set_item.Preco = item.Preco;
+                set_item.Categoria = item.Categoria;
+
+                //Build Categoria
+                /*Categoria set_categoria = new Categoria();
+                set_categoria.Id = item.Categoria.Id;
+                set_categoria.Nome = item.Categoria.Nome
+                //Set Categoria
+                set_item.Categoria = set_categoria;*/
+
+                //Set Item
+                new_pedido.ItemMenu.Add(set_item);
+            }
+
+            return new_pedido;
+        }
+
         private void bt_concluir_pedido_Click(object sender, EventArgs e)
         {
             if (!ValidatePedido())
                 return;
 
-            if(this.Update_Pedido == null)
+
+            //Get pedido estado
+            Estado default_estado = this.databaseContainer.Estados.Find(2);
+
+            if (this.Update_Pedido == null)
             {
-                Pedido new_pedido = new Pedido();
-                //Set pedido estado
-                Estado sel_Estado = this.databaseContainer.Estados.Find(2);
-                new_pedido.Estado = sel_Estado;
-                new_pedido.EstadoId = sel_Estado.Id;
-                //TODO Make Select Restaurant method
-                //Set restaurante
-                Restaurante sel_restaurante = this.databaseContainer.Restaurantes.Find(1);
-                new_pedido.Restaurante = sel_restaurante; //this.Sel_Restaurante;
-                new_pedido.RestauranteId = sel_restaurante.Id;
-                //Set cliente info
-                new_pedido.Cliente = this.Sel_Cliente;
-                new_pedido.ClienteId = this.Sel_Cliente.Id;
-                //Set trabalhador info
-                new_pedido.Trabalhador = this.Sel_Trabalhador;
-                new_pedido.TrabalhadorId = this.Sel_Trabalhador.Id;
-                //Set list items
-                foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
-                    new_pedido.ItemMenu.Add(item);
+                Pedido new_pedido = BuildPedido(default_estado);                
+
                 //Initialize payment list
                 new_pedido.Pagamento = new List<Pagamento>();
+
                 //Get payment method
                 FormPagamento pay_form = new FormPagamento(new_pedido); 
                 pay_form.ShowDialog();
                 List<Pagamento> listaPagamentos = pay_form.resturnPaymentList;
+
                 //Validate list
                 if (listaPagamentos == null || listaPagamentos.Count <= 0)
                     return;
+
                 //Save Pedido
                 try
                 {
+                    //TODO WARNING It Duplicate Cliente, Empregado, Restaurante, ItemMenu, Categoria data on de dataBase
+                    if (MessageBox.Show("WARNING!\nVai criar um novo pedido. Isto ira duplicar dados na base de dados até corregir o bug.\nTem a certeza que quere concluir o pedido?", "Criação de Pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        return;
                     new_pedido = this.databaseContainer.Pedidos.Add(new_pedido);
                     this.databaseContainer.SaveChanges();
                     //Add payment list to pedido
                     listaPagamentos.ForEach(p => p.Pedido = new_pedido);
-                    this.databaseContainer.Pagamentos.AddRange(listaPagamentos);                }
+                    this.databaseContainer.Pagamentos.AddRange(listaPagamentos);
+                    this.databaseContainer.SaveChanges();
+                    ClearPedidoData();
+                }
                 catch (Exception ex)
                 {
+                    //TODO Delete ex message once code debug
                     MessageBox.Show("Error a concluir o pedido.\nContactar administrador\n" + ex.Message, 
                         "Erro Finalizar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
+                //TODO Atualizar Pedidos já existentes
 
             }
+        }
+
+        private void bt_pendente_pedido_Click(object sender, EventArgs e)
+        {
+            if (this.Update_Pedido == null)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        private void ClearPedidoData()
+        {
+            tb_cliente.Text = "";
+            tb_empregado.Text = "";
+            lb_items.Items.Clear();
+            this.Update_Pedido = null;
         }
 
         private bool ValidatePedido()
@@ -268,5 +350,26 @@ namespace RestGest
         {
             new FormGestaoPedidos(this, true).ShowDialog();
         }
+
+        private void continuarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormGestaoPedidos form = new FormGestaoPedidos(this, false);
+            form.ShowDialog();
+            Pedido tmp_pedido = form.returnPedido;
+            if (tmp_pedido == null)
+                return;
+            this.Update_Pedido = tmp_pedido;
+            LoadUpdatePedido();
+        }
+
+        private void LoadUpdatePedido()
+        {
+            gb_fatura.Text = "Pedido Nº" + this.Update_Pedido.Id.ToString();
+            tb_cliente.Text = this.Update_Pedido.Cliente.ToString();
+            tb_empregado.Text = this.Update_Pedido.Trabalhador.ToString();
+            lb_items.Items.AddRange(this.Update_Pedido.ItemMenu != null ? this.Update_Pedido.ItemMenu.ToArray() : new List<ItemMenu>().ToArray());
+            tb_total.Text = this.Update_Pedido.GetTotalValue().ToString();
+        }
+
     }
 }

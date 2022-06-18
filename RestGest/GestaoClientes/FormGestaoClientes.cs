@@ -42,7 +42,6 @@ namespace RestGest
         {
             databaseContainer = new RestGestContainer();
 
-
             Clientes_DataGridView.Invoke(new MethodInvoker(delegate
             {
                 LoadingPopUp_Panel.Visible = true;

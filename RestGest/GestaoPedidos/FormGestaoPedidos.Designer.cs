@@ -52,6 +52,7 @@ namespace RestGest.GestaoPedidos
             this.bt_cancelados = new System.Windows.Forms.Button();
             this.bt_concluidos = new System.Windows.Forms.Button();
             this.bt_pendente = new System.Windows.Forms.Button();
+            this.bt_all = new System.Windows.Forms.Button();
             this.LoadingPopUp_Panel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pedidos_DataGridView)).BeginInit();
@@ -132,6 +133,7 @@ namespace RestGest.GestaoPedidos
             this.pedidos_DataGridView.ReadOnly = true;
             this.pedidos_DataGridView.Size = new System.Drawing.Size(662, 380);
             this.pedidos_DataGridView.TabIndex = 0;
+            this.pedidos_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pedidos_DataGridView_MouseDoubleClick);
             // 
             // IDRestaurante
             // 
@@ -271,6 +273,7 @@ namespace RestGest.GestaoPedidos
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.bt_all);
             this.panel1.Controls.Add(this.bt_cancelados);
             this.panel1.Controls.Add(this.bt_concluidos);
             this.panel1.Controls.Add(this.bt_pendente);
@@ -312,6 +315,17 @@ namespace RestGest.GestaoPedidos
             this.bt_pendente.Text = "Pendentes";
             this.bt_pendente.UseVisualStyleBackColor = true;
             this.bt_pendente.Click += new System.EventHandler(this.bt_pendente_Click);
+            // 
+            // bt_all
+            // 
+            this.bt_all.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bt_all.Location = new System.Drawing.Point(241, 0);
+            this.bt_all.Name = "bt_all";
+            this.bt_all.Size = new System.Drawing.Size(79, 56);
+            this.bt_all.TabIndex = 4;
+            this.bt_all.Text = "Ver Todos";
+            this.bt_all.UseVisualStyleBackColor = true;
+            this.bt_all.Click += new System.EventHandler(this.bt_all_Click);
             // 
             // FormGestaoPedidos
             // 
@@ -361,5 +375,6 @@ namespace RestGest.GestaoPedidos
         private System.Windows.Forms.DataGridViewTextBoxColumn name_empregado;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalValue;
         private System.Windows.Forms.Button Selecionar_BTN;
+        private System.Windows.Forms.Button bt_all;
     }
 }
