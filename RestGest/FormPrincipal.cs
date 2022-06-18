@@ -2,6 +2,7 @@
 using RestGest.GestaoClientes;
 using RestGest.GestaoMetodosPagamentos;
 using RestGest.GestaoPagamento;
+using RestGest.GestaoPedidos;
 using RestGest.GestaoRestaurantes;
 using System;
 using System.Collections.Generic;
@@ -263,5 +264,9 @@ namespace RestGest
             return true;
         }
 
+        private void listaDePedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormGestaoPedidos(this, true).ShowDialog();
+        }
     }
 }

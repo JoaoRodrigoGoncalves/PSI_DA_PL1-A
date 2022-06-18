@@ -36,17 +36,16 @@ namespace RestGest.GestaoPedidos
             this.pedidos_DataGridView = new System.Windows.Forms.DataGridView();
             this.IDRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_restaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_restaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Selecionar_BTN = new System.Windows.Forms.Button();
-            this.Remover_BTN = new System.Windows.Forms.Button();
-            this.Editar_BTN = new System.Windows.Forms.Button();
-            this.Adicionar_BTN = new System.Windows.Forms.Button();
+            this.Detalhes_BTN = new System.Windows.Forms.Button();
+            this.bt_cancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.filtrar_TextBox = new System.Windows.Forms.TextBox();
+            this.tb_filter = new System.Windows.Forms.TextBox();
             this.filtrar_BTN = new System.Windows.Forms.Button();
             this.LimparFiltro_BTN = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -123,10 +122,10 @@ namespace RestGest.GestaoPedidos
             this.pedidos_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDRestaurante,
             this.NomeRestaurante,
-            this.totalValue,
+            this.name_restaurante,
             this.client_name,
             this.name_empregado,
-            this.name_restaurante});
+            this.totalValue});
             this.pedidos_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pedidos_DataGridView.Location = new System.Drawing.Point(23, 106);
             this.pedidos_DataGridView.Name = "pedidos_DataGridView";
@@ -149,12 +148,11 @@ namespace RestGest.GestaoPedidos
             this.NomeRestaurante.Name = "NomeRestaurante";
             this.NomeRestaurante.ReadOnly = true;
             // 
-            // totalValue
+            // name_restaurante
             // 
-            this.totalValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalValue.HeaderText = "Valor Total";
-            this.totalValue.Name = "totalValue";
-            this.totalValue.ReadOnly = true;
+            this.name_restaurante.HeaderText = "Restaurante";
+            this.name_restaurante.Name = "name_restaurante";
+            this.name_restaurante.ReadOnly = true;
             // 
             // client_name
             // 
@@ -170,18 +168,18 @@ namespace RestGest.GestaoPedidos
             this.name_empregado.Name = "name_empregado";
             this.name_empregado.ReadOnly = true;
             // 
-            // name_restaurante
+            // totalValue
             // 
-            this.name_restaurante.HeaderText = "Restaurante";
-            this.name_restaurante.Name = "name_restaurante";
-            this.name_restaurante.ReadOnly = true;
+            this.totalValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalValue.HeaderText = "Valor Total";
+            this.totalValue.Name = "totalValue";
+            this.totalValue.ReadOnly = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Selecionar_BTN);
-            this.groupBox1.Controls.Add(this.Remover_BTN);
-            this.groupBox1.Controls.Add(this.Editar_BTN);
-            this.groupBox1.Controls.Add(this.Adicionar_BTN);
+            this.groupBox1.Controls.Add(this.Detalhes_BTN);
+            this.groupBox1.Controls.Add(this.bt_cancelar);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(711, 106);
             this.groupBox1.Name = "groupBox1";
@@ -193,43 +191,36 @@ namespace RestGest.GestaoPedidos
             // Selecionar_BTN
             // 
             this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Selecionar_BTN.Location = new System.Drawing.Point(3, 103);
+            this.Selecionar_BTN.Enabled = false;
+            this.Selecionar_BTN.Location = new System.Drawing.Point(3, 98);
             this.Selecionar_BTN.Name = "Selecionar_BTN";
             this.Selecionar_BTN.Size = new System.Drawing.Size(99, 41);
-            this.Selecionar_BTN.TabIndex = 3;
+            this.Selecionar_BTN.TabIndex = 4;
             this.Selecionar_BTN.Text = "Selecionar";
             this.Selecionar_BTN.UseVisualStyleBackColor = true;
+            this.Selecionar_BTN.Click += new System.EventHandler(this.Selecionar_BTN_Click);
             // 
-            // Remover_BTN
+            // Detalhes_BTN
             // 
-            this.Remover_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Remover_BTN.Location = new System.Drawing.Point(3, 62);
-            this.Remover_BTN.Name = "Remover_BTN";
-            this.Remover_BTN.Size = new System.Drawing.Size(99, 41);
-            this.Remover_BTN.TabIndex = 2;
-            this.Remover_BTN.Text = "Cancelar Pedido";
-            this.Remover_BTN.UseVisualStyleBackColor = true;
+            this.Detalhes_BTN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Detalhes_BTN.Location = new System.Drawing.Point(3, 57);
+            this.Detalhes_BTN.Name = "Detalhes_BTN";
+            this.Detalhes_BTN.Size = new System.Drawing.Size(99, 41);
+            this.Detalhes_BTN.TabIndex = 3;
+            this.Detalhes_BTN.Text = "Detalhes";
+            this.Detalhes_BTN.UseVisualStyleBackColor = true;
+            this.Detalhes_BTN.Click += new System.EventHandler(this.Detalhes_BTN_Click);
             // 
-            // Editar_BTN
+            // bt_cancelar
             // 
-            this.Editar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Editar_BTN.Location = new System.Drawing.Point(3, 39);
-            this.Editar_BTN.Name = "Editar_BTN";
-            this.Editar_BTN.Size = new System.Drawing.Size(99, 23);
-            this.Editar_BTN.TabIndex = 1;
-            this.Editar_BTN.Text = "Editar";
-            this.Editar_BTN.UseVisualStyleBackColor = true;
-            // 
-            // Adicionar_BTN
-            // 
-            this.Adicionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Adicionar_BTN.Location = new System.Drawing.Point(3, 16);
-            this.Adicionar_BTN.Name = "Adicionar_BTN";
-            this.Adicionar_BTN.Size = new System.Drawing.Size(99, 23);
-            this.Adicionar_BTN.TabIndex = 0;
-            this.Adicionar_BTN.Text = "Adicionar";
-            this.Adicionar_BTN.UseVisualStyleBackColor = true;
-            this.Adicionar_BTN.Click += new System.EventHandler(this.Adicionar_BTN_Click);
+            this.bt_cancelar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_cancelar.Location = new System.Drawing.Point(3, 16);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(99, 41);
+            this.bt_cancelar.TabIndex = 2;
+            this.bt_cancelar.Text = "Cancelar Pedido";
+            this.bt_cancelar.UseVisualStyleBackColor = true;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_Cancelar_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -237,7 +228,7 @@ namespace RestGest.GestaoPedidos
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Controls.Add(this.filtrar_TextBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tb_filter, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.filtrar_BTN, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.LimparFiltro_BTN, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -248,13 +239,13 @@ namespace RestGest.GestaoPedidos
             this.tableLayoutPanel2.Size = new System.Drawing.Size(662, 27);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // filtrar_TextBox
+            // tb_filter
             // 
-            this.filtrar_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filtrar_TextBox.Location = new System.Drawing.Point(3, 3);
-            this.filtrar_TextBox.Name = "filtrar_TextBox";
-            this.filtrar_TextBox.Size = new System.Drawing.Size(523, 20);
-            this.filtrar_TextBox.TabIndex = 0;
+            this.tb_filter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_filter.Location = new System.Drawing.Point(3, 3);
+            this.tb_filter.Name = "tb_filter";
+            this.tb_filter.Size = new System.Drawing.Size(523, 20);
+            this.tb_filter.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
@@ -265,6 +256,7 @@ namespace RestGest.GestaoPedidos
             this.filtrar_BTN.TabIndex = 1;
             this.filtrar_BTN.Text = "Filtrar";
             this.filtrar_BTN.UseVisualStyleBackColor = true;
+            this.filtrar_BTN.Click += new System.EventHandler(this.bt_filter_Click);
             // 
             // LimparFiltro_BTN
             // 
@@ -275,6 +267,7 @@ namespace RestGest.GestaoPedidos
             this.LimparFiltro_BTN.TabIndex = 2;
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
+            this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click);
             // 
             // panel1
             // 
@@ -329,6 +322,7 @@ namespace RestGest.GestaoPedidos
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoPedidos";
             this.Text = "FormGestaoPedidos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoPedidos_FormClosing);
             this.Shown += new System.EventHandler(this.FormGestaoPedidos_Shown);
             this.LoadingPopUp_Panel.ResumeLayout(false);
             this.LoadingPopUp_Panel.PerformLayout();
@@ -350,12 +344,10 @@ namespace RestGest.GestaoPedidos
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView pedidos_DataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Selecionar_BTN;
-        private System.Windows.Forms.Button Remover_BTN;
-        private System.Windows.Forms.Button Editar_BTN;
-        private System.Windows.Forms.Button Adicionar_BTN;
+        private System.Windows.Forms.Button Detalhes_BTN;
+        private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox filtrar_TextBox;
+        private System.Windows.Forms.TextBox tb_filter;
         private System.Windows.Forms.Button filtrar_BTN;
         private System.Windows.Forms.Button LimparFiltro_BTN;
         private System.Windows.Forms.Panel panel1;
@@ -364,9 +356,10 @@ namespace RestGest.GestaoPedidos
         private System.Windows.Forms.Button bt_pendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDRestaurante;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeRestaurante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_restaurante;
         private System.Windows.Forms.DataGridViewTextBoxColumn client_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_empregado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_restaurante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalValue;
+        private System.Windows.Forms.Button Selecionar_BTN;
     }
 }

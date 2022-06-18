@@ -25,15 +25,16 @@ namespace RestGest.GestaoPedidos
             this.FormGestao = gestao;
             activeFuntion(this.FormGestao);
             databaseContainer = new RestGestContainer();
-            estadoFiltro = databaseContainer.Estados.Find(1);
+            this.estadoFiltro = databaseContainer.Estados.Find(1);
         }
 
         private void activeFuntion(bool active)
         {
-            Adicionar_BTN.Enabled = active;
-            Editar_BTN.Enabled = active;
-            Remover_BTN.Enabled = active;
+            bt_cancelar.Enabled = active;
             Selecionar_BTN.Enabled = !active;
+            bt_concluidos.Visible = active;
+            bt_pendente.Visible = active;
+            bt_cancelados.Visible = active;
         }
         private void FormGestaoPedidos_Shown(object sender, EventArgs e)
         {
@@ -44,8 +45,6 @@ namespace RestGest.GestaoPedidos
         private void ReloadDataGridView()
         {
             databaseContainer = new RestGestContainer();
-
-
             pedidos_DataGridView.Invoke(new MethodInvoker(delegate
             {
                 LoadingPopUp_Panel.Visible = true;
@@ -66,7 +65,7 @@ namespace RestGest.GestaoPedidos
 
         private string[] buildDataGridRow(Pedido pedido)
         {
-            string[] row = { pedido.Id.ToString(), pedido.Estado.TipoEstado, pedido.GetTotalValue().ToString() ,pedido.Cliente.Nome, pedido.Trabalhador.Nome, pedido.Restaurante.Nome };
+            string[] row = { pedido.Id.ToString(), pedido.Estado.TipoEstado, pedido.Restaurante.Nome, pedido.Cliente.Nome, pedido.Trabalhador.Nome, pedido.GetTotalValue().ToString() };
             return row;
         }
 
@@ -76,7 +75,7 @@ namespace RestGest.GestaoPedidos
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<Pedido> pedidos = databaseContainer.Pedidos.Where(p => p.Restaurante.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) && p.Estado == estadoFiltro).ToList();
+                List<Pedido> pedidos = databaseContainer.Pedidos.Where(p => p.Restaurante.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) && p.Estado == estadoFiltro).ToList();
 
                 pedidos_DataGridView.Rows.Clear();
                 foreach (Pedido pedido in pedidos)
@@ -110,9 +109,102 @@ namespace RestGest.GestaoPedidos
             ReloadDataGridView();
         }
 
-        private void Adicionar_BTN_Click(object sender, EventArgs e)
+        private void bt_Cancelar_Click(object sender, EventArgs e)
         {
-            
+            if (pedidos_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = pedidos_DataGridView.SelectedRows[0].Index;
+                int idPedido = int.Parse(pedidos_DataGridView.Rows[row].Cells[0].Value.ToString());
+                Pedido remove_pedido = this.databaseContainer.Pedidos.Where(p => p.Id == idPedido).First();
+                if (remove_pedido.Estado.Id == 2)
+                {
+                    MessageBox.Show("Pedido já concluido. Não pode ser cancelado", "Cancelar Pedido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else if (remove_pedido.Estado.Id == 3)
+                {
+                    MessageBox.Show("Pedido já cancelado. Não pode ser cancelado outra vez", "Cancelar Pedido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        if (MessageBox.Show("Tem a certeza que quere cancelar o pedido Nº" + remove_pedido.Id + " ?", "Cancelar Pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                            return;
+                        //Update pedido estate
+                        remove_pedido.Estado = this.databaseContainer.Estados.Find(3);
+                        this.databaseContainer.SaveChanges();
+                        MessageBox.Show("Pedido Nº" + remove_pedido.Id + " cancelado!", "Cancelar Pedido",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }catch (Exception ex)
+                    {
+                        //TODO Delete ex part of the message once finish
+                        MessageBox.Show("Erro cancelando pedido Nº" + remove_pedido.Id + "\nEntrar em contacto com administrador\n" + ex.Message, 
+                            "Erro Cancelar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                }
+            }
         }
+
+        private void FormGestaoPedidos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            databaseContainer.Dispose();
+            this.FormBack.Show();
+        }
+
+        private void Detalhes_BTN_Click(object sender, EventArgs e)
+        {
+            if (pedidos_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = pedidos_DataGridView.SelectedRows[0].Index;
+                int idPedido = int.Parse(pedidos_DataGridView.Rows[row].Cells[0].Value.ToString());
+                new FormPedido(idPedido).ShowDialog();
+            }
+        }
+
+        private void Selecionar_BTN_Click(object sender, EventArgs e)
+        {
+            if (pedidos_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = pedidos_DataGridView.SelectedRows[0].Index;
+                int idPedido = int.Parse(pedidos_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnPedido = this.databaseContainer.Pedidos.Find(idPedido);
+                this.Close();
+            }
+        }
+
+        private void bt_filter_Click(object sender, EventArgs e)
+        {
+            pedidos_DataGridView.Invoke(new MethodInvoker(delegate
+            {
+                LoadingPopUp_Panel.Visible = true;
+
+                List<Pedido> pedidos = databaseContainer.Pedidos.
+                Where(p => p.Restaurante.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) || 
+                    p.Cliente.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) || 
+                    p.Trabalhador.Nome.ToUpper().Contains(tb_filter.Text.ToUpper())).ToList();
+
+                pedidos_DataGridView.Rows.Clear();
+
+                foreach (Pedido cliente in pedidos)
+                    pedidos_DataGridView.Rows.Add(buildDataGridRow(cliente));
+
+                if (pedidos_DataGridView.Rows.Count > 0)
+                    pedidos_DataGridView.Rows[0].Selected = true;
+
+                LoadingPopUp_Panel.Visible = false;
+            }));
+        }
+
+        private void LimparFiltro_BTN_Click(object sender, EventArgs e)
+        {
+            tb_filter.Text = "";
+            ReloadDataGridView();
+        }
+
     }
 }

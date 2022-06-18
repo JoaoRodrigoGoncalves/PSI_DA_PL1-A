@@ -21,19 +21,35 @@ namespace RestGest.GestaoRestaurantes
             bt_update.Enabled = false;
             Guardar_BTN.Enabled = true;
         }
-        public FormProduto(int idProduto)
+        public FormProduto(int idProduto, bool edit)
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             dadosProduto = databaseContainer.ItemsMenus.Find(idProduto);
-            bt_update.Enabled = true;
+            bt_update.Enabled = edit;
             Guardar_BTN.Enabled = false;
+            Limpar_BTN.Enabled = edit;
+            Edit_Mode(edit);
+        }
+
+        private void Edit_Mode(bool edit)
+        {
+            Nome_TextBox.Enabled = edit;
+            Preco_TextBox.Enabled = edit;
+            Categoria_ComboBox.Enabled = edit;
+            Ativo_CheckBox.Enabled = edit;
+            AlterarImagem_BTN.Enabled = edit;
+            ReporImagem_BTN.Enabled = edit;
+            Ingrediente_TextBox.Enabled = edit;
+            AddItem_BTN.Enabled = edit;
+            RmItem_BTN.Enabled = edit;
+            Restaurantes_ComboBox.Enabled = edit;
+            AddRestaurante_BTN.Enabled = edit;
+            RmRestaurante_BTN.Enabled = edit;
         }
 
         private void FormRegistoProduto_Load(object sender, EventArgs e)
-        {
-            //Adiciona informação base no form
-            
+        {           
 
             //Adiciona informação categortias
             Categoria[] categorias = databaseContainer.Categorias.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
@@ -231,7 +247,6 @@ namespace RestGest.GestaoRestaurantes
 
 
             //Get the restaurantes list form listbox 
-            //TODO Check Cast
             List<Restaurante> rest_list = new List<Restaurante>();
             rest_list.AddRange(Restaurantes_ListBox.Items.Cast<Restaurante>().ToList());
             //Add the new restaurante from comboBox
