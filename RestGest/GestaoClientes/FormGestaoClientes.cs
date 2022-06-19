@@ -20,11 +20,10 @@ namespace RestGest
             InitializeComponent();
             this.FormBack = formBack;
             this.FormGestao = gestao;
-            activeFuntion(this.FormGestao);
+            ActivationFuntion(this.FormGestao);
         }
 
-
-        private void activeFuntion(bool active)
+        private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
@@ -122,6 +121,7 @@ namespace RestGest
                 this.Close();
             }
         }
+        
         private void Remover_BTN_Click_1(object sender, EventArgs e)
         {
             if (Clientes_DataGridView.SelectedRows.Count == 1)

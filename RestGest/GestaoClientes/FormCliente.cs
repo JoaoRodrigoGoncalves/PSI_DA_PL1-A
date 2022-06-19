@@ -45,7 +45,7 @@ namespace RestGest.GestaoClientes
             tb_pais.Text = "";
         }
 
-        private bool validateFields()
+        private bool ValidateFields()
         {
             if (String.IsNullOrWhiteSpace(tb_Nome.Text))
                 return false;
@@ -87,7 +87,7 @@ namespace RestGest.GestaoClientes
 
         private void btn_Registar_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (!ValidateFields())
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",
@@ -136,7 +136,7 @@ namespace RestGest.GestaoClientes
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (!ValidateFields())
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",

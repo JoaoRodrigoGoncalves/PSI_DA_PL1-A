@@ -31,7 +31,7 @@ namespace RestGest.GestaoRestaurantes
             Pais_TextBox.Text = dadosRestaurante.Morada.Pais;
         }
 
-        private bool validateFields()
+        private bool ValidationFields()
         {
             if (String.IsNullOrWhiteSpace(Nome_TextBox.Text))
                 return false;
@@ -56,7 +56,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (!ValidationFields())
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",
@@ -91,7 +91,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Registar_BTN_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (!ValidationFields())
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",

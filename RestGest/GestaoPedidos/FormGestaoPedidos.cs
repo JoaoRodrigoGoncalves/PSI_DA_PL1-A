@@ -37,6 +37,7 @@ namespace RestGest.GestaoPedidos
             bt_cancelados.Visible = active;
             bt_all.Enabled = active;
         }
+        
         private void FormGestaoPedidos_Shown(object sender, EventArgs e)
         {
             Thread loadingThread = new Thread(ReloadDataGridView);

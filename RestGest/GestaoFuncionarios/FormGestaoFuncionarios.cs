@@ -22,7 +22,7 @@ namespace RestGest
             this.FormBack = formBack;
             this.Gestao = gestao;
             this.IdRestauranteFiltro = 0;
-            activeFuntion(this.Gestao);
+            ActivationFuntion(this.Gestao);
         }
 
         public FormGestaoFuncionarios(Form formBack, bool gestao, int idRestauranteFiltro)
@@ -31,9 +31,10 @@ namespace RestGest
             this.FormBack = formBack;
             this.Gestao = gestao;
             this.IdRestauranteFiltro = idRestauranteFiltro;
-            activeFuntion(this.Gestao);
+            ActivationFuntion(this.Gestao);
         }
-        private void activeFuntion(bool active)
+        
+        private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
@@ -64,7 +65,7 @@ namespace RestGest
                     if (funcionario.Restaurante == null)
                         funcionario.Restaurante = new Restaurante();
 
-                    string[] row = buildDataGridRow(funcionario);
+                    string[] row = BuildDataGridRow(funcionario);
                     funcionarios_DataGridView.Rows.Add(row);
                 }
 
@@ -105,7 +106,7 @@ namespace RestGest
                     if (funcionario.Restaurante == null)
                         funcionario.Restaurante = new Restaurante();
 
-                    string[] row = buildDataGridRow(funcionario);
+                    string[] row = BuildDataGridRow(funcionario);
                     funcionarios_DataGridView.Rows.Add(row);
                 }
 
@@ -116,7 +117,7 @@ namespace RestGest
             }));
         }
 
-        private string[] buildDataGridRow(Trabalhador funcionario)
+        private string[] BuildDataGridRow(Trabalhador funcionario)
         {
             string[] row = { funcionario.Id.ToString(), funcionario.Nome, funcionario.NumContribuinte, funcionario.Posicao, funcionario.Salario.ToString(), funcionario.Restaurante.Nome };
             return row;
@@ -183,7 +184,7 @@ namespace RestGest
                 {
                     int id_funcionario = int.Parse(funcionarios_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     Trabalhador trabalhadorARemover = databaseContainer.Pessoas.OfType<Trabalhador>().First(funcionario => funcionario.Id == id_funcionario);
-                    if (validarFuncionario(id_funcionario))
+                    if (ValidarFuncionario(id_funcionario))
                     {
                         trabalhadorARemover.Ativo = false;
                     }
@@ -225,7 +226,7 @@ namespace RestGest
             }
         }
 
-        private bool validarFuncionario(int id_funcionario)
+        private bool ValidarFuncionario(int id_funcionario)
         {
             bool result = false;
 

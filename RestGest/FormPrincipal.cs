@@ -316,6 +316,7 @@ namespace RestGest
 
             }
         }
+        
         private void ClearPedidoData()
         {
             tb_cliente.Text = "";

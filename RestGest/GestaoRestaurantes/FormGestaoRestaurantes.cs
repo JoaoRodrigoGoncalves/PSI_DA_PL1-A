@@ -21,10 +21,10 @@ namespace RestGest
             InitializeComponent();
             this.FormBack = formBack;
             this.FormGestao = gestao;
-            activeFuntion(this.FormGestao);
+            ActivationFuntion(this.FormGestao);
         }
 
-        private void activeFuntion(bool active)
+        private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
@@ -50,7 +50,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo))
-                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
+                    restaurantes_DataGridView.Rows.Add(BuildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;
@@ -59,7 +59,7 @@ namespace RestGest
             }));
         }
 
-        private string[] buildDataGridRow(Restaurante restaurante)
+        private string[] BuildDataGridRow(Restaurante restaurante)
         {
             int count_funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante.Id).Count();
             int count_pedidos = databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante.Id).Count();
@@ -90,7 +90,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
-                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
+                    restaurantes_DataGridView.Rows.Add(BuildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;
@@ -150,7 +150,7 @@ namespace RestGest
                     {
                         int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                         Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                        if (restauranteAssociado(restaurante_id))
+                        if (RestauranteAssociado(restaurante_id))
                         {
                             restauranteRemover.Ativo = false;
                         }
@@ -175,8 +175,9 @@ namespace RestGest
                 }
             }
         }
+        
         //Valida se o restaurante que for pasado tem alguma associação
-        private bool restauranteAssociado(int restaurante_id)
+        private bool RestauranteAssociado(int restaurante_id)
         {
             bool result = false;
 

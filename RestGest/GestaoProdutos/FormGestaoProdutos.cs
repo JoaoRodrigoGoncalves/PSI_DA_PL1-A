@@ -178,7 +178,7 @@ namespace RestGest
                 {
                     int idProduto = int.Parse(produtos_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                     ItemMenu ProdutoRemover = databaseContainer.ItemsMenus.Find(idProduto);
-                    if (itemMeneAssociado(idProduto))
+                    if (ItemMenuAssociado(idProduto))
                     {
                         ProdutoRemover.Ativo = false;
                     }
@@ -201,7 +201,7 @@ namespace RestGest
         }
 
         //Valida sem o produto tem associações
-        private bool itemMeneAssociado(int idProduto)
+        private bool ItemMenuAssociado(int idProduto)
         {
             bool result = false;
 

@@ -110,7 +110,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click(object sender, EventArgs e)
         {
-            if (filtrar())
+            if (Filtrar())
                 return;
 
             // Verificar se não existe já um item semelhante (Pura UX)
@@ -171,7 +171,7 @@ namespace RestGest.GestaoRestaurantes
             Close();
         }
 
-        private bool filtrar()
+        private bool Filtrar()
         {
             if (String.IsNullOrWhiteSpace(Nome_TextBox.Text) || String.IsNullOrWhiteSpace(Preco_TextBox.Text))
             {
@@ -280,7 +280,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click_1(object sender, EventArgs e)
         {
-            if (filtrar())
+            if (Filtrar())
                 return;
 
             // Verificar se não existe já um item semelhante (Pura UX)

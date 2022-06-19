@@ -49,10 +49,10 @@ namespace RestGest.GestaoPedidos
             this.filtrar_BTN = new System.Windows.Forms.Button();
             this.LimparFiltro_BTN = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bt_all = new System.Windows.Forms.Button();
             this.bt_cancelados = new System.Windows.Forms.Button();
             this.bt_concluidos = new System.Windows.Forms.Button();
             this.bt_pendente = new System.Windows.Forms.Button();
-            this.bt_all = new System.Windows.Forms.Button();
             this.LoadingPopUp_Panel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pedidos_DataGridView)).BeginInit();
@@ -282,6 +282,17 @@ namespace RestGest.GestaoPedidos
             this.panel1.Size = new System.Drawing.Size(654, 56);
             this.panel1.TabIndex = 3;
             // 
+            // bt_all
+            // 
+            this.bt_all.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bt_all.Location = new System.Drawing.Point(241, 0);
+            this.bt_all.Name = "bt_all";
+            this.bt_all.Size = new System.Drawing.Size(79, 56);
+            this.bt_all.TabIndex = 4;
+            this.bt_all.Text = "Ver Todos";
+            this.bt_all.UseVisualStyleBackColor = true;
+            this.bt_all.Click += new System.EventHandler(this.bt_all_Click);
+            // 
             // bt_cancelados
             // 
             this.bt_cancelados.Dock = System.Windows.Forms.DockStyle.Left;
@@ -315,17 +326,6 @@ namespace RestGest.GestaoPedidos
             this.bt_pendente.Text = "Pendentes";
             this.bt_pendente.UseVisualStyleBackColor = true;
             this.bt_pendente.Click += new System.EventHandler(this.bt_pendente_Click);
-            // 
-            // bt_all
-            // 
-            this.bt_all.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_all.Location = new System.Drawing.Point(241, 0);
-            this.bt_all.Name = "bt_all";
-            this.bt_all.Size = new System.Drawing.Size(79, 56);
-            this.bt_all.TabIndex = 4;
-            this.bt_all.Text = "Ver Todos";
-            this.bt_all.UseVisualStyleBackColor = true;
-            this.bt_all.Click += new System.EventHandler(this.bt_all_Click);
             // 
             // FormGestaoPedidos
             // 

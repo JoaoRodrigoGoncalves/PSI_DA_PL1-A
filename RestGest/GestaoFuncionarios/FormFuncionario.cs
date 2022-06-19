@@ -9,8 +9,8 @@ namespace RestGest
     public partial class FormFuncionario : Form
     {
         private RestGestContainer databaseContainer;
-
         private Trabalhador trabalhador;
+        
         public FormFuncionario()
         {
             InitializeComponent();
@@ -49,13 +49,13 @@ namespace RestGest
 
         private void bt_create_Click(object sender, EventArgs e)
         {
-            if (inputValidation())
+            if (InputValidation())
             {
                 MessageBox.Show("Preencha todos os campos", "Edição de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (salarioValidation())
+            if (SalarioValidation())
             {
                 MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -105,13 +105,13 @@ namespace RestGest
 
         private void bt_edit_Click(object sender, EventArgs e)
         {
-            if (inputValidation())
+            if (InputValidation())
             {
                 MessageBox.Show("Preencha todos os campos", "Criação de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (salarioValidation())
+            if (SalarioValidation())
             {
                 MessageBox.Show("Indique um salário válido", "Salário inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -156,14 +156,14 @@ namespace RestGest
         }
 
         // Text Box input validadtion
-        private bool inputValidation()
+        private bool InputValidation()
         {
             return (String.IsNullOrEmpty(tb_name.Text) || String.IsNullOrEmpty(tb_salario.Text) ||
                 String.IsNullOrEmpty(tb_position.Text) || String.IsNullOrEmpty(tb_rua.Text) || String.IsNullOrEmpty(tb_cidade.Text) ||
                 String.IsNullOrEmpty(tb_cp.Text) || String.IsNullOrEmpty(tb_pais.Text));
         }
 
-        private bool salarioValidation()
+        private bool SalarioValidation()
         {
             tb_salario.Text = tb_salario.Text.Replace(".", ",");
             return !decimal.TryParse(tb_salario.Text, out decimal salario);
