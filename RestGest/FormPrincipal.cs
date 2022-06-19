@@ -227,6 +227,7 @@ namespace RestGest
             //Set trabalhador
             new_pedido.Trabalhador = set_trabalhador;
 
+            new_pedido.ItemMenu = new List<ItemMenu>();
             //Set list items
             foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
             {

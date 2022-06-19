@@ -147,13 +147,16 @@ namespace RestGest.GestaoRestaurantes
             string hash_original;
             string hash_novaImagem;
 
-            using (SHA1 sha1 = SHA1.Create())
+            if (dadosProduto.Fotografia != null)
             {
-                hash_original = BitConverter.ToString(sha1.ComputeHash(dadosProduto.Fotografia));
-                hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
-            }
+                using (SHA1 sha1 = SHA1.Create())
+                {
+                    hash_original = BitConverter.ToString(sha1.ComputeHash(dadosProduto.Fotografia));
+                    hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
+                }
 
-            dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
+                dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
+            }
             dadosProduto.Ingredientes = (Ingredientes_ListBox.Items.Count > 0 ? JsonConvert.SerializeObject(Ingredientes_ListBox.Items) : null);
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 

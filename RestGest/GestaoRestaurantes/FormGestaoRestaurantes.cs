@@ -29,6 +29,7 @@ namespace RestGest
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
             Remover_BTN.Enabled = active;
+            Produtos_BTN.Enabled = active;
             Selecionar_BTN.Enabled = !active;
         }
 

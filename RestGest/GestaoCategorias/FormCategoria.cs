@@ -38,6 +38,7 @@ namespace RestGest.GestaoCategorias
 
             Categoria new_categoria = new Categoria();
             new_categoria.Nome = tb_categoria.Text;
+            new_categoria.Ativo = true;
             //
             databaseContainer.Categorias.Add(new_categoria);
             //

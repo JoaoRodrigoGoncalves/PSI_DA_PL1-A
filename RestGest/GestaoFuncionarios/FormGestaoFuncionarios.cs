@@ -22,6 +22,7 @@ namespace RestGest
             this.FormBack = formBack;
             this.Gestao = gestao;
             this.IdRestauranteFiltro = 0;
+            activeFuntion(this.Gestao);
         }
 
         public FormGestaoFuncionarios(Form formBack, bool gestao, int idRestauranteFiltro)
