@@ -1,6 +1,7 @@
 ﻿using RestGest.GestaoRestaurantes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -35,6 +36,11 @@ namespace RestGest.GestaoPedidos
             lb_items.Items.AddRange(this.pedido.ItemMenu != null ? this.pedido.ItemMenu.ToArray() : new List<ItemMenu>().ToArray());
             //Load Payment list
             lb_pagamentos.Items.AddRange(this.pedido.Pagamento != null ? this.pedido.Pagamento.ToArray() : new List<Pagamento>().ToArray());
+
+            if (this.pedido.Estado.Id == 2)
+            {
+                btnExportarTxt.Visible = true;
+            }
         }
 
         private void bt_close_Click(object sender, EventArgs e)
@@ -48,6 +54,51 @@ namespace RestGest.GestaoPedidos
                 return;
 
             new FormProduto(((ItemMenu)lb_items.SelectedItem).Id, false).ShowDialog();
+        }
+
+        private void btnExportarTxt_Click(object sender, EventArgs e)
+        {
+            
+            //Conteúdo que fará parte do ficheiro TXT
+            //Dados do Restaurante (Nome e NIF)
+            var content = tb_nome_rt.Text + Environment.NewLine + Environment.NewLine + "NIF: " + tb_nif_rt.Text + Environment.NewLine + Environment.NewLine + "Opr.: " + tb_nome_emp.Text + Environment.NewLine + Environment.NewLine;
+            content += "____________________________________________________________Original" + Environment.NewLine + Environment.NewLine;
+
+            //Data e Hora que foi "extraído" o ficheiro TXT
+            content += "Fatura-Recibo" + Environment.NewLine + Environment.NewLine + "Data/ Hora: " + DateTime.Now + Environment.NewLine + Environment.NewLine;
+            content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
+            
+            //Dados do Cliente
+            content += "Nome: " + tb_nome_clt.Text + Environment.NewLine + Environment.NewLine + "Contribuinte n.: " + tb_nif_clt.Text + Environment.NewLine + Environment.NewLine;
+            content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
+
+            //Dados do Pedido
+            content += "Produto" + Environment.NewLine + Environment.NewLine;
+            foreach (ItemMenu itemMenu in lb_items.Items)
+            {
+                content += "- " + itemMenu + Environment.NewLine + Environment.NewLine;
+            }
+            content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
+
+            //Dados do Pagamento do Pedido
+            content += "Total(Euros): " + Environment.NewLine + Environment.NewLine;
+            foreach (Pagamento pagamento in lb_pagamentos.Items)
+            { 
+                content += "- " + pagamento + Environment.NewLine + Environment.NewLine;
+            }
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.FileName = $"{tb_nome_clt.Text}({tb_nif_clt.Text})"; // Default file name
+            dlg.Filter = "txt files(*.txt) |*.txt"; // Default file extensions
+            dlg.FilterIndex= 1; // Default filter index
+            // Show save file dialog box e process save file dialog box results
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                //Guardar o documento
+                File.WriteAllText(dlg.FileName, content);
+
+                MessageBox.Show("Os dados do pedido foram exportados com sucesso!");
+            }
         }
     }
 }
