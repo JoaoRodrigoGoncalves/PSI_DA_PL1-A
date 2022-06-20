@@ -60,7 +60,7 @@ namespace RestGest
                     filtroRestaurante_ComboBox.Items.Add(restaurante);
                 }
 
-                if(idRestauranteFiltro == -1)
+                if (idRestauranteFiltro == -1)
                 {
                     filtroRestaurante_ComboBox.SelectedIndex = 0;
                 }
@@ -95,14 +95,14 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = true;
 
                 List<ItemMenu> Itens = new List<ItemMenu>();
-                
-                if(filtroRestaurante_ComboBox.SelectedIndex == 0)
+
+                if (filtroRestaurante_ComboBox.SelectedIndex == 0)
                 {
                     Itens = databaseContainer.ItemsMenus.Where(prato => prato.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper())).ToList();
                 }
                 else
                 {
-                    if(filtrar_TextBox.Text.Length > 0)
+                    if (filtrar_TextBox.Text.Length > 0)
                     {
                         Itens = databaseContainer.ItemsMenus.Where(prato =>
                                     prato.Nome.ToUpper().Contains(filtrar_TextBox.Text.ToUpper()) &&
@@ -116,7 +116,7 @@ namespace RestGest
                                     ).ToList();
                     }
                 }
-                
+
                 produtos_DataGridView.Rows.Clear();
                 foreach (ItemMenu item in Itens.Where(p => p.Restaurante.Contains(filtroRestaurante_ComboBox.SelectedItem)))
                 {
@@ -156,7 +156,7 @@ namespace RestGest
             {
                 int row = produtos_DataGridView.SelectedRows[0].Index;
                 int idProduto = int.Parse(produtos_DataGridView.Rows[row].Cells[0].Value.ToString());
-				
+
                 new FormProduto(idProduto, true).ShowDialog();
                 if (filtrar_TextBox.Text.Length > 0)
                 {

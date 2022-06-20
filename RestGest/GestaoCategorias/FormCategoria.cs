@@ -8,14 +8,14 @@ namespace RestGest.GestaoCategorias
     {
         private RestGestContainer databaseContainer;
         private Categoria categoria_edit;
-        
+
         public FormCategoria()
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             bt_create.Enabled = true;
         }
-        
+
         public FormCategoria(int categoria_id)
         {
             InitializeComponent();

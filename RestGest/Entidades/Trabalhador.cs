@@ -4,7 +4,7 @@
     {
         public override string ToString()
         {
-            return this.Id + " | "+ this.Nome;
+            return this.Nome;
         }
     }
 }

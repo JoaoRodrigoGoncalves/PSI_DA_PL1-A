@@ -4,7 +4,7 @@
     {
         public override string ToString()
         {
-            return this.Id.ToString() + " | " + this.Nome;
+            return this.Nome + " (NIF: " + this.NumContribuinte + ")";
         }
     }
 }

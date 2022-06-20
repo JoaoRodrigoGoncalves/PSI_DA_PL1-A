@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoPedidos
@@ -37,7 +33,7 @@ namespace RestGest.GestaoPedidos
             bt_cancelados.Visible = active;
             bt_all.Enabled = active;
         }
-        
+
         private void FormGestaoPedidos_Shown(object sender, EventArgs e)
         {
             Thread loadingThread = new Thread(ReloadDataGridView);
@@ -55,7 +51,7 @@ namespace RestGest.GestaoPedidos
                 //Inizializa os pedidos
                 List<Pedido> list_pedidos;
                 //Carrega os dados em função de se existir um filtro de estado ou não
-                if(estadoFiltro == null)
+                if (estadoFiltro == null)
                     list_pedidos = databaseContainer.Pedidos.ToList();
                 else
                     list_pedidos = databaseContainer.Pedidos.Where(x => x.Estado.Id == estadoFiltro.Id).ToList();
@@ -124,7 +120,7 @@ namespace RestGest.GestaoPedidos
             estadoFiltro = null;
             ReloadDataGridView();
         }
-        
+
         private void bt_Cancelar_Click(object sender, EventArgs e)
         {
             if (pedidos_DataGridView.SelectedRows.Count == 1)
@@ -155,11 +151,11 @@ namespace RestGest.GestaoPedidos
                         this.databaseContainer.SaveChanges();
                         MessageBox.Show("Pedido Nº" + remove_pedido.Id + " cancelado!", "Cancelar Pedido",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }catch (Exception ex)
+                    }
+                    catch (Exception ex)
                     {
-                        //TODO Delete ex part of the message once finish
-                        MessageBox.Show("Erro cancelando pedido Nº" + remove_pedido.Id + "\nEntrar em contacto com administrador\n" + ex.Message, 
-                            "Erro Cancelar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Console.WriteLine(ex.Message);
+                        MessageBox.Show("Erro ao cancelar pedido Nº" + remove_pedido.Id, "Erro Cancelar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
                 }
@@ -201,8 +197,8 @@ namespace RestGest.GestaoPedidos
                 LoadingPopUp_Panel.Visible = true;
 
                 List<Pedido> pedidos = databaseContainer.Pedidos.
-                Where(p => p.Restaurante.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) || 
-                    p.Cliente.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) || 
+                Where(p => p.Restaurante.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) ||
+                    p.Cliente.Nome.ToUpper().Contains(tb_filter.Text.ToUpper()) ||
                     p.Trabalhador.Nome.ToUpper().Contains(tb_filter.Text.ToUpper())).ToList();
 
                 pedidos_DataGridView.Rows.Clear();

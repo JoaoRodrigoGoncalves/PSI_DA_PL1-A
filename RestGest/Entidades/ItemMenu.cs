@@ -4,7 +4,7 @@
     {
         public override string ToString()
         {
-            return this.Nome + " | " + this.Preco;
+            return this.Nome + " | " + this.Preco + "€";
         }
     }
 }

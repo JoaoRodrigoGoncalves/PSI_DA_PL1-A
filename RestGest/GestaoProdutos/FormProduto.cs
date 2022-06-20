@@ -12,6 +12,7 @@ namespace RestGest.GestaoRestaurantes
     {
         private RestGestContainer databaseContainer;
         private ItemMenu dadosProduto; // Global para que possa ser editada;
+        private bool EditModeEnabled = false;
 
         public FormProduto()
         {
@@ -29,6 +30,7 @@ namespace RestGest.GestaoRestaurantes
             bt_update.Enabled = edit;
             Guardar_BTN.Enabled = false;
             Limpar_BTN.Enabled = edit;
+            EditModeEnabled = true;
             Edit_Mode(edit);
         }
 
@@ -49,7 +51,7 @@ namespace RestGest.GestaoRestaurantes
         }
 
         private void FormRegistoProduto_Load(object sender, EventArgs e)
-        {           
+        {
 
             //Adiciona informação categortias
             Categoria[] categorias = databaseContainer.Categorias.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
@@ -75,7 +77,20 @@ namespace RestGest.GestaoRestaurantes
             }
             else
             {
-                Restaurantes_ComboBox.Items.AddRange(restaurantes);
+                if(EditModeEnabled)
+                {
+                    foreach (Restaurante restaurante in restaurantes)
+                    {
+                        if(!dadosProduto.Restaurante.Contains(restaurante))
+                        {
+                            Restaurantes_ComboBox.Items.Add(restaurante);
+                        }
+                    }
+                }
+                else
+                {
+                    Restaurantes_ComboBox.Items.AddRange(restaurantes);
+                }
             }
 
             //Valida se o form vai editar ou adicionar um novo produto
@@ -164,7 +179,7 @@ namespace RestGest.GestaoRestaurantes
             {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                     dadosProduto.Restaurante.Add(restaurante);
-                
+
             }
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
@@ -257,7 +272,8 @@ namespace RestGest.GestaoRestaurantes
             //Clear the old data
             Restaurantes_ListBox.Items.Clear();
             //Order the update list
-            rest_list.Sort((x,y) => {
+            rest_list.Sort((x, y) =>
+            {
                 int ret = String.Compare(x.Nome, y.Nome);
                 return ret;
             });
@@ -268,7 +284,7 @@ namespace RestGest.GestaoRestaurantes
         private void RmRestaurante_BTN_Click(object sender, EventArgs e)
         {
             if (Restaurantes_ListBox.SelectedItem == null)
-                return;            
+                return;
             //
             Restaurantes_ListBox.Items.Remove(Restaurantes_ListBox.SelectedItem);
         }

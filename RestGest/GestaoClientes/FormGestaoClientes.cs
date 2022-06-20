@@ -48,7 +48,7 @@ namespace RestGest
                 Clientes_DataGridView.Rows.Clear();
                 foreach (Cliente cliente in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo == true))
                     Clientes_DataGridView.Rows.Add(buildDataGridRow(cliente));
-                
+
 
                 if (Clientes_DataGridView.Rows.Count > 0)
                     Clientes_DataGridView.Rows[0].Selected = true;
@@ -121,7 +121,7 @@ namespace RestGest
                 this.Close();
             }
         }
-        
+
         private void Remover_BTN_Click_1(object sender, EventArgs e)
         {
             if (Clientes_DataGridView.SelectedRows.Count == 1)
@@ -185,6 +185,6 @@ namespace RestGest
             }));
         }
 
-        
+
     }
 }

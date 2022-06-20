@@ -335,6 +335,7 @@ namespace RestGest.GestaoPedidos
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormGestaoPedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormGestaoPedidos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGestaoPedidos_FormClosing);
             this.Shown += new System.EventHandler(this.FormGestaoPedidos_Shown);

@@ -159,7 +159,8 @@ namespace RestGest
                             databaseContainer.Restaurantes.Remove(restauranteRemover);
                         }
                         databaseContainer.SaveChanges();
-                    }catch(Exception)
+                    }
+                    catch (Exception)
                     {
                         MessageBox.Show("Uncommon error found!\nCall system administration...", "Restaurant Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -175,7 +176,7 @@ namespace RestGest
                 }
             }
         }
-        
+
         //Valida se o restaurante que for pasado tem alguma associação
         private bool RestauranteAssociado(int restaurante_id)
         {
@@ -185,7 +186,7 @@ namespace RestGest
             result = databaseContainer.ItemsMenus.Where(i => i.Restaurante.Any(r => r.Id == restaurante_id)).Count() > 0;
             result = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante_id).Count() > 0;
 
-            return  result;
+            return result;
         }
 
         private void LimparFiltro_BTN_Click(object sender, EventArgs e)
@@ -212,7 +213,7 @@ namespace RestGest
 
         private void Produtos_BTN_Click(object sender, EventArgs e)
         {
-            if(restaurantes_DataGridView.SelectedRows.Count == 1)
+            if (restaurantes_DataGridView.SelectedRows.Count == 1)
             {
                 int row = restaurantes_DataGridView.SelectedRows[0].Index;
                 int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());

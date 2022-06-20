@@ -48,10 +48,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.bt_close = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lb_pagamentos = new System.Windows.Forms.ListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bt_close = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,8 +59,8 @@
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -272,26 +272,6 @@
             this.panel2.Size = new System.Drawing.Size(714, 244);
             this.panel2.TabIndex = 3;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.bt_close);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(43, 406);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(714, 20);
-            this.panel3.TabIndex = 4;
-            // 
-            // bt_close
-            // 
-            this.bt_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bt_close.Location = new System.Drawing.Point(639, 0);
-            this.bt_close.Name = "bt_close";
-            this.bt_close.Size = new System.Drawing.Size(75, 20);
-            this.bt_close.TabIndex = 5;
-            this.bt_close.Text = "Sair";
-            this.bt_close.UseVisualStyleBackColor = true;
-            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lb_pagamentos);
@@ -313,6 +293,26 @@
             this.lb_pagamentos.Size = new System.Drawing.Size(180, 211);
             this.lb_pagamentos.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.bt_close);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(43, 406);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(714, 20);
+            this.panel3.TabIndex = 4;
+            // 
+            // bt_close
+            // 
+            this.bt_close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bt_close.Location = new System.Drawing.Point(639, 0);
+            this.bt_close.Name = "bt_close";
+            this.bt_close.Size = new System.Drawing.Size(75, 20);
+            this.bt_close.TabIndex = 5;
+            this.bt_close.Text = "Sair";
+            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
+            // 
             // FormPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +320,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pedido Nº000 - Estado";
             this.Load += new System.EventHandler(this.FormPedido_Load);
             this.groupBox1.ResumeLayout(false);
@@ -332,8 +333,8 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

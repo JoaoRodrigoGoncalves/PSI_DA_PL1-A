@@ -10,7 +10,7 @@ namespace RestGest
     {
         private RestGestContainer databaseContainer;
         private Trabalhador trabalhador;
-        
+
         public FormFuncionario()
         {
             InitializeComponent();

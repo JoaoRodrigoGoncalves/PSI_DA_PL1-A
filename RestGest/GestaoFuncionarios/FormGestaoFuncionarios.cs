@@ -33,7 +33,7 @@ namespace RestGest
             this.IdRestauranteFiltro = idRestauranteFiltro;
             ActivationFuntion(this.Gestao);
         }
-        
+
         private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
@@ -137,8 +137,8 @@ namespace RestGest
             {
                 funcionarios_DataGridView.ClearSelection();
                 funcionarios_DataGridView.Rows[hit.RowIndex].Selected = true;
-                
-                if(this.Gestao)
+
+                if (this.Gestao)
                     Editar_BTN_Click(sender, e);
                 else
                     Select_Trabalhador(sender, e);

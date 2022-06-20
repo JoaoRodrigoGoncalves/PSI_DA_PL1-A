@@ -49,30 +49,36 @@
             this.listaDeMétodosDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.continuarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bt_select_empregado = new System.Windows.Forms.Button();
-            this.bt_select_cliente = new System.Windows.Forms.Button();
             this.gb_fatura = new System.Windows.Forms.GroupBox();
-            this.bt_pendente_pedido = new System.Windows.Forms.Button();
-            this.bt_concluir_pedido = new System.Windows.Forms.Button();
-            this.bt_del_item = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_items = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_Restaurante = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_total = new System.Windows.Forms.TextBox();
-            this.tb_empregado = new System.Windows.Forms.TextBox();
+            this.bt_select_cliente = new System.Windows.Forms.Button();
             this.tb_cliente = new System.Windows.Forms.TextBox();
+            this.bt_select_empregado = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_empregado = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BTN_continuarPedido = new System.Windows.Forms.Button();
+            this.bt_del_item = new System.Windows.Forms.Button();
+            this.bt_pendente_pedido = new System.Windows.Forms.Button();
+            this.tb_total = new System.Windows.Forms.TextBox();
+            this.bt_concluir_pedido = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.gb_fatura.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,7 +242,6 @@
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.continuarPedidoToolStripMenuItem,
             this.listaDePedidosToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
@@ -245,27 +250,17 @@
             // listaDePedidosToolStripMenuItem
             // 
             this.listaDePedidosToolStripMenuItem.Name = "listaDePedidosToolStripMenuItem";
-            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
             this.listaDePedidosToolStripMenuItem.Text = "Lista de Pedidos";
             this.listaDePedidosToolStripMenuItem.Click += new System.EventHandler(this.listaDePedidosToolStripMenuItem_Click);
             // 
-            // continuarPedidoToolStripMenuItem
-            // 
-            this.continuarPedidoToolStripMenuItem.Name = "continuarPedidoToolStripMenuItem";
-            this.continuarPedidoToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.continuarPedidoToolStripMenuItem.Text = "Continuar Pedido";
-            this.continuarPedidoToolStripMenuItem.Click += new System.EventHandler(this.continuarPedidoToolStripMenuItem_Click);
-            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.811594F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.9304F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.663F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 4, 1);
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.07843F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
             this.tableLayoutPanel1.Controls.Add(this.gb_fatura, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,156 +273,211 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 543);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.bt_select_empregado);
-            this.panel1.Controls.Add(this.bt_select_cliente);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(934, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(176, 479);
-            this.panel1.TabIndex = 0;
-            // 
-            // bt_select_empregado
-            // 
-            this.bt_select_empregado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_select_empregado.Location = new System.Drawing.Point(0, 48);
-            this.bt_select_empregado.Name = "bt_select_empregado";
-            this.bt_select_empregado.Size = new System.Drawing.Size(176, 48);
-            this.bt_select_empregado.TabIndex = 2;
-            this.bt_select_empregado.Text = "Selecionar Funcionario";
-            this.bt_select_empregado.UseVisualStyleBackColor = true;
-            this.bt_select_empregado.Click += new System.EventHandler(this.bt_select_empregado_Click);
-            // 
-            // bt_select_cliente
-            // 
-            this.bt_select_cliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_select_cliente.Location = new System.Drawing.Point(0, 0);
-            this.bt_select_cliente.Name = "bt_select_cliente";
-            this.bt_select_cliente.Size = new System.Drawing.Size(176, 48);
-            this.bt_select_cliente.TabIndex = 0;
-            this.bt_select_cliente.Text = "Selecionar Cliente";
-            this.bt_select_cliente.UseVisualStyleBackColor = true;
-            this.bt_select_cliente.Click += new System.EventHandler(this.bt_select_cliente_Click);
-            // 
             // gb_fatura
             // 
-            this.gb_fatura.Controls.Add(this.bt_pendente_pedido);
-            this.gb_fatura.Controls.Add(this.bt_concluir_pedido);
-            this.gb_fatura.Controls.Add(this.bt_del_item);
-            this.gb_fatura.Controls.Add(this.lb_items);
-            this.gb_fatura.Controls.Add(this.label4);
-            this.gb_fatura.Controls.Add(this.label2);
-            this.gb_fatura.Controls.Add(this.label3);
-            this.gb_fatura.Controls.Add(this.label1);
-            this.gb_fatura.Controls.Add(this.tb_total);
-            this.gb_fatura.Controls.Add(this.tb_empregado);
-            this.gb_fatura.Controls.Add(this.tb_cliente);
+            this.gb_fatura.Controls.Add(this.tableLayoutPanel3);
             this.gb_fatura.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_fatura.Location = new System.Drawing.Point(600, 30);
+            this.gb_fatura.Location = new System.Drawing.Point(780, 30);
             this.gb_fatura.Name = "gb_fatura";
-            this.gb_fatura.Size = new System.Drawing.Size(307, 479);
+            this.gb_fatura.Size = new System.Drawing.Size(334, 479);
             this.gb_fatura.TabIndex = 1;
             this.gb_fatura.TabStop = false;
-            this.gb_fatura.Text = "Fatura Nº000";
+            this.gb_fatura.Text = "Novo Pedido";
             // 
-            // bt_pendente_pedido
+            // tableLayoutPanel3
             // 
-            this.bt_pendente_pedido.Location = new System.Drawing.Point(146, 444);
-            this.bt_pendente_pedido.Name = "bt_pendente_pedido";
-            this.bt_pendente_pedido.Size = new System.Drawing.Size(155, 29);
-            this.bt_pendente_pedido.TabIndex = 3;
-            this.bt_pendente_pedido.Text = "Deixar Pendente";
-            this.bt_pendente_pedido.UseVisualStyleBackColor = true;
-            this.bt_pendente_pedido.Click += new System.EventHandler(this.bt_pendente_pedido_Click);
-            // 
-            // bt_concluir_pedido
-            // 
-            this.bt_concluir_pedido.Location = new System.Drawing.Point(6, 444);
-            this.bt_concluir_pedido.Name = "bt_concluir_pedido";
-            this.bt_concluir_pedido.Size = new System.Drawing.Size(134, 29);
-            this.bt_concluir_pedido.TabIndex = 3;
-            this.bt_concluir_pedido.Text = "Concluir Pedido";
-            this.bt_concluir_pedido.UseVisualStyleBackColor = true;
-            this.bt_concluir_pedido.Click += new System.EventHandler(this.bt_concluir_pedido_Click);
-            // 
-            // bt_del_item
-            // 
-            this.bt_del_item.Location = new System.Drawing.Point(6, 415);
-            this.bt_del_item.Name = "bt_del_item";
-            this.bt_del_item.Size = new System.Drawing.Size(96, 23);
-            this.bt_del_item.TabIndex = 3;
-            this.bt_del_item.Text = "Eliminar Item";
-            this.bt_del_item.UseVisualStyleBackColor = true;
-            this.bt_del_item.Click += new System.EventHandler(this.bt_del_item_Click);
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.lb_items, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 2);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(328, 460);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lb_items
             // 
+            this.lb_items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_items.FormattingEnabled = true;
-            this.lb_items.Location = new System.Drawing.Point(6, 184);
+            this.lb_items.Location = new System.Drawing.Point(3, 146);
             this.lb_items.Name = "lb_items";
-            this.lb_items.Size = new System.Drawing.Size(295, 225);
+            this.lb_items.Size = new System.Drawing.Size(322, 229);
             this.lb_items.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.tb_Restaurante);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.bt_select_cliente);
+            this.panel2.Controls.Add(this.tb_cliente);
+            this.panel2.Controls.Add(this.bt_select_empregado);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.tb_empregado);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(322, 137);
+            this.panel2.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Restaurante";
+            // 
+            // tb_Restaurante
+            // 
+            this.tb_Restaurante.Location = new System.Drawing.Point(6, 58);
+            this.tb_Restaurante.Name = "tb_Restaurante";
+            this.tb_Restaurante.ReadOnly = true;
+            this.tb_Restaurante.Size = new System.Drawing.Size(313, 20);
+            this.tb_Restaurante.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Funcionário";
+            // 
+            // bt_select_cliente
+            // 
+            this.bt_select_cliente.Location = new System.Drawing.Point(244, 95);
+            this.bt_select_cliente.Name = "bt_select_cliente";
+            this.bt_select_cliente.Size = new System.Drawing.Size(75, 23);
+            this.bt_select_cliente.TabIndex = 0;
+            this.bt_select_cliente.Text = "Selecionar Cliente";
+            this.bt_select_cliente.UseVisualStyleBackColor = true;
+            this.bt_select_cliente.Click += new System.EventHandler(this.selectClient_Click);
+            // 
+            // tb_cliente
+            // 
+            this.tb_cliente.Location = new System.Drawing.Point(6, 97);
+            this.tb_cliente.Name = "tb_cliente";
+            this.tb_cliente.ReadOnly = true;
+            this.tb_cliente.Size = new System.Drawing.Size(232, 20);
+            this.tb_cliente.TabIndex = 0;
+            // 
+            // bt_select_empregado
+            // 
+            this.bt_select_empregado.Location = new System.Drawing.Point(244, 17);
+            this.bt_select_empregado.Name = "bt_select_empregado";
+            this.bt_select_empregado.Size = new System.Drawing.Size(75, 23);
+            this.bt_select_empregado.TabIndex = 2;
+            this.bt_select_empregado.Text = "Selecionar Funcionario";
+            this.bt_select_empregado.UseVisualStyleBackColor = true;
+            this.bt_select_empregado.Click += new System.EventHandler(this.selectFuncionario_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 168);
+            this.label4.Location = new System.Drawing.Point(6, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Lista Items";
             // 
-            // label2
+            // tb_empregado
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 420);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Total:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Empregado";
+            this.tb_empregado.Location = new System.Drawing.Point(6, 19);
+            this.tb_empregado.Name = "tb_empregado";
+            this.tb_empregado.ReadOnly = true;
+            this.tb_empregado.Size = new System.Drawing.Size(232, 20);
+            this.tb_empregado.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Location = new System.Drawing.Point(6, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BTN_continuarPedido);
+            this.panel3.Controls.Add(this.bt_del_item);
+            this.panel3.Controls.Add(this.bt_pendente_pedido);
+            this.panel3.Controls.Add(this.tb_total);
+            this.panel3.Controls.Add(this.bt_concluir_pedido);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 381);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(322, 76);
+            this.panel3.TabIndex = 4;
+            // 
+            // BTN_continuarPedido
+            // 
+            this.BTN_continuarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.BTN_continuarPedido.Location = new System.Drawing.Point(220, 38);
+            this.BTN_continuarPedido.Name = "BTN_continuarPedido";
+            this.BTN_continuarPedido.Size = new System.Drawing.Size(99, 29);
+            this.BTN_continuarPedido.TabIndex = 4;
+            this.BTN_continuarPedido.Text = "Continuar Pedido";
+            this.BTN_continuarPedido.UseVisualStyleBackColor = true;
+            this.BTN_continuarPedido.Click += new System.EventHandler(this.BTN_continuarPedido_Click);
+            // 
+            // bt_del_item
+            // 
+            this.bt_del_item.Location = new System.Drawing.Point(6, 7);
+            this.bt_del_item.Name = "bt_del_item";
+            this.bt_del_item.Size = new System.Drawing.Size(96, 23);
+            this.bt_del_item.TabIndex = 3;
+            this.bt_del_item.Text = "Eliminar Item";
+            this.bt_del_item.UseVisualStyleBackColor = true;
+            this.bt_del_item.Click += new System.EventHandler(this.deleteItem_Click);
+            // 
+            // bt_pendente_pedido
+            // 
+            this.bt_pendente_pedido.Location = new System.Drawing.Point(111, 38);
+            this.bt_pendente_pedido.Name = "bt_pendente_pedido";
+            this.bt_pendente_pedido.Size = new System.Drawing.Size(103, 29);
+            this.bt_pendente_pedido.TabIndex = 3;
+            this.bt_pendente_pedido.Text = "Deixar em Aberto";
+            this.bt_pendente_pedido.UseVisualStyleBackColor = true;
+            this.bt_pendente_pedido.Click += new System.EventHandler(this.bt_pendente_pedido_Click);
+            // 
             // tb_total
             // 
-            this.tb_total.Location = new System.Drawing.Point(183, 418);
+            this.tb_total.Location = new System.Drawing.Point(201, 9);
             this.tb_total.Name = "tb_total";
             this.tb_total.ReadOnly = true;
             this.tb_total.Size = new System.Drawing.Size(118, 20);
             this.tb_total.TabIndex = 0;
             // 
-            // tb_empregado
+            // bt_concluir_pedido
             // 
-            this.tb_empregado.Location = new System.Drawing.Point(6, 82);
-            this.tb_empregado.Name = "tb_empregado";
-            this.tb_empregado.ReadOnly = true;
-            this.tb_empregado.Size = new System.Drawing.Size(295, 20);
-            this.tb_empregado.TabIndex = 0;
+            this.bt_concluir_pedido.Location = new System.Drawing.Point(6, 38);
+            this.bt_concluir_pedido.Name = "bt_concluir_pedido";
+            this.bt_concluir_pedido.Size = new System.Drawing.Size(99, 29);
+            this.bt_concluir_pedido.TabIndex = 3;
+            this.bt_concluir_pedido.Text = "Concluir Pedido";
+            this.bt_concluir_pedido.UseVisualStyleBackColor = true;
+            this.bt_concluir_pedido.Click += new System.EventHandler(this.bt_concluir_pedido_Click);
             // 
-            // tb_cliente
+            // label2
             // 
-            this.tb_cliente.Location = new System.Drawing.Point(6, 39);
-            this.tb_cliente.Name = "tb_cliente";
-            this.tb_cliente.ReadOnly = true;
-            this.tb_cliente.Size = new System.Drawing.Size(295, 20);
-            this.tb_cliente.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(161, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Total:";
             // 
             // tableLayoutPanel2
             // 
@@ -436,12 +486,12 @@
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 30);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 30);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.77871F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.22129F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(572, 479);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(756, 479);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -449,7 +499,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(566, 60);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 60);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -457,7 +507,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 69);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 407);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(750, 407);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // FormPrincipal
@@ -476,9 +526,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.gb_fatura.ResumeLayout(false);
-            this.gb_fatura.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -506,26 +559,30 @@
         private System.Windows.Forms.ToolStripMenuItem registarClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeClientesToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button bt_select_empregado;
-        private System.Windows.Forms.Button bt_select_cliente;
+        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDePedidosToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_fatura;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ListBox lb_items;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_Restaurante;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_empregado;
+        private System.Windows.Forms.Button bt_select_cliente;
         private System.Windows.Forms.TextBox tb_cliente;
+        private System.Windows.Forms.Button bt_select_empregado;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button bt_pendente_pedido;
-        private System.Windows.Forms.Button bt_concluir_pedido;
+        private System.Windows.Forms.TextBox tb_empregado;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BTN_continuarPedido;
         private System.Windows.Forms.Button bt_del_item;
+        private System.Windows.Forms.Button bt_pendente_pedido;
+        private System.Windows.Forms.TextBox tb_total;
+        private System.Windows.Forms.Button bt_concluir_pedido;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_total;
-        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDePedidosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem continuarPedidoToolStripMenuItem;
     }
 }

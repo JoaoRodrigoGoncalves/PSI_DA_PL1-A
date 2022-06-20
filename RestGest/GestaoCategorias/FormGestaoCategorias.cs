@@ -21,7 +21,7 @@ namespace RestGest.GestaoCategorias
             this.FormGestao = gestao;
             ActivationFuntion(this.FormGestao);
         }
-        
+
         private void FormGestaoCategorias_Shown(object sender, EventArgs e)
         {
             Thread loadingThread = new Thread(ReloadDataGridView);
@@ -139,7 +139,7 @@ namespace RestGest.GestaoCategorias
         {
             if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[2].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int categoria_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());

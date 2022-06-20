@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestGest.GestaoPagamento
@@ -14,52 +9,53 @@ namespace RestGest.GestaoPagamento
     {
         private RestGestContainer databaseContainer;
         private Pedido Working_Pedido;
-        public List<Pagamento> resturnPaymentList;
-        public FormPagamento(Pedido working_pedido)
+
+        public FormPagamento(int idPedido)
         {
             InitializeComponent();
-            this.databaseContainer = new RestGestContainer();
-            this.Working_Pedido = working_pedido;
+            databaseContainer = new RestGestContainer();
+            Working_Pedido = databaseContainer.Pedidos.Find(idPedido);
         }
 
         private void FormPagamento_Load(object sender, EventArgs e)
         {
-            cb_MetodosPagamentos.Items.AddRange(this.databaseContainer.MetodosPagamento.Where(mt => mt.Ativo).ToArray());
+            cb_MetodosPagamentos.Items.AddRange(databaseContainer.MetodosPagamento.Where(mt => mt.Ativo).ToArray());
             if (cb_MetodosPagamentos.Items.Count > 0)
                 cb_MetodosPagamentos.SelectedIndex = 0;
+
             tb_valor_to_pay.Text = this.Working_Pedido.GetTotalValue().ToString();
         }
 
         private void bt_enter_Click(object sender, EventArgs e)
         {
-            //Validation
+            // Validações
             if (cb_MetodosPagamentos.SelectedItem == null)
             {
-                MessageBox.Show("Select a Pay method","Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, selecione um método de pagamento", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (decimal.Parse(tb_valor_to_pay.Text) == 0)
             {
-                MessageBox.Show("Pagamento concluido.\nFinalize o pagamento", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pagamento concluido.\nFinalize o pagamento", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (nb_value.Value <= 0)
                 return;
-    
+
             if (decimal.Parse(tb_valor_to_pay.Text) < nb_value.Value)
             {
-                MessageBox.Show("Valor de pagamento superior ao valor em falta", "Pagemento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Valor indicado excede o total a pagar", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //Create Payment
+            // Criar Pagamento
             Pagamento new_payment = new Pagamento();
             new_payment.Valor = nb_value.Value;
             tb_valor_to_pay.Text = (decimal.Parse(tb_valor_to_pay.Text) - new_payment.Valor).ToString();
-            new_payment.MetodoPagamento = (MetodoPagamento)cb_MetodosPagamentos.SelectedItem;
-            new_payment.PedidoId = this.Working_Pedido.Id;
+            new_payment.MetodoPagamento = databaseContainer.MetodosPagamento.First(mt => mt.Id == ((MetodoPagamento)cb_MetodosPagamentos.SelectedItem).Id);
+            new_payment.PedidoId = Working_Pedido.Id;
             //Add payment
             lb_pagamentos.Items.Add(new_payment);
             //Clear added value
@@ -70,18 +66,24 @@ namespace RestGest.GestaoPagamento
         {
             if (decimal.Parse(tb_valor_to_pay.Text) > 0)
             {
-                MessageBox.Show("Valor " + tb_valor_to_pay.Text + "€ em debida.\nEfetuar pagamento para concluir!", 
-                    "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(tb_valor_to_pay.Text + "€ em falta.\nEfetuar pagamento para concluir", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            this.resturnPaymentList = lb_pagamentos.Items.Cast<Pagamento>().ToList();
-            this.Close();
+            foreach (Pagamento pagamento in lb_pagamentos.Items)
+            {
+                Working_Pedido.Pagamento.Add(pagamento);
+            }
+
+            Working_Pedido.Estado = databaseContainer.Estados.Find(2); // Concluído
+            databaseContainer.SaveChanges();
+            Close();
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            databaseContainer.Dispose();
+            Close();
         }
 
         private void bt_remove_payment_Click(object sender, EventArgs e)
@@ -93,12 +95,14 @@ namespace RestGest.GestaoPagamento
 
             lb_pagamentos.Items.Remove(lb_pagamentos.SelectedItem);
         }
-        
+
+        // Lógica Numpad
+
         private void AddValue(decimal value)
         {
             nb_value.Value = nb_value.Value * 10 + value;
         }
-        
+
         private void bt_num_1_Click(object sender, EventArgs e)
         {
             AddValue(0.01M);

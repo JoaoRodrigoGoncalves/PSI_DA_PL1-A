@@ -15,7 +15,12 @@ namespace RestGest
     public partial class Pedido
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-           
+        public Pedido()
+        {
+            this.Pagamento = new HashSet<Pagamento>();
+            this.ItemMenu = new HashSet<ItemMenu>();
+        }
+
         public int Id { get; set; }
         public int EstadoId { get; set; }
         public int ClienteId { get; set; }
