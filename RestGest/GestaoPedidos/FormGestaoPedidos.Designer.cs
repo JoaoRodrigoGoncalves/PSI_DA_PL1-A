@@ -65,52 +65,56 @@ namespace RestGest.GestaoPedidos
             // 
             this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_ProgressBar);
             this.LoadingPopUp_Panel.Controls.Add(this.LoadingPopUp_Label);
-            this.LoadingPopUp_Panel.Location = new System.Drawing.Point(216, 164);
+            this.LoadingPopUp_Panel.Location = new System.Drawing.Point(288, 202);
+            this.LoadingPopUp_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.LoadingPopUp_Panel.Name = "LoadingPopUp_Panel";
-            this.LoadingPopUp_Panel.Size = new System.Drawing.Size(393, 99);
+            this.LoadingPopUp_Panel.Size = new System.Drawing.Size(524, 122);
             this.LoadingPopUp_Panel.TabIndex = 5;
             // 
             // LoadingPopUp_ProgressBar
             // 
-            this.LoadingPopUp_ProgressBar.Location = new System.Drawing.Point(20, 43);
+            this.LoadingPopUp_ProgressBar.Location = new System.Drawing.Point(27, 53);
+            this.LoadingPopUp_ProgressBar.Margin = new System.Windows.Forms.Padding(4);
             this.LoadingPopUp_ProgressBar.Name = "LoadingPopUp_ProgressBar";
-            this.LoadingPopUp_ProgressBar.Size = new System.Drawing.Size(353, 23);
+            this.LoadingPopUp_ProgressBar.Size = new System.Drawing.Size(471, 28);
             this.LoadingPopUp_ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.LoadingPopUp_ProgressBar.TabIndex = 1;
             // 
             // LoadingPopUp_Label
             // 
             this.LoadingPopUp_Label.AutoSize = true;
-            this.LoadingPopUp_Label.Location = new System.Drawing.Point(17, 27);
+            this.LoadingPopUp_Label.Location = new System.Drawing.Point(23, 33);
+            this.LoadingPopUp_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LoadingPopUp_Label.Name = "LoadingPopUp_Label";
-            this.LoadingPopUp_Label.Size = new System.Drawing.Size(65, 13);
+            this.LoadingPopUp_Label.Size = new System.Drawing.Size(87, 17);
             this.LoadingPopUp_Label.TabIndex = 0;
             this.LoadingPopUp_Label.Text = "A carregar...";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.71429F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.Controls.Add(this.pedidos_DataGridView, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.04348F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.956522F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(842, 563);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 693);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // pedidos_DataGridView
@@ -128,10 +132,12 @@ namespace RestGest.GestaoPedidos
             this.name_empregado,
             this.totalValue});
             this.pedidos_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pedidos_DataGridView.Location = new System.Drawing.Point(23, 106);
+            this.pedidos_DataGridView.Location = new System.Drawing.Point(31, 131);
+            this.pedidos_DataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.pedidos_DataGridView.Name = "pedidos_DataGridView";
             this.pedidos_DataGridView.ReadOnly = true;
-            this.pedidos_DataGridView.Size = new System.Drawing.Size(662, 380);
+            this.pedidos_DataGridView.RowHeadersWidth = 51;
+            this.pedidos_DataGridView.Size = new System.Drawing.Size(883, 466);
             this.pedidos_DataGridView.TabIndex = 0;
             this.pedidos_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pedidos_DataGridView_MouseDoubleClick);
             // 
@@ -139,27 +145,32 @@ namespace RestGest.GestaoPedidos
             // 
             this.IDRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.IDRestaurante.HeaderText = "ID";
+            this.IDRestaurante.MinimumWidth = 6;
             this.IDRestaurante.Name = "IDRestaurante";
             this.IDRestaurante.ReadOnly = true;
-            this.IDRestaurante.Width = 43;
+            this.IDRestaurante.Width = 50;
             // 
             // NomeRestaurante
             // 
             this.NomeRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NomeRestaurante.HeaderText = "Estado";
+            this.NomeRestaurante.MinimumWidth = 6;
             this.NomeRestaurante.Name = "NomeRestaurante";
             this.NomeRestaurante.ReadOnly = true;
             // 
             // name_restaurante
             // 
             this.name_restaurante.HeaderText = "Restaurante";
+            this.name_restaurante.MinimumWidth = 6;
             this.name_restaurante.Name = "name_restaurante";
             this.name_restaurante.ReadOnly = true;
+            this.name_restaurante.Width = 125;
             // 
             // client_name
             // 
             this.client_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.client_name.HeaderText = "Nome Cliente";
+            this.client_name.MinimumWidth = 6;
             this.client_name.Name = "client_name";
             this.client_name.ReadOnly = true;
             // 
@@ -167,6 +178,7 @@ namespace RestGest.GestaoPedidos
             // 
             this.name_empregado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name_empregado.HeaderText = "Nome Empregado";
+            this.name_empregado.MinimumWidth = 6;
             this.name_empregado.Name = "name_empregado";
             this.name_empregado.ReadOnly = true;
             // 
@@ -174,6 +186,7 @@ namespace RestGest.GestaoPedidos
             // 
             this.totalValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.totalValue.HeaderText = "Valor Total";
+            this.totalValue.MinimumWidth = 6;
             this.totalValue.Name = "totalValue";
             this.totalValue.ReadOnly = true;
             // 
@@ -183,9 +196,11 @@ namespace RestGest.GestaoPedidos
             this.groupBox1.Controls.Add(this.Detalhes_BTN);
             this.groupBox1.Controls.Add(this.bt_cancelar);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(711, 106);
+            this.groupBox1.Location = new System.Drawing.Point(949, 131);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(105, 380);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(140, 466);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ações";
@@ -194,9 +209,10 @@ namespace RestGest.GestaoPedidos
             // 
             this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Selecionar_BTN.Enabled = false;
-            this.Selecionar_BTN.Location = new System.Drawing.Point(3, 98);
+            this.Selecionar_BTN.Location = new System.Drawing.Point(4, 119);
+            this.Selecionar_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Selecionar_BTN.Name = "Selecionar_BTN";
-            this.Selecionar_BTN.Size = new System.Drawing.Size(99, 41);
+            this.Selecionar_BTN.Size = new System.Drawing.Size(132, 50);
             this.Selecionar_BTN.TabIndex = 4;
             this.Selecionar_BTN.Text = "Selecionar";
             this.Selecionar_BTN.UseVisualStyleBackColor = true;
@@ -205,9 +221,10 @@ namespace RestGest.GestaoPedidos
             // Detalhes_BTN
             // 
             this.Detalhes_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Detalhes_BTN.Location = new System.Drawing.Point(3, 57);
+            this.Detalhes_BTN.Location = new System.Drawing.Point(4, 69);
+            this.Detalhes_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Detalhes_BTN.Name = "Detalhes_BTN";
-            this.Detalhes_BTN.Size = new System.Drawing.Size(99, 41);
+            this.Detalhes_BTN.Size = new System.Drawing.Size(132, 50);
             this.Detalhes_BTN.TabIndex = 3;
             this.Detalhes_BTN.Text = "Detalhes";
             this.Detalhes_BTN.UseVisualStyleBackColor = true;
@@ -216,9 +233,10 @@ namespace RestGest.GestaoPedidos
             // bt_cancelar
             // 
             this.bt_cancelar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_cancelar.Location = new System.Drawing.Point(3, 16);
+            this.bt_cancelar.Location = new System.Drawing.Point(4, 19);
+            this.bt_cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(99, 41);
+            this.bt_cancelar.Size = new System.Drawing.Size(132, 50);
             this.bt_cancelar.TabIndex = 2;
             this.bt_cancelar.Text = "Cancelar Pedido";
             this.bt_cancelar.UseVisualStyleBackColor = true;
@@ -234,27 +252,30 @@ namespace RestGest.GestaoPedidos
             this.tableLayoutPanel2.Controls.Add(this.filtrar_BTN, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.LimparFiltro_BTN, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 512);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(31, 630);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(662, 27);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(883, 33);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // tb_filter
             // 
             this.tb_filter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_filter.Location = new System.Drawing.Point(3, 3);
+            this.tb_filter.Location = new System.Drawing.Point(4, 4);
+            this.tb_filter.Margin = new System.Windows.Forms.Padding(4);
             this.tb_filter.Name = "tb_filter";
-            this.tb_filter.Size = new System.Drawing.Size(523, 20);
+            this.tb_filter.Size = new System.Drawing.Size(698, 22);
             this.tb_filter.TabIndex = 0;
             // 
             // filtrar_BTN
             // 
             this.filtrar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filtrar_BTN.Location = new System.Drawing.Point(532, 3);
+            this.filtrar_BTN.Location = new System.Drawing.Point(710, 4);
+            this.filtrar_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.filtrar_BTN.Name = "filtrar_BTN";
-            this.filtrar_BTN.Size = new System.Drawing.Size(60, 19);
+            this.filtrar_BTN.Size = new System.Drawing.Size(80, 23);
             this.filtrar_BTN.TabIndex = 1;
             this.filtrar_BTN.Text = "Filtrar";
             this.filtrar_BTN.UseVisualStyleBackColor = true;
@@ -263,9 +284,10 @@ namespace RestGest.GestaoPedidos
             // LimparFiltro_BTN
             // 
             this.LimparFiltro_BTN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LimparFiltro_BTN.Location = new System.Drawing.Point(598, 3);
+            this.LimparFiltro_BTN.Location = new System.Drawing.Point(798, 4);
+            this.LimparFiltro_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.LimparFiltro_BTN.Name = "LimparFiltro_BTN";
-            this.LimparFiltro_BTN.Size = new System.Drawing.Size(61, 19);
+            this.LimparFiltro_BTN.Size = new System.Drawing.Size(81, 23);
             this.LimparFiltro_BTN.TabIndex = 2;
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
@@ -277,17 +299,19 @@ namespace RestGest.GestaoPedidos
             this.panel1.Controls.Add(this.bt_cancelados);
             this.panel1.Controls.Add(this.bt_concluidos);
             this.panel1.Controls.Add(this.bt_pendente);
-            this.panel1.Location = new System.Drawing.Point(23, 23);
+            this.panel1.Location = new System.Drawing.Point(31, 29);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(654, 56);
+            this.panel1.Size = new System.Drawing.Size(872, 69);
             this.panel1.TabIndex = 3;
             // 
             // bt_all
             // 
             this.bt_all.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_all.Location = new System.Drawing.Point(241, 0);
+            this.bt_all.Location = new System.Drawing.Point(321, 0);
+            this.bt_all.Margin = new System.Windows.Forms.Padding(4);
             this.bt_all.Name = "bt_all";
-            this.bt_all.Size = new System.Drawing.Size(79, 56);
+            this.bt_all.Size = new System.Drawing.Size(105, 69);
             this.bt_all.TabIndex = 4;
             this.bt_all.Text = "Ver Todos";
             this.bt_all.UseVisualStyleBackColor = true;
@@ -296,9 +320,10 @@ namespace RestGest.GestaoPedidos
             // bt_cancelados
             // 
             this.bt_cancelados.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_cancelados.Location = new System.Drawing.Point(162, 0);
+            this.bt_cancelados.Location = new System.Drawing.Point(216, 0);
+            this.bt_cancelados.Margin = new System.Windows.Forms.Padding(4);
             this.bt_cancelados.Name = "bt_cancelados";
-            this.bt_cancelados.Size = new System.Drawing.Size(79, 56);
+            this.bt_cancelados.Size = new System.Drawing.Size(105, 69);
             this.bt_cancelados.TabIndex = 3;
             this.bt_cancelados.Text = "Cancelados";
             this.bt_cancelados.UseVisualStyleBackColor = true;
@@ -307,9 +332,10 @@ namespace RestGest.GestaoPedidos
             // bt_concluidos
             // 
             this.bt_concluidos.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_concluidos.Location = new System.Drawing.Point(73, 0);
+            this.bt_concluidos.Location = new System.Drawing.Point(97, 0);
+            this.bt_concluidos.Margin = new System.Windows.Forms.Padding(4);
             this.bt_concluidos.Name = "bt_concluidos";
-            this.bt_concluidos.Size = new System.Drawing.Size(89, 56);
+            this.bt_concluidos.Size = new System.Drawing.Size(119, 69);
             this.bt_concluidos.TabIndex = 2;
             this.bt_concluidos.Text = "Concluidos";
             this.bt_concluidos.UseVisualStyleBackColor = true;
@@ -319,9 +345,9 @@ namespace RestGest.GestaoPedidos
             // 
             this.bt_pendente.Dock = System.Windows.Forms.DockStyle.Left;
             this.bt_pendente.Location = new System.Drawing.Point(0, 0);
-            this.bt_pendente.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.bt_pendente.Margin = new System.Windows.Forms.Padding(13, 4, 13, 4);
             this.bt_pendente.Name = "bt_pendente";
-            this.bt_pendente.Size = new System.Drawing.Size(73, 56);
+            this.bt_pendente.Size = new System.Drawing.Size(97, 69);
             this.bt_pendente.TabIndex = 1;
             this.bt_pendente.Text = "Pendentes";
             this.bt_pendente.UseVisualStyleBackColor = true;
@@ -329,11 +355,12 @@ namespace RestGest.GestaoPedidos
             // 
             // FormGestaoPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 563);
+            this.ClientSize = new System.Drawing.Size(1123, 693);
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormGestaoPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormGestaoPedidos";

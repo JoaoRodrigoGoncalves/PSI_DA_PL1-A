@@ -205,7 +205,7 @@ namespace RestGest
         {
             bool result = false;
 
-            result = databaseContainer.Pedidos.Where(p => p.ItemMenu.Any(x => x.Id == idProduto)).Count() > 0;
+            result = databaseContainer.Pedidos.Where(p => p.ItemPedido.Any(x => x.Id == idProduto)).Count() > 0;
 
             return result;
         }

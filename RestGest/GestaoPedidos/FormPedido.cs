@@ -33,14 +33,22 @@ namespace RestGest.GestaoPedidos
             tb_nome_emp.Text = this.pedido.Trabalhador.Nome;
             tb_nif_emp.Text = this.pedido.Trabalhador.NumContribuinte;
             //Load Item list
-            lb_items.Items.AddRange(this.pedido.ItemMenu != null ? this.pedido.ItemMenu.ToArray() : new List<ItemMenu>().ToArray());
+            if(this.pedido.ItemPedido != null)
+            {
+                this.pedido.ItemPedido.ToArray();
+
+                foreach (ItemPedido itemPedido in this.pedido.ItemPedido)
+                {
+                    lb_items.Items.Add(itemPedido.ItemMenu);
+                }
+            }
+            else
+            {
+                new List<ItemPedido>().ToArray();
+            }
+
             //Load Payment list
             lb_pagamentos.Items.AddRange(this.pedido.Pagamento != null ? this.pedido.Pagamento.ToArray() : new List<Pagamento>().ToArray());
-
-            if (this.pedido.Estado.Id == 2)
-            {
-                btnExportarTxt.Visible = true;
-            }
         }
 
         private void bt_close_Click(object sender, EventArgs e)
@@ -74,9 +82,9 @@ namespace RestGest.GestaoPedidos
 
             //Dados do Pedido
             content += "Produto" + Environment.NewLine + Environment.NewLine;
-            foreach (ItemMenu itemMenu in lb_items.Items)
+            foreach (ItemPedido itemPedido in lb_items.Items)
             {
-                content += "- " + itemMenu + Environment.NewLine + Environment.NewLine;
+                content += "- " + itemPedido + Environment.NewLine + Environment.NewLine;
             }
             content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
 

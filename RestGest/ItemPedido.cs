@@ -12,16 +12,13 @@ namespace RestGest
     using System;
     using System.Collections.Generic;
     
-    public partial class Categoria
+    public partial class ItemPedido
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria()
-        {
-            this.Ativo = true;
-        }
-    
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public bool Ativo { get; set; }
+        public int PedidoId { get; set; }
+        public int ItemMenuId { get; set; }
+    
+        public virtual Pedido Pedido { get; set; }
+        public virtual ItemMenu ItemMenu { get; set; }
     }
 }

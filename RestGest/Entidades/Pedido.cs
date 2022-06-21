@@ -6,11 +6,12 @@
         public decimal GetTotalValue()
         {
             decimal totalValue = 0;
-            if (this.ItemMenu != null)
+
+            foreach (var item in this.ItemPedido)
             {
-                foreach (ItemMenu item in this.ItemMenu)
-                    totalValue += item.Preco;
+                totalValue += item.ItemMenu.Preco; 
             }
+
             return totalValue;
         }
     }

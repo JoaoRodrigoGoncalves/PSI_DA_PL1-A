@@ -64,6 +64,7 @@
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\ItemPedido.cs" />
     <Compile Include="Entidades\Trabalhador.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Pagamento.cs" />
@@ -172,6 +173,9 @@
       <DependentUpon>FormGestaoRestaurantes.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemMenu.cs">
+      <DependentUpon>RestGest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemPedido.cs">
       <DependentUpon>RestGest.tt</DependentUpon>
     </Compile>
     <Compile Include="MetodoPagamento.cs">

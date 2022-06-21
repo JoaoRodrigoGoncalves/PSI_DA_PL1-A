@@ -15,9 +15,9 @@
     <EntitySet Name="Pagamentos" EntityType="RestGest.Store.Pagamentos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MetodosPagamento" EntityType="RestGest.Store.MetodosPagamento" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ItemsMenus" EntityType="RestGest.Store.ItemsMenus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemPedidos" EntityType="RestGest.Store.ItemPedidos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Pessoas_Cliente" EntityType="RestGest.Store.Pessoas_Cliente" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Pessoas_Trabalhador" EntityType="RestGest.Store.Pessoas_Trabalhador" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ItemMenuPedido" EntityType="RestGest.Store.ItemMenuPedido" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ItemMenuRestaurante" EntityType="RestGest.Store.ItemMenuRestaurante" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="PedidoEstado" Association="RestGest.Store.PedidoEstado">
       <End Role="Pedido" EntitySet="Pedidos" />
@@ -51,14 +51,6 @@
       <End Role="Pessoa" EntitySet="Pessoas" />
       <End Role="Morada" EntitySet="Moradas" />
     </AssociationSet>
-    <AssociationSet Name="FK_ItemMenuPedido_ItemMenu" Association="RestGest.Store.FK_ItemMenuPedido_ItemMenu">
-      <End Role="ItemMenu" EntitySet="ItemsMenus" />
-      <End Role="ItemMenuPedido" EntitySet="ItemMenuPedido" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ItemMenuPedido_Pedido" Association="RestGest.Store.FK_ItemMenuPedido_Pedido">
-      <End Role="Pedido" EntitySet="Pedidos" />
-      <End Role="ItemMenuPedido" EntitySet="ItemMenuPedido" />
-    </AssociationSet>
     <AssociationSet Name="FK_ItemMenuRestaurante_ItemMenu" Association="RestGest.Store.FK_ItemMenuRestaurante_ItemMenu">
       <End Role="ItemMenu" EntitySet="ItemsMenus" />
       <End Role="ItemMenuRestaurante" EntitySet="ItemMenuRestaurante" />
@@ -74,6 +66,14 @@
     <AssociationSet Name="MetodoPagamentoPagamento" Association="RestGest.Store.MetodoPagamentoPagamento">
       <End Role="MetodoPagamento" EntitySet="MetodosPagamento" />
       <End Role="Pagamento" EntitySet="Pagamentos" />
+    </AssociationSet>
+    <AssociationSet Name="PedidoItemPedido" Association="RestGest.Store.PedidoItemPedido">
+      <End Role="Pedido" EntitySet="Pedidos" />
+      <End Role="ItemPedido" EntitySet="ItemPedidos" />
+    </AssociationSet>
+    <AssociationSet Name="ItemPedidoItemMenu" Association="RestGest.Store.ItemPedidoItemMenu">
+      <End Role="ItemPedido" EntitySet="ItemPedidos" />
+      <End Role="ItemMenu" EntitySet="ItemsMenus" />
     </AssociationSet>
     <AssociationSet Name="FK_Cliente_inherits_Pessoa" Association="RestGest.Store.FK_Cliente_inherits_Pessoa">
       <End Role="Pessoa" EntitySet="Pessoas" />
@@ -169,6 +169,14 @@
     <Property Name="Ativo" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="CategoriaId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="ItemPedidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PedidoId" Type="int" Nullable="false" />
+    <Property Name="ItemMenuId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Pessoas_Cliente">
     <Key>
       <PropertyRef Name="Id" />
@@ -183,14 +191,6 @@
     <Property Name="Posicao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="RestauranteId" Type="int" Nullable="true" />
     <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ItemMenuPedido">
-    <Key>
-      <PropertyRef Name="ItemMenu_Id" />
-      <PropertyRef Name="ItemMenuPedido_ItemMenu_Id" />
-    </Key>
-    <Property Name="ItemMenu_Id" Type="int" Nullable="false" />
-    <Property Name="ItemMenuPedido_ItemMenu_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ItemMenuRestaurante">
     <Key>
@@ -324,27 +324,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ItemMenuPedido_ItemMenu">
-    <End Role="ItemMenu" Type="RestGest.Store.ItemsMenus" Multiplicity="1" />
-    <End Role="ItemMenuPedido" Type="RestGest.Store.ItemMenuPedido" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ItemMenu">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ItemMenuPedido">
-        <PropertyRef Name="ItemMenu_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ItemMenuPedido_Pedido">
-    <End Role="ItemMenuPedido" Type="RestGest.Store.ItemMenuPedido" Multiplicity="*" />
+  <Association Name="PedidoItemPedido">
     <End Role="Pedido" Type="RestGest.Store.Pedidos" Multiplicity="1" />
+    <End Role="ItemPedido" Type="RestGest.Store.ItemPedidos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pedido">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ItemMenuPedido">
-        <PropertyRef Name="ItemMenuPedido_ItemMenu_Id" />
+      <Dependent Role="ItemPedido">
+        <PropertyRef Name="PedidoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemPedidoItemMenu">
+    <End Role="ItemPedido" Type="RestGest.Store.ItemPedidos" Multiplicity="*" />
+    <End Role="ItemMenu" Type="RestGest.Store.ItemsMenus" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMenu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemPedido">
+        <PropertyRef Name="ItemMenuId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -446,10 +446,6 @@
             <End Role="Morada" EntitySet="Moradas" />
           </AssociationSet>
           <EntitySet Name="ItemsMenus" EntityType="RestGest.ItemMenu" />
-          <AssociationSet Name="ItemMenuPedido" Association="RestGest.ItemMenuPedido">
-            <End Role="ItemMenu" EntitySet="ItemsMenus" />
-            <End Role="Pedido" EntitySet="Pedidos" />
-          </AssociationSet>
           <AssociationSet Name="ItemMenuRestaurante" Association="RestGest.ItemMenuRestaurante">
             <End Role="ItemMenu" EntitySet="ItemsMenus" />
             <End Role="Restaurante" EntitySet="Restaurantes" />
@@ -461,6 +457,15 @@
           <AssociationSet Name="MetodoPagamentoPagamento" Association="RestGest.MetodoPagamentoPagamento">
             <End Role="MetodoPagamento" EntitySet="MetodosPagamento" />
             <End Role="Pagamento" EntitySet="Pagamentos" />
+          </AssociationSet>
+          <EntitySet Name="ItemPedidos" EntityType="RestGest.ItemPedido" />
+          <AssociationSet Name="PedidoItemPedido" Association="RestGest.PedidoItemPedido">
+            <End Role="Pedido" EntitySet="Pedidos" />
+            <End Role="ItemPedido" EntitySet="ItemPedidos" />
+          </AssociationSet>
+          <AssociationSet Name="ItemPedidoItemMenu" Association="RestGest.ItemPedidoItemMenu">
+            <End Role="ItemPedido" EntitySet="ItemPedidos" />
+            <End Role="ItemMenu" EntitySet="ItemsMenus" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Pessoa">
@@ -517,7 +522,7 @@
           <NavigationProperty Name="Restaurante" Relationship="RestGest.PedidoRestaurante" FromRole="Pedido" ToRole="Restaurante" />
           <Property Name="RestauranteId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Pagamento" Relationship="RestGest.PagamentoPedido" FromRole="Pedido" ToRole="Pagamento" />
-          <NavigationProperty Name="ItemMenu" Relationship="RestGest.ItemMenuPedido" FromRole="Pedido" ToRole="ItemMenu" />
+          <NavigationProperty Name="ItemPedido" Relationship="RestGest.PedidoItemPedido" FromRole="Pedido" ToRole="ItemPedido" />
         </EntityType>
         <EntityType Name="Estado">
           <Key>
@@ -650,11 +655,8 @@
           <Property Name="Ativo" Type="Boolean" Nullable="false" DefaultValue="true" />
           <NavigationProperty Name="Categoria" Relationship="RestGest.CategoriaItemMenu" FromRole="ItemMenu" ToRole="Categoria" />
           <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemPedido" Relationship="RestGest.ItemPedidoItemMenu" FromRole="ItemMenu" ToRole="ItemPedido" />
         </EntityType>
-        <Association Name="ItemMenuPedido">
-          <End Type="RestGest.ItemMenu" Role="ItemMenu" Multiplicity="*" />
-          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="*" />
-        </Association>
         <Association Name="ItemMenuRestaurante">
           <End Type="RestGest.ItemMenu" Role="ItemMenu" Multiplicity="*" />
           <End Type="RestGest.Restaurante" Role="Restaurante" Multiplicity="*" />
@@ -680,6 +682,40 @@
             </Principal>
             <Dependent Role="Pagamento">
               <PropertyRef Name="MetodoPagamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ItemPedido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Pedido" Relationship="RestGest.PedidoItemPedido" FromRole="ItemPedido" ToRole="Pedido" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemMenu" Relationship="RestGest.ItemPedidoItemMenu" FromRole="ItemPedido" ToRole="ItemMenu" />
+          <Property Name="ItemMenuId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PedidoItemPedido">
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="RestGest.ItemPedido" Role="ItemPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemPedido">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemPedidoItemMenu">
+          <End Type="RestGest.ItemPedido" Role="ItemPedido" Multiplicity="*" />
+          <End Type="RestGest.ItemMenu" Role="ItemMenu" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ItemMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemPedido">
+              <PropertyRef Name="ItemMenuId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -794,6 +830,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ItemPedidos">
+      <EntityTypeMapping TypeName="IsTypeOf(RestGest.ItemPedido)">
+        <MappingFragment StoreEntitySet="ItemPedidos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
+          <ScalarProperty Name="ItemMenuId" ColumnName="ItemMenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="RestauranteMorada" TypeName="RestGest.RestauranteMorada" StoreEntitySet="Moradas">
       <EndProperty Name="Restaurante">
         <ScalarProperty Name="Id" ColumnName="RestauranteMorada_Morada_Id" />
@@ -811,14 +856,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
       <Condition ColumnName="PessoaMorada_Morada_Id" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ItemMenuPedido" TypeName="RestGest.ItemMenuPedido" StoreEntitySet="ItemMenuPedido">
-      <EndProperty Name="ItemMenu">
-        <ScalarProperty Name="Id" ColumnName="ItemMenu_Id" />
-      </EndProperty>
-      <EndProperty Name="Pedido">
-        <ScalarProperty Name="Id" ColumnName="ItemMenuPedido_ItemMenu_Id" />
-      </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ItemMenuRestaurante" TypeName="RestGest.ItemMenuRestaurante" StoreEntitySet="ItemMenuRestaurante">
       <EndProperty Name="ItemMenu">
@@ -856,7 +893,7 @@
         <EntityTypeShape EntityType="RestGest.Trabalhador" Width="1.5" PointX="6.875" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Restaurante" Width="1.5" PointX="11.125" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Pedido" Width="1.5" PointX="4.875" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestGest.Estado" Width="1.5" PointX="7.625" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestGest.Estado" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Categoria" Width="1.5" PointX="12.625" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.Pagamento" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RestGest.MetodoPagamento" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
@@ -871,11 +908,13 @@
         <AssociationConnector Association="RestGest.PagamentoPedido" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.TrabalhadorRestaurante" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.PessoaMorada" ManuallyRouted="false" />
-        <AssociationConnector Association="RestGest.ItemMenuPedido" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.ItemMenuRestaurante" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.CategoriaItemMenu" ManuallyRouted="false" />
         <AssociationConnector Association="RestGest.MetodoPagamentoPagamento" />
-      </Diagram>
+        <EntityTypeShape EntityType="RestGest.ItemPedido" Width="1.5" PointX="7.5" PointY="6.5" />
+        <AssociationConnector Association="RestGest.PedidoItemPedido" />
+        <AssociationConnector Association="RestGest.ItemPedidoItemMenu" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

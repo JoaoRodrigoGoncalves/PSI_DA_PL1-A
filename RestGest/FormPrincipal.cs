@@ -142,6 +142,7 @@ namespace RestGest
         {
             Button button = (Button)sender;
             ItemMenu itemMenu = (ItemMenu)button.Tag;
+            
 
             lb_items.Items.Add(itemMenu);
             lb_items.TopIndex = lb_items.Items.Count - 1;
@@ -196,7 +197,8 @@ namespace RestGest
             gb_fatura.Text = "Pedido Nº" + this.Update_Pedido.Id.ToString();
             tb_cliente.Text = this.Update_Pedido.Cliente.ToString();
             tb_empregado.Text = this.Update_Pedido.Trabalhador.ToString();
-            lb_items.Items.AddRange(this.Update_Pedido.ItemMenu != null ? this.Update_Pedido.ItemMenu.ToArray() : new List<ItemMenu>().ToArray());
+            tb_Restaurante.Text = this.Update_Pedido.Restaurante.Nome;
+            lb_items.Items.AddRange(databaseContainer.ItemPedidos.Where(itemPedidos => itemPedidos.PedidoId == this.Update_Pedido.Id) != null ? this.Update_Pedido.ItemPedido.Where(itemPedidos => itemPedidos.PedidoId == this.Update_Pedido.Id).ToArray() : new List<ItemPedido>().ToArray());
             tb_total.Text = this.Update_Pedido.GetTotalValue().ToString();
             flowLayoutPanel1.Enabled = true;
         }
@@ -207,22 +209,29 @@ namespace RestGest
             {
                 if (Update_Pedido == null)
                 {
+
                     Pedido new_pedido = new Pedido();
                     new_pedido.Estado = databaseContainer.Estados.Find(1); // Estado "Aberto"
                     new_pedido.Restaurante = databaseContainer.Restaurantes.Find(Sel_Trabalhador.Restaurante.Id);
                     new_pedido.Cliente = databaseContainer.Pessoas.OfType<Cliente>().Where(c => c.Id == Sel_Cliente.Id).First();
                     new_pedido.Trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == Sel_Trabalhador.Id).First();
 
-                    new_pedido.ItemMenu = new List<ItemMenu>();
-                    foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
+                    databaseContainer.Pedidos.Add(new_pedido);
+                    databaseContainer.SaveChanges();
+
+
+                    foreach (ItemMenu item in lb_items.Items)
                     {
-                        new_pedido.ItemMenu.Add(databaseContainer.ItemsMenus.Find(item.Id));
+                        ItemPedido itemPedido = new ItemPedido();
+                        itemPedido.ItemMenuId = item.Id;
+                        itemPedido.PedidoId = new_pedido.Id;
+
+                        databaseContainer.ItemPedidos.Add(itemPedido);
                     }
 
                     // Guardar Pedido
                     try
                     {
-                        databaseContainer.Pedidos.Add(new_pedido);
                         databaseContainer.SaveChanges();
                         ClearPedidoData();
                         return new_pedido.Id;
@@ -242,10 +251,10 @@ namespace RestGest
                     Update_Pedido.Cliente = databaseContainer.Pessoas.OfType<Cliente>().Where(c => c.Id == Sel_Cliente.Id).First();
                     Update_Pedido.Trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == Sel_Trabalhador.Id).First();
 
-                    Update_Pedido.ItemMenu.Clear();
+                    Update_Pedido.ItemPedido.Clear();
                     foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
                     {
-                        Update_Pedido.ItemMenu.Add(databaseContainer.ItemsMenus.Find(item.Id));
+                        Update_Pedido.ItemPedido.Add(databaseContainer.ItemPedidos.Find(item.Id));
                     }
 
                     // Guardar Pedido
