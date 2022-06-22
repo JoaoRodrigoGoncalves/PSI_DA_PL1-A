@@ -78,7 +78,7 @@
             this.Guardar_BTN.TabIndex = 10;
             this.Guardar_BTN.Text = "Criar";
             this.Guardar_BTN.UseVisualStyleBackColor = true;
-            this.Guardar_BTN.Click += new System.EventHandler(this.Guardar_BTN_Click_1);
+            this.Guardar_BTN.Click += new System.EventHandler(this.GuardarNovoProduto_Click);
             // 
             // Nome_TextBox
             // 
@@ -326,7 +326,7 @@
             this.bt_update.TabIndex = 10;
             this.bt_update.Text = "Guardar";
             this.bt_update.UseVisualStyleBackColor = true;
-            this.bt_update.Click += new System.EventHandler(this.Guardar_BTN_Click);
+            this.bt_update.Click += new System.EventHandler(this.GuardarEdicaoProduto_Click);
             // 
             // FormProduto
             // 

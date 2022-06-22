@@ -107,7 +107,7 @@ namespace RestGest.GestaoRestaurantes
             }
         }
 
-        private void Guardar_BTN_Click(object sender, EventArgs e)
+        private void GuardarEdicaoProduto_Click(object sender, EventArgs e)
         {
             if (Filtrar())
                 return;
@@ -154,7 +154,7 @@ namespace RestGest.GestaoRestaurantes
                     hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
                 }
 
-                dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
+                dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : dadosProduto.Fotografia);
             }
             else
             {
@@ -164,9 +164,12 @@ namespace RestGest.GestaoRestaurantes
             dadosProduto.Ingredientes = (Ingredientes_ListBox.Items.Count > 0 ? JsonConvert.SerializeObject(Ingredientes_ListBox.Items) : null);
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
-            if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
+            if (Restaurantes_ListBox.Enabled)
+            {
+                dadosProduto.Restaurante.Clear();
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                     dadosProduto.Restaurante.Add(restaurante);
+            }
 
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
@@ -291,7 +294,7 @@ namespace RestGest.GestaoRestaurantes
             this.Close();
         }
 
-        private void Guardar_BTN_Click_1(object sender, EventArgs e)
+        private void GuardarNovoProduto_Click(object sender, EventArgs e)
         {
             if (Filtrar())
                 return;
