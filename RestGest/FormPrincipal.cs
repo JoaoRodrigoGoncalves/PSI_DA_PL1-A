@@ -229,8 +229,8 @@ namespace RestGest
                     foreach (ItemMenu item in lb_items.Items)
                     {
                         ItemPedido itemPedido = new ItemPedido();
-                        itemPedido.ItemMenuId = item.Id;
-                        itemPedido.PedidoId = new_pedido.Id;
+                        itemPedido.ItemMenu = databaseContainer.ItemsMenus.Find(item.Id);
+                        itemPedido.Pedido = databaseContainer.Pedidos.Find(new_pedido.Id);
 
                         databaseContainer.ItemPedidos.Add(itemPedido);
                     }
