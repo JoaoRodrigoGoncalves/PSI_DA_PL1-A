@@ -146,7 +146,7 @@ namespace RestGest.GestaoRestaurantes
             string hash_original;
             string hash_novaImagem;
 
-            if (dadosProduto.Fotografia != null)
+            if(dadosProduto.Fotografia != null)
             {
                 using (SHA1 sha1 = SHA1.Create())
                 {
@@ -156,6 +156,11 @@ namespace RestGest.GestaoRestaurantes
 
                 dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
             }
+            else
+            {
+                dadosProduto.Fotografia = novaImagem;
+            }
+
             dadosProduto.Ingredientes = (Ingredientes_ListBox.Items.Count > 0 ? JsonConvert.SerializeObject(Ingredientes_ListBox.Items) : null);
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
