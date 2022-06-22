@@ -15,7 +15,7 @@ namespace RestGest
     public partial class ItemPedido
     {
         public int Id { get; set; }
-        public int PedidoId { get; set; }
+        public Nullable<int> PedidoId { get; set; }
         public int ItemMenuId { get; set; }
     
         public virtual Pedido Pedido { get; set; }

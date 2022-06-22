@@ -46,7 +46,7 @@ namespace RestGest.GestaoCategorias
                 LoadingPopUp_Panel.Visible = true;
 
                 categorias_menu_DataGridView.Rows.Clear();
-                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
+                foreach (Categoria categoria in databaseContainer.Categorias)
                 {
                     string[] row = BuildDataGridRow(categoria);
                     categorias_menu_DataGridView.Rows.Add(row);

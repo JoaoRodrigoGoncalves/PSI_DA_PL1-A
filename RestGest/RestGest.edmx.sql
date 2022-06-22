@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/21/2022 15:39:09
--- Generated from EDMX file: C:\Users\inesa\OneDrive\Documentos\GitHub\PSI_DA_PL1-A\RestGest\RestGest.edmx
+-- Date Created: 06/21/2022 23:53:39
+-- Generated from EDMX file: C:\Users\JoaoGoncalves\Desktop\Projetos\PSI_DA_PL1-A\RestGest\RestGest.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -202,7 +202,7 @@ GO
 -- Creating table 'ItemPedidos'
 CREATE TABLE [dbo].[ItemPedidos] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [PedidoId] int  NOT NULL,
+    [PedidoId] int  NULL,
     [ItemMenuId] int  NOT NULL
 );
 GO

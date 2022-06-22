@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 13);
             this.label1.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.cb_MetodosPagamentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_MetodosPagamentos.FormattingEnabled = true;
-            this.cb_MetodosPagamentos.Location = new System.Drawing.Point(12, 43);
+            this.cb_MetodosPagamentos.Location = new System.Drawing.Point(12, 34);
             this.cb_MetodosPagamentos.Name = "cb_MetodosPagamentos";
             this.cb_MetodosPagamentos.Size = new System.Drawing.Size(118, 21);
             this.cb_MetodosPagamentos.TabIndex = 6;
@@ -78,7 +78,7 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.nb_value);
-            this.panel1.Location = new System.Drawing.Point(163, 43);
+            this.panel1.Location = new System.Drawing.Point(147, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 333);
             this.panel1.TabIndex = 7;
@@ -122,7 +122,7 @@
             this.bt_remove.Name = "bt_remove";
             this.bt_remove.Size = new System.Drawing.Size(97, 70);
             this.bt_remove.TabIndex = 11;
-            this.bt_remove.Text = "Clear";
+            this.bt_remove.Text = "Limpar";
             this.bt_remove.UseVisualStyleBackColor = false;
             this.bt_remove.Click += new System.EventHandler(this.bt_remove_Click);
             // 
@@ -147,7 +147,7 @@
             this.bt_enter.Name = "bt_enter";
             this.bt_enter.Size = new System.Drawing.Size(95, 70);
             this.bt_enter.TabIndex = 9;
-            this.bt_enter.Text = "Enter";
+            this.bt_enter.Text = "Ok";
             this.bt_enter.UseVisualStyleBackColor = false;
             this.bt_enter.Click += new System.EventHandler(this.bt_enter_Click);
             // 
@@ -278,7 +278,7 @@
             // bt_concluir
             // 
             this.bt_concluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_concluir.Location = new System.Drawing.Point(163, 415);
+            this.bt_concluir.Location = new System.Drawing.Point(144, 354);
             this.bt_concluir.Name = "bt_concluir";
             this.bt_concluir.Size = new System.Drawing.Size(141, 66);
             this.bt_concluir.TabIndex = 8;
@@ -289,7 +289,7 @@
             // bt_cancel
             // 
             this.bt_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancel.Location = new System.Drawing.Point(331, 415);
+            this.bt_cancel.Location = new System.Drawing.Point(312, 354);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(137, 66);
             this.bt_cancel.TabIndex = 8;
@@ -300,15 +300,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Valor a pagar:";
+            this.label2.Text = "Valor restante a pagar:";
             // 
             // tb_valor_to_pay
             // 
-            this.tb_valor_to_pay.Location = new System.Drawing.Point(12, 100);
+            this.tb_valor_to_pay.Location = new System.Drawing.Point(12, 91);
             this.tb_valor_to_pay.Name = "tb_valor_to_pay";
             this.tb_valor_to_pay.ReadOnly = true;
             this.tb_valor_to_pay.Size = new System.Drawing.Size(118, 20);
@@ -318,7 +318,7 @@
             // 
             this.lb_pagamentos.FormattingEnabled = true;
             this.lb_pagamentos.HorizontalScrollbar = true;
-            this.lb_pagamentos.Location = new System.Drawing.Point(513, 38);
+            this.lb_pagamentos.Location = new System.Drawing.Point(465, 18);
             this.lb_pagamentos.Name = "lb_pagamentos";
             this.lb_pagamentos.Size = new System.Drawing.Size(153, 303);
             this.lb_pagamentos.TabIndex = 10;
@@ -326,11 +326,11 @@
             // bt_remove_payment
             // 
             this.bt_remove_payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_remove_payment.Location = new System.Drawing.Point(513, 347);
+            this.bt_remove_payment.Location = new System.Drawing.Point(465, 327);
             this.bt_remove_payment.Name = "bt_remove_payment";
             this.bt_remove_payment.Size = new System.Drawing.Size(153, 66);
             this.bt_remove_payment.TabIndex = 8;
-            this.bt_remove_payment.Text = "Delete Payment";
+            this.bt_remove_payment.Text = "Remover Pagamento";
             this.bt_remove_payment.UseVisualStyleBackColor = true;
             this.bt_remove_payment.Click += new System.EventHandler(this.bt_remove_payment_Click);
             // 
@@ -338,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 493);
+            this.ClientSize = new System.Drawing.Size(636, 434);
             this.Controls.Add(this.lb_pagamentos);
             this.Controls.Add(this.tb_valor_to_pay);
             this.Controls.Add(this.bt_remove_payment);
@@ -348,7 +348,13 @@
             this.Controls.Add(this.cb_MetodosPagamentos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(652, 473);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(652, 473);
             this.Name = "FormPagamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pagamento";
             this.Load += new System.EventHandler(this.FormPagamento_Load);
             this.panel1.ResumeLayout(false);

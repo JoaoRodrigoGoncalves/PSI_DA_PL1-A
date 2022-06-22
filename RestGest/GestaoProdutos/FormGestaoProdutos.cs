@@ -157,7 +157,7 @@ namespace RestGest
                 int row = produtos_DataGridView.SelectedRows[0].Index;
                 int idProduto = int.Parse(produtos_DataGridView.Rows[row].Cells[0].Value.ToString());
 
-                new FormProduto(idProduto, true).ShowDialog();
+                new FormProduto(idProduto).ShowDialog();
                 if (filtrar_TextBox.Text.Length > 0)
                 {
                     filtrar_BTN_Click(sender, e);

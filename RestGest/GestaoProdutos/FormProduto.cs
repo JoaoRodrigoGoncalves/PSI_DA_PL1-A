@@ -22,38 +22,22 @@ namespace RestGest.GestaoRestaurantes
             bt_update.Enabled = false;
             Guardar_BTN.Enabled = true;
         }
-        public FormProduto(int idProduto, bool edit)
+
+        public FormProduto(int idProduto)
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             dadosProduto = databaseContainer.ItemsMenus.Find(idProduto);
-            bt_update.Enabled = edit;
+            this.Text = "Editar Produto";
+            bt_update.Enabled = true;
             Guardar_BTN.Enabled = false;
-            Limpar_BTN.Enabled = edit;
             EditModeEnabled = true;
-            Edit_Mode(edit);
-        }
-
-        private void Edit_Mode(bool edit)
-        {
-            Nome_TextBox.Enabled = edit;
-            Preco_TextBox.Enabled = edit;
-            Categoria_ComboBox.Enabled = edit;
-            Ativo_CheckBox.Enabled = edit;
-            AlterarImagem_BTN.Enabled = edit;
-            ReporImagem_BTN.Enabled = edit;
-            Ingrediente_TextBox.Enabled = edit;
-            AddItem_BTN.Enabled = edit;
-            RmItem_BTN.Enabled = edit;
-            Restaurantes_ComboBox.Enabled = edit;
-            AddRestaurante_BTN.Enabled = edit;
-            RmRestaurante_BTN.Enabled = edit;
         }
 
         private void FormRegistoProduto_Load(object sender, EventArgs e)
         {
 
-            //Adiciona informação categortias
+            //Adiciona informação categorias
             Categoria[] categorias = databaseContainer.Categorias.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
             Categoria_ComboBox.Items.AddRange(categorias);
@@ -279,14 +263,24 @@ namespace RestGest.GestaoRestaurantes
             });
             //Set the update listBox
             Restaurantes_ListBox.Items.AddRange(rest_list.ToArray());
+            Restaurantes_ComboBox.Items.Remove(Restaurantes_ComboBox.SelectedItem);
         }
 
         private void RmRestaurante_BTN_Click(object sender, EventArgs e)
         {
             if (Restaurantes_ListBox.SelectedItem == null)
                 return;
-            //
+            
+            List<Restaurante> restaurantes = new List<Restaurante>();
+            restaurantes.Add((Restaurante)Restaurantes_ListBox.SelectedItem);
             Restaurantes_ListBox.Items.Remove(Restaurantes_ListBox.SelectedItem);
+            restaurantes.AddRange(Restaurantes_ComboBox.Items.Cast<Restaurante>().ToList());
+            restaurantes.Sort((x, y) =>
+            {
+                return String.Compare(x.Nome, y.Nome);
+            });
+            Restaurantes_ComboBox.Items.Clear();
+            Restaurantes_ComboBox.Items.AddRange(restaurantes.ToArray());
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)

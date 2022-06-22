@@ -174,7 +174,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PedidoId" Type="int" Nullable="false" />
+    <Property Name="PedidoId" Type="int" Nullable="true" />
     <Property Name="ItemMenuId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pessoas_Cliente">
@@ -325,7 +325,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PedidoItemPedido">
-    <End Role="Pedido" Type="RestGest.Store.Pedidos" Multiplicity="1" />
+    <End Role="Pedido" Type="RestGest.Store.Pedidos" Multiplicity="0..1" />
     <End Role="ItemPedido" Type="RestGest.Store.ItemPedidos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pedido">
@@ -691,12 +691,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Pedido" Relationship="RestGest.PedidoItemPedido" FromRole="ItemPedido" ToRole="Pedido" />
-          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <Property Name="PedidoId" Type="Int32" Nullable="true" />
           <NavigationProperty Name="ItemMenu" Relationship="RestGest.ItemPedidoItemMenu" FromRole="ItemPedido" ToRole="ItemMenu" />
           <Property Name="ItemMenuId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="PedidoItemPedido">
-          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="RestGest.Pedido" Role="Pedido" Multiplicity="0..1" />
           <End Type="RestGest.ItemPedido" Role="ItemPedido" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pedido">

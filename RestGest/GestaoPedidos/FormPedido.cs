@@ -21,82 +21,87 @@ namespace RestGest.GestaoPedidos
 
         private void FormPedido_Load(object sender, EventArgs e)
         {
-            //Load Pedido data
+            // Mudar nome da janela para o número do pedido e o estado atual
             this.Text = "Pedido Nº" + this.pedido.Id + " - " + this.pedido.Estado.TipoEstado;
-            //Load Restaurante data
+            // Mostrar dados do restaurante
             tb_nome_rt.Text = this.pedido.Restaurante.Nome;
             tb_nif_rt.Text = this.pedido.Restaurante.NumContribuinte;
-            //Load Client data
+            // Mostrar dados do cliente
             tb_nome_clt.Text = this.pedido.Cliente.Nome;
             tb_nif_clt.Text = this.pedido.Cliente.NumContribuinte;
-            //Load Empregado data
+            // Mostrar dados do funcionário
             tb_nome_emp.Text = this.pedido.Trabalhador.Nome;
             tb_nif_emp.Text = this.pedido.Trabalhador.NumContribuinte;
-            //Load Item list
-            if(this.pedido.ItemPedido != null)
+            // Mostrar produtos do pedido
+            foreach (ItemPedido itemPedido in this.pedido.ItemPedido)
             {
-                this.pedido.ItemPedido.ToArray();
-
-                foreach (ItemPedido itemPedido in this.pedido.ItemPedido)
-                {
-                    lb_items.Items.Add(itemPedido.ItemMenu);
-                }
-            }
-            else
-            {
-                new List<ItemPedido>().ToArray();
+                lb_items.Items.Add(itemPedido.ItemMenu);
             }
 
-            //Load Payment list
-            lb_pagamentos.Items.AddRange(this.pedido.Pagamento != null ? this.pedido.Pagamento.ToArray() : new List<Pagamento>().ToArray());
+            // Mostrar pagamentos associados ao pedido
+            foreach(Pagamento pagamento in pedido.Pagamento)
+            {
+                lb_pagamentos.Items.Add(pagamento);
+            }
         }
 
         private void bt_close_Click(object sender, EventArgs e)
         {
+            databaseContainer.Dispose();
             this.Close();
-        }
-
-        private void lb_items_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (lb_items.SelectedItem == null)
-                return;
-
-            new FormProduto(((ItemMenu)lb_items.SelectedItem).Id, false).ShowDialog();
         }
 
         private void btnExportarTxt_Click(object sender, EventArgs e)
         {
-            
             //Conteúdo que fará parte do ficheiro TXT
             //Dados do Restaurante (Nome e NIF)
-            var content = tb_nome_rt.Text + Environment.NewLine + Environment.NewLine + "NIF: " + tb_nif_rt.Text + Environment.NewLine + Environment.NewLine + "Opr.: " + tb_nome_emp.Text + Environment.NewLine + Environment.NewLine;
+            var content = tb_nome_rt.Text + Environment.NewLine;
+            content += "NIF: " + tb_nif_rt.Text + Environment.NewLine;
+            content += "Opr.: " + tb_nome_emp.Text + Environment.NewLine;
             content += "____________________________________________________________Original" + Environment.NewLine + Environment.NewLine;
 
             //Data e Hora que foi "extraído" o ficheiro TXT
-            content += "Fatura-Recibo" + Environment.NewLine + Environment.NewLine + "Data/ Hora: " + DateTime.Now + Environment.NewLine + Environment.NewLine;
+            content += "Detalhes pedido Nº" + pedido.Id + Environment.NewLine;
+            content += "Estado: " + pedido.Estado.TipoEstado + Environment.NewLine;
+            content += "Data/Hora Exportação: " + DateTime.Now + Environment.NewLine;
             content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
-            
+
             //Dados do Cliente
-            content += "Nome: " + tb_nome_clt.Text + Environment.NewLine + Environment.NewLine + "Contribuinte n.: " + tb_nif_clt.Text + Environment.NewLine + Environment.NewLine;
+            content += "Nome: " + tb_nome_clt.Text + Environment.NewLine;
+            content += "Contribuinte Nº: " + tb_nif_clt.Text + Environment.NewLine;
             content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
 
             //Dados do Pedido
-            content += "Produto" + Environment.NewLine + Environment.NewLine;
-            foreach (ItemPedido itemPedido in lb_items.Items)
+            content += "Produto" + Environment.NewLine;
+            if(lb_items.Items.Count > 0)
             {
-                content += "- " + itemPedido + Environment.NewLine + Environment.NewLine;
+                foreach (ItemMenu itemMenu in lb_items.Items.Cast<ItemMenu>())
+                {
+                    content += "- " + itemMenu + Environment.NewLine;
+                }
+            }
+            else
+            {
+                content += "*** Sem itens a mostrar ***" + Environment.NewLine;
             }
             content += "____________________________________________________________________" + Environment.NewLine + Environment.NewLine;
 
             //Dados do Pagamento do Pedido
-            content += "Total(Euros): " + Environment.NewLine + Environment.NewLine;
-            foreach (Pagamento pagamento in lb_pagamentos.Items)
-            { 
-                content += "- " + pagamento + Environment.NewLine + Environment.NewLine;
+            content += "Total(Euros): " + pedido.GetTotalValue() + Environment.NewLine;
+            if(lb_pagamentos.Items.Count > 0)
+            {
+                foreach (Pagamento pagamento in lb_pagamentos.Items)
+                { 
+                    content += "- " + pagamento + Environment.NewLine;
+                }
+            }
+            else
+            {
+                content += "*** Pedido não pago ***";
             }
 
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.FileName = $"{tb_nome_clt.Text}({tb_nif_clt.Text})"; // Default file name
+            dlg.FileName = $"{pedido.Id}_{tb_nome_clt.Text}({tb_nif_clt.Text})"; // Default file name
             dlg.Filter = "txt files(*.txt) |*.txt"; // Default file extensions
             dlg.FilterIndex= 1; // Default filter index
             // Show save file dialog box e process save file dialog box results
@@ -104,8 +109,7 @@ namespace RestGest.GestaoPedidos
             {
                 //Guardar o documento
                 File.WriteAllText(dlg.FileName, content);
-
-                MessageBox.Show("Os dados do pedido foram exportados com sucesso!");
+                System.Diagnostics.Process.Start(dlg.FileName);
             }
         }
     }

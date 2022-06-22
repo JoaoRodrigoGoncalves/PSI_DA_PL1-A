@@ -62,7 +62,7 @@
             this.Guardar_BTN.Location = new System.Drawing.Point(354, 117);
             this.Guardar_BTN.Name = "Guardar_BTN";
             this.Guardar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Guardar_BTN.TabIndex = 6;
+            this.Guardar_BTN.TabIndex = 7;
             this.Guardar_BTN.Text = "Guardar";
             this.Guardar_BTN.UseVisualStyleBackColor = true;
             this.Guardar_BTN.Click += new System.EventHandler(this.Guardar_BTN_Click);
@@ -103,7 +103,7 @@
             this.NIF_MaskedTextBox.Mask = "000000000";
             this.NIF_MaskedTextBox.Name = "NIF_MaskedTextBox";
             this.NIF_MaskedTextBox.Size = new System.Drawing.Size(68, 20);
-            this.NIF_MaskedTextBox.TabIndex = 11;
+            this.NIF_MaskedTextBox.TabIndex = 2;
             this.NIF_MaskedTextBox.ValidatingType = typeof(int);
             // 
             // label6
@@ -120,7 +120,7 @@
             this.Cancelar_BTN.Location = new System.Drawing.Point(435, 117);
             this.Cancelar_BTN.Name = "Cancelar_BTN";
             this.Cancelar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Cancelar_BTN.TabIndex = 7;
+            this.Cancelar_BTN.TabIndex = 8;
             this.Cancelar_BTN.Text = "Cancelar";
             this.Cancelar_BTN.UseVisualStyleBackColor = true;
             this.Cancelar_BTN.Click += new System.EventHandler(this.Cancelar_BTN_Click);
@@ -131,7 +131,7 @@
             this.CodigoPostal_MaskedTextBox.Mask = "0000-999";
             this.CodigoPostal_MaskedTextBox.Name = "CodigoPostal_MaskedTextBox";
             this.CodigoPostal_MaskedTextBox.Size = new System.Drawing.Size(140, 20);
-            this.CodigoPostal_MaskedTextBox.TabIndex = 3;
+            this.CodigoPostal_MaskedTextBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -147,7 +147,7 @@
             this.Pais_TextBox.Location = new System.Drawing.Point(123, 91);
             this.Pais_TextBox.Name = "Pais_TextBox";
             this.Pais_TextBox.Size = new System.Drawing.Size(387, 20);
-            this.Pais_TextBox.TabIndex = 5;
+            this.Pais_TextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -163,7 +163,7 @@
             this.Cidade_TextBox.Location = new System.Drawing.Point(315, 65);
             this.Cidade_TextBox.Name = "Cidade_TextBox";
             this.Cidade_TextBox.Size = new System.Drawing.Size(195, 20);
-            this.Cidade_TextBox.TabIndex = 4;
+            this.Cidade_TextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -188,7 +188,7 @@
             this.Rua_TextBox.Location = new System.Drawing.Point(123, 39);
             this.Rua_TextBox.Name = "Rua_TextBox";
             this.Rua_TextBox.Size = new System.Drawing.Size(387, 20);
-            this.Rua_TextBox.TabIndex = 2;
+            this.Rua_TextBox.TabIndex = 3;
             // 
             // Create_BTN
             // 
@@ -196,7 +196,7 @@
             this.Create_BTN.Location = new System.Drawing.Point(273, 117);
             this.Create_BTN.Name = "Create_BTN";
             this.Create_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Create_BTN.TabIndex = 6;
+            this.Create_BTN.TabIndex = 7;
             this.Create_BTN.Text = "Registar";
             this.Create_BTN.UseVisualStyleBackColor = true;
             this.Create_BTN.Click += new System.EventHandler(this.Registar_BTN_Click);
@@ -213,7 +213,7 @@
             this.MinimumSize = new System.Drawing.Size(562, 218);
             this.Name = "FormRestaurante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Editar Restaurante";
+            this.Text = "Registar Restaurante";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

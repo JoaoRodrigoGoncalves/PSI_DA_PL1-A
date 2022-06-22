@@ -40,7 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BTN_selecionarRestaurante = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.tb_cidade = new System.Windows.Forms.TextBox();
+            this.tb_restaurante = new System.Windows.Forms.TextBox();
             this.tb_cp = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_rua = new System.Windows.Forms.TextBox();
@@ -51,17 +54,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bt_create = new System.Windows.Forms.Button();
             this.bt_edit = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tb_restaurante = new System.Windows.Forms.TextBox();
+            this.bt_create = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -117,9 +116,9 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(14, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 245);
+            this.groupBox1.Size = new System.Drawing.Size(222, 245);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação Funcionario";
@@ -168,7 +167,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BTN_selecionarRestaurante);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.tb_cidade);
+            this.groupBox2.Controls.Add(this.tb_restaurante);
             this.groupBox2.Controls.Add(this.tb_cp);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.tb_rua);
@@ -176,12 +178,31 @@
             this.groupBox2.Controls.Add(this.tb_pais);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(248, 13);
+            this.groupBox2.Location = new System.Drawing.Point(259, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(193, 245);
+            this.groupBox2.Size = new System.Drawing.Size(260, 245);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Morada Funcionario";
+            // 
+            // BTN_selecionarRestaurante
+            // 
+            this.BTN_selecionarRestaurante.Location = new System.Drawing.Point(180, 217);
+            this.BTN_selecionarRestaurante.Name = "BTN_selecionarRestaurante";
+            this.BTN_selecionarRestaurante.Size = new System.Drawing.Size(75, 23);
+            this.BTN_selecionarRestaurante.TabIndex = 10;
+            this.BTN_selecionarRestaurante.Text = "Selecionar";
+            this.BTN_selecionarRestaurante.UseVisualStyleBackColor = true;
+            this.BTN_selecionarRestaurante.Click += new System.EventHandler(this.BTN_selecionarRestaurante_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 199);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Resturante:";
             // 
             // tb_cidade
             // 
@@ -189,6 +210,14 @@
             this.tb_cidade.Name = "tb_cidade";
             this.tb_cidade.Size = new System.Drawing.Size(154, 20);
             this.tb_cidade.TabIndex = 7;
+            // 
+            // tb_restaurante
+            // 
+            this.tb_restaurante.Location = new System.Drawing.Point(20, 219);
+            this.tb_restaurante.Name = "tb_restaurante";
+            this.tb_restaurante.ReadOnly = true;
+            this.tb_restaurante.Size = new System.Drawing.Size(154, 20);
+            this.tb_restaurante.TabIndex = 0;
             // 
             // tb_cp
             // 
@@ -253,14 +282,13 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.680851F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.31915F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -270,7 +298,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(518, 362);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(547, 362);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // button1
@@ -284,39 +312,28 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bt_create);
             this.panel1.Controls.Add(this.bt_edit);
             this.panel1.Controls.Add(this.bt_cancel);
-            this.panel1.Location = new System.Drawing.Point(248, 294);
+            this.panel1.Controls.Add(this.bt_create);
+            this.panel1.Location = new System.Drawing.Point(259, 294);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 49);
+            this.panel1.Size = new System.Drawing.Size(263, 52);
             this.panel1.TabIndex = 5;
-            // 
-            // bt_create
-            // 
-            this.bt_create.Enabled = false;
-            this.bt_create.Location = new System.Drawing.Point(3, 13);
-            this.bt_create.Name = "bt_create";
-            this.bt_create.Size = new System.Drawing.Size(75, 23);
-            this.bt_create.TabIndex = 10;
-            this.bt_create.Text = "Criar";
-            this.bt_create.UseVisualStyleBackColor = true;
-            this.bt_create.Click += new System.EventHandler(this.bt_create_Click);
             // 
             // bt_edit
             // 
             this.bt_edit.Enabled = false;
-            this.bt_edit.Location = new System.Drawing.Point(84, 13);
+            this.bt_edit.Location = new System.Drawing.Point(95, 17);
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(75, 23);
             this.bt_edit.TabIndex = 11;
-            this.bt_edit.Text = "Editar";
+            this.bt_edit.Text = "Guardar";
             this.bt_edit.UseVisualStyleBackColor = true;
             this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
             // 
             // bt_cancel
             // 
-            this.bt_cancel.Location = new System.Drawing.Point(165, 13);
+            this.bt_cancel.Location = new System.Drawing.Point(176, 17);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(75, 23);
             this.bt_cancel.TabIndex = 12;
@@ -324,51 +341,33 @@
             this.bt_cancel.UseVisualStyleBackColor = true;
             this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
             // 
-            // panel2
+            // bt_create
             // 
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.tb_restaurante);
-            this.panel2.Location = new System.Drawing.Point(13, 294);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 52);
-            this.panel2.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Resturante:";
-            // 
-            // tb_restaurante
-            // 
-            this.tb_restaurante.Location = new System.Drawing.Point(21, 25);
-            this.tb_restaurante.Name = "tb_restaurante";
-            this.tb_restaurante.ReadOnly = true;
-            this.tb_restaurante.Size = new System.Drawing.Size(154, 20);
-            this.tb_restaurante.TabIndex = 4;
-            this.tb_restaurante.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_restaurante_MouseClick);
+            this.bt_create.Enabled = false;
+            this.bt_create.Location = new System.Drawing.Point(14, 17);
+            this.bt_create.Name = "bt_create";
+            this.bt_create.Size = new System.Drawing.Size(75, 23);
+            this.bt_create.TabIndex = 11;
+            this.bt_create.Text = "Criar";
+            this.bt_create.UseVisualStyleBackColor = true;
+            this.bt_create.Click += new System.EventHandler(this.bt_create_Click);
             // 
             // FormFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 362);
+            this.ClientSize = new System.Drawing.Size(547, 362);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dados Funcionario";
+            this.Text = "Registar Funcionario";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,7 +389,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bt_create;
         private System.Windows.Forms.Button bt_edit;
         private System.Windows.Forms.Button bt_cancel;
@@ -400,8 +398,9 @@
         private System.Windows.Forms.TextBox tb_salario;
         private System.Windows.Forms.MaskedTextBox tb_num_contribuinte;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_restaurante;
+        private System.Windows.Forms.Button BTN_selecionarRestaurante;
+        private System.Windows.Forms.Panel panel1;
     }
 }

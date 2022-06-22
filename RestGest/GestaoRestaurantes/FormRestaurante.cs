@@ -23,6 +23,7 @@ namespace RestGest.GestaoRestaurantes
             Guardar_BTN.Enabled = true;
             dadosRestaurante = databaseContainer.Restaurantes.Find(restaurante_id);
 
+            this.Text = "Editar Restaurante";
             Nome_TextBox.Text = dadosRestaurante.Nome;
             NIF_MaskedTextBox.Text = dadosRestaurante.NumContribuinte;
             Rua_TextBox.Text = dadosRestaurante.Morada.Rua;

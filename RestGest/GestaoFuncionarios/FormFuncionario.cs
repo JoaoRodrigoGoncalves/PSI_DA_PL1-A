@@ -24,6 +24,7 @@ namespace RestGest
             databaseContainer = new RestGestContainer();
             this.trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == idTrabalhador).First();
 
+            this.Text = "Editar Funcionário";
             //Identificação do trabalhador
             tb_name.Text = trabalhador.Nome;
             tb_num_contribuinte.Text = trabalhador.NumContribuinte;
@@ -100,6 +101,7 @@ namespace RestGest
                 }
             }
 
+            databaseContainer.Dispose();
             this.Close();
         }
 
@@ -152,6 +154,7 @@ namespace RestGest
                 }
             }
             //
+            databaseContainer.Dispose();
             this.Close();
         }
 
@@ -169,7 +172,7 @@ namespace RestGest
             return !decimal.TryParse(tb_salario.Text, out decimal salario);
         }
 
-        private void tb_restaurante_MouseClick(object sender, MouseEventArgs e)
+        private void BTN_selecionarRestaurante_Click(object sender, EventArgs e)
         {
             FormGestaoRestaurantes form = new FormGestaoRestaurantes(this, false);
             form.ShowDialog();

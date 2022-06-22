@@ -159,6 +159,7 @@ namespace RestGest
 
         private void ClearPedidoData()
         {
+            gb_fatura.Text = "Novo Pedido";
             tb_cliente.Clear();
             tb_empregado.Clear();
             tb_Restaurante.Clear();
@@ -196,9 +197,14 @@ namespace RestGest
         {
             gb_fatura.Text = "Pedido Nº" + this.Update_Pedido.Id.ToString();
             tb_cliente.Text = this.Update_Pedido.Cliente.ToString();
+            Sel_Cliente = Update_Pedido.Cliente;
             tb_empregado.Text = this.Update_Pedido.Trabalhador.ToString();
+            Sel_Trabalhador = Update_Pedido.Trabalhador;
             tb_Restaurante.Text = this.Update_Pedido.Restaurante.Nome;
-            lb_items.Items.AddRange(databaseContainer.ItemPedidos.Where(itemPedidos => itemPedidos.PedidoId == this.Update_Pedido.Id) != null ? this.Update_Pedido.ItemPedido.Where(itemPedidos => itemPedidos.PedidoId == this.Update_Pedido.Id).ToArray() : new List<ItemPedido>().ToArray());
+            foreach (ItemPedido item in this.Update_Pedido.ItemPedido)
+            {
+                lb_items.Items.Add(item.ItemMenu);
+            }
             tb_total.Text = this.Update_Pedido.GetTotalValue().ToString();
             flowLayoutPanel1.Enabled = true;
         }
@@ -247,14 +253,23 @@ namespace RestGest
                     // Pedido já aberto
 
                     // Atualizar dados
-                    Update_Pedido.Restaurante = databaseContainer.Restaurantes.Find(Sel_Trabalhador.Restaurante.Id);
-                    Update_Pedido.Cliente = databaseContainer.Pessoas.OfType<Cliente>().Where(c => c.Id == Sel_Cliente.Id).First();
-                    Update_Pedido.Trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == Sel_Trabalhador.Id).First();
+                    if(Sel_Trabalhador != null)
+                    {
+                        Update_Pedido.Restaurante = databaseContainer.Restaurantes.Find(Sel_Trabalhador.Restaurante.Id);
+                        Update_Pedido.Trabalhador = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.Id == Sel_Trabalhador.Id).First();
+                    }
+                    
+                    if(Sel_Cliente != null)
+                        Update_Pedido.Cliente = databaseContainer.Pessoas.OfType<Cliente>().Where(c => c.Id == Sel_Cliente.Id).First();
 
                     Update_Pedido.ItemPedido.Clear();
-                    foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>().ToList())
+
+                    foreach (ItemMenu item in lb_items.Items.Cast<ItemMenu>())
                     {
-                        Update_Pedido.ItemPedido.Add(databaseContainer.ItemPedidos.Find(item.Id));
+                        ItemPedido _temp = new ItemPedido();
+                        _temp.ItemMenu = databaseContainer.ItemsMenus.Find(item.Id);
+                        _temp.Pedido = Update_Pedido;
+                        Update_Pedido.ItemPedido.Add(_temp);
                     }
 
                     // Guardar Pedido
@@ -308,11 +323,19 @@ namespace RestGest
             Trabalhador sel_trabalhador = formFunc.returnTrabalhador;
             if (sel_trabalhador != null)
             {
-                this.Sel_Trabalhador = sel_trabalhador;
-                tb_empregado.Text = Sel_Trabalhador.ToString();
-                tb_Restaurante.Text = Sel_Trabalhador.Restaurante.Nome;
-                flowLayoutPanel1.Enabled = true;
-                flowLayoutPanel2.Controls.Clear();
+                if(sel_trabalhador.Restaurante.Nome != null)
+                {
+                    this.Sel_Trabalhador = sel_trabalhador;
+                    tb_empregado.Text = Sel_Trabalhador.ToString();
+                    tb_Restaurante.Text = Sel_Trabalhador.Restaurante.Nome;
+                    flowLayoutPanel1.Enabled = true;
+                    flowLayoutPanel2.Controls.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("O funcionário selecionado não está associado a nenhum restaurante. Associe o funcionário a um restaurante e tente novamente!",
+                                    "Funcionário sem restaurante", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
