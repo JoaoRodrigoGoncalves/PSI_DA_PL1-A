@@ -6,6 +6,7 @@ using RestGest.GestaoPedidos;
 using RestGest.GestaoRestaurantes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -131,11 +132,30 @@ namespace RestGest
             {
                 Button button_item = new Button();
                 button_item.Text = itemMenu.Nome;
+                button_item.Paint += TextButtonColor_Paint;//Associa a função TextButtonColor_Paint
                 button_item.Tag = itemMenu;
                 button_item.Size = new System.Drawing.Size(75, 75);
                 button_item.Click += AddToList;
                 flowLayoutPanel2.Controls.Add(button_item);
+
+                ImageConverter imagemButao = new ImageConverter();
+
+                if (itemMenu.Fotografia != null)
+                    button_item.BackgroundImage = (Image)imagemButao.ConvertFrom(itemMenu.Fotografia);
+                    button_item.BackgroundImageLayout = ImageLayout.Stretch;
             }
+        }
+
+        // Código Reterido: https://stackoverflow.com/questions/42152852/c-sharp-how-to-get-a-black-solid-background-behind-button-text
+        private void TextButtonColor_Paint(object sender, PaintEventArgs e)
+        {
+            var b = sender as Button;
+            var rect = e.ClipRectangle;
+            rect.Inflate(-2, -2);
+            var flags = TextFormatFlags.WordBreak;
+
+            flags |= TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter;
+            TextRenderer.DrawText(e.Graphics, b.Text, b.Font, rect, Color.White, Color.Black, flags);
         }
 
         private void AddToList(object sender, EventArgs e)

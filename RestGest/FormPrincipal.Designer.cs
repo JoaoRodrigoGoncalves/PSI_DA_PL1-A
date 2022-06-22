@@ -96,8 +96,8 @@
             this.pedidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1134, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1512, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,13 +106,13 @@
             this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sairToolStripMenuItem});
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.opçõesToolStripMenuItem.Text = "Opções";
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(130, 30);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -122,20 +122,20 @@
             this.registarRestauranteToolStripMenuItem,
             this.listaDeRestaurantesToolStripMenuItem});
             this.restaurantesToolStripMenuItem.Name = "restaurantesToolStripMenuItem";
-            this.restaurantesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.restaurantesToolStripMenuItem.Size = new System.Drawing.Size(133, 29);
             this.restaurantesToolStripMenuItem.Text = "Restaurantes";
             // 
             // registarRestauranteToolStripMenuItem
             // 
             this.registarRestauranteToolStripMenuItem.Name = "registarRestauranteToolStripMenuItem";
-            this.registarRestauranteToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.registarRestauranteToolStripMenuItem.Size = new System.Drawing.Size(274, 30);
             this.registarRestauranteToolStripMenuItem.Text = "Registar Restaurante";
             this.registarRestauranteToolStripMenuItem.Click += new System.EventHandler(this.registarRestauranteToolStripMenuItem_Click);
             // 
             // listaDeRestaurantesToolStripMenuItem
             // 
             this.listaDeRestaurantesToolStripMenuItem.Name = "listaDeRestaurantesToolStripMenuItem";
-            this.listaDeRestaurantesToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.listaDeRestaurantesToolStripMenuItem.Size = new System.Drawing.Size(274, 30);
             this.listaDeRestaurantesToolStripMenuItem.Text = "Lista de Restaurantes";
             this.listaDeRestaurantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeRestaurantesToolStripMenuItem_Click);
             // 
@@ -146,27 +146,27 @@
             this.listaDeProdutosToolStripMenuItem,
             this.categoriasToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // registarProdutoToolStripMenuItem
             // 
             this.registarProdutoToolStripMenuItem.Name = "registarProdutoToolStripMenuItem";
-            this.registarProdutoToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.registarProdutoToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
             this.registarProdutoToolStripMenuItem.Text = "Registar Produto";
             this.registarProdutoToolStripMenuItem.Click += new System.EventHandler(this.registarProdutoToolStripMenuItem_Click);
             // 
             // listaDeProdutosToolStripMenuItem
             // 
             this.listaDeProdutosToolStripMenuItem.Name = "listaDeProdutosToolStripMenuItem";
-            this.listaDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.listaDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
             this.listaDeProdutosToolStripMenuItem.Text = "Lista de Produtos";
             this.listaDeProdutosToolStripMenuItem.Click += new System.EventHandler(this.listaDeProdutosToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
             this.categoriasToolStripMenuItem.Text = "Lista de Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
@@ -176,20 +176,20 @@
             this.registarClienteToolStripMenuItem,
             this.listaDeClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // registarClienteToolStripMenuItem
             // 
             this.registarClienteToolStripMenuItem.Name = "registarClienteToolStripMenuItem";
-            this.registarClienteToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.registarClienteToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.registarClienteToolStripMenuItem.Text = "Registar Cliente";
             this.registarClienteToolStripMenuItem.Click += new System.EventHandler(this.registarClienteToolStripMenuItem_Click);
             // 
             // listaDeClientesToolStripMenuItem
             // 
             this.listaDeClientesToolStripMenuItem.Name = "listaDeClientesToolStripMenuItem";
-            this.listaDeClientesToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.listaDeClientesToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.listaDeClientesToolStripMenuItem.Text = "Lista de Clientes";
             this.listaDeClientesToolStripMenuItem.Click += new System.EventHandler(this.listaDeClientesToolStripMenuItem_Click);
             // 
@@ -199,20 +199,20 @@
             this.registarFuncionárioToolStripMenuItem,
             this.listaDeFuncionáriosToolStripMenuItem});
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(134, 29);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             // 
             // registarFuncionárioToolStripMenuItem
             // 
             this.registarFuncionárioToolStripMenuItem.Name = "registarFuncionárioToolStripMenuItem";
-            this.registarFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(216, 24);
+            this.registarFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(275, 30);
             this.registarFuncionárioToolStripMenuItem.Text = "Registar Funcionário";
             this.registarFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.registarFuncionárioToolStripMenuItem_Click);
             // 
             // listaDeFuncionáriosToolStripMenuItem
             // 
             this.listaDeFuncionáriosToolStripMenuItem.Name = "listaDeFuncionáriosToolStripMenuItem";
-            this.listaDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(216, 24);
+            this.listaDeFuncionáriosToolStripMenuItem.Size = new System.Drawing.Size(275, 30);
             this.listaDeFuncionáriosToolStripMenuItem.Text = "Lista de Funcionários";
             this.listaDeFuncionáriosToolStripMenuItem.Click += new System.EventHandler(this.listaDeFuncionáriosToolStripMenuItem_Click);
             // 
@@ -222,20 +222,20 @@
             this.registarMétodoDePagamentoToolStripMenuItem,
             this.listaDeMétodosDePagamentoToolStripMenuItem});
             this.metodosDePagamentoToolStripMenuItem.Name = "metodosDePagamentoToolStripMenuItem";
-            this.metodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.metodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(226, 29);
             this.metodosDePagamentoToolStripMenuItem.Text = "Métodos de Pagamento";
             // 
             // registarMétodoDePagamentoToolStripMenuItem
             // 
             this.registarMétodoDePagamentoToolStripMenuItem.Name = "registarMétodoDePagamentoToolStripMenuItem";
-            this.registarMétodoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.registarMétodoDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(367, 30);
             this.registarMétodoDePagamentoToolStripMenuItem.Text = "Registar Método de Pagamento";
             this.registarMétodoDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.registarMétodoDePagamentoToolStripMenuItem_Click);
             // 
             // listaDeMétodosDePagamentoToolStripMenuItem
             // 
             this.listaDeMétodosDePagamentoToolStripMenuItem.Name = "listaDeMétodosDePagamentoToolStripMenuItem";
-            this.listaDeMétodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(292, 24);
+            this.listaDeMétodosDePagamentoToolStripMenuItem.Size = new System.Drawing.Size(367, 30);
             this.listaDeMétodosDePagamentoToolStripMenuItem.Text = "Lista de Métodos de Pagamento";
             this.listaDeMétodosDePagamentoToolStripMenuItem.Click += new System.EventHandler(this.listaDeMétodosDePagamentoToolStripMenuItem_Click);
             // 
@@ -244,13 +244,13 @@
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listaDePedidosToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
             // 
             // listaDePedidosToolStripMenuItem
             // 
             this.listaDePedidosToolStripMenuItem.Name = "listaDePedidosToolStripMenuItem";
-            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.listaDePedidosToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
             this.listaDePedidosToolStripMenuItem.Text = "Lista de Pedidos";
             this.listaDePedidosToolStripMenuItem.Click += new System.EventHandler(this.listaDePedidosToolStripMenuItem_Click);
             // 
@@ -259,27 +259,30 @@
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.07843F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 453F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
             this.tableLayoutPanel1.Controls.Add(this.gb_fatura, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 33);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.29661F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.70339F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 543);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1512, 670);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // gb_fatura
             // 
             this.gb_fatura.Controls.Add(this.tableLayoutPanel3);
             this.gb_fatura.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_fatura.Location = new System.Drawing.Point(780, 30);
+            this.gb_fatura.Location = new System.Drawing.Point(1041, 37);
+            this.gb_fatura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gb_fatura.Name = "gb_fatura";
-            this.gb_fatura.Size = new System.Drawing.Size(334, 479);
+            this.gb_fatura.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_fatura.Size = new System.Drawing.Size(445, 591);
             this.gb_fatura.TabIndex = 1;
             this.gb_fatura.TabStop = false;
             this.gb_fatura.Text = "Novo Pedido";
@@ -292,22 +295,25 @@
             this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 19);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(328, 460);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(437, 568);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lb_items
             // 
             this.lb_items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_items.FormattingEnabled = true;
-            this.lb_items.Location = new System.Drawing.Point(3, 146);
+            this.lb_items.ItemHeight = 16;
+            this.lb_items.Location = new System.Drawing.Point(4, 180);
+            this.lb_items.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lb_items.Name = "lb_items";
-            this.lb_items.Size = new System.Drawing.Size(322, 229);
+            this.lb_items.Size = new System.Drawing.Size(429, 283);
             this.lb_items.TabIndex = 2;
             // 
             // panel2
@@ -322,42 +328,49 @@
             this.panel2.Controls.Add(this.tb_empregado);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(322, 137);
+            this.panel2.Size = new System.Drawing.Size(429, 168);
             this.panel2.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 42);
+            this.label5.Location = new System.Drawing.Point(4, 52);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.Size = new System.Drawing.Size(86, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Restaurante";
             // 
             // tb_Restaurante
             // 
-            this.tb_Restaurante.Location = new System.Drawing.Point(6, 58);
+            this.tb_Restaurante.Location = new System.Drawing.Point(8, 71);
+            this.tb_Restaurante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_Restaurante.Name = "tb_Restaurante";
             this.tb_Restaurante.ReadOnly = true;
-            this.tb_Restaurante.Size = new System.Drawing.Size(313, 20);
+            this.tb_Restaurante.Size = new System.Drawing.Size(416, 22);
             this.tb_Restaurante.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Funcionário";
             // 
             // bt_select_cliente
             // 
-            this.bt_select_cliente.Location = new System.Drawing.Point(244, 95);
+            this.bt_select_cliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bt_select_cliente.ForeColor = System.Drawing.Color.Black;
+            this.bt_select_cliente.Location = new System.Drawing.Point(325, 117);
+            this.bt_select_cliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_select_cliente.Name = "bt_select_cliente";
-            this.bt_select_cliente.Size = new System.Drawing.Size(75, 23);
+            this.bt_select_cliente.Size = new System.Drawing.Size(100, 28);
             this.bt_select_cliente.TabIndex = 0;
             this.bt_select_cliente.Text = "Selecionar Cliente";
             this.bt_select_cliente.UseVisualStyleBackColor = true;
@@ -365,17 +378,19 @@
             // 
             // tb_cliente
             // 
-            this.tb_cliente.Location = new System.Drawing.Point(6, 97);
+            this.tb_cliente.Location = new System.Drawing.Point(8, 119);
+            this.tb_cliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_cliente.Name = "tb_cliente";
             this.tb_cliente.ReadOnly = true;
-            this.tb_cliente.Size = new System.Drawing.Size(232, 20);
+            this.tb_cliente.Size = new System.Drawing.Size(308, 22);
             this.tb_cliente.TabIndex = 0;
             // 
             // bt_select_empregado
             // 
-            this.bt_select_empregado.Location = new System.Drawing.Point(244, 17);
+            this.bt_select_empregado.Location = new System.Drawing.Point(325, 21);
+            this.bt_select_empregado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_select_empregado.Name = "bt_select_empregado";
-            this.bt_select_empregado.Size = new System.Drawing.Size(75, 23);
+            this.bt_select_empregado.Size = new System.Drawing.Size(100, 28);
             this.bt_select_empregado.TabIndex = 2;
             this.bt_select_empregado.Text = "Selecionar Funcionario";
             this.bt_select_empregado.UseVisualStyleBackColor = true;
@@ -384,26 +399,29 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 120);
+            this.label4.Location = new System.Drawing.Point(8, 148);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 1;
             this.label4.Text = "Lista Items";
             // 
             // tb_empregado
             // 
-            this.tb_empregado.Location = new System.Drawing.Point(6, 19);
+            this.tb_empregado.Location = new System.Drawing.Point(8, 23);
+            this.tb_empregado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_empregado.Name = "tb_empregado";
             this.tb_empregado.ReadOnly = true;
-            this.tb_empregado.Size = new System.Drawing.Size(232, 20);
+            this.tb_empregado.Size = new System.Drawing.Size(308, 22);
             this.tb_empregado.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 81);
+            this.label1.Location = new System.Drawing.Point(8, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente";
             // 
@@ -416,17 +434,19 @@
             this.panel3.Controls.Add(this.bt_concluir_pedido);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 381);
+            this.panel3.Location = new System.Drawing.Point(4, 471);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 76);
+            this.panel3.Size = new System.Drawing.Size(429, 93);
             this.panel3.TabIndex = 4;
             // 
             // BTN_continuarPedido
             // 
             this.BTN_continuarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.BTN_continuarPedido.Location = new System.Drawing.Point(220, 38);
+            this.BTN_continuarPedido.Location = new System.Drawing.Point(293, 47);
+            this.BTN_continuarPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BTN_continuarPedido.Name = "BTN_continuarPedido";
-            this.BTN_continuarPedido.Size = new System.Drawing.Size(99, 29);
+            this.BTN_continuarPedido.Size = new System.Drawing.Size(132, 36);
             this.BTN_continuarPedido.TabIndex = 4;
             this.BTN_continuarPedido.Text = "Continuar Pedido";
             this.BTN_continuarPedido.UseVisualStyleBackColor = true;
@@ -434,9 +454,10 @@
             // 
             // bt_del_item
             // 
-            this.bt_del_item.Location = new System.Drawing.Point(6, 7);
+            this.bt_del_item.Location = new System.Drawing.Point(8, 9);
+            this.bt_del_item.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_del_item.Name = "bt_del_item";
-            this.bt_del_item.Size = new System.Drawing.Size(96, 23);
+            this.bt_del_item.Size = new System.Drawing.Size(128, 28);
             this.bt_del_item.TabIndex = 3;
             this.bt_del_item.Text = "Eliminar Item";
             this.bt_del_item.UseVisualStyleBackColor = true;
@@ -444,9 +465,10 @@
             // 
             // bt_pendente_pedido
             // 
-            this.bt_pendente_pedido.Location = new System.Drawing.Point(111, 38);
+            this.bt_pendente_pedido.Location = new System.Drawing.Point(148, 47);
+            this.bt_pendente_pedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_pendente_pedido.Name = "bt_pendente_pedido";
-            this.bt_pendente_pedido.Size = new System.Drawing.Size(103, 29);
+            this.bt_pendente_pedido.Size = new System.Drawing.Size(137, 36);
             this.bt_pendente_pedido.TabIndex = 3;
             this.bt_pendente_pedido.Text = "Deixar em Aberto";
             this.bt_pendente_pedido.UseVisualStyleBackColor = true;
@@ -454,17 +476,19 @@
             // 
             // tb_total
             // 
-            this.tb_total.Location = new System.Drawing.Point(201, 9);
+            this.tb_total.Location = new System.Drawing.Point(268, 11);
+            this.tb_total.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_total.Name = "tb_total";
             this.tb_total.ReadOnly = true;
-            this.tb_total.Size = new System.Drawing.Size(118, 20);
+            this.tb_total.Size = new System.Drawing.Size(156, 22);
             this.tb_total.TabIndex = 0;
             // 
             // bt_concluir_pedido
             // 
-            this.bt_concluir_pedido.Location = new System.Drawing.Point(6, 38);
+            this.bt_concluir_pedido.Location = new System.Drawing.Point(8, 47);
+            this.bt_concluir_pedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_concluir_pedido.Name = "bt_concluir_pedido";
-            this.bt_concluir_pedido.Size = new System.Drawing.Size(99, 29);
+            this.bt_concluir_pedido.Size = new System.Drawing.Size(132, 36);
             this.bt_concluir_pedido.TabIndex = 3;
             this.bt_concluir_pedido.Text = "Concluir Pedido";
             this.bt_concluir_pedido.UseVisualStyleBackColor = true;
@@ -473,9 +497,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 12);
+            this.label2.Location = new System.Drawing.Point(215, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(44, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total:";
             // 
@@ -486,39 +511,43 @@
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 30);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(24, 37);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.77871F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.22129F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(756, 479);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1009, 591);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 60);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1001, 73);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 69);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 85);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(750, 407);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1001, 502);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 571);
+            this.ClientSize = new System.Drawing.Size(1512, 703);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1150, 610);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1527, 740);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RestGest";

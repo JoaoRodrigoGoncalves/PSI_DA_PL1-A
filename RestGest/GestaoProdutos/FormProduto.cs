@@ -160,11 +160,9 @@ namespace RestGest.GestaoRestaurantes
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
             if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
-            {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                     dadosProduto.Restaurante.Add(restaurante);
 
-            }
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
