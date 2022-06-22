@@ -69,7 +69,7 @@
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(108, 23);
             this.bt_edit.TabIndex = 1;
-            this.bt_edit.Text = "Editar";
+            this.bt_edit.Text = "Guardar";
             this.bt_edit.UseVisualStyleBackColor = true;
             this.bt_edit.Click += new System.EventHandler(this.bt_edit_Click);
             // 

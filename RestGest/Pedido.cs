@@ -18,7 +18,7 @@ namespace RestGest
         public Pedido()
         {
             this.Pagamento = new HashSet<Pagamento>();
-            this.ItemMenu = new HashSet<ItemMenu>();
+            this.ItemPedido = new HashSet<ItemPedido>();
         }
     
         public int Id { get; set; }
@@ -34,6 +34,6 @@ namespace RestGest
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pagamento> Pagamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemMenu> ItemMenu { get; set; }
+        public virtual ICollection<ItemPedido> ItemPedido { get; set; }
     }
 }

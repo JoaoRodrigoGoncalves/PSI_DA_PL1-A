@@ -34,6 +34,9 @@ namespace RestGest.GestaoCategorias
             this.LoadingPopUp_Label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.categorias_menu_DataGridView = new System.Windows.Forms.DataGridView();
+            this.IDRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NomeRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Selecionar_BTN = new System.Windows.Forms.Button();
             this.Remover_BTN = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@ namespace RestGest.GestaoCategorias
             this.filtrar_TextBox = new System.Windows.Forms.TextBox();
             this.filtrar_BTN = new System.Windows.Forms.Button();
             this.LimparFiltro_BTN = new System.Windows.Forms.Button();
-            this.IDRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.NomeRestaurante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LoadingPopUp_Panel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categorias_menu_DataGridView)).BeginInit();
@@ -121,6 +121,29 @@ namespace RestGest.GestaoCategorias
             this.categorias_menu_DataGridView.Size = new System.Drawing.Size(683, 352);
             this.categorias_menu_DataGridView.TabIndex = 0;
             this.categorias_menu_DataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.categorias_menu_DataGridView_MouseDoubleClick);
+            // 
+            // IDRestaurante
+            // 
+            this.IDRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.IDRestaurante.HeaderText = "ID";
+            this.IDRestaurante.Name = "IDRestaurante";
+            this.IDRestaurante.ReadOnly = true;
+            this.IDRestaurante.Width = 43;
+            // 
+            // categoriaAtivo
+            // 
+            this.categoriaAtivo.HeaderText = "Ativo";
+            this.categoriaAtivo.Name = "categoriaAtivo";
+            this.categoriaAtivo.ReadOnly = true;
+            this.categoriaAtivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoriaAtivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // NomeRestaurante
+            // 
+            this.NomeRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeRestaurante.HeaderText = "Nome";
+            this.NomeRestaurante.Name = "NomeRestaurante";
+            this.NomeRestaurante.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -226,29 +249,6 @@ namespace RestGest.GestaoCategorias
             this.LimparFiltro_BTN.Text = "Limpar Filtro";
             this.LimparFiltro_BTN.UseVisualStyleBackColor = true;
             this.LimparFiltro_BTN.Click += new System.EventHandler(this.LimparFiltro_BTN_Click_1);
-            // 
-            // IDRestaurante
-            // 
-            this.IDRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.IDRestaurante.HeaderText = "ID";
-            this.IDRestaurante.Name = "IDRestaurante";
-            this.IDRestaurante.ReadOnly = true;
-            this.IDRestaurante.Width = 43;
-            // 
-            // categoriaAtivo
-            // 
-            this.categoriaAtivo.HeaderText = "Ativo";
-            this.categoriaAtivo.Name = "categoriaAtivo";
-            this.categoriaAtivo.ReadOnly = true;
-            this.categoriaAtivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoriaAtivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // NomeRestaurante
-            // 
-            this.NomeRestaurante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NomeRestaurante.HeaderText = "Nome";
-            this.NomeRestaurante.Name = "NomeRestaurante";
-            this.NomeRestaurante.ReadOnly = true;
             // 
             // FormGestaoCategorias
             // 

@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Selecionar_BTN = new System.Windows.Forms.Button();
             this.Remover_BTN = new System.Windows.Forms.Button();
             this.Editar_BTN = new System.Windows.Forms.Button();
             this.Adicionar_BTN = new System.Windows.Forms.Button();
@@ -78,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Selecionar_BTN);
             this.groupBox1.Controls.Add(this.Remover_BTN);
             this.groupBox1.Controls.Add(this.Editar_BTN);
             this.groupBox1.Controls.Add(this.Adicionar_BTN);
@@ -88,6 +90,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ações";
+            // 
+            // Selecionar_BTN
+            // 
+            this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Selecionar_BTN.Location = new System.Drawing.Point(3, 103);
+            this.Selecionar_BTN.Name = "Selecionar_BTN";
+            this.Selecionar_BTN.Size = new System.Drawing.Size(78, 41);
+            this.Selecionar_BTN.TabIndex = 3;
+            this.Selecionar_BTN.Text = "Selecionar";
+            this.Selecionar_BTN.UseVisualStyleBackColor = true;
+            this.Selecionar_BTN.Click += new System.EventHandler(this.Selecionar_BTN_Click);
             // 
             // Remover_BTN
             // 
@@ -182,7 +195,7 @@
             this.moradaClient});
             this.Clientes_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Clientes_DataGridView.Location = new System.Drawing.Point(22, 22);
-            this.Clientes_DataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.Clientes_DataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Clientes_DataGridView.Name = "Clientes_DataGridView";
             this.Clientes_DataGridView.ReadOnly = true;
             this.Clientes_DataGridView.RowHeadersWidth = 51;
@@ -268,7 +281,7 @@
             this.ClientSize = new System.Drawing.Size(962, 528);
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(978, 565);
+            this.MinimumSize = new System.Drawing.Size(978, 564);
             this.Name = "FormGestaoClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão de Clientes";
@@ -305,5 +318,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nifCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn moradaClient;
+        private System.Windows.Forms.Button Selecionar_BTN;
     }
 }

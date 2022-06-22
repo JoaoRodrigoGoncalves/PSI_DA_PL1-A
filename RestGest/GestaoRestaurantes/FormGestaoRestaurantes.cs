@@ -21,15 +21,15 @@ namespace RestGest
             InitializeComponent();
             this.FormBack = formBack;
             this.FormGestao = gestao;
-            activeFuntion(this.FormGestao);
+            ActivationFuntion(this.FormGestao);
         }
 
-        private void activeFuntion(bool active)
+        private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
             Remover_BTN.Enabled = active;
-            Selecionar_BTN.Visible = !active;
+            Produtos_BTN.Enabled = active;
             Selecionar_BTN.Enabled = !active;
         }
 
@@ -50,7 +50,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in databaseContainer.Restaurantes.Where(x => x.Ativo))
-                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
+                    restaurantes_DataGridView.Rows.Add(BuildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;
@@ -59,16 +59,17 @@ namespace RestGest
             }));
         }
 
-        private string[] buildDataGridRow(Restaurante restaurante)
+        private string[] BuildDataGridRow(Restaurante restaurante)
         {
             int count_funcionarios = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante.Id).Count();
-            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), "0", count_funcionarios.ToString() };
+            int count_pedidos = databaseContainer.Pedidos.Where(p => p.RestauranteId == restaurante.Id).Count();
+            string[] row = { restaurante.Id.ToString(), restaurante.Nome, restaurante.Morada.ToString(), count_pedidos.ToString(), count_funcionarios.ToString() };
             return row;
         }
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoRestaurante().ShowDialog();
+            new FormRestaurante().ShowDialog();
             if (filtrar_TextBox.Text.Length > 0)
             {
                 filtrar_BTN_Click(sender, e);
@@ -89,7 +90,7 @@ namespace RestGest
 
                 restaurantes_DataGridView.Rows.Clear();
                 foreach (Restaurante restaurante in restaurantes)
-                    restaurantes_DataGridView.Rows.Add(buildDataGridRow(restaurante));
+                    restaurantes_DataGridView.Rows.Add(BuildDataGridRow(restaurante));
 
                 if (restaurantes_DataGridView.Rows.Count > 0)
                     restaurantes_DataGridView.Rows[0].Selected = true;
@@ -126,7 +127,7 @@ namespace RestGest
             {
                 int row = restaurantes_DataGridView.SelectedRows[0].Index;
                 int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoRestaurante(idRestaurante).ShowDialog();
+                new FormRestaurante(idRestaurante).ShowDialog();
                 if (filtrar_TextBox.Text.Length > 0)
                 {
                     filtrar_BTN_Click(sender, e);
@@ -149,7 +150,7 @@ namespace RestGest
                     {
                         int restaurante_id = int.Parse(restaurantes_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
                         Restaurante restauranteRemover = databaseContainer.Restaurantes.Find(restaurante_id);
-                        if (restauranteAssociado(restaurante_id))
+                        if (RestauranteAssociado(restaurante_id))
                         {
                             restauranteRemover.Ativo = false;
                         }
@@ -158,7 +159,8 @@ namespace RestGest
                             databaseContainer.Restaurantes.Remove(restauranteRemover);
                         }
                         databaseContainer.SaveChanges();
-                    }catch(Exception)
+                    }
+                    catch (Exception)
                     {
                         MessageBox.Show("Uncommon error found!\nCall system administration...", "Restaurant Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -174,8 +176,9 @@ namespace RestGest
                 }
             }
         }
+
         //Valida se o restaurante que for pasado tem alguma associação
-        private bool restauranteAssociado(int restaurante_id)
+        private bool RestauranteAssociado(int restaurante_id)
         {
             bool result = false;
 
@@ -183,7 +186,7 @@ namespace RestGest
             result = databaseContainer.ItemsMenus.Where(i => i.Restaurante.Any(r => r.Id == restaurante_id)).Count() > 0;
             result = databaseContainer.Pessoas.OfType<Trabalhador>().Where(t => t.RestauranteId == restaurante_id).Count() > 0;
 
-            return  result;
+            return result;
         }
 
         private void LimparFiltro_BTN_Click(object sender, EventArgs e)
@@ -210,7 +213,7 @@ namespace RestGest
 
         private void Produtos_BTN_Click(object sender, EventArgs e)
         {
-            if(restaurantes_DataGridView.SelectedRows.Count == 1)
+            if (restaurantes_DataGridView.SelectedRows.Count == 1)
             {
                 int row = restaurantes_DataGridView.SelectedRows[0].Index;
                 int idRestaurante = int.Parse(restaurantes_DataGridView.Rows[row].Cells[0].Value.ToString());

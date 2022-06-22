@@ -113,6 +113,7 @@
             // 
             this.PratoAtivo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.PratoAtivo.HeaderText = "Ativo";
+            this.PratoAtivo.MinimumWidth = 6;
             this.PratoAtivo.Name = "PratoAtivo";
             this.PratoAtivo.ReadOnly = true;
             this.PratoAtivo.Width = 37;
@@ -129,6 +130,7 @@
             // 
             this.CategoriaPrato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CategoriaPrato.HeaderText = "Categoria";
+            this.CategoriaPrato.MinimumWidth = 6;
             this.CategoriaPrato.Name = "CategoriaPrato";
             this.CategoriaPrato.ReadOnly = true;
             this.CategoriaPrato.Width = 77;
@@ -280,7 +282,7 @@
             this.ClientSize = new System.Drawing.Size(962, 528);
             this.Controls.Add(this.LoadingPopUp_Panel);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(978, 565);
+            this.MinimumSize = new System.Drawing.Size(978, 564);
             this.Name = "FormGestaoProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestão de Produtos";

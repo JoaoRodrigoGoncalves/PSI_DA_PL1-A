@@ -49,7 +49,7 @@ namespace RestGest
 
         private void btnAddMedodoPagamento_Click(object sender, EventArgs e)
         {
-            new RegistarMetodosPagamento().ShowDialog();
+            new FormMetodoPagamento().ShowDialog();
             if (tbFilterMetodosPagamentos.Text.Length > 0)
             {
                 btnFilterMetodosPagamentos_Click(sender, e);
@@ -79,7 +79,7 @@ namespace RestGest
             {
                 int row = Metodo_DataGridView.SelectedRows[0].Index;
                 int idMetodo = int.Parse(Metodo_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoMetodosPagamentos(idMetodo).ShowDialog();
+                new FormMetodoPagamento(idMetodo).ShowDialog();
                 if (tbFilterMetodosPagamentos.Text.Length > 0)
                 {
                     btnFilterMetodosPagamentos_Click(sender, e);
@@ -99,8 +99,15 @@ namespace RestGest
                 if (MessageBox.Show("Tem a certeza que pertende remover este Método de Pagamento \"" + nomeMetodo + "\"?", "Remover Método de Pagamento", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int id_metodo = int.Parse(Metodo_DataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                    MetodoPagamento MetodoPagamentoARemover = databaseContainer.MetodosPagamento.OfType<MetodoPagamento>().First(Metodo => Metodo.Id == id_metodo);
-                    databaseContainer.MetodosPagamento.Remove(MetodoPagamentoARemover);
+                    MetodoPagamento MetodoPagamentoARemover = databaseContainer.MetodosPagamento.First(Metodo => Metodo.Id == id_metodo);
+                    if (databaseContainer.Pedidos.Any(p => p.Pagamento.Any(tp => tp.MetodoPagamento.Id == MetodoPagamentoARemover.Id)))
+                    {
+                        MetodoPagamentoARemover.Ativo = false;
+                    }
+                    else
+                    {
+                        databaseContainer.MetodosPagamento.Remove(MetodoPagamentoARemover);
+                    }
 
                     databaseContainer.SaveChanges();
                     if (tbFilterMetodosPagamentos.Text.Length > 0)
@@ -133,7 +140,7 @@ namespace RestGest
             {
                 LoadingPopUp_Panel.Visible = true;
 
-                List<MetodoPagamento> metodosPagamentos = databaseContainer.MetodosPagamento.OfType<MetodoPagamento>().Where(metodo => metodo.Metodo.ToUpper().Contains(tbFilterMetodosPagamentos.Text.ToUpper())).ToList();
+                List<MetodoPagamento> metodosPagamentos = databaseContainer.MetodosPagamento.Where(metodo => metodo.Metodo.ToUpper().Contains(tbFilterMetodosPagamentos.Text.ToUpper())).ToList();
 
                 Metodo_DataGridView.Rows.Clear();
                 foreach (MetodoPagamento metodo in metodosPagamentos)

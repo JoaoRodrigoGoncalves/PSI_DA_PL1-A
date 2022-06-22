@@ -12,6 +12,7 @@ namespace RestGest.GestaoRestaurantes
     {
         private RestGestContainer databaseContainer;
         private ItemMenu dadosProduto; // Global para que possa ser editada;
+        private bool EditModeEnabled = false;
 
         public FormProduto()
         {
@@ -21,21 +22,22 @@ namespace RestGest.GestaoRestaurantes
             bt_update.Enabled = false;
             Guardar_BTN.Enabled = true;
         }
+
         public FormProduto(int idProduto)
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
             dadosProduto = databaseContainer.ItemsMenus.Find(idProduto);
+            this.Text = "Editar Produto";
             bt_update.Enabled = true;
             Guardar_BTN.Enabled = false;
+            EditModeEnabled = true;
         }
 
         private void FormRegistoProduto_Load(object sender, EventArgs e)
         {
-            //Adiciona informação base no form
-            
 
-            //Adiciona informação categortias
+            //Adiciona informação categorias
             Categoria[] categorias = databaseContainer.Categorias.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
 
             Categoria_ComboBox.Items.AddRange(categorias);
@@ -59,7 +61,20 @@ namespace RestGest.GestaoRestaurantes
             }
             else
             {
-                Restaurantes_ComboBox.Items.AddRange(restaurantes);
+                if(EditModeEnabled)
+                {
+                    foreach (Restaurante restaurante in restaurantes)
+                    {
+                        if(!dadosProduto.Restaurante.Contains(restaurante))
+                        {
+                            Restaurantes_ComboBox.Items.Add(restaurante);
+                        }
+                    }
+                }
+                else
+                {
+                    Restaurantes_ComboBox.Items.AddRange(restaurantes);
+                }
             }
 
             //Valida se o form vai editar ou adicionar um novo produto
@@ -85,21 +100,7 @@ namespace RestGest.GestaoRestaurantes
             if (!String.IsNullOrEmpty(dadosProduto.Ingredientes))
                 Ingredientes_ListBox.Items.AddRange(JsonConvert.DeserializeObject<List<string>>(dadosProduto.Ingredientes).ToArray());
 
-            restaurantes = databaseContainer.Restaurantes.Where(x => x.Ativo == true).OrderBy(x => x.Nome).ToArray();
-
-            if (restaurantes.Length == 0)
-            {
-                // Não existem restaurantes registados / ativos, vamos desativar a utilização da secção de associação a restaurantes
-                Restaurantes_ListBox.Enabled = false;
-                Restaurantes_ComboBox.Enabled = false;
-                AddRestaurante_BTN.Enabled = false;
-                RmRestaurante_BTN.Enabled = false;
-            }
-            else
-            {
-                Restaurantes_ComboBox.Items.AddRange(restaurantes);
-            }
-
+            //Order Restaurantes
             foreach (Restaurante item in dadosProduto.Restaurante.OrderBy(r => r.Nome))
             {
                 Restaurantes_ListBox.Items.Add(item);
@@ -108,7 +109,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click(object sender, EventArgs e)
         {
-            if (filtrar())
+            if (Filtrar())
                 return;
 
             // Verificar se não existe já um item semelhante (Pura UX)
@@ -145,13 +146,16 @@ namespace RestGest.GestaoRestaurantes
             string hash_original;
             string hash_novaImagem;
 
-            using (SHA1 sha1 = SHA1.Create())
+            if (dadosProduto.Fotografia != null)
             {
-                hash_original = BitConverter.ToString(sha1.ComputeHash(dadosProduto.Fotografia));
-                hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
-            }
+                using (SHA1 sha1 = SHA1.Create())
+                {
+                    hash_original = BitConverter.ToString(sha1.ComputeHash(dadosProduto.Fotografia));
+                    hash_novaImagem = BitConverter.ToString(sha1.ComputeHash(novaImagem));
+                }
 
-            dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
+                dadosProduto.Fotografia = (hash_novaImagem != hash_original ? novaImagem : null);
+            }
             dadosProduto.Ingredientes = (Ingredientes_ListBox.Items.Count > 0 ? JsonConvert.SerializeObject(Ingredientes_ListBox.Items) : null);
             dadosProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
@@ -159,14 +163,14 @@ namespace RestGest.GestaoRestaurantes
             {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
                     dadosProduto.Restaurante.Add(restaurante);
-                
+
             }
             databaseContainer.SaveChanges();
             databaseContainer.Dispose();
             Close();
         }
 
-        private bool filtrar()
+        private bool Filtrar()
         {
             if (String.IsNullOrWhiteSpace(Nome_TextBox.Text) || String.IsNullOrWhiteSpace(Preco_TextBox.Text))
             {
@@ -245,29 +249,38 @@ namespace RestGest.GestaoRestaurantes
 
 
             //Get the restaurantes list form listbox 
-            //TODO Check Cast
-            //List<Restaurante> rest_list = (List<Restaurante>)Restaurantes_ListBox.Items.Cast<List<Restaurante>>();
             List<Restaurante> rest_list = new List<Restaurante>();
-                rest_list.AddRange((IEnumerable<Restaurante>)Restaurantes_ListBox.Items);
+            rest_list.AddRange(Restaurantes_ListBox.Items.Cast<Restaurante>().ToList());
             //Add the new restaurante from comboBox
             rest_list.Add((Restaurante)Restaurantes_ComboBox.SelectedItem);
             //Clear the old data
             Restaurantes_ListBox.Items.Clear();
             //Order the update list
-            rest_list.Sort((x,y) => {
+            rest_list.Sort((x, y) =>
+            {
                 int ret = String.Compare(x.Nome, y.Nome);
                 return ret;
             });
             //Set the update listBox
             Restaurantes_ListBox.Items.AddRange(rest_list.ToArray());
+            Restaurantes_ComboBox.Items.Remove(Restaurantes_ComboBox.SelectedItem);
         }
 
         private void RmRestaurante_BTN_Click(object sender, EventArgs e)
         {
             if (Restaurantes_ListBox.SelectedItem == null)
-                return;            
-            //
+                return;
+            
+            List<Restaurante> restaurantes = new List<Restaurante>();
+            restaurantes.Add((Restaurante)Restaurantes_ListBox.SelectedItem);
             Restaurantes_ListBox.Items.Remove(Restaurantes_ListBox.SelectedItem);
+            restaurantes.AddRange(Restaurantes_ComboBox.Items.Cast<Restaurante>().ToList());
+            restaurantes.Sort((x, y) =>
+            {
+                return String.Compare(x.Nome, y.Nome);
+            });
+            Restaurantes_ComboBox.Items.Clear();
+            Restaurantes_ComboBox.Items.AddRange(restaurantes.ToArray());
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
@@ -277,7 +290,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click_1(object sender, EventArgs e)
         {
-            if (filtrar())
+            if (Filtrar())
                 return;
 
             // Verificar se não existe já um item semelhante (Pura UX)
@@ -342,12 +355,8 @@ namespace RestGest.GestaoRestaurantes
             novoProduto.Categoria = (Categoria)Categoria_ComboBox.SelectedItem;
 
             if (Restaurantes_ListBox.Enabled && Restaurantes_ListBox.Items.Count > 0)
-            {
                 foreach (Restaurante restaurante in Restaurantes_ListBox.Items)
-                {
                     novoProduto.Restaurante.Add(restaurante);
-                }
-            }
 
             databaseContainer.ItemsMenus.Add(novoProduto);
 

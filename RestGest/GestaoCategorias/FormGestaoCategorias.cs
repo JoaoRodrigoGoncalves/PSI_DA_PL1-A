@@ -19,15 +19,16 @@ namespace RestGest.GestaoCategorias
             InitializeComponent();
             this.FormBack = formBack;
             this.FormGestao = gestao;
-            activeFuntion(this.FormGestao);
+            ActivationFuntion(this.FormGestao);
         }
+
         private void FormGestaoCategorias_Shown(object sender, EventArgs e)
         {
             Thread loadingThread = new Thread(ReloadDataGridView);
             loadingThread.Start();
         }
 
-        private void activeFuntion(bool active)
+        private void ActivationFuntion(bool active)
         {
             Adicionar_BTN.Enabled = active;
             Editar_BTN.Enabled = active;
@@ -45,9 +46,9 @@ namespace RestGest.GestaoCategorias
                 LoadingPopUp_Panel.Visible = true;
 
                 categorias_menu_DataGridView.Rows.Clear();
-                foreach (Categoria categoria in databaseContainer.Categorias.Where(x => x.Ativo))
+                foreach (Categoria categoria in databaseContainer.Categorias)
                 {
-                    string[] row = buildDataGridRow(categoria);
+                    string[] row = BuildDataGridRow(categoria);
                     categorias_menu_DataGridView.Rows.Add(row);
                 }
 
@@ -69,7 +70,7 @@ namespace RestGest.GestaoCategorias
                 categorias_menu_DataGridView.Rows.Clear();
                 foreach (Categoria categoria in categorias)
                 {
-                    string[] row = buildDataGridRow(categoria);
+                    string[] row = BuildDataGridRow(categoria);
                     categorias_menu_DataGridView.Rows.Add(row);
                 }
 
@@ -80,7 +81,7 @@ namespace RestGest.GestaoCategorias
             }));
         }
 
-        private string[] buildDataGridRow(Categoria categoria)
+        private string[] BuildDataGridRow(Categoria categoria)
         {
             string[] row = { categoria.Id.ToString(), categoria.Ativo.ToString(), categoria.Nome };
             return row;
@@ -138,7 +139,7 @@ namespace RestGest.GestaoCategorias
         {
             if (categorias_menu_DataGridView.SelectedRows.Count == 1)
             {
-                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                string nome = categorias_menu_DataGridView.SelectedRows[0].Cells[2].Value.ToString();
                 if (MessageBox.Show("Tem a certeza que pertende remover o restaurante \"" + nome + "\"?", "Remover restaurante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int categoria_id = int.Parse(categorias_menu_DataGridView.SelectedRows[0].Cells[0].Value.ToString());

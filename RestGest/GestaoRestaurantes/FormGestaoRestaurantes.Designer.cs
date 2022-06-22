@@ -164,18 +164,17 @@
             this.Selecionar_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Selecionar_BTN.Location = new System.Drawing.Point(3, 149);
             this.Selecionar_BTN.Name = "Selecionar_BTN";
-            this.Selecionar_BTN.Size = new System.Drawing.Size(78, 23);
+            this.Selecionar_BTN.Size = new System.Drawing.Size(78, 37);
             this.Selecionar_BTN.TabIndex = 5;
             this.Selecionar_BTN.Text = "Selecionar";
             this.Selecionar_BTN.UseVisualStyleBackColor = true;
-            this.Selecionar_BTN.Visible = false;
             this.Selecionar_BTN.Click += new System.EventHandler(this.Selecionar_BTN_Click);
             // 
-            // Selecionar
+            // Produtos_BTN
             // 
             this.Produtos_BTN.Dock = System.Windows.Forms.DockStyle.Top;
             this.Produtos_BTN.Location = new System.Drawing.Point(3, 103);
-            this.Produtos_BTN.Name = "Selecionar";
+            this.Produtos_BTN.Name = "Produtos_BTN";
             this.Produtos_BTN.Size = new System.Drawing.Size(78, 46);
             this.Produtos_BTN.TabIndex = 4;
             this.Produtos_BTN.Text = "Consultar Produtos";

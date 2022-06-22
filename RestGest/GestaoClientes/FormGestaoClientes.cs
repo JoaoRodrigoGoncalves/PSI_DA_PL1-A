@@ -11,11 +11,24 @@ namespace RestGest
     public partial class FormGestaoClientes : Form
     {
         private RestGestContainer databaseContainer;
+        private bool FormGestao;
         private Form FormBack;
-        public FormGestaoClientes(Form formBack)
+        public Cliente returnCliente;
+
+        public FormGestaoClientes(Form formBack, bool gestao)
         {
             InitializeComponent();
             this.FormBack = formBack;
+            this.FormGestao = gestao;
+            ActivationFuntion(this.FormGestao);
+        }
+
+        private void ActivationFuntion(bool active)
+        {
+            Adicionar_BTN.Enabled = active;
+            Editar_BTN.Enabled = active;
+            Remover_BTN.Enabled = active;
+            Selecionar_BTN.Enabled = !active;
         }
 
         private void FormGestaoClientes_Shown_1(object sender, EventArgs e)
@@ -28,7 +41,6 @@ namespace RestGest
         {
             databaseContainer = new RestGestContainer();
 
-
             Clientes_DataGridView.Invoke(new MethodInvoker(delegate
             {
                 LoadingPopUp_Panel.Visible = true;
@@ -36,7 +48,7 @@ namespace RestGest
                 Clientes_DataGridView.Rows.Clear();
                 foreach (Cliente cliente in databaseContainer.Pessoas.OfType<Cliente>().Where(clientes => clientes.Ativo == true))
                     Clientes_DataGridView.Rows.Add(buildDataGridRow(cliente));
-                
+
 
                 if (Clientes_DataGridView.Rows.Count > 0)
                     Clientes_DataGridView.Rows[0].Selected = true;
@@ -53,7 +65,7 @@ namespace RestGest
 
         private void Adicionar_BTN_Click(object sender, EventArgs e)
         {
-            new FormRegistoCliente().ShowDialog();
+            new FormCliente().ShowDialog();
             if (tbFiltrar.Text.Length > 0)
             {
                 btnFiltrar_Click(sender, e);
@@ -73,7 +85,11 @@ namespace RestGest
             {
                 Clientes_DataGridView.ClearSelection();
                 Clientes_DataGridView.Rows[hit.RowIndex].Selected = true;
-                Editar_BTN_Click_1(sender, e);
+                //
+                if (this.FormGestao)
+                    Editar_BTN_Click_1(sender, e);
+                else
+                    Selecionar_BTN_Click(sender, e);
             }
         }
 
@@ -83,7 +99,7 @@ namespace RestGest
             {
                 int row = Clientes_DataGridView.SelectedRows[0].Index;
                 int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
-                new FormEdicaoCliente(idCliente).ShowDialog();
+                new FormCliente(idCliente).ShowDialog();
                 if (tbFiltrar.Text.Length > 0)
                 {
                     btnFiltrar_Click(sender, e);
@@ -92,6 +108,17 @@ namespace RestGest
                 {
                     ReloadDataGridView();
                 }
+            }
+        }
+
+        private void Selecionar_BTN_Click(object sender, EventArgs e)
+        {
+            if (Clientes_DataGridView.SelectedRows.Count == 1)
+            {
+                int row = Clientes_DataGridView.SelectedRows[0].Index;
+                int idCliente = int.Parse(Clientes_DataGridView.Rows[row].Cells[0].Value.ToString());
+                this.returnCliente = this.databaseContainer.Pessoas.OfType<Cliente>().Where(t => t.Id == idCliente).First();
+                this.Close();
             }
         }
 
@@ -157,5 +184,7 @@ namespace RestGest
                 LoadingPopUp_Panel.Visible = false;
             }));
         }
+
+
     }
 }

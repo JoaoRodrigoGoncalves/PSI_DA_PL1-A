@@ -4,17 +4,26 @@ using System.Windows.Forms;
 
 namespace RestGest.GestaoRestaurantes
 {
-    public partial class FormEdicaoRestaurante : Form
+    public partial class FormRestaurante : Form
     {
         private RestGestContainer databaseContainer;
         private Restaurante dadosRestaurante;
 
-        public FormEdicaoRestaurante(int restaurante_id)
+        public FormRestaurante()
         {
             InitializeComponent();
             databaseContainer = new RestGestContainer();
+            Create_BTN.Enabled = true;
+        }
+
+        public FormRestaurante(int restaurante_id)
+        {
+            InitializeComponent();
+            databaseContainer = new RestGestContainer();
+            Guardar_BTN.Enabled = true;
             dadosRestaurante = databaseContainer.Restaurantes.Find(restaurante_id);
 
+            this.Text = "Editar Restaurante";
             Nome_TextBox.Text = dadosRestaurante.Nome;
             NIF_MaskedTextBox.Text = dadosRestaurante.NumContribuinte;
             Rua_TextBox.Text = dadosRestaurante.Morada.Rua;
@@ -23,7 +32,7 @@ namespace RestGest.GestaoRestaurantes
             Pais_TextBox.Text = dadosRestaurante.Morada.Pais;
         }
 
-        private bool validateFields()
+        private bool ValidationFields()
         {
             if (String.IsNullOrWhiteSpace(Nome_TextBox.Text))
                 return false;
@@ -48,7 +57,7 @@ namespace RestGest.GestaoRestaurantes
 
         private void Guardar_BTN_Click(object sender, EventArgs e)
         {
-            if (!validateFields())
+            if (!ValidationFields())
             {
                 MessageBox.Show(
                     "Preencha todos os campos antes de continuar!",
@@ -74,6 +83,67 @@ namespace RestGest.GestaoRestaurantes
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
+            }
+
+            databaseContainer.SaveChanges();
+            databaseContainer.Dispose();
+            Close();
+        }
+
+        private void Registar_BTN_Click(object sender, EventArgs e)
+        {
+            if (!ValidationFields())
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de continuar!",
+                    "Campos vazios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Morada moradaRestaurante = new Morada(Rua_TextBox.Text, Cidade_TextBox.Text, CodigoPostal_MaskedTextBox.Text, Pais_TextBox.Text);
+
+            if (databaseContainer.Restaurantes.Where(x => x.NumContribuinte == NIF_MaskedTextBox.Text).Count() > 0)
+            {
+                Restaurante match = databaseContainer.Restaurantes.First(x => x.NumContribuinte == NIF_MaskedTextBox.Text);
+                if (match.Ativo)
+                {
+                    MessageBox.Show(
+                        "O restaurante \"" + match.Nome + "\" já está registado com o número de contribuinte indicado.",
+                        "Número de Contribuinte em uso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "O número de contribuinte indicado está associado a um restaurante desativado. Os dados serão atualizados e o restaurante ativado.",
+                        "Número de contribuinte associado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    match.Ativo = true;
+                    match.Nome = Nome_TextBox.Text;
+
+                    Morada antigaMorada = databaseContainer.Moradas.Find(match.Morada.Id);
+                    databaseContainer.Moradas.Remove(antigaMorada);
+
+                    moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
+                    match.Morada = moradaRestaurante;
+                }
+            }
+            else
+            {
+                Restaurante newRestaurante = new Restaurante();
+                newRestaurante.Nome = Nome_TextBox.Text;
+                newRestaurante.NumContribuinte = NIF_MaskedTextBox.Text;
+
+                moradaRestaurante = databaseContainer.Moradas.Add(moradaRestaurante);
+                newRestaurante.Morada = moradaRestaurante;
+
+                databaseContainer.Restaurantes.Add(newRestaurante);
             }
 
             databaseContainer.SaveChanges();

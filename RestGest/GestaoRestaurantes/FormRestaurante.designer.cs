@@ -1,6 +1,6 @@
 ﻿namespace RestGest.GestaoRestaurantes
 {
-    partial class FormRegistoRestaurante
+    partial class FormRestaurante
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.Registar_BTN = new System.Windows.Forms.Button();
+            this.Guardar_BTN = new System.Windows.Forms.Button();
             this.Nome_TextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Limpar_BTN = new System.Windows.Forms.Button();
+            this.NIF_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Cancelar_BTN = new System.Windows.Forms.Button();
             this.CodigoPostal_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Pais_TextBox = new System.Windows.Forms.TextBox();
@@ -41,29 +43,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Rua_TextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NIF_MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.Create_BTN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 16);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Restaurante";
             // 
-            // Registar_BTN
+            // Guardar_BTN
             // 
-            this.Registar_BTN.Location = new System.Drawing.Point(435, 117);
-            this.Registar_BTN.Name = "Registar_BTN";
-            this.Registar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Registar_BTN.TabIndex = 7;
-            this.Registar_BTN.Text = "Registar";
-            this.Registar_BTN.UseVisualStyleBackColor = true;
-            this.Registar_BTN.Click += new System.EventHandler(this.Registar_BTN_Click);
+            this.Guardar_BTN.Enabled = false;
+            this.Guardar_BTN.Location = new System.Drawing.Point(354, 117);
+            this.Guardar_BTN.Name = "Guardar_BTN";
+            this.Guardar_BTN.Size = new System.Drawing.Size(75, 23);
+            this.Guardar_BTN.TabIndex = 7;
+            this.Guardar_BTN.Text = "Guardar";
+            this.Guardar_BTN.UseVisualStyleBackColor = true;
+            this.Guardar_BTN.Click += new System.EventHandler(this.Guardar_BTN_Click);
             // 
             // Nome_TextBox
             // 
@@ -76,7 +78,7 @@
             // 
             this.groupBox1.Controls.Add(this.NIF_MaskedTextBox);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.Limpar_BTN);
+            this.groupBox1.Controls.Add(this.Cancelar_BTN);
             this.groupBox1.Controls.Add(this.CodigoPostal_MaskedTextBox);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.Pais_TextBox);
@@ -86,22 +88,42 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Rua_TextBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Registar_BTN);
+            this.groupBox1.Controls.Add(this.Create_BTN);
+            this.groupBox1.Controls.Add(this.Guardar_BTN);
             this.groupBox1.Controls.Add(this.Nome_TextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(521, 154);
+            this.groupBox1.Size = new System.Drawing.Size(521, 156);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // Limpar_BTN
+            // NIF_MaskedTextBox
             // 
-            this.Limpar_BTN.Location = new System.Drawing.Point(354, 117);
-            this.Limpar_BTN.Name = "Limpar_BTN";
-            this.Limpar_BTN.Size = new System.Drawing.Size(75, 23);
-            this.Limpar_BTN.TabIndex = 8;
-            this.Limpar_BTN.Text = "Limpar";
-            this.Limpar_BTN.UseVisualStyleBackColor = true;
+            this.NIF_MaskedTextBox.Location = new System.Drawing.Point(442, 13);
+            this.NIF_MaskedTextBox.Mask = "000000000";
+            this.NIF_MaskedTextBox.Name = "NIF_MaskedTextBox";
+            this.NIF_MaskedTextBox.Size = new System.Drawing.Size(68, 20);
+            this.NIF_MaskedTextBox.TabIndex = 2;
+            this.NIF_MaskedTextBox.ValidatingType = typeof(int);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(412, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "NIF";
+            // 
+            // Cancelar_BTN
+            // 
+            this.Cancelar_BTN.Location = new System.Drawing.Point(435, 117);
+            this.Cancelar_BTN.Name = "Cancelar_BTN";
+            this.Cancelar_BTN.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar_BTN.TabIndex = 8;
+            this.Cancelar_BTN.Text = "Cancelar";
+            this.Cancelar_BTN.UseVisualStyleBackColor = true;
+            this.Cancelar_BTN.Click += new System.EventHandler(this.Cancelar_BTN_Click);
             // 
             // CodigoPostal_MaskedTextBox
             // 
@@ -168,25 +190,18 @@
             this.Rua_TextBox.Size = new System.Drawing.Size(387, 20);
             this.Rua_TextBox.TabIndex = 3;
             // 
-            // label6
+            // Create_BTN
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(412, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "NIF";
+            this.Create_BTN.Enabled = false;
+            this.Create_BTN.Location = new System.Drawing.Point(273, 117);
+            this.Create_BTN.Name = "Create_BTN";
+            this.Create_BTN.Size = new System.Drawing.Size(75, 23);
+            this.Create_BTN.TabIndex = 7;
+            this.Create_BTN.Text = "Registar";
+            this.Create_BTN.UseVisualStyleBackColor = true;
+            this.Create_BTN.Click += new System.EventHandler(this.Registar_BTN_Click);
             // 
-            // NIF_MaskedTextBox
-            // 
-            this.NIF_MaskedTextBox.Location = new System.Drawing.Point(442, 13);
-            this.NIF_MaskedTextBox.Mask = "000000000";
-            this.NIF_MaskedTextBox.Name = "NIF_MaskedTextBox";
-            this.NIF_MaskedTextBox.Size = new System.Drawing.Size(68, 20);
-            this.NIF_MaskedTextBox.TabIndex = 2;
-            this.NIF_MaskedTextBox.ValidatingType = typeof(int);
-            // 
-            // FormRegistoRestaurante
+            // FormRestaurante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,7 +211,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(562, 218);
             this.MinimumSize = new System.Drawing.Size(562, 218);
-            this.Name = "FormRegistoRestaurante";
+            this.Name = "FormRestaurante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registar Restaurante";
             this.groupBox1.ResumeLayout(false);
@@ -208,7 +223,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Registar_BTN;
+        private System.Windows.Forms.Button Guardar_BTN;
         private System.Windows.Forms.TextBox Nome_TextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
@@ -218,9 +233,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Rua_TextBox;
-        private System.Windows.Forms.Button Limpar_BTN;
         private System.Windows.Forms.MaskedTextBox CodigoPostal_MaskedTextBox;
+        private System.Windows.Forms.Button Cancelar_BTN;
         private System.Windows.Forms.MaskedTextBox NIF_MaskedTextBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Create_BTN;
     }
 }

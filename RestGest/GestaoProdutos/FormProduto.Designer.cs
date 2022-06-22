@@ -51,9 +51,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Preco_TextBox = new System.Windows.Forms.TextBox();
             this.Ativo_CheckBox = new System.Windows.Forms.CheckBox();
+            this.bt_cancel = new System.Windows.Forms.Button();
             this.Limpar_BTN = new System.Windows.Forms.Button();
             this.bt_update = new System.Windows.Forms.Button();
-            this.bt_cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -298,6 +298,16 @@
             this.Ativo_CheckBox.Text = "Produto Ativo?";
             this.Ativo_CheckBox.UseVisualStyleBackColor = true;
             // 
+            // bt_cancel
+            // 
+            this.bt_cancel.Location = new System.Drawing.Point(703, 307);
+            this.bt_cancel.Name = "bt_cancel";
+            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancel.TabIndex = 11;
+            this.bt_cancel.Text = "Cancelar";
+            this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
+            // 
             // Limpar_BTN
             // 
             this.Limpar_BTN.Location = new System.Drawing.Point(623, 307);
@@ -318,17 +328,7 @@
             this.bt_update.UseVisualStyleBackColor = true;
             this.bt_update.Click += new System.EventHandler(this.Guardar_BTN_Click);
             // 
-            // bt_cancel
-            // 
-            this.bt_cancel.Location = new System.Drawing.Point(703, 307);
-            this.bt_cancel.Name = "bt_cancel";
-            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
-            this.bt_cancel.TabIndex = 11;
-            this.bt_cancel.Text = "Cancelar";
-            this.bt_cancel.UseVisualStyleBackColor = true;
-            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
-            // 
-            // FormEdicaoProduto
+            // FormProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -337,9 +337,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(562, 402);
-            this.Name = "FormEdicaoProduto";
+            this.Name = "FormProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Editar Produto";
+            this.Text = "Registar Produto";
             this.Load += new System.EventHandler(this.FormRegistoProduto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
